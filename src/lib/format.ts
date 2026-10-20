@@ -1,17 +1,6 @@
-/** Sudbury's time zone. All dates on the site are shown in this zone. */
-export const SUDBURY_TZ = "America/Toronto";
+import { SUDBURY_TZ, daysBetween } from "@shared/dates";
 
-const dayFormat = new Intl.DateTimeFormat("en-CA", {
-  timeZone: SUDBURY_TZ,
-  year: "numeric",
-  month: "2-digit",
-  day: "2-digit",
-});
-
-/** Today's date in Sudbury as YYYY-MM-DD. */
-export function torontoDate(date: Date = new Date()): string {
-  return dayFormat.format(date);
-}
+export { SUDBURY_TZ, daysBetween, torontoDate } from "@shared/dates";
 
 const updatedFormat = new Intl.DateTimeFormat("en-CA", {
   timeZone: SUDBURY_TZ,
@@ -49,12 +38,6 @@ const moneyWhole = new Intl.NumberFormat("en-CA", {
 /** "$8.99", or "$1,249" for whole dollars. */
 export function formatPrice(value: number): string {
   return Number.isInteger(value) ? moneyWhole.format(value) : money.format(value);
-}
-
-/** Whole days from one YYYY-MM-DD to another (negative if `to` is earlier). */
-export function daysBetween(from: string, to: string): number {
-  const ms = Date.parse(`${to}T00:00:00Z`) - Date.parse(`${from}T00:00:00Z`);
-  return Math.round(ms / 86_400_000);
 }
 
 /** "Ends today", "Ends tomorrow", "Ends in 4 days", or "Ends Nov. 30, 2026" when far off. */

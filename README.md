@@ -68,10 +68,100 @@ scripts/            helper scripts (local preview server)
 > `data/deals.json` currently holds **sample data** (every deal has `source: "sample"` and links to
 > example.com). The site says "Showing sample data" until real scraped deals replace it.
 
-## Run the scraper manually _(coming in Phase 4)_
+## Run the scraper manually
 
-## Add a new scraper source _(coming in Phase 4)_
+```bash
+npm run scrape                       # run every source and update data/deals.json
+npm run scrape -- --dry-run          # run everything, print the summary, change nothing
+npm run scrape -- --only=<source-id> # run one source; the others keep their current deals
+npm test                             # scraper tests (no internet needed)
+```
 
-## Edit categories and student discounts _(coming in Phases 4–5)_
+At the end you get a summary like this (also shown on the GitHub Actions run page):
+
+```
+Source         Status                       Deals  New  Removed  Invalid
+-------------  ---------------------------  -----  ---  -------  -------
+RFD Hot Deals  ok                           118    +23  -19      0
+Some retailer  skipped (blocked)            0      +0   -0       0
+Another one    failed, kept 40 from last run 40    +0   -0       0
+```
+
+- **ok**: fresh deals saved.
+- **failed, kept N from last run**: something broke (site down, layout changed). Yesterday's deals
+  from that source stay up, so one broken scraper never empties the site.
+- **skipped (blocked)**: the site's robots.txt says no, or it answered 401/403/429. The scraper
+  never tries to get around this.
+- **Invalid**: deals dropped because they failed validation (e.g. a `javascript:` link). The reasons
+  are listed under the table.
+
+### How the scraper stays polite
+
+All requests go through `scraper/lib/http.ts`, which reads each site's robots.txt first and
+refuses disallowed pages, waits 2–3 seconds between requests to the same site (longer if the site
+asks for a Crawl-delay), sends a clear `DiscountKoiBot/1.0` user agent, and fetches one page at a
+time. Playwright (headless Chromium) is only used by sources that need JavaScript.
+
+### What happens to every deal
+
+`scraper/normalize.ts` strips all HTML from scraped text, rejects any link that isn't `http(s)`,
+works out the discount %, detects **Free** and **Student** deals, picks a category, gives it a
+stable id (a hash of source + url + title), and validates it with the Zod schema in
+`shared/deal.ts`. Then `scraper/pipeline.ts` removes expired deals, deals with no end date after
+14 days (7 for freebies), and duplicates.
+
+## Add a new scraper source
+
+1. Create `scraper/sources/my-source.ts`:
+
+   ```ts
+   import { load } from "cheerio";
+   import type { Source } from "./types";
+
+   export const mySource: Source = {
+     id: "my-source", // permanent; saved on every deal
+     name: "My Source",
+     enabled: true,
+     async fetchDeals({ http, log }) {
+       const html = await http.text("https://example.com/deals"); // polite fetch
+       const $ = load(html);
+       return $(".deal")
+         .map((_, el) => ({
+           title: $(el).find(".title").text(),
+           url: $(el).find("a").attr("href") ?? "",
+           store: "Example Store",
+           location: "ontario", // "sudbury" | "ontario" | "ships-to-ontario"
+           salePrice: Number(
+             $(el)
+               .find(".price")
+               .text()
+               .replace(/[^\d.]/g, ""),
+           ),
+         }))
+         .get();
+     },
+   };
+   ```
+
+   Only `title`, `url`, `store` and `location` are required; see `scraper/sources/types.ts` for
+   the optional fields. For pages that need JavaScript, use `await http.rendered(url)` instead of
+   `http.text(url)`.
+
+2. Add it to the list in `scraper/sources/index.ts`.
+3. Try it: `npm run scrape -- --only=my-source --dry-run`.
+
+If a source throws, the run carries on and that source's previous deals are kept.
+
+## Edit categories, free/student detection and timing
+
+| What                                  | Where                                                         |
+| ------------------------------------- | ------------------------------------------------------------- |
+| Category keyword rules                | `scraper/categorize.ts` → `CATEGORY_RULES` (first match wins) |
+| Category fallback per store           | `scraper/categorize.ts` → `STORE_DEFAULTS`                    |
+| Words that mark a deal Free / Student | `scraper/detect.ts`                                           |
+| 14-day / 7-day expiry, request delays | `scraper/config.ts`                                           |
+| Category names shown on the site      | `shared/taxonomy.ts` (change `label` only, never `id`)        |
+
+## Edit student discounts _(coming in Phase 5)_
 
 ## Deploy to GitHub Pages _(coming in Phase 6)_

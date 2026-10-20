@@ -9,6 +9,9 @@
     "dev": "next dev",
     "build": "next build",
     "preview": "node scripts/preview.mjs",
+    "scrape": "tsx scraper/index.ts",
+    "scrape:check-time": "tsx scraper/time-gate.ts",
+    "test": "node --import tsx --test \"scraper/tests/*.test.ts\"",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
@@ -26,13 +29,16 @@
     "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cheerio": "^1.2.0",
     "eslint": "^9",
     "eslint-config-next": "16.4.2",
     "eslint-config-prettier": "^10.1.8",
     "playwright": "^1.64.1",
     "prettier": "^3.9.10",
     "prettier-plugin-tailwindcss": "^0.8.1",
+    "robots-parser": "^3.0.1",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }
