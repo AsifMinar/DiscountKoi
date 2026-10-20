@@ -36,11 +36,26 @@ npm run format       # Prettier (also sorts Tailwind classes)
 ## Project layout
 
 ```
+data/deals.json     all deals ({ updatedAt, deals: [...] }); written by the scraper
+shared/             deal schema (Zod) and the category / deal type / location lists
 src/app/            pages (App Router) and global styles (design tokens live in globals.css)
-src/components/     Navbar, Footer, Logo, ThemeToggle
-src/components/ui/  design system: GlassCard, Button, Chip, Badge, Avatar
+src/components/     DealExplorer, FilterBar, SearchBar, DealCard, Navbar, Footer, Logo, ...
+src/components/ui/  design system: GlassCard, Button, Chip, Badge, Avatar, Select
+src/lib/            filtering & sorting, URL state, date/price formatting
 scripts/            helper scripts (local preview server)
 ```
+
+### How the home page loads deals
+
+- At build time, the first screen of deals (the Sudbury section + 24 more) is written straight into
+  the HTML, so the page shows deals instantly and search engines can read them.
+- The full list is published as `/deals.json`. The browser downloads it right after the page loads
+  and does all filtering, searching and sorting locally. No server is involved.
+- Filters live in the URL (e.g. `?type=free&cat=grocery&loc=sudbury&sort=newest`), so any filtered
+  view can be shared as a link.
+
+> `data/deals.json` currently holds **sample data** (every deal has `source: "sample"` and links to
+> example.com). The site says "Showing sample data" until real scraped deals replace it.
 
 ## Run the scraper manually _(coming in Phase 4)_
 

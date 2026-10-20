@@ -45,7 +45,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             Skip to content
           </a>
           <Navbar />
-          <main id="main" className="flex-1">
+          <main id="main" className="flex-1 px-page">
             {children}
           </main>
           <Footer />

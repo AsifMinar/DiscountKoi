@@ -1,0 +1,66 @@
+import { useCallback, useMemo, useSyncExternalStore } from "react";
+import { filtersToSearch, parseFilters, type Filters } from "@/lib/filters";
+import { torontoDate } from "@/lib/format";
+
+/*
+ * The URL query string is the single source of truth for filters, so any filtered
+ * view can be shared as a link. During the static build there is no URL, so the
+ * server snapshot is "" (the default view), and the page hydrates without a flash.
+ */
+
+const URL_EVENT = "discountkoi:urlchange";
+
+function subscribe(onChange: () => void) {
+  window.addEventListener("popstate", onChange);
+  window.addEventListener(URL_EVENT, onChange);
+  return () => {
+    window.removeEventListener("popstate", onChange);
+    window.removeEventListener(URL_EVENT, onChange);
+  };
+}
+
+/** The current query string ("?a=b"), re-rendering when it changes. */
+export function useSearchString(): string {
+  return useSyncExternalStore(
+    subscribe,
+    () => window.location.search,
+    () => "",
+  );
+}
+
+/**
+ * Updates the query string without reloading. "replace" for filters (no history
+ * spam), "push" for things the Back button should undo, like opening a deal.
+ */
+export function navigateSearch(search: string, mode: "push" | "replace" = "replace") {
+  const { pathname, hash } = window.location;
+  const url = `${pathname}${search ? `?${search}` : ""}${hash}`;
+  if (mode === "push") window.history.pushState(null, "", url);
+  else window.history.replaceState(null, "", url);
+  window.dispatchEvent(new Event(URL_EVENT));
+}
+
+/** Current filters from the URL, plus a setter that merges changes into the URL. */
+export function useFilters(): [Filters, (patch: Partial<Filters>) => void] {
+  const search = useSearchString();
+  const filters = useMemo(() => parseFilters(search), [search]);
+  const update = useCallback((patch: Partial<Filters>) => {
+    const current = window.location.search;
+    navigateSearch(filtersToSearch({ ...parseFilters(current), ...patch }, current));
+  }, []);
+  return [filters, update];
+}
+
+const noSubscribe = () => () => {};
+
+/**
+ * Today's date in Sudbury. The static HTML uses the build date; the browser then
+ * switches to the real date, so "Ends in X days" is right even on an older build.
+ */
+export function useToday(buildDay: string): string {
+  return useSyncExternalStore(
+    noSubscribe,
+    () => torontoDate(),
+    () => buildDay,
+  );
+}

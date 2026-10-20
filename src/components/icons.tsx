@@ -59,6 +59,14 @@ export function SearchIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+export function ChevronDownIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <Icon {...props}>
+      <path d="m6 9 6 6 6-6" />
+    </Icon>
+  );
+}
+
 export function ArrowUpRightIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <Icon {...props}>
