@@ -3,6 +3,7 @@
 import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
 import { extname, join, normalize, resolve, sep } from "node:path";
+import { gzipSync } from "node:zlib";
 
 const ROOT = resolve("out");
 const BASE = process.env.PAGES_BASE_PATH ?? "/DiscountKoi";
@@ -18,6 +19,7 @@ const TYPES = {
   ".ico": "image/x-icon",
   ".woff2": "font/woff2",
   ".txt": "text/plain; charset=utf-8",
+  ".xml": "application/xml; charset=utf-8",
   ".webmanifest": "application/manifest+json",
 };
 
@@ -59,8 +61,14 @@ createServer(async (req, res) => {
   const file = inside === null ? null : await resolveFile(inside);
   const path = file ?? join(ROOT, "404.html");
   const body = await readFile(path).catch(() => Buffer.from("Not found"));
+  const type = TYPES[extname(path)] ?? "application/octet-stream";
+  // Text files are gzipped, like GitHub Pages does, so speed tests here match the real site.
+  const gzip =
+    /gzip/.test(req.headers["accept-encoding"] ?? "") &&
+    /text|json|javascript|svg|manifest/.test(type);
   res.writeHead(file ? 200 : 404, {
-    "Content-Type": TYPES[extname(path)] ?? "application/octet-stream",
+    "Content-Type": type,
+    ...(gzip && { "Content-Encoding": "gzip", Vary: "Accept-Encoding" }),
   });
-  res.end(body);
+  res.end(gzip ? gzipSync(body) : body);
 }).listen(PORT, () => console.log(`Preview: http://localhost:${PORT}${BASE}/`));

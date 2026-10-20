@@ -1,0 +1,9 @@
+{
+  "_howTo": [
+    "Deals people submitted with the site's 'Submit a deal' form (GitHub issues), after you approved them.",
+    "Don't edit by hand: approve a submission with `npm run approve-deal -- <issue number>`. It checks every field and adds it here.",
+    "To take a deal down, delete its entry and run `npm run scrape:local` (or just push). Deals also disappear on their own after their endDate.",
+    "Fields mirror the form; issue is the GitHub issue number it came from."
+  ],
+  "deals": []
+}

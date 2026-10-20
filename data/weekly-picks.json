@@ -1,0 +1,111 @@
+{
+  "_howTo": [
+    "Weekly product picks: short, factual listings you write yourself from the official Sudbury flyers. Each one links to the store's official flyer.",
+    "Easiest way to add one: run `npm run add-pick` and answer the questions. It checks your entry and updates the site data for you.",
+    "To edit by hand: copy the _example below into the picks list, change it, keep the commas between entries, then run `npm run scrape:local` (or just push: the deploy does it too).",
+    "Required: productName, store, salePrice, endDate (YYYY-MM-DD).",
+    "Price per weight (e.g. $3.99/lb): set \"unit\": \"lb\" and leave out size. Units: lb, kg, 100g, L, 100mL, each.",
+    "Price per package (e.g. $5.49 for 4 L): set \"size\": \"4 L\". The unit price ($1.37/L) is worked out for you.",
+    "Optional: originalPrice (the flyer's regular price), startDate, size, unit, brand, category (default grocery), location (default sudbury), note (a short line in your own words), url (defaults to the store's flyer link in flyer-stores.json).",
+    "Entries with \"source\": \"sample\" are examples that show how listings look. They're labelled Sample on the site. Delete them once you add real picks.",
+    "Old picks disappear from the site by themselves after their endDate. Delete them from this file whenever you like."
+  ],
+  "_example": {
+    "productName": "Chicken breast, boneless skinless",
+    "store": "No Frills",
+    "salePrice": 3.99,
+    "unit": "lb",
+    "originalPrice": 5.99,
+    "startDate": "2026-10-22",
+    "endDate": "2026-10-28",
+    "category": "grocery"
+  },
+  "picks": [
+    {
+      "productName": "Milk, 2%",
+      "store": "No Frills",
+      "salePrice": 5.49,
+      "size": "4 L",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-28",
+      "source": "sample"
+    },
+    {
+      "productName": "Milk, 2%",
+      "store": "Food Basics",
+      "salePrice": 5.29,
+      "size": "4 L",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-28",
+      "source": "sample"
+    },
+    {
+      "productName": "Milk, 2%",
+      "store": "Metro",
+      "salePrice": 2.49,
+      "originalPrice": 2.99,
+      "size": "1 L",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-28",
+      "source": "sample"
+    },
+    {
+      "productName": "Large eggs",
+      "store": "No Frills",
+      "salePrice": 3.97,
+      "size": "dozen",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-28",
+      "source": "sample"
+    },
+    {
+      "productName": "Large eggs",
+      "store": "Metro",
+      "salePrice": 4.49,
+      "originalPrice": 5.29,
+      "size": "dozen",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-28",
+      "source": "sample"
+    },
+    {
+      "productName": "Chicken breast, boneless skinless",
+      "store": "No Frills",
+      "salePrice": 3.99,
+      "unit": "lb",
+      "originalPrice": 5.99,
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-28",
+      "source": "sample"
+    },
+    {
+      "productName": "Chicken breast, boneless skinless",
+      "store": "Metro",
+      "salePrice": 9.9,
+      "unit": "kg",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-28",
+      "source": "sample"
+    },
+    {
+      "productName": "Bananas",
+      "store": "FreshCo",
+      "salePrice": 0.69,
+      "unit": "lb",
+      "previousPrice": 0.79,
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-28",
+      "source": "sample"
+    },
+    {
+      "productName": "Cheddar cheese",
+      "store": "Food Basics",
+      "salePrice": 5.99,
+      "originalPrice": 7.99,
+      "size": "400 g",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-28",
+      "source": "sample"
+    }
+  ]
+}

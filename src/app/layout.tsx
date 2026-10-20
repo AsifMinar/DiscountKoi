@@ -4,6 +4,8 @@ import type { ReactNode } from "react";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { Providers } from "@/components/Providers";
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, pageMetadata } from "@/lib/metadata";
+import { SITE_ORIGIN } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,13 +14,15 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "Discount Koi · Sudbury deals, discounts & freebies",
-    template: "%s · Discount Koi",
-  },
-  description:
-    "Every deal, discount and freebie for Sudbury, Ontario, plus Ontario-wide deals. Updated every morning at 6 AM.",
+  // Makes link-preview and canonical URLs absolute (https://asifminar.github.io/DiscountKoi/…).
+  metadataBase: new URL(SITE_ORIGIN),
+  ...pageMetadata({ description: DEFAULT_DESCRIPTION, path: "" }),
+  title: { default: DEFAULT_TITLE, template: "%s · Discount Koi" },
   applicationName: "Discount Koi",
+  appleWebApp: { capable: true, title: "Discount Koi", statusBarStyle: "default" },
+  formatDetection: { telephone: false },
+  // Other sites see only "asifminar.github.io", never which page or search you came from.
+  referrer: "strict-origin-when-cross-origin",
 };
 
 export const viewport: Viewport = {

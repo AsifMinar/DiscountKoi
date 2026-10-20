@@ -22,15 +22,17 @@ function loadAllDeals(): Promise<Deal[]> {
 
 /**
  * The full deal list. The page's HTML only carries the first screen of deals;
- * the rest arrives as one JSON file right after the page loads.
+ * the rest arrives as one JSON file right after the page loads. Pass `false` when
+ * the page already has everything it needs, and nothing is downloaded.
  */
-export function useAllDeals(): { deals: Deal[] | null; failed: boolean } {
+export function useAllDeals(enabled = true): { deals: Deal[] | null; failed: boolean } {
   const [state, setState] = useState<{ deals: Deal[] | null; failed: boolean }>({
     deals: null,
     failed: false,
   });
 
   useEffect(() => {
+    if (!enabled) return;
     let active = true;
     loadAllDeals().then(
       (deals) => active && setState({ deals, failed: false }),
@@ -39,7 +41,7 @@ export function useAllDeals(): { deals: Deal[] | null; failed: boolean } {
     return () => {
       active = false;
     };
-  }, []);
+  }, [enabled]);
 
   return state;
 }

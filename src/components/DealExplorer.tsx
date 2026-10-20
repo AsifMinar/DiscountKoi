@@ -1,12 +1,13 @@
 "use client";
 
-import { useDeferredValue, useMemo, useState, type ReactNode } from "react";
+import { useDeferredValue, useMemo, useState } from "react";
 import type { Deal } from "@shared/deal";
 import type { DealTypeId } from "@shared/taxonomy";
 import { DealCard, DealCardSkeleton } from "@/components/DealCard";
 import { DealModal } from "@/components/DealModal";
 import { EmptyState } from "@/components/EmptyState";
 import { FilterBar } from "@/components/FilterBar";
+import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/ui/Button";
 import { Select } from "@/components/ui/Select";
 import {
@@ -28,30 +29,6 @@ import { useAllDeals } from "@/lib/use-all-deals";
 const GRID = "grid grid-cols-1 gap-3 xs:grid-cols-2 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4";
 
 const plural = (n: number) => `${n.toLocaleString("en-CA")} ${n === 1 ? "deal" : "deals"}`;
-
-function SectionHeader({
-  title,
-  count,
-  children,
-}: {
-  title: string;
-  count?: string;
-  children?: ReactNode;
-}) {
-  return (
-    <div className="flex flex-wrap items-end justify-between gap-3">
-      <div>
-        <h2 className="text-xl font-semibold tracking-tight">{title}</h2>
-        {count && (
-          <p aria-live="polite" className="mt-0.5 text-sm text-ink-muted">
-            {count}
-          </p>
-        )}
-      </div>
-      {children}
-    </div>
-  );
-}
 
 function DealList({ deals, today, search }: { deals: Deal[]; today: string; search: string }) {
   return (
@@ -91,7 +68,8 @@ export function DealExplorer({
   const { deals: allDeals, failed } = useAllDeals();
   const pageDeals = useMemo(
     () =>
-      allDeals && lockedType ? allDeals.filter((d) => d.dealType.includes(lockedType)) : allDeals,
+      allDeals &&
+      allDeals.filter((d) => !d.sample && (!lockedType || d.dealType.includes(lockedType))),
     [allDeals, lockedType],
   );
 

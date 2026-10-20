@@ -7,10 +7,17 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && tsx scripts/csp-hash.ts",
     "preview": "node scripts/preview.mjs",
+    "screenshots": "tsx scripts/screenshots.ts",
+    "lighthouse": "tsx scripts/lighthouse.ts",
+    "make-images": "tsx scripts/make-images.ts",
     "scrape": "tsx scraper/index.ts",
+    "scrape:local": "tsx scraper/index.ts --local",
+    "add-pick": "tsx scripts/add-pick.ts",
+    "approve-deal": "tsx scripts/approve-deal.ts",
     "scrape:check-time": "tsx scraper/time-gate.ts",
+    "scrape:needs-browser": "tsx scraper/needs-browser.ts",
     "test": "node --import tsx --test \"scraper/tests/*.test.ts\"",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
@@ -39,6 +46,10 @@
     "robots-parser": "^3.0.1",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
-    "typescript": "^5"
+    "typescript": "^5",
+    "undici": "^8.12.3"
+  },
+  "overrides": {
+    "fast-glob": "npm:tinyglobby@^0.2.17"
   }
 }

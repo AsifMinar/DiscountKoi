@@ -5,12 +5,14 @@ import { ButtonLink } from "@/components/ui/Button";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { loadDeals } from "@/lib/deals.server";
 import { formatUpdated } from "@/lib/format";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata: Metadata = pageMetadata({
+  title: "About this Sudbury deals site",
   description:
-    "What Discount Koi is, how often it updates, and where its Sudbury and Ontario deals come from.",
-};
+    "What Discount Koi is, how often it updates, and where its Sudbury and Ontario deals, prices and freebies come from.",
+  path: "about/",
+});
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
@@ -59,14 +61,59 @@ export default function AboutPage() {
       </Section>
 
       <Section title="Where the deals come from">
+        <p>Only from places that allow it:</p>
+        <ul className="flex list-disc flex-col gap-1.5 pl-5">
+          <li>Links to each Sudbury store&apos;s official weekly flyer.</li>
+          <li>
+            Weekly product picks: short, hand-written listings from those flyers, each linking to
+            the flyer itself.
+          </li>
+          <li>
+            Free programs and events from the City of Greater Sudbury&apos;s news releases and open
+            data, the Downtown Sudbury BIA and the Ontario Parks blog.
+          </li>
+          <li>Well-known national student programs, each linking to its official page.</li>
+          <li>Online sales from official public feeds, like itch.io&apos;s.</li>
+          <li>Deals submitted by people in Sudbury, published only after a check.</li>
+        </ul>
         <p>
-          Every week Discount Koi links you to each Sudbury store&apos;s official flyer, alongside a
-          hand-picked list of student discounts. It doesn&apos;t copy flyers or prices from store
-          websites: every card links straight to the original, where the full details live.
+          Discount Koi doesn&apos;t copy flyers from store websites, and every card links straight
+          to the original, where the full details live. It isn&apos;t affiliated with any store.
+          Store and brand names belong to their owners.
+        </p>
+        <p className="text-sm">
+          Contains information licensed under the Open Data Licence – City of Greater Sudbury.
+        </p>
+      </Section>
+
+      <Section title="Comparing product prices">
+        <p>
+          The Products page puts each store&apos;s price for the same product side by side, cheapest
+          first. Unit prices (per lb, per 100 g, per L or each) make different package sizes fair to
+          compare.
         </p>
         <p>
-          Discount Koi isn&apos;t affiliated with any store. Store and brand names belong to their
-          owners.
+          <strong className="font-semibold text-ink">Lowest price in Sudbury this week</strong>{" "}
+          means the cheapest of two or more Sudbury stores listing it.{" "}
+          <strong className="font-semibold text-ink">Price drop</strong> means it costs less than
+          the last time the same store listed it.
+        </p>
+      </Section>
+
+      <Section title="Found a deal?">
+        <p>
+          Use <strong className="font-semibold text-ink">Submit a deal</strong> at the top or bottom
+          of any page. It opens a short form on GitHub (a free account is needed). Each submission
+          is checked by hand before it appears here.
+        </p>
+      </Section>
+
+      <Section title="Affiliate links">
+        <p>
+          Some online deals may use affiliate links: if you buy through one, Discount Koi may earn a
+          small commission at no extra cost to you. Those deals always carry an{" "}
+          <strong className="font-semibold text-ink">Affiliate link</strong> label, and it never
+          changes which deal is cheapest.
         </p>
       </Section>
 
@@ -100,7 +147,8 @@ export default function AboutPage() {
       <Section title="Privacy">
         <p>
           No accounts, no cookies, no tracking. Your light or dark mode choice is saved only in your
-          own browser.
+          own browser. Product thumbnails load straight from the store&apos;s website without
+          telling it which page you came from.
         </p>
       </Section>
 

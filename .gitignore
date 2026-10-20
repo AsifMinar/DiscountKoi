@@ -33,9 +33,13 @@ yarn-error.log*
 # env files: secrets never go in the repo (use GitHub Actions secrets instead)
 .env*
 
-# playwright
+# scraper's HTTP cache (ETag / Last-Modified), carried between daily runs by actions/cache
+/.cache/
+
+# playwright, screenshots and Lighthouse reports (npm run screenshots / lighthouse)
 /test-results/
 /playwright-report/
+/screenshots/
 
 # editors / OS
 .vscode/*

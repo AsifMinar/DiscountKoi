@@ -3,11 +3,13 @@
 import Image from "next/image";
 import { useState } from "react";
 import type { Deal } from "@shared/deal";
+import { isPriceDrop } from "@shared/products";
 import { DEAL_TYPES, locationBadge } from "@shared/taxonomy";
+import { soldByUnit, unitLabel } from "@shared/units";
 import { Badge } from "@/components/ui/Badge";
 import { cn } from "@/lib/cn";
 import { isFree } from "@/lib/filters";
-import { formatPrice } from "@/lib/format";
+import { formatPrice, formatUnitPrice } from "@/lib/format";
 
 /* Small pieces shared by the deal card and the deal detail popup. */
 
@@ -17,7 +19,8 @@ import { formatPrice } from "@/lib/format";
  */
 export function DealTitleText({ title }: { title: string }) {
   const at = title.lastIndexOf(" · ");
-  if (at === -1) return title;
+  // Only short endings (dates like "Oct 29 – Nov 4") are kept together; long ones may wrap.
+  if (at === -1 || title.length - at - 3 > 16) return title;
   return (
     <>
       {title.slice(0, at)}
@@ -27,19 +30,20 @@ export function DealTitleText({ title }: { title: string }) {
   );
 }
 
-/** Sale price (or "Free" / "30% off") with the original price crossed out. */
+/** Sale price (or "Free" / "30% off") with the original price crossed out; "$3.99/lb" for weighed items. */
 export function DealPrice({ deal, size = "md" }: { deal: Deal; size?: "md" | "lg" }) {
   const free = isFree(deal);
   const main = free
     ? "Free"
     : deal.salePrice !== undefined
-      ? formatPrice(deal.salePrice)
+      ? formatPrice(deal.salePrice, deal.currency)
       : deal.discountPercent
         ? `${deal.discountPercent}% off`
         : null;
   if (!main) return null;
 
   const showWas = deal.originalPrice !== undefined && deal.originalPrice > (deal.salePrice ?? 0);
+  const per = !free && soldByUnit(deal) && deal.unit ? unitLabel(deal.unit) : null;
   return (
     <p className="flex flex-wrap items-baseline gap-x-2">
       <span
@@ -50,11 +54,16 @@ export function DealPrice({ deal, size = "md" }: { deal: Deal; size?: "md" | "lg
         )}
       >
         {main}
+        {per && (
+          <span className={cn("font-medium text-ink-muted", size === "lg" ? "text-lg" : "text-sm")}>
+            {per}
+          </span>
+        )}
       </span>
       {showWas && (
         <s className={cn("text-ink-muted", size === "lg" ? "text-base" : "text-sm")}>
           <span className="sr-only">was </span>
-          {formatPrice(deal.originalPrice!)}
+          {formatPrice(deal.originalPrice!, deal.currency)}
         </s>
       )}
     </p>
@@ -78,7 +87,36 @@ const LOCATION_TONE = {
   "ships-to-ontario": "outline",
 } as const;
 
-/** Location badge first, then one badge per deal type. */
+/**
+ * "4 L · $1.37/L": package size and unit price, so different sizes compare fairly.
+ * Nothing for weighed items, whose price already reads "$3.99/lb".
+ */
+export function UnitPrice({ deal, className }: { deal: Deal; className?: string }) {
+  const unitPrice =
+    deal.unit && deal.unitPrice !== undefined && !soldByUnit(deal)
+      ? formatUnitPrice(deal.unitPrice, deal.unit, deal.currency)
+      : null;
+  if (!deal.size && !unitPrice) return null;
+  return (
+    <p className={cn("text-xs text-ink-muted", className)}>
+      {[deal.size, unitPrice].filter(Boolean).join(" · ")}
+    </p>
+  );
+}
+
+/** Badges that only product listings get. */
+export function ProductBadges({ deal }: { deal: Deal }) {
+  return (
+    <>
+      {deal.lowestInSudbury && <Badge tone="teal">Lowest price in Sudbury this week</Badge>}
+      {isPriceDrop(deal) && <Badge tone="accent">Price drop</Badge>}
+      {deal.sample && <Badge tone="outline">Sample</Badge>}
+      {deal.affiliate && <Badge tone="outline">Affiliate link</Badge>}
+    </>
+  );
+}
+
+/** Location badge first, then one badge per deal type, then any product badges. */
 export function DealBadges({ deal }: { deal: Deal }) {
   return (
     <div className="flex flex-wrap gap-1.5">
@@ -88,6 +126,7 @@ export function DealBadges({ deal }: { deal: Deal }) {
           {t.badge}
         </Badge>
       ))}
+      <ProductBadges deal={deal} />
     </div>
   );
 }

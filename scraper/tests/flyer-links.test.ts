@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
+import { possessive } from "../lib/text";
 import { buildDealsFile } from "../pipeline";
 import { buildFlyerCards, FLYER_STORES_FILE, flyerWeek, weekLabel } from "../sources/flyer-links";
 
@@ -36,6 +37,17 @@ test("the real data/flyer-stores.json produces one valid card per store", () => 
     deals.deals.every((d) => !d.dealType.includes("free")),
     "flyers aren't free stuff",
   );
+});
+
+test("store names ending in s get a correct possessive (Food Basics' site, not Basics's)", () => {
+  const cards = buildFlyerCards(JSON.parse(readFileSync(FLYER_STORES_FILE, "utf8")), NOW);
+  const text = (store: string) => cards.find((c) => c.store === store)?.description ?? "";
+  assert.match(text("Food Basics"), /on Food Basics' site/);
+  assert.match(text("No Frills"), /on No Frills' site/);
+  assert.match(text("Metro"), /on Metro's site/);
+  assert.match(text("Shoppers Drug Mart"), /on Shoppers Drug Mart's site/);
+  assert.ok(cards.every((c) => !/s's /.test(c.description ?? "")));
+  assert.equal(possessive("Giant Tiger"), "Giant Tiger's");
 });
 
 test("next week's card replaces this week's", () => {

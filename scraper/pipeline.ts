@@ -39,9 +39,22 @@ export type RunSummary = {
   removed: number;
 };
 
+/**
+ * Returns why a run should count as failed, or null if it's fine. A failed run doesn't
+ * save, and in GitHub Actions it turns the workflow red, so GitHub emails the owner.
+ */
+export function runProblem(summary: RunSummary): string | null {
+  const ran = summary.sources.filter((s) => s.status !== "disabled" && s.status !== "not-run");
+  if (ran.length > 0 && ran.every((s) => s.status === "failed" || s.status === "blocked")) {
+    return "every source failed or was blocked";
+  }
+  if (summary.total === 0) return "the scrape produced 0 deals";
+  return null;
+}
+
 /** Ages out deals that have no end date (sooner for freebies). */
 function isStale(deal: Deal, today: string): boolean {
-  if (deal.endDate) return false;
+  if (deal.endDate || deal.ongoing) return false;
   const maxAge = deal.dealType.includes("free")
     ? CONFIG.maxAgeDaysFreebies
     : CONFIG.maxAgeDaysNoEndDate;

@@ -29,3 +29,19 @@ export function daysBetween(from: string, to: string): number {
   const ms = Date.parse(`${to}T00:00:00Z`) - Date.parse(`${from}T00:00:00Z`);
   return Math.round(ms / 86_400_000);
 }
+
+const monthDay = new Intl.DateTimeFormat("en-CA", {
+  timeZone: "UTC",
+  month: "short",
+  day: "numeric",
+});
+const dayOnly = new Intl.DateTimeFormat("en-CA", { timeZone: "UTC", day: "numeric" });
+
+/** "Oct 22–28", or "Oct 29 – Nov 4" across months (YYYY-MM-DD in, calendar days). */
+export function weekLabel(start: string, end: string): string {
+  const s = new Date(`${start}T00:00:00Z`);
+  const e = new Date(`${end}T00:00:00Z`);
+  return s.getUTCMonth() === e.getUTCMonth()
+    ? `${monthDay.format(s)}–${dayOnly.format(e)}`
+    : `${monthDay.format(s)} – ${monthDay.format(e)}`;
+}

@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { CATEGORY_IDS, DEAL_TYPE_IDS, LOCATION_IDS } from "./taxonomy";
+import { UNITS } from "./units";
 
 /** YYYY-MM-DD, read as a calendar day in Sudbury time. */
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "expected YYYY-MM-DD");
@@ -16,6 +17,9 @@ const webUrl = z
       return false;
     }
   }, "must be an http(s) URL");
+
+/** Thumbnails: https only (the site is https, and its security policy only allows https images). */
+const httpsUrl = webUrl.refine((value) => value.startsWith("https://"), "must be an https URL");
 
 const price = z.number().nonnegative().max(1_000_000);
 
@@ -38,13 +42,38 @@ export const DealSchema = z.object({
   location: z.enum(LOCATION_IDS),
   url: webUrl,
   /** Hotlinked thumbnail only. Images are never downloaded or re-hosted. */
-  imageUrl: webUrl.optional(),
+  imageUrl: httpsUrl.optional(),
   startDate: isoDate.optional(),
   endDate: isoDate.optional(),
   /** Which scraper found it, e.g. "flyers" or "rfd-hot-deals". */
   source: z.string().min(1).max(40),
   /** When Discount Koi first found this deal (kept across daily runs, so "Newest" means new). */
   scrapedAt: z.iso.datetime({ offset: true }),
+  /** Currency of the prices. Missing means Canadian dollars. */
+  currency: z.enum(["CAD", "USD"]).optional(),
+  /** Credit line a source requires, e.g. "© King's Printer for Ontario". Shown in the deal popup. */
+  attribution: z.string().trim().min(1).max(200).optional(),
+  /** A permanent program (e.g. a food bank) rather than a time-limited deal: never aged out. */
+  ongoing: z.boolean().optional(),
+
+  /* ---- Product listings ("Chicken breast, $3.99/lb, No Frills"). All optional. ---- */
+
+  /** The product on its own, e.g. "Chicken breast". Its presence makes this a product listing. */
+  productName: z.string().trim().min(1).max(120).optional(),
+  /** Package size or quantity as printed, e.g. "4 L", "1.36 kg", "12 eggs". */
+  size: z.string().trim().min(1).max(40).optional(),
+  /** What the unit price is per (lb, kg, 100g, L, 100mL, each). */
+  unit: z.enum(UNITS).optional(),
+  /** Price per `unit`, for fair comparison between package sizes and stores. */
+  unitPrice: z.number().nonnegative().max(1_000_000).optional(),
+  /** What this product cost at this store last time it was listed (from price history). */
+  previousPrice: price.optional(),
+  /** Bought through an affiliate link (Discount Koi may earn a commission). Shown on the card. */
+  affiliate: z.boolean().optional(),
+  /** An example entry that shows how listings look. Not a real price; labelled on the site. */
+  sample: z.boolean().optional(),
+  /** Set when the site is built: cheapest of 2+ Sudbury stores for this product this week. */
+  lowestInSudbury: z.boolean().optional(),
 });
 
 export const DealsFileSchema = z.object({

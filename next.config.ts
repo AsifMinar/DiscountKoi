@@ -23,6 +23,9 @@ const nextConfig: NextConfig = {
     // The on-disk build cache once served a stale globals.css. Builds take seconds and CI
     // starts clean anyway, so always build fresh.
     turbopackFileSystemCacheForBuild: false,
+    // Tailwind's CSS is tiny (~6 KB gzipped), so it goes inside each page instead of a
+    // separate file: one less round trip before a phone can draw anything.
+    inlineCss: true,
   },
   turbopack: {
     rules: {

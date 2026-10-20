@@ -1,0 +1,21 @@
+{
+  "_howTo": [
+    "Affiliate product feeds. The source is switched off until a network approves you: see docs/affiliate-setup.md.",
+    "One entry per feed. id: short name (lowercase, dashes). store: name shown on the cards. network: rakuten, cj, impact, awin, partnerize or other.",
+    "format: csv, tsv or xml (leave it out to detect it). location: ships-to-ontario (default), ontario or sudbury. category: optional, otherwise detected per product.",
+    "minDiscountPercent: only products at least this much off (default 10). maxItems: at most this many per feed (default 100).",
+    "The feed's URL is NOT stored here (it contains your account credentials). Put it in the GitHub secret AFFILIATE_FEED_URLS as JSON: {\"example-store\": \"https://...\"}.",
+    "Then set enabled: true in scraper/sources/affiliate-feeds.ts."
+  ],
+  "_example": {
+    "id": "example-store",
+    "store": "Example Store",
+    "network": "awin",
+    "format": "csv",
+    "location": "ships-to-ontario",
+    "category": "electronics",
+    "minDiscountPercent": 15,
+    "maxItems": 100
+  },
+  "feeds": []
+}

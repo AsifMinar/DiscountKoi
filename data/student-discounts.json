@@ -1,0 +1,148 @@
+{
+  "_howTo": [
+    "Well-known national student programs that Sudbury students (Laurentian, Cambrian, Collège Boréal and others) can use. Each one links to the program's official page.",
+    "They show on the Student page as ongoing programs: they never expire on their own. Delete an entry if a program ends.",
+    "Fields: title (what students get, short), store (who offers it), url (official page, https), description (one or two lines in your own words, no prices: they change), category, where (online, in-store or both).",
+    "Categories: grocery, food-restaurants, electronics, fashion, home, health-beauty, sports-outdoors, kids-baby, pets, automotive, entertainment, services, other.",
+    "Only add programs you've checked on their official page. Don't add local school deals unless the school or business publishes them.",
+    "After editing, run `npm run scrape:local` (or just push: the deploy does it)."
+  ],
+  "_example": {
+    "title": "Spotify Premium Student",
+    "store": "Spotify",
+    "url": "https://www.spotify.com/ca-en/student/",
+    "description": "Discounted Premium for students at accredited colleges and universities, after a quick student check.",
+    "category": "entertainment",
+    "where": "online"
+  },
+  "programs": [
+    {
+      "title": "SPC student discount membership",
+      "store": "SPC",
+      "url": "https://www.spccard.ca/",
+      "description": "A yearly membership app with student discounts at hundreds of Canadian brands, online and in store.",
+      "category": "other",
+      "where": "both"
+    },
+    {
+      "title": "ISIC international student card",
+      "store": "ISIC Canada",
+      "url": "https://isic.ca/",
+      "description": "The international student ID card, with travel, shopping and museum discounts in Canada and abroad.",
+      "category": "other",
+      "where": "both"
+    },
+    {
+      "title": "UNiDAYS student deals",
+      "store": "UNiDAYS",
+      "url": "https://www.myunidays.com/CA/en-CA",
+      "description": "Verify once that you're a student to unlock discounts at many brands for a year.",
+      "category": "other",
+      "where": "online"
+    },
+    {
+      "title": "Student Beans deals",
+      "store": "Student Beans",
+      "url": "https://www.studentbeans.com/ca",
+      "description": "A student discount site and app with codes for fashion, tech, food and more.",
+      "category": "other",
+      "where": "online"
+    },
+    {
+      "title": "Prime Student",
+      "store": "Amazon.ca",
+      "url": "https://www.amazon.ca/joinstudent",
+      "description": "A trial, then Prime at a student rate, for college and university students who sign up with a school email.",
+      "category": "services",
+      "where": "online"
+    },
+    {
+      "title": "Spotify Premium Student",
+      "store": "Spotify",
+      "url": "https://www.spotify.com/ca-en/student/",
+      "description": "Discounted Premium for students at accredited colleges and universities, after a quick student check.",
+      "category": "entertainment",
+      "where": "online"
+    },
+    {
+      "title": "Apple Music student plan",
+      "store": "Apple",
+      "url": "https://www.apple.com/ca/apple-music/",
+      "description": "A discounted Apple Music plan for verified college and university students.",
+      "category": "entertainment",
+      "where": "online"
+    },
+    {
+      "title": "YouTube Premium student membership",
+      "store": "YouTube",
+      "url": "https://www.youtube.com/premium/student",
+      "description": "A discounted YouTube Premium membership for students in higher education, after a student check.",
+      "category": "entertainment",
+      "where": "online"
+    },
+    {
+      "title": "Apple education pricing",
+      "store": "Apple",
+      "url": "https://www.apple.com/ca-edu/store",
+      "description": "Education prices on Macs, iPads and accessories for university and college students, their parents, and staff.",
+      "category": "electronics",
+      "where": "online"
+    },
+    {
+      "title": "Microsoft 365 for students (Office)",
+      "store": "Microsoft",
+      "url": "https://www.microsoft.com/en-ca/education/products/office",
+      "description": "Word, Excel, PowerPoint, Outlook and OneNote on the web at no cost for students with an eligible school email.",
+      "category": "services",
+      "where": "online"
+    },
+    {
+      "title": "GitHub Student Developer Pack",
+      "store": "GitHub",
+      "url": "https://education.github.com/pack",
+      "description": "Developer tools and services at no cost for verified students in degree or diploma programs.",
+      "category": "services",
+      "where": "online"
+    },
+    {
+      "title": "JetBrains Student Pack",
+      "store": "JetBrains",
+      "url": "https://www.jetbrains.com/academy/student-pack/",
+      "description": "Renewable one-year licences for JetBrains coding tools at no cost for students.",
+      "category": "services",
+      "where": "online"
+    },
+    {
+      "title": "Figma for Education",
+      "store": "Figma",
+      "url": "https://www.figma.com/education/",
+      "description": "Figma's professional design tools at no cost for verified students and educators.",
+      "category": "services",
+      "where": "online"
+    },
+    {
+      "title": "Notion Education plan",
+      "store": "Notion",
+      "url": "https://www.notion.com/product/notion-for-education",
+      "description": "Notion's Education plan at no cost for college and university students using a school email.",
+      "category": "services",
+      "where": "online"
+    },
+    {
+      "title": "Adobe Creative Cloud for students",
+      "store": "Adobe",
+      "url": "https://www.adobe.com/ca/creativecloud/buy/students.html",
+      "description": "Creative Cloud apps at a student price for students at accredited schools.",
+      "category": "services",
+      "where": "online"
+    },
+    {
+      "title": "Dell student discount",
+      "store": "Dell",
+      "url": "https://www.dell.com/en-ca/shop/member/lp/students",
+      "description": "An extra discount on Dell laptops and more for verified high school (16+), college and university students.",
+      "category": "electronics",
+      "where": "online"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useSyncExternalStore } from "react";
+import { useCallback, useMemo, useSyncExternalStore, type MouseEvent } from "react";
 import { filtersToSearch, parseFilters, type Filters } from "@/lib/filters";
 import { torontoDate } from "@/lib/format";
 
@@ -83,6 +83,22 @@ export function forgetOpenedDeal() {
 }
 
 export const dealIdFrom = (search: string) => new URLSearchParams(search).get("deal");
+
+/** Link that opens a deal's popup (the ?deal= param), keeping the current filters. */
+export function dealHref(search: string, id: string) {
+  const params = new URLSearchParams(search);
+  params.set("deal", id);
+  return `?${params.toString()}`;
+}
+
+/** Click handler for a deal link: opens the popup in place; Ctrl/Cmd/middle-click still open a tab. */
+export function onDealClick(id: string) {
+  return (e: MouseEvent<HTMLAnchorElement>) => {
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    openDeal(id);
+  };
+}
 
 const noSubscribe = () => () => {};
 

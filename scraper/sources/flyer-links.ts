@@ -1,7 +1,8 @@
 import { readFileSync } from "node:fs";
 import { z } from "zod";
-import { torontoDate } from "@shared/dates";
+import { torontoDate, weekLabel } from "@shared/dates";
 import { CATEGORY_IDS, LOCATION_IDS } from "@shared/taxonomy";
+import { possessive } from "../lib/text";
 import type { RawDeal, Source } from "./types";
 
 /*
@@ -41,21 +42,7 @@ export function flyerWeek(today: string, startsOn: (typeof WEEKDAYS)[number]) {
   return { start, end: addDays(start, 6) };
 }
 
-const monthDay = new Intl.DateTimeFormat("en-CA", {
-  timeZone: "UTC",
-  month: "short",
-  day: "numeric",
-});
-const dayOnly = new Intl.DateTimeFormat("en-CA", { timeZone: "UTC", day: "numeric" });
-
-/** "Oct 22–28", or "Oct 29 – Nov 4" across months. */
-export function weekLabel(start: string, end: string): string {
-  const s = new Date(`${start}T00:00:00Z`);
-  const e = new Date(`${end}T00:00:00Z`);
-  return s.getUTCMonth() === e.getUTCMonth()
-    ? `${monthDay.format(s)}–${dayOnly.format(e)}`
-    : `${monthDay.format(s)} – ${monthDay.format(e)}`;
-}
+export { weekLabel } from "@shared/dates";
 
 /** Builds this week's cards. Exported separately so tests can pass their own list and date. */
 export function buildFlyerCards(file: unknown, now: Date): RawDeal[] {
@@ -65,7 +52,7 @@ export function buildFlyerCards(file: unknown, now: Date): RawDeal[] {
     const { start, end } = flyerWeek(today, s.startsOn);
     return {
       title: `${s.store} ${s.label} · ${weekLabel(start, end)}`,
-      description: `This week's ${s.store} ${s.label}. Open it on ${s.store}'s site and choose your Greater Sudbury store to see local prices.`,
+      description: `This week's ${s.store} ${s.label}. Open it on ${possessive(s.store)} site and choose your Greater Sudbury store to see local prices.`,
       url: s.url,
       store: s.store,
       location: s.location,
@@ -81,6 +68,7 @@ export const flyerLinks: Source = {
   id: "flyer-links",
   name: "Weekly flyer links",
   enabled: true,
+  local: true,
   async fetchDeals({ now }) {
     return buildFlyerCards(JSON.parse(readFileSync(FLYER_STORES_FILE, "utf8")), now);
   },

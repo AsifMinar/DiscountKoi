@@ -1,4 +1,5 @@
 import { SUDBURY_TZ, daysBetween } from "@shared/dates";
+import { unitLabel, type Unit } from "@shared/units";
 
 export { SUDBURY_TZ, daysBetween, torontoDate } from "@shared/dates";
 
@@ -28,16 +29,41 @@ export function formatDay(isoDay: string): string {
   return shortDate.format(new Date(`${isoDay}T00:00:00Z`));
 }
 
-const money = new Intl.NumberFormat("en-CA", { style: "currency", currency: "CAD" });
-const moneyWhole = new Intl.NumberFormat("en-CA", {
-  style: "currency",
-  currency: "CAD",
-  maximumFractionDigits: 0,
-});
+const formatters = new Map<string, Intl.NumberFormat>();
+function moneyFormat(currency: string, whole: boolean) {
+  const key = `${currency}-${whole}`;
+  let format = formatters.get(key);
+  if (!format) {
+    format = new Intl.NumberFormat("en-CA", {
+      style: "currency",
+      currency,
+      maximumFractionDigits: whole ? 0 : 2,
+      minimumFractionDigits: whole ? 0 : 2,
+    });
+    formatters.set(key, format);
+  }
+  return format;
+}
 
-/** "$8.99", or "$1,249" for whole dollars. */
-export function formatPrice(value: number): string {
-  return Number.isInteger(value) ? moneyWhole.format(value) : money.format(value);
+/** "$8.99" or "$1,249" in Canadian dollars; US prices show as "US$2.00". */
+export function formatPrice(value: number, currency: "CAD" | "USD" = "CAD"): string {
+  return moneyFormat(currency, Number.isInteger(value)).format(value);
+}
+
+/** "$1.37/L", "$0.88/100 g", "$0.33 each". Tiny amounts keep a third decimal ("$0.004/100 mL"). */
+export function formatUnitPrice(
+  value: number,
+  unit: Unit,
+  currency: "CAD" | "USD" = "CAD",
+): string {
+  const digits = value > 0 && value < 0.1 ? 3 : 2;
+  const amount = new Intl.NumberFormat("en-CA", {
+    style: "currency",
+    currency,
+    minimumFractionDigits: digits,
+    maximumFractionDigits: digits,
+  }).format(value);
+  return `${amount}${unitLabel(unit)}`;
 }
 
 /** "Ends today", "Ends tomorrow", "Ends in 4 days", or "Ends Nov. 30, 2026" when far off. */

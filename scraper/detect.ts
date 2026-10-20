@@ -24,6 +24,7 @@ const NOT_REALLY_FREE = [
   "sugar free", "sugar-free", "gluten free", "gluten-free", "fat free", "dairy free",
   "nut free", "scent free", "fragrance free", "fragrance-free", "hands-free", "hands free",
   "cord-free", "tax-free", "tax free", "interest-free", "interest free",
+  "free trial", "free trials", "try it free", "try free", "free for 30 days", "free month",
 ];
 
 /** Words that mean the deal is for students. */

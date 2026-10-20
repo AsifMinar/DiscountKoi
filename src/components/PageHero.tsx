@@ -8,11 +8,17 @@ export function PageHero({
   children,
   updatedAt,
   isSample,
+  searchLabel,
+  searchPlaceholder,
+  resultsId,
 }: {
   title: string;
   children: ReactNode;
   updatedAt: string;
   isSample: boolean;
+  searchLabel?: string;
+  searchPlaceholder?: string;
+  resultsId?: string;
 }) {
   return (
     <section className="flex flex-col items-center gap-5 text-center">
@@ -20,10 +26,10 @@ export function PageHero({
         {title}
       </h1>
       <p className="max-w-xl text-base text-pretty text-ink-muted sm:text-lg">{children}</p>
-      <SearchBar />
+      <SearchBar label={searchLabel} placeholder={searchPlaceholder} resultsId={resultsId} />
       <p className="text-xs text-ink-muted">
         Last updated: <time dateTime={updatedAt}>{formatUpdated(updatedAt)}</time> (Sudbury time)
-        {isSample && " · Showing sample data"}
+        {isSample && " · Includes sample listings (marked Sample)"}
       </p>
     </section>
   );

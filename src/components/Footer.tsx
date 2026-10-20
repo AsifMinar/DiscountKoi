@@ -1,9 +1,14 @@
 import Link from "next/link";
 import { KoiMark } from "@/components/Logo";
+import { externalLinkProps } from "@/components/ui/Button";
+import { SUBMIT_DEAL_URL } from "@/lib/site";
+
+const FOOTER_LINK =
+  "inline-flex h-11 items-center rounded-full px-3 whitespace-nowrap hover:text-ink";
 
 export function Footer() {
   return (
-    <footer className="mt-24 px-page pb-[max(2rem,env(safe-area-inset-bottom))]">
+    <footer className="mt-24 px-page pb-[max(2rem,calc(env(safe-area-inset-bottom)+1rem))]">
       <div className="mx-auto flex max-w-[88rem] flex-col gap-4 border-t border-line pt-8 text-sm text-ink-muted sm:flex-row sm:items-center sm:justify-between">
         <p className="flex items-start gap-2">
           <KoiMark className="size-5 shrink-0" />
@@ -11,13 +16,21 @@ export function Footer() {
             Discount Koi · Deals come from public sources. Always confirm on the store&apos;s site.
           </span>
         </p>
-        <nav aria-label="Footer">
-          <ul className="flex gap-1">
+        <nav aria-label="Footer" className="sm:shrink-0">
+          <ul className="-mx-3 flex flex-wrap gap-x-1 sm:mx-0">
             <li>
-              <Link
-                href="/about/"
-                className="inline-flex h-11 items-center rounded-full px-3 hover:text-ink"
-              >
+              <Link href="/products/" className={FOOTER_LINK}>
+                Products
+              </Link>
+            </li>
+            <li>
+              <a href={SUBMIT_DEAL_URL} {...externalLinkProps()} className={FOOTER_LINK}>
+                Submit a deal
+                <span className="sr-only"> (opens GitHub in a new tab)</span>
+              </a>
+            </li>
+            <li>
+              <Link href="/about/" className={FOOTER_LINK}>
                 About
               </Link>
             </li>

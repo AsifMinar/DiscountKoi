@@ -43,12 +43,13 @@ export function formatSummary(summary: RunSummary, requests: number, seconds: nu
 }
 
 /** Adds a Markdown table to the GitHub Actions run page, when running there. */
-export function writeGithubSummary(summary: RunSummary) {
+export function writeGithubSummary(summary: RunSummary, problem: string | null = null) {
   const file = process.env.GITHUB_STEP_SUMMARY;
   if (!file) return;
   const md = [
     "## Discount Koi scrape",
     "",
+    ...(problem ? [`> **❌ Run failed: ${problem}.** deals.json was not changed.`, ""] : []),
     "| Source | Status | Deals | New | Removed | Invalid |",
     "| --- | --- | ---: | ---: | ---: | ---: |",
     ...summary.sources.map(

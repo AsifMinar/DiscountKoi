@@ -1,32 +1,38 @@
 # Builds the static Next.js site and publishes it to GitHub Pages
-# (https://asifminar.github.io/DiscountKoi/) on every push to main.
-# One-time setup: repo Settings → Pages → "Build and deployment" → Source: "GitHub Actions".
+# (https://asifminar.github.io/DiscountKoi/).
+#
+# Runs on every push to main, from the Run workflow button, and when the daily scrape
+# calls it (pushes made by the daily job don't trigger workflows on their own).
+# One-time setup: repo Settings → Pages → Build and deployment → Source: "GitHub Actions".
 
 name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [main]
-  # Adds a "Run workflow" button on the Actions tab for redeploying by hand.
   workflow_dispatch:
+  workflow_call:
+    inputs:
+      ref:
+        description: Commit to build (the daily scrape passes the commit it just pushed).
+        type: string
+        required: false
+        default: ""
 
 # Nothing by default; each job asks only for what it needs below.
 permissions: {}
 
-# One deployment at a time. A newer push waits instead of cancelling a deploy halfway.
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       contents: read
     steps:
       - name: Check out the code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          ref: ${{ inputs.ref || github.sha }}
           persist-credentials: false
 
       - name: Set up Node.js (version from .nvmrc)
@@ -41,6 +47,11 @@ jobs:
       - name: Check that GitHub Pages is turned on
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
 
+      # Hand-edited files (weekly picks, approved submissions…) show up on the next push,
+      # not only after the next 6 AM scrape. Reads files only; no web requests.
+      - name: Merge hand-edited deal files
+        run: npm run scrape:local
+
       - name: Build the static site into ./out
         run: npm run build
 
@@ -54,9 +65,14 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       pages: write # publish to GitHub Pages
       id-token: write # prove the deployment came from this repo
+    # One publish at a time. A newer one waits instead of cancelling a deploy halfway.
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

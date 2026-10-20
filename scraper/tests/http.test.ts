@@ -28,7 +28,7 @@ before(async () => {
 after(() => server.close());
 
 test("obeys robots.txt, reports blocks, spaces requests and identifies itself", async () => {
-  const http = new PoliteFetcher(() => {}, { min: 300, max: 400 });
+  const http = new PoliteFetcher(() => {}, { delayMs: { min: 300, max: 400 }, cacheFile: null });
 
   assert.equal(await http.text(`${base}/page`), "<html>hello</html>");
   assert.deepEqual(await http.json(`${base}/data.json`), { ok: true });

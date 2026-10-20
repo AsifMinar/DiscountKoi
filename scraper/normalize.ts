@@ -1,5 +1,6 @@
 import { DealSchema, type Deal } from "@shared/deal";
 import type { DealTypeId } from "@shared/taxonomy";
+import { UNITS, resolveUnitPrice } from "@shared/units";
 import { categorize } from "./categorize";
 import { isFreeDeal, isStudentDeal } from "./detect";
 import { cleanText, dealId, parsePrice, percentOff, safeUrl } from "./lib/text";
@@ -48,14 +49,35 @@ export function normalizeDeal(
   const types = new Set<DealTypeId>(raw.dealType ?? []);
   if (isFreeDeal(text, salePrice)) types.add("free");
   if (isStudentDeal(text)) types.add("student");
-  // Every deal is either online or in store; fall back on where it's offered.
-  if (!types.has("online") && !types.has("in-store")) {
+  // A deal needs at least one type; with nothing else known, use where it's offered.
+  // (Free events and programs stay just "Free" rather than being called "In-Store".)
+  if (types.size === 0) {
     types.add(raw.location === "ships-to-ontario" ? "online" : "in-store");
   }
 
   const startDate = validDay(raw.startDate);
   const endDate = validDay(raw.endDate);
-  const id = dealId(sourceId, url, title);
+  const id = dealId(sourceId, url, raw.variant ? `${title}\n${raw.variant}` : title);
+
+  // Product listings: clean name and size, then work out the unit price.
+  const productName = cleanText(raw.productName, 120) || undefined;
+  const size = productName ? cleanText(raw.size, 40) || undefined : undefined;
+  const unit = productName && raw.unit && UNITS.includes(raw.unit) ? raw.unit : undefined;
+  const givenUnitPrice =
+    typeof raw.unitPrice === "number" && Number.isFinite(raw.unitPrice) && raw.unitPrice >= 0
+      ? raw.unitPrice
+      : undefined;
+  const pricing = productName
+    ? resolveUnitPrice({ salePrice, size, unit, unitPrice: givenUnitPrice })
+    : undefined;
+
+  // New items count as first seen when the source published them (never in the future).
+  const published = raw.publishedAt ? Date.parse(raw.publishedAt) : NaN;
+  const firstSeenAt =
+    firstSeen.get(id) ??
+    (Number.isFinite(published) && published < Date.parse(now)
+      ? new Date(published).toISOString()
+      : now);
 
   const result = DealSchema.safeParse({
     id,
@@ -74,7 +96,17 @@ export function normalizeDeal(
     startDate: startDate && endDate && startDate > endDate ? undefined : startDate,
     endDate,
     source: sourceId,
-    scrapedAt: firstSeen.get(id) ?? now,
+    scrapedAt: firstSeenAt,
+    currency: raw.currency === "USD" ? "USD" : undefined,
+    attribution: cleanText(raw.attribution, 200) || undefined,
+    ongoing: raw.ongoing ? true : undefined,
+    productName,
+    size,
+    unit: pricing?.unit,
+    unitPrice: pricing?.unitPrice,
+    previousPrice: productName ? parsePrice(raw.previousPrice) : undefined,
+    affiliate: raw.affiliate ? true : undefined,
+    sample: raw.sample ? true : undefined,
   });
 
   if (!result.success) {

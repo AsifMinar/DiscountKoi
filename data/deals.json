@@ -1,6 +1,210 @@
 {
-  "updatedAt": "2026-10-20T05:32:04.762Z",
+  "updatedAt": "2026-10-20T08:45:16.084Z",
   "deals": [
+    {
+      "id": "fc3095d49d5ddf17",
+      "title": "Large eggs, dozen",
+      "description": "From the Metro flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
+      "store": "Metro",
+      "originalPrice": 5.29,
+      "salePrice": 4.49,
+      "discountPercent": 15,
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://www.metro.ca/en/flyer",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-28",
+      "source": "weekly-picks",
+      "scrapedAt": "2026-10-20T16:32:27.998Z",
+      "productName": "Large eggs",
+      "size": "dozen",
+      "unit": "each",
+      "unitPrice": 0.3742,
+      "sample": true
+    },
+    {
+      "id": "70aa6cb9c0945b1e",
+      "title": "Large eggs, dozen",
+      "description": "From the No Frills flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
+      "store": "No Frills",
+      "salePrice": 3.97,
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://www.nofrills.ca/en/deals/flyer",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-28",
+      "source": "weekly-picks",
+      "scrapedAt": "2026-10-20T16:32:27.998Z",
+      "productName": "Large eggs",
+      "size": "dozen",
+      "unit": "each",
+      "unitPrice": 0.3308,
+      "sample": true
+    },
+    {
+      "id": "97f6c40a5512ff49",
+      "title": "Chicken breast, boneless skinless",
+      "description": "From the No Frills flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
+      "store": "No Frills",
+      "originalPrice": 5.99,
+      "salePrice": 3.99,
+      "discountPercent": 33,
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://www.nofrills.ca/en/deals/flyer",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-28",
+      "source": "weekly-picks",
+      "scrapedAt": "2026-10-20T16:27:14.962Z",
+      "productName": "Chicken breast, boneless skinless",
+      "unit": "lb",
+      "unitPrice": 3.99,
+      "sample": true
+    },
+    {
+      "id": "324a9b0da02ba46a",
+      "title": "Cheddar cheese, 400 g",
+      "description": "From the Food Basics flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
+      "store": "Food Basics",
+      "originalPrice": 7.99,
+      "salePrice": 5.99,
+      "discountPercent": 25,
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://www.foodbasics.ca/en/flyer",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-28",
+      "source": "weekly-picks",
+      "scrapedAt": "2026-10-20T16:27:14.962Z",
+      "productName": "Cheddar cheese",
+      "size": "400 g",
+      "unit": "100g",
+      "unitPrice": 1.4975,
+      "sample": true
+    },
+    {
+      "id": "b9a6aa209d4d5258",
+      "title": "Milk, 2%, 1 L",
+      "description": "From the Metro flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
+      "store": "Metro",
+      "originalPrice": 2.99,
+      "salePrice": 2.49,
+      "discountPercent": 17,
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://www.metro.ca/en/flyer",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-28",
+      "source": "weekly-picks",
+      "scrapedAt": "2026-10-20T16:27:14.962Z",
+      "productName": "Milk, 2%",
+      "size": "1 L",
+      "unit": "L",
+      "unitPrice": 2.49,
+      "sample": true
+    },
+    {
+      "id": "181eb581c13db0e6",
+      "title": "Chicken breast, boneless skinless",
+      "description": "From the Metro flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
+      "store": "Metro",
+      "salePrice": 9.9,
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://www.metro.ca/en/flyer",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-28",
+      "source": "weekly-picks",
+      "scrapedAt": "2026-10-20T16:27:14.962Z",
+      "productName": "Chicken breast, boneless skinless",
+      "unit": "kg",
+      "unitPrice": 9.9,
+      "sample": true
+    },
+    {
+      "id": "938e3de728f4c430",
+      "title": "Milk, 2%, 4 L",
+      "description": "From the Food Basics flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
+      "store": "Food Basics",
+      "salePrice": 5.29,
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://www.foodbasics.ca/en/flyer",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-28",
+      "source": "weekly-picks",
+      "scrapedAt": "2026-10-20T16:27:14.962Z",
+      "productName": "Milk, 2%",
+      "size": "4 L",
+      "unit": "L",
+      "unitPrice": 1.3225,
+      "sample": true
+    },
+    {
+      "id": "a9dcd81f16496f25",
+      "title": "Bananas",
+      "description": "From the FreshCo flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
+      "store": "FreshCo",
+      "salePrice": 0.69,
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://www.freshco.com/flyer",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-28",
+      "source": "weekly-picks",
+      "scrapedAt": "2026-10-20T16:27:14.962Z",
+      "productName": "Bananas",
+      "unit": "lb",
+      "unitPrice": 0.69,
+      "previousPrice": 0.79,
+      "sample": true
+    },
+    {
+      "id": "cd538102bd31b0ed",
+      "title": "Milk, 2%, 4 L",
+      "description": "From the No Frills flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
+      "store": "No Frills",
+      "salePrice": 5.49,
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://www.nofrills.ca/en/deals/flyer",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-28",
+      "source": "weekly-picks",
+      "scrapedAt": "2026-10-20T16:27:14.962Z",
+      "productName": "Milk, 2%",
+      "size": "4 L",
+      "unit": "L",
+      "unitPrice": 1.3725,
+      "sample": true
+    },
     {
       "id": "0675c9ae64db446b",
       "title": "FreshCo weekly flyer · Oct 15–21",
@@ -20,7 +224,7 @@
     {
       "id": "30d9dd9dac7385d4",
       "title": "Food Basics weekly flyer · Oct 15–21",
-      "description": "This week's Food Basics weekly flyer. Open it on Food Basics's site and choose your Greater Sudbury store to see local prices.",
+      "description": "This week's Food Basics weekly flyer. Open it on Food Basics' site and choose your Greater Sudbury store to see local prices.",
       "store": "Food Basics",
       "dealType": [
         "in-store"
@@ -132,7 +336,7 @@
     {
       "id": "fcd1a87e583a24e2",
       "title": "No Frills weekly flyer · Oct 15–21",
-      "description": "This week's No Frills weekly flyer. Open it on No Frills's site and choose your Greater Sudbury store to see local prices.",
+      "description": "This week's No Frills weekly flyer. Open it on No Frills' site and choose your Greater Sudbury store to see local prices.",
       "store": "No Frills",
       "dealType": [
         "in-store"
@@ -144,6 +348,1314 @@
       "endDate": "2026-10-21",
       "source": "flyer-links",
       "scrapedAt": "2026-10-20T05:32:04.762Z"
+    },
+    {
+      "id": "0091dd236e44ae70",
+      "title": "Free food bank · 44 Pine Street",
+      "description": "Available to residents of Coniston and surrounding area. Open every Thursday 1:00 PM to 3:00 PM",
+      "store": "Coniston Food Bank",
+      "dealType": [
+        "free"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "http://www.sudburyfoodbank.ca/coniston-food-bank.aspx",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "058617e78c157a77",
+      "title": "Free food bank · 2506 Highway 69 North",
+      "description": "",
+      "store": "The Society of St. Vincent de Paul St. Kevin's Conference",
+      "dealType": [
+        "free"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "http://www.valleyeasttoday.ca/FoodBanks/St.%20Vincent/stvincentmain.htm",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "2096ee896231041d",
+      "title": "Free food bank · 1887 Bancroft Drive",
+      "description": "Located at the Holy Redeemer Church, Thursdays 3:00 PM to 5:00 PM",
+      "store": "St. Alphonse Food Bank",
+      "dealType": [
+        "free"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "http://www.sudburyfoodbank.ca/minnow-lake-food-bank.aspx",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "303f6f15cc611747",
+      "title": "Free food bank · 935 Ramsey Lake Road",
+      "description": "Available to Laurentian University students and their families. Bundles available at any student association office on campus.",
+      "store": "Laurentian University Student Food Bank",
+      "dealType": [
+        "free",
+        "student"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "http://laurentian.ca/",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "3b8eab18663e4117",
+      "title": "Free food bank · 1032 Lasalle Boulevard",
+      "description": "Available to babies and toddlers ages 0 to 35 months, registered clients only. Open Monday to Thursday 11:00 AM to 3:00 PM",
+      "store": "Pregnancy Care Centre & Infant Food Bank",
+      "dealType": [
+        "free"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "http://www.pccifb.ca/",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "4237a37fe7e7cf30",
+      "title": "Free food bank · 105 Elm Street",
+      "description": "Available to youth 16 to 24 years of age, for those who access other services only. Monday to Saturday evening meal available. Youth Centre 8:00 AM to 4:00 PM",
+      "store": "Sudbury Action Centre for Youth",
+      "dealType": [
+        "free"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://opendata.greatersudbury.ca/datasets/Sudbury::earthcare-sudbury-food-access-map",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "458aa7de09f68578",
+      "title": "Free food bank · 15 Hagar St",
+      "description": "Every Second Thursday of the month from 12:00pm – 1:00pm",
+      "store": "Markstay Food Bank",
+      "dealType": [
+        "free"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://www.facebook.com/pg/Markstay-Warren-Foodbank-100882198379582/posts/?ref=page_internal",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "5d28c77adf76ea3f",
+      "title": "Free food bank · 1400 Barry Downe Road",
+      "description": "Available to Cambrian College Students and their families",
+      "store": "Cambrian College Food Bank (Student’s Administrative Council)",
+      "dealType": [
+        "free",
+        "student"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "http://www.cambriancollege.ca/Pages/Home.aspx",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "6664ab82abe498c5",
+      "title": "Free food bank · 634 Notre Dame Avenue",
+      "description": "An area emergency food bank, distributing a 3 day supply of food to local clients up to once every 30 days. Thrift Store gift certificates for household and clothing items also available. Open Monday to Friday 9am-2pm. Additionally open 4pm-7pm Thursday",
+      "store": "The Salvation Army Sudbury Community & Family Services Food Bank/Referral Agency",
+      "dealType": [
+        "free"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://opendata.greatersudbury.ca/datasets/Sudbury::earthcare-sudbury-food-access-map",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "6896668764b82b19",
+      "title": "Free meal program · 344 Elgin Street",
+      "description": "(In the Samaritan Centre)",
+      "store": "Blue Door Soup Kitchen",
+      "dealType": [
+        "free"
+      ],
+      "category": "food-restaurants",
+      "location": "sudbury",
+      "url": "http://bluedoorsoup.ca/",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "73ea91d153b3a444",
+      "title": "Free meal program · 125 Durham Street",
+      "description": "Meal program for members only. Cooking and nutrition workshops also available to members.",
+      "store": "Independent Living Sudbury Manitoulin",
+      "dealType": [
+        "free"
+      ],
+      "category": "food-restaurants",
+      "location": "sudbury",
+      "url": "http://www.ilsm.ca/",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "84f8bf37b1f4a152",
+      "title": "Free food bank · 251 Elm Street",
+      "description": "Food Available Fridays 1:00 PM to 4:00 PM",
+      "store": "Inner City Home of Sudbury",
+      "dealType": [
+        "free"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "http://www.innercityhomesudbury.ca/",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "962a386911bb6478",
+      "title": "Free food bank · 600 O'Neil Drive West",
+      "description": "Located at the Brady Park Clubhouse. Open every Tuesday 12:00 PM to 3:00 PM",
+      "store": "Garson Community Food Bank",
+      "dealType": [
+        "free"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://www.facebook.com/GarsonFoodBank",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "a34c77f19b1e122a",
+      "title": "Free food bank · 4680 Lafontaine Street",
+      "description": "Located at the old fire hall. Last two Wednesdays of the month, 10:00 AM to 2:00 PM",
+      "store": "Valley East Good Neighbour Food Bank",
+      "dealType": [
+        "free"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "http://www.valleyeasttoday.ca/FoodBanks/goodneighbours.htm",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "cc90f41728ba683b",
+      "title": "Free food bank · 100 Gaudette Street",
+      "description": "",
+      "store": "St. Alexander Food Bank",
+      "dealType": [
+        "free"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://opendata.greatersudbury.ca/datasets/Sudbury::earthcare-sudbury-food-access-map",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "d7e3f9d7f07e1159",
+      "title": "Free food bank · 215 Sixth Avenue",
+      "description": "Open Thursdays 1:00 PM to 3:00 PM",
+      "store": "Walden Food Bank",
+      "dealType": [
+        "free"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://www.facebook.com/pages/Walden-Food-Bank/233394686812947?ref=stream",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "d98d8e85effeb7f5",
+      "title": "Free food bank · 1169 Dollard Avenue",
+      "description": "Food available Tuesday and Thursday mornings 10:00 AM to 12 noon.",
+      "store": "New Sudbury Food Bank (through Inner City Home of Sudbury)",
+      "dealType": [
+        "free"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "http://www.innercityhomesudbury.ca/",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "d9a7c8b1d042629c",
+      "title": "Free meal program · 344 Elgin Street",
+      "description": "Breakfast and Supper available seven days a week. Hours starting April 1st, 2014: Monday - Friday breakfast 8:00 am -9:30 am, Monday - Friday supper 6:00 pm - 7:30 pm, Saturday/Sunday brunch 10:00 am- 12 noon, Saturday/Sunday supper 6:00 pm -7:30 pm.",
+      "store": "Elgin Street Mission",
+      "dealType": [
+        "free"
+      ],
+      "category": "food-restaurants",
+      "location": "sudbury",
+      "url": "http://www.themission.ca/",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "f5eddfc6a186fc7a",
+      "title": "Free food bank · 2 Hillside, Suite F",
+      "description": "Available to residents of Onaping Falls and Cartier areas. Open every third and fourth Wednesday of the month 4 pm to 7 pmPlease call first for information.",
+      "store": "Falls Food",
+      "dealType": [
+        "free"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "http://www.sudburyfoodbank.ca/levack-food-bank.aspx",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "06b4407eb538b5e8",
+      "title": "Good Food Box (affordable produce) · 105 Elm Street, Suite E4",
+      "description": "The Good Food Box buys fresh fruit and vegetables in wholesale quantities so people can purchase them at more affordable prices.",
+      "store": "Good Food Box @ Shkagamik-Kwe Community Centre",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "http://goodfoodboxsudbury.ca/",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "18fba03ae89a833a",
+      "title": "Good Food Box (affordable produce) · 24 Delamere Road,",
+      "description": "",
+      "store": "Univi Health Centre / French River Nurse Practitioner- Led Clinic",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "http://goodfoodboxsudbury.ca/",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "36c4d50d5cdbeeea",
+      "title": "Good Food Box (affordable produce) · 450 Morin Street",
+      "description": "The Good Food Box buys fresh fruit and vegetables in wholesale quantities so people can purchase them at more affordable prices.",
+      "store": "Better Beginnings Better Future",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "http://goodfoodboxsudbury.ca/",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "4662df85e424f8e3",
+      "title": "Good Food Box (affordable produce) · 100 Gaudette Street",
+      "description": "",
+      "store": "St. Alexander Good Food Box",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://opendata.greatersudbury.ca/datasets/Sudbury::earthcare-sudbury-food-access-map",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "504d0c3800034d2f",
+      "title": "Good Food Box (affordable produce) · 259 Taighwenini Trail Road",
+      "description": "",
+      "store": "Wahnapitae First Nation",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "http://goodfoodboxsudbury.ca/",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "a62c1fac15fe345d",
+      "title": "Good Food Box (affordable produce) · 1127 Bancroft Drive",
+      "description": "The Good Food Box buys fresh fruit and vegetables in wholesale quantities so people can purchase them at more affordable prices.",
+      "store": "Minnow Lake – Meals On Wheels",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "http://goodfoodboxsudbury.ca/",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "ada2893a6283a29c",
+      "title": "Good Food Box (affordable produce) · 72 Young Street",
+      "description": "The Good Food Box buys fresh fruit and vegetables in wholesale quantities so people can purchase them at more affordable prices.",
+      "store": "Bread & Roses - Trinity United Church",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "http://goodfoodboxsudbury.ca/",
+      "source": "sudbury-food-programs",
+      "scrapedAt": "2025-06-24T14:51:02.000Z",
+      "attribution": "Contains information licensed under the Open Data Licence – City of Greater Sudbury.",
+      "ongoing": true
+    },
+    {
+      "id": "0c8d07b48a534590",
+      "title": "JetBrains Student Pack",
+      "description": "Renewable one-year licences for JetBrains coding tools at no cost for students.",
+      "store": "JetBrains",
+      "dealType": [
+        "student",
+        "online"
+      ],
+      "category": "services",
+      "location": "ontario",
+      "url": "https://www.jetbrains.com/academy/student-pack/",
+      "source": "student-discounts",
+      "scrapedAt": "2026-10-20T16:42:21.361Z",
+      "ongoing": true
+    },
+    {
+      "id": "2a5f811c3ea690c9",
+      "title": "Adobe Creative Cloud for students",
+      "description": "Creative Cloud apps at a student price for students at accredited schools.",
+      "store": "Adobe",
+      "dealType": [
+        "student",
+        "online"
+      ],
+      "category": "services",
+      "location": "ontario",
+      "url": "https://www.adobe.com/ca/creativecloud/buy/students.html",
+      "source": "student-discounts",
+      "scrapedAt": "2026-10-20T16:42:21.361Z",
+      "ongoing": true
+    },
+    {
+      "id": "53563fc722604fdd",
+      "title": "ISIC international student card",
+      "description": "The international student ID card, with travel, shopping and museum discounts in Canada and abroad.",
+      "store": "ISIC Canada",
+      "dealType": [
+        "student",
+        "online",
+        "in-store"
+      ],
+      "category": "other",
+      "location": "ontario",
+      "url": "https://isic.ca/",
+      "source": "student-discounts",
+      "scrapedAt": "2026-10-20T16:42:21.361Z",
+      "ongoing": true
+    },
+    {
+      "id": "7969c29941f0e957",
+      "title": "Apple Music student plan",
+      "description": "A discounted Apple Music plan for verified college and university students.",
+      "store": "Apple",
+      "dealType": [
+        "student",
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ontario",
+      "url": "https://www.apple.com/ca/apple-music/",
+      "source": "student-discounts",
+      "scrapedAt": "2026-10-20T16:42:21.361Z",
+      "ongoing": true
+    },
+    {
+      "id": "832111fbdf7a484c",
+      "title": "Student Beans deals",
+      "description": "A student discount site and app with codes for fashion, tech, food and more.",
+      "store": "Student Beans",
+      "dealType": [
+        "student",
+        "online"
+      ],
+      "category": "other",
+      "location": "ontario",
+      "url": "https://www.studentbeans.com/ca",
+      "source": "student-discounts",
+      "scrapedAt": "2026-10-20T16:42:21.361Z",
+      "ongoing": true
+    },
+    {
+      "id": "86ff8227e590f3c5",
+      "title": "GitHub Student Developer Pack",
+      "description": "Developer tools and services at no cost for verified students in degree or diploma programs.",
+      "store": "GitHub",
+      "dealType": [
+        "student",
+        "online"
+      ],
+      "category": "services",
+      "location": "ontario",
+      "url": "https://education.github.com/pack",
+      "source": "student-discounts",
+      "scrapedAt": "2026-10-20T16:42:21.361Z",
+      "ongoing": true
+    },
+    {
+      "id": "9e6901bad110dbc6",
+      "title": "UNiDAYS student deals",
+      "description": "Verify once that you're a student to unlock discounts at many brands for a year.",
+      "store": "UNiDAYS",
+      "dealType": [
+        "student",
+        "online"
+      ],
+      "category": "other",
+      "location": "ontario",
+      "url": "https://www.myunidays.com/CA/en-CA",
+      "source": "student-discounts",
+      "scrapedAt": "2026-10-20T16:42:21.361Z",
+      "ongoing": true
+    },
+    {
+      "id": "9fddfbabd728da69",
+      "title": "Microsoft 365 for students (Office)",
+      "description": "Word, Excel, PowerPoint, Outlook and OneNote on the web at no cost for students with an eligible school email.",
+      "store": "Microsoft",
+      "dealType": [
+        "student",
+        "online"
+      ],
+      "category": "services",
+      "location": "ontario",
+      "url": "https://www.microsoft.com/en-ca/education/products/office",
+      "source": "student-discounts",
+      "scrapedAt": "2026-10-20T16:42:21.361Z",
+      "ongoing": true
+    },
+    {
+      "id": "afc240b33da8be52",
+      "title": "Apple education pricing",
+      "description": "Education prices on Macs, iPads and accessories for university and college students, their parents, and staff.",
+      "store": "Apple",
+      "dealType": [
+        "student",
+        "online"
+      ],
+      "category": "electronics",
+      "location": "ontario",
+      "url": "https://www.apple.com/ca-edu/store",
+      "source": "student-discounts",
+      "scrapedAt": "2026-10-20T16:42:21.361Z",
+      "ongoing": true
+    },
+    {
+      "id": "c677f4713f5271e0",
+      "title": "Prime Student",
+      "description": "A trial, then Prime at a student rate, for college and university students who sign up with a school email.",
+      "store": "Amazon.ca",
+      "dealType": [
+        "student",
+        "online"
+      ],
+      "category": "services",
+      "location": "ontario",
+      "url": "https://www.amazon.ca/joinstudent",
+      "source": "student-discounts",
+      "scrapedAt": "2026-10-20T16:42:21.361Z",
+      "ongoing": true
+    },
+    {
+      "id": "d06853cfb0c633b8",
+      "title": "Spotify Premium Student",
+      "description": "Discounted Premium for students at accredited colleges and universities, after a quick student check.",
+      "store": "Spotify",
+      "dealType": [
+        "student",
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ontario",
+      "url": "https://www.spotify.com/ca-en/student/",
+      "source": "student-discounts",
+      "scrapedAt": "2026-10-20T16:42:21.361Z",
+      "ongoing": true
+    },
+    {
+      "id": "d47c313ff321b7a7",
+      "title": "SPC student discount membership",
+      "description": "A yearly membership app with student discounts at hundreds of Canadian brands, online and in store.",
+      "store": "SPC",
+      "dealType": [
+        "student",
+        "online",
+        "in-store"
+      ],
+      "category": "other",
+      "location": "ontario",
+      "url": "https://www.spccard.ca/",
+      "source": "student-discounts",
+      "scrapedAt": "2026-10-20T16:42:21.361Z",
+      "ongoing": true
+    },
+    {
+      "id": "d7302aa8c80fcc84",
+      "title": "YouTube Premium student membership",
+      "description": "A discounted YouTube Premium membership for students in higher education, after a student check.",
+      "store": "YouTube",
+      "dealType": [
+        "student",
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ontario",
+      "url": "https://www.youtube.com/premium/student",
+      "source": "student-discounts",
+      "scrapedAt": "2026-10-20T16:42:21.361Z",
+      "ongoing": true
+    },
+    {
+      "id": "db4a46e412b915bd",
+      "title": "Dell student discount",
+      "description": "An extra discount on Dell laptops and more for verified high school (16+), college and university students.",
+      "store": "Dell",
+      "dealType": [
+        "student",
+        "online"
+      ],
+      "category": "electronics",
+      "location": "ontario",
+      "url": "https://www.dell.com/en-ca/shop/member/lp/students",
+      "source": "student-discounts",
+      "scrapedAt": "2026-10-20T16:42:21.361Z",
+      "ongoing": true
+    },
+    {
+      "id": "f7deef256023d59f",
+      "title": "Figma for Education",
+      "description": "Figma's professional design tools at no cost for verified students and educators.",
+      "store": "Figma",
+      "dealType": [
+        "student",
+        "online"
+      ],
+      "category": "services",
+      "location": "ontario",
+      "url": "https://www.figma.com/education/",
+      "source": "student-discounts",
+      "scrapedAt": "2026-10-20T16:42:21.361Z",
+      "ongoing": true
+    },
+    {
+      "id": "fb80a28953250e4d",
+      "title": "Notion Education plan",
+      "description": "Notion's Education plan at no cost for college and university students using a school email.",
+      "store": "Notion",
+      "dealType": [
+        "student",
+        "online"
+      ],
+      "category": "services",
+      "location": "ontario",
+      "url": "https://www.notion.com/product/notion-for-education",
+      "source": "student-discounts",
+      "scrapedAt": "2026-10-20T16:42:21.361Z",
+      "ongoing": true
+    },
+    {
+      "id": "29b579d1a43f44bf",
+      "title": "Pigeon West: Call Of Gun. ISEKAI",
+      "description": "What if the Wild West’s most dangerous outlaw got isekai’d into a generic world—not even as the main hero?",
+      "store": "itch.io",
+      "originalPrice": 1,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://squidsquadpapi.itch.io/pigeon-west-call-of-gun-isekai",
+      "imageUrl": "https://img.itch.zone/aW1nLzIwMzA1NjU5LmpwZw==/315x250%23c/1wj2sv.jpg",
+      "endDate": "2026-10-30",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "3f0c9b71901d8056",
+      "title": "Family Manners",
+      "description": "It’s just another typical day in the wonderful life of the Evans, right?",
+      "store": "itch.io",
+      "originalPrice": 2.99,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://nney.itch.io/family-manners",
+      "imageUrl": "https://img.itch.zone/aW1nLzMwOTU0MjI3LnBuZw==/315x250%23c/L6NDxI.png",
+      "endDate": "2026-10-26",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "4065bed8f894b5ce",
+      "title": "PARTY LINE",
+      "description": "The Party is listening",
+      "store": "itch.io",
+      "originalPrice": 1,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://notsospecialgames.itch.io/party-line",
+      "imageUrl": "https://img.itch.zone/aW1nLzMwODYyMzE4LnBuZw==/315x250%23c/qHkm4c.png",
+      "endDate": "2026-10-25",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "67d6ec9821ab17bd",
+      "title": "Trox The Reversal",
+      "description": "\"When survival becomes the law\".",
+      "store": "itch.io",
+      "originalPrice": 1,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://troj4nblazing.itch.io/trox-the-reversal",
+      "imageUrl": "https://img.itch.zone/aW1nLzMwNDk3MDQ1LmdpZg==/original/lL7fAo.gif",
+      "endDate": "2026-10-31",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "6ff1e7e2511ee048",
+      "title": "The Green Light",
+      "description": "A first-person horror game. Trapped in a dead-end job, Fred follows a voice promising peace through a green light.",
+      "store": "itch.io",
+      "originalPrice": 9.99,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://waleedzo.itch.io/the-green-light",
+      "imageUrl": "https://img.itch.zone/aW1nLzI3OTI1MjMwLnBuZw==/315x250%23c/9OPXob.png",
+      "endDate": "2026-10-24",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "86f28aec9806d021",
+      "title": "THE MIDNIGHT BUS",
+      "description": "No way out - Psychological Horror",
+      "store": "itch.io",
+      "originalPrice": 1.99,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://itandfeel.itch.io/the-midnight-bus",
+      "imageUrl": "https://img.itch.zone/aW1nLzE2NzQ5ODExLnBuZw==/315x250%23c/BXy8h%2F.png",
+      "endDate": "2026-10-22",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "90e97e9cd016e891",
+      "title": "Sabado: Day One",
+      "description": "3D Mystery Anime Horror",
+      "store": "itch.io",
+      "originalPrice": 1,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://kiwidreams-01.itch.io/sabado-day-one",
+      "imageUrl": "https://img.itch.zone/aW1nLzI4OTYwODY4LmpwZw==/315x250%23c/P5P0sT.jpg",
+      "endDate": "2026-10-29",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "9bee1e1574867107",
+      "title": "Fear Assessment",
+      "description": "Take an assessment for fear-based torture methods",
+      "store": "itch.io",
+      "originalPrice": 1,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://alexander-wiseman.itch.io/fear-assessment",
+      "imageUrl": "https://img.itch.zone/aW1nLzIxMTk0MDU2LmdpZg==/original/eFLzVJ.gif",
+      "endDate": "2026-11-01",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "b053365241a15de3",
+      "title": "Lost In Transit",
+      "description": "The next package is waiting.",
+      "store": "itch.io",
+      "originalPrice": 1.99,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://boxer-gaming.itch.io/lost-in-transit",
+      "imageUrl": "https://img.itch.zone/aW1nLzI4OTQ2MzYwLnBuZw==/315x250%23c/ZjdSCf.png",
+      "endDate": "2026-10-24",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "b910dbe28dd36359",
+      "title": "Cherophobia",
+      "description": "You find yourself stranded in a forest after your car breaks down.",
+      "store": "itch.io",
+      "originalPrice": 1.99,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://worsteventgames.itch.io/cherophobia",
+      "imageUrl": "https://img.itch.zone/aW1nLzE1OTgwMjk2LmpwZw==/315x250%23c/OIQ5Ad.jpg",
+      "endDate": "2026-10-22",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "b96158799592cba8",
+      "title": "The Black Within",
+      "description": "The Black Within follows Laila Rose as her quest for fame drives her into a chilling, eerie descent.",
+      "store": "itch.io",
+      "originalPrice": 9.99,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://waleedzo.itch.io/the-black-within",
+      "imageUrl": "https://img.itch.zone/aW1nLzE3NDAzOTA4LnBuZw==/315x250%23c/W2OrK5.png",
+      "endDate": "2026-10-24",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "f0081a50375ffadd",
+      "title": "PARTY LINE: RECLASSIFIED",
+      "description": "The Party is still listening.",
+      "store": "itch.io",
+      "originalPrice": 2.99,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://notsospecialgames.itch.io/party-line-reclassified",
+      "imageUrl": "https://img.itch.zone/aW1nLzMwNzMzNTQ4LnBuZw==/315x250%23c/nLPlXe.png",
+      "endDate": "2026-10-25",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "f8ab9bfca9bd0d83",
+      "title": "Brütal Legend",
+      "description": "Brütal Legend is an action-adventure that marries visceral action combat with open-world freedom.",
+      "store": "itch.io",
+      "originalPrice": 14.99,
+      "salePrice": 2.24,
+      "discountPercent": 85,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://doublefine.itch.io/brutal-legend",
+      "imageUrl": "https://img.itch.zone/aW1hZ2UvNjMwNTgvNjQ1Nzc1LnBuZw==/315x250%23c/Pg2D5v.png",
+      "endDate": "2026-10-20",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "64d7a4dc0c73b06a",
+      "title": "Demetrios - The BIG Cynical Adventure",
+      "description": "The Journey of an Idiot. 8 to 12 hours of fun!",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 0.99,
+      "discountPercent": 80,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://cowcat.itch.io/demetrios",
+      "imageUrl": "https://img.itch.zone/aW1hZ2UvNjgwMDQvMzA5MTg5LnBuZw==/315x250%23c/2HcTG7.png",
+      "endDate": "2026-10-30",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "b9e6089a73089d3d",
+      "title": "Lihiman (Full Game)",
+      "description": "Cute 3D Family Horror (Full Game)",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 1.24,
+      "discountPercent": 75,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://kiwidreams-01.itch.io/lihiman-full",
+      "imageUrl": "https://img.itch.zone/aW1nLzI2NzE4MTY2LnBuZw==/315x250%23c/5gHhAZ.png",
+      "endDate": "2026-10-29",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "3aaa798626ccc498",
+      "title": "Death is a Guest",
+      "description": "What the hell happened to Mr. Host? Solve the mystery and maybe find love along the way.",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 1.49,
+      "discountPercent": 70,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://honeybunny-of.itch.io/deathguest",
+      "imageUrl": "https://img.itch.zone/aW1nLzE1MTMwOTk1LmpwZw==/315x250%23c/zx2tS2.jpg",
+      "endDate": "2026-10-31",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "a3c6492c163225d7",
+      "title": "Cosmic Express",
+      "description": "A puzzle game about planning the train route for the world's most awkward space colony",
+      "store": "itch.io",
+      "originalPrice": 14.99,
+      "salePrice": 4.49,
+      "discountPercent": 70,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://draknek.itch.io/cosmic-express",
+      "imageUrl": "https://img.itch.zone/aW1hZ2UvMTIxNjE0LzcwMjQ3NS5naWY=/original/Dh7tYb.gif",
+      "endDate": "2026-11-02",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "2ec2686f27345643",
+      "title": "My teacher",
+      "description": "Who could it mean that evening extra classes with a teacher would lead to something more?",
+      "store": "itch.io",
+      "originalPrice": 4,
+      "salePrice": 2,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://w3stgta.itch.io/my-teacher",
+      "imageUrl": "https://img.itch.zone/aW1nLzIxMzgyMDI1LnBuZw==/315x250%23c/GD0z3f.png",
+      "endDate": "2026-11-08",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "2f809af0ce51b039",
+      "title": "Where Winter Crows Go",
+      "description": "Would you risk living together with a stranger in an isolated cabin to avoid the freezing cold?",
+      "store": "itch.io",
+      "originalPrice": 5,
+      "salePrice": 2.5,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://prikarin.itch.io/where-winter-crows-go",
+      "imageUrl": "https://img.itch.zone/aW1nLzEzNzkwNTM2LnBuZw==/315x250%23c/a3UnLy.png",
+      "endDate": "2026-10-31",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "8fd7a12de4f5528f",
+      "title": "Pixel Fireplace",
+      "description": "Type commands, roast marshmallows, throw logs onto a crackling fire. Enjoy",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 2.49,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://hammertail.itch.io/pixel-fireplace",
+      "imageUrl": "https://img.itch.zone/aW1hZ2UvOTEwMTQvNDM5MzE0LmdpZg==/original/mmlbag.gif",
+      "endDate": "2026-10-26",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "b23aab363fb02ac4",
+      "title": "Kalayaan Road",
+      "description": "Play as Kuya Jesse, a fresh architecture graduate uncovering his father's dark secret.",
+      "store": "itch.io",
+      "originalPrice": 3.99,
+      "salePrice": 1.99,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://lawdgames.itch.io/kalayaan-road",
+      "imageUrl": "https://img.itch.zone/aW1nLzI4Nzc3MjU3LnBuZw==/315x250%23c/RC7k%2BQ.png",
+      "endDate": "2026-11-14",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "cc3faeaf29a258d0",
+      "title": "BROK the InvestiGator",
+      "description": "One croc. Lots of trouble...!",
+      "store": "itch.io",
+      "originalPrice": 19.99,
+      "salePrice": 9.99,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://cowcat.itch.io/brok",
+      "imageUrl": "https://img.itch.zone/aW1nLzIyMDM4NDYzLnBuZw==/315x250%23c/3khygU.png",
+      "endDate": "2026-10-30",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "e460094011ea9f2b",
+      "title": "OFFRECORD",
+      "description": "So much for a fresh start.",
+      "store": "itch.io",
+      "originalPrice": 4,
+      "salePrice": 2,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://redcap-games.itch.io/offrecord-episode-1",
+      "imageUrl": "https://img.itch.zone/aW1nLzMwOTg4Mzg4LnBuZw==/315x250%23c/0FjNAm.png",
+      "endDate": "2026-10-25",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "fbd10d78cc8e4ae0",
+      "title": "KILLCACHE",
+      "description": "Hunt giant monsters, strip them for parts, and get out alive. A top-down extraction shooter.",
+      "store": "itch.io",
+      "originalPrice": 10,
+      "salePrice": 5,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://verybadscavr.itch.io/killcache",
+      "imageUrl": "https://img.itch.zone/aW1nLzMwNjE3NTcyLnBuZw==/315x250%23c/eBDMTz.png",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "f09b5db4ededcce4",
+      "title": "The Failure Even Death Rejects Otome/BL Complete",
+      "description": "A contract for death turns into a dangerous game of love.",
+      "store": "itch.io",
+      "originalPrice": 22,
+      "salePrice": 15.4,
+      "discountPercent": 30,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://bigdeal.itch.io/the-failure-even-death-rejects",
+      "imageUrl": "https://img.itch.zone/aW1nLzI1NTExOTk0LmpwZw==/315x250%23c/6R4Xau.jpg",
+      "endDate": "2026-10-26",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "3f28dfbbbd633763",
+      "title": "Ruby's Trick or Treat [Halloween Anime Horror]",
+      "description": "She's back for more. An anime horror game where breaking the rules has deadly consequences.",
+      "store": "itch.io",
+      "originalPrice": 2.99,
+      "salePrice": 2.24,
+      "discountPercent": 25,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://kripkode.itch.io/rubys-trick-or-treat",
+      "imageUrl": "https://img.itch.zone/aW1nLzMxMDY3MTA0LnBuZw==/315x250%23c/LNbvX7.png",
+      "endDate": "2026-10-25",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "b476cf71ea665453",
+      "title": "The Wrong Way",
+      "description": "",
+      "store": "itch.io",
+      "originalPrice": 3.99,
+      "salePrice": 2.99,
+      "discountPercent": 25,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://zestosyt.itch.io/the-wrong-way",
+      "imageUrl": "https://img.itch.zone/aW1nLzMwMzc5NzUzLnBuZw==/315x250%23c/d%2BMEAw.png",
+      "endDate": "2026-11-01",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "d17673d554ab08ba",
+      "title": "UNEARTHED",
+      "description": "An Interstellar Puzzle Game",
+      "store": "itch.io",
+      "originalPrice": 12,
+      "salePrice": 9,
+      "discountPercent": 25,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://benjelter.itch.io/unearthed",
+      "imageUrl": "https://img.itch.zone/aW1nLzIzMDA3MjkwLnBuZw==/315x250%23c/PvqydM.png",
+      "endDate": "2026-10-31",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "fae937199a041bbe",
+      "title": "First Contact Protocol",
+      "description": "A sci-fi adventure game with branching choices and a crew fighting to survive.",
+      "store": "itch.io",
+      "originalPrice": 13,
+      "salePrice": 9.75,
+      "discountPercent": 25,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://benjelter.itch.io/first-contact-protocol",
+      "imageUrl": "https://img.itch.zone/aW1nLzIyMDk2MDkzLnBuZw==/315x250%23c/%2BNeZbT.png",
+      "endDate": "2026-10-31",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "1adf4883774bfd60",
+      "title": "The Mayor of Sanctuary",
+      "description": "Expanded Edition",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 3.99,
+      "discountPercent": 20,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://naramakesgames.itch.io/the-mayor-of-sanctuary",
+      "imageUrl": "https://img.itch.zone/aW1nLzE3ODQ1NDQ4LmpwZw==/315x250%23c/7QbTSq.jpg",
+      "endDate": "2026-11-01",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
+    },
+    {
+      "id": "325f91fe99814cf3",
+      "title": "Roguecraft DX (ZX Spectrum Next)",
+      "description": "A modern roguelike for the ZX Spectrum Next!",
+      "store": "itch.io",
+      "originalPrice": 9.99,
+      "salePrice": 7.99,
+      "discountPercent": 20,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://thalamusdigital.itch.io/roguecraft-dx-next",
+      "imageUrl": "https://img.itch.zone/aW1nLzI2MDM5MjcwLnBuZw==/315x250%23c/d0YesO.png",
+      "endDate": "2026-10-24",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "currency": "USD"
     }
   ]
 }

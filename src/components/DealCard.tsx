@@ -1,6 +1,5 @@
 "use client";
 
-import type { MouseEvent } from "react";
 import type { Deal } from "@shared/deal";
 import {
   DealBadges,
@@ -8,33 +7,24 @@ import {
   DealThumbnail,
   DealTitleText,
   DiscountBadge,
+  UnitPrice,
 } from "@/components/DealParts";
 import { Avatar } from "@/components/ui/Avatar";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { cn } from "@/lib/cn";
 import { daysBetween, endsLabel } from "@/lib/format";
-import { openDeal } from "@/lib/url-state";
-
-/** Link that opens this deal's detail popup (the ?deal= param), keeping current filters. */
-function dealHref(search: string, id: string) {
-  const params = new URLSearchParams(search);
-  params.set("deal", id);
-  return `?${params.toString()}`;
-}
+import { dealHref, onDealClick } from "@/lib/url-state";
 
 type DealCardProps = { deal: Deal; today: string; search: string };
 
 /** One deal. The whole card is clickable (via the title link stretched over it). */
 export function DealCard({ deal, today, search }: DealCardProps) {
-  const ends = deal.endDate ? endsLabel(deal.endDate, today) : null;
+  const ends = deal.endDate
+    ? endsLabel(deal.endDate, today)
+    : deal.ongoing
+      ? "Ongoing program"
+      : null;
   const endsSoon = deal.endDate ? daysBetween(today, deal.endDate) <= 1 : false;
-
-  const open = (e: MouseEvent<HTMLAnchorElement>) => {
-    // Let Ctrl/Cmd/middle-click open a new tab as usual.
-    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-    e.preventDefault();
-    openDeal(deal.id);
-  };
 
   return (
     <GlassCard
@@ -54,7 +44,7 @@ export function DealCard({ deal, today, search }: DealCardProps) {
         <h3 className="line-clamp-3 flex-1 text-[0.9375rem] leading-snug font-medium text-pretty">
           <a
             href={dealHref(search, deal.id)}
-            onClick={open}
+            onClick={onDealClick(deal.id)}
             className="outline-none after:absolute after:inset-0 after:rounded-3xl after:content-['']"
           >
             <DealTitleText title={deal.title} />
@@ -64,9 +54,12 @@ export function DealCard({ deal, today, search }: DealCardProps) {
       </div>
 
       <div className="mt-auto flex flex-col gap-3">
-        <div className="flex items-center gap-2">
-          <DealPrice deal={deal} />
-          <DiscountBadge deal={deal} className="ml-auto" />
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center gap-2">
+            <DealPrice deal={deal} />
+            <DiscountBadge deal={deal} className="ml-auto" />
+          </div>
+          <UnitPrice deal={deal} />
         </div>
         <DealBadges deal={deal} />
         {ends && (

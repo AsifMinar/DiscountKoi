@@ -4,6 +4,7 @@ import { ButtonLink } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Page not found",
+  description: "This page doesn't exist on Discount Koi, Sudbury's deals site.",
 };
 
 /** Friendly 404. The static export writes this out as 404.html, which GitHub Pages serves. */

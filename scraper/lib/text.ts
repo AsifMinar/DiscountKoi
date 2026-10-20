@@ -75,3 +75,9 @@ export function fold(text: string): string {
     .replace(/\p{Diacritic}/gu, "")
     .toLowerCase();
 }
+
+/** "No Frills" → "No Frills'", "Metro" → "Metro's". For names like "Food Basics' site". */
+export function possessive(name: string): string {
+  const trimmed = name.trim();
+  return /s$/i.test(trimmed) ? `${trimmed}'` : `${trimmed}'s`;
+}

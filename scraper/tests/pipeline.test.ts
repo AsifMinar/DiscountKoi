@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { buildDealsFile, type SourceRun } from "../pipeline";
+import { buildDealsFile, runProblem, type SourceRun } from "../pipeline";
 import type { RawDeal } from "../sources/types";
 
 const NOW = new Date("2026-10-20T10:05:00Z"); // 6:05 AM in Sudbury
@@ -141,4 +141,43 @@ test("sample data is dropped on the first real run", () => {
     ["Real"],
   );
   assert.equal(summary.removed, 1);
+});
+
+test("runProblem: a healthy run passes", () => {
+  const { summary } = buildDealsFile(null, [ok("flyers", [raw()])], NOW);
+  assert.equal(runProblem(summary), null);
+});
+
+test("runProblem: 0 deals fails the run", () => {
+  const { summary } = buildDealsFile(null, [ok("flyers", [])], NOW);
+  assert.match(runProblem(summary) ?? "", /0 deals/);
+});
+
+test("runProblem: every source failing fails the run, even if old deals were kept", () => {
+  const first = buildDealsFile(null, [ok("flyers", [raw()])], NOW);
+  const { summary } = buildDealsFile(
+    first.file,
+    [{ id: "flyers", name: "flyers", status: "failed", raw: [], error: "boom" }],
+    NOW,
+  );
+  assert.equal(summary.total, 1, "the old deal is still kept");
+  assert.match(runProblem(summary) ?? "", /every source failed/);
+});
+
+test("runProblem: one failure among working sources is fine", () => {
+  const { summary } = buildDealsFile(
+    null,
+    [ok("flyers", [raw()]), { id: "rfd", name: "rfd", status: "blocked", raw: [], error: "403" }],
+    NOW,
+  );
+  assert.equal(runProblem(summary), null);
+});
+
+test("runProblem: disabled and not-run sources don't count as failures", () => {
+  const { summary } = buildDealsFile(
+    null,
+    [ok("flyers", [raw()]), { id: "rfd", name: "rfd", status: "disabled", raw: [] }],
+    NOW,
+  );
+  assert.equal(runProblem(summary), null);
 });

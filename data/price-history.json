@@ -1,0 +1,7 @@
+{
+  "_about": [
+    "Written by the scraper. One entry per product, store and listing date, kept for 90 days.",
+    "Used for the 'Price drop' badge. Safe to delete: it starts again from the next run."
+  ],
+  "entries": []
+}
