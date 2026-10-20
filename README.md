@@ -162,6 +162,30 @@ If a source throws, the run carries on and that source's previous deals are kept
 | 14-day / 7-day expiry, request delays | `scraper/config.ts`                                           |
 | Category names shown on the site      | `shared/taxonomy.ts` (change `label` only, never `id`)        |
 
+## Edit the weekly flyer stores
+
+`data/flyer-stores.json` lists the Sudbury stores that get a weekly flyer card. Each card links to
+the store's official flyer and is titled with that week's dates (e.g. "No Frills weekly flyer · Oct
+22–28"). Nothing is copied from the flyer itself, and no website is contacted to make the cards.
+
+```json
+{
+  "store": "No Frills",
+  "url": "https://www.nofrills.ca/en/deals/flyer",
+  "startsOn": "thu",
+  "label": "weekly flyer",
+  "category": "grocery"
+}
+```
+
+`startsOn` is the weekday a new flyer begins (`mon` … `sun`); the card runs until the day before the
+next one. The start days are best guesses, so check them against real flyers and correct any that
+are off.
+
+> **Why links instead of scraped prices?** The flyer sites' terms (Flipp, which hosts most Canadian
+> flyers, and each chain's own site) forbid copying or republishing their content, so Discount Koi
+> links to the flyers instead.
+
 ## Edit student discounts _(coming in Phase 5)_
 
 ## Deploy to GitHub Pages _(coming in Phase 6)_

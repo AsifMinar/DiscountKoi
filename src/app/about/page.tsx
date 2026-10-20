@@ -60,9 +60,9 @@ export default function AboutPage() {
 
       <Section title="Where the deals come from">
         <p>
-          Only public sources: store flyers, retailer deal and clearance pages, community deal posts
-          on RedFlagDeals, and a hand-picked list of student discounts. Each deal links straight to
-          where it was posted.
+          Every week Discount Koi links you to each Sudbury store&apos;s official flyer, alongside a
+          hand-picked list of student discounts. It doesn&apos;t copy flyers or prices from store
+          websites: every card links straight to the original, where the full details live.
         </p>
         <p>
           Discount Koi isn&apos;t affiliated with any store. Store and brand names belong to their

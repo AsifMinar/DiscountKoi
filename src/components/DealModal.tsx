@@ -3,7 +3,13 @@
 import { useEffect, useRef, type ReactNode } from "react";
 import type { Deal } from "@shared/deal";
 import { categoryLabel, type LocationId } from "@shared/taxonomy";
-import { DealBadges, DealPrice, DealThumbnail, DiscountBadge } from "@/components/DealParts";
+import {
+  DealBadges,
+  DealPrice,
+  DealThumbnail,
+  DealTitleText,
+  DiscountBadge,
+} from "@/components/DealParts";
 import { ArrowUpRightIcon, CloseIcon } from "@/components/icons";
 import { Avatar } from "@/components/ui/Avatar";
 import { Button, ButtonLink, buttonClasses } from "@/components/ui/Button";
@@ -35,7 +41,7 @@ function DealDetails({ deal, today }: { deal: Deal; today: string }) {
       <div className="flex items-start gap-4">
         <div className="flex min-w-0 flex-1 flex-col gap-3">
           <h2 id="deal-title" className="text-2xl leading-tight font-semibold tracking-tight">
-            {deal.title}
+            <DealTitleText title={deal.title} />
           </h2>
           <div className="flex flex-wrap items-center gap-3">
             <DealPrice deal={deal} size="lg" />
@@ -77,7 +83,9 @@ function DealDetails({ deal, today }: { deal: Deal; today: string }) {
 
       <div className="flex flex-col gap-3">
         <ButtonLink href={deal.url} external size="lg" className="w-full sm:w-auto sm:self-start">
-          Get this deal <ArrowUpRightIcon className="size-4" />
+          {/* Flyer cards just point at the store's flyer, so say where the button goes. */}
+          {deal.source === "flyer-links" ? `Open on ${hostOf(deal.url)}` : "Get this deal"}
+          <ArrowUpRightIcon className="size-4" />
         </ButtonLink>
         <p className="text-xs text-pretty text-ink-muted">
           Opens {hostOf(deal.url)} in a new tab. Deals come from public sources and can change, so

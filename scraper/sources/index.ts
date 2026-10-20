@@ -1,3 +1,4 @@
+import { flyerLinks } from "./flyer-links";
 import type { Source } from "./types";
 
 /**
@@ -5,4 +6,4 @@ import type { Source } from "./types";
  * deal, the one listed first wins). To add a source: create a file in this folder
  * that exports a `Source`, import it here, and add it to the list.
  */
-export const SOURCES: Source[] = [];
+export const SOURCES: Source[] = [flyerLinks];

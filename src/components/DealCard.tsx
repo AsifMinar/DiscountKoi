@@ -2,7 +2,13 @@
 
 import type { MouseEvent } from "react";
 import type { Deal } from "@shared/deal";
-import { DealBadges, DealPrice, DealThumbnail, DiscountBadge } from "@/components/DealParts";
+import {
+  DealBadges,
+  DealPrice,
+  DealThumbnail,
+  DealTitleText,
+  DiscountBadge,
+} from "@/components/DealParts";
 import { Avatar } from "@/components/ui/Avatar";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { cn } from "@/lib/cn";
@@ -45,13 +51,13 @@ export function DealCard({ deal, today, search }: DealCardProps) {
       </div>
 
       <div className="flex items-start gap-3">
-        <h3 className="line-clamp-3 flex-1 text-[0.9375rem] leading-snug font-medium">
+        <h3 className="line-clamp-3 flex-1 text-[0.9375rem] leading-snug font-medium text-pretty">
           <a
             href={dealHref(search, deal.id)}
             onClick={open}
             className="outline-none after:absolute after:inset-0 after:rounded-3xl after:content-['']"
           >
-            {deal.title}
+            <DealTitleText title={deal.title} />
           </a>
         </h3>
         {deal.imageUrl && <DealThumbnail src={deal.imageUrl} />}

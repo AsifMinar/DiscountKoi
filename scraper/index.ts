@@ -32,7 +32,8 @@ function readPrevious(): DealsFile | null {
 }
 
 async function main() {
-  const started = Date.now();
+  const now = new Date();
+  const started = now.getTime();
   const previous = readPrevious();
   const http = new PoliteFetcher(log);
   const runs: SourceRun[] = [];
@@ -56,7 +57,7 @@ async function main() {
       }
       log(`▶ ${source.name}`);
       try {
-        const raw = await source.fetchDeals({ http, log: (m) => log(`  ${m}`) });
+        const raw = await source.fetchDeals({ http, log: (m) => log(`  ${m}`), now });
         runs.push({ ...base, status: "ok", raw });
         log(`  ✓ ${raw.length} deals found`);
       } catch (error) {
@@ -70,7 +71,7 @@ async function main() {
     await http.close();
   }
 
-  const { file, summary } = buildDealsFile(previous, runs, new Date());
+  const { file, summary } = buildDealsFile(previous, runs, now);
   console.log(formatSummary(summary, http.requestCount, (Date.now() - started) / 1000));
   writeGithubSummary(summary);
 

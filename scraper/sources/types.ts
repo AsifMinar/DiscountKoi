@@ -34,6 +34,8 @@ export type SourceContext = {
   /** Polite HTTP client: obeys robots.txt, waits 2–3 s between requests, identifies itself. */
   http: PoliteFetcher;
   log: (message: string) => void;
+  /** The time this run started (one shared clock for every source). */
+  now: Date;
 };
 
 /**

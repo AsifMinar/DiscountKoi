@@ -1,0 +1,77 @@
+{
+  "_howToEdit": [
+    "Each store below gets one card per flyer week on Discount Koi, linking to the store's own official flyer page.",
+    "Nothing from the flyer is copied: the card only says which week it is and links out.",
+    "store: name shown on the card. url: the store's official flyer (or weekly deals) page.",
+    "startsOn: weekday each new flyer begins (mon, tue, wed, thu, fri, sat, sun). A card runs from that day until the day before the next flyer.",
+    "label: what the card calls it, e.g. 'weekly flyer' or 'weekly deals'.",
+    "category: one of grocery, food-restaurants, electronics, fashion, home, health-beauty, sports-outdoors, kids-baby, pets, automotive, entertainment, services, other.",
+    "The start days are best guesses. Check them against a real flyer and fix any that are off.",
+    "To add a store, copy one entry, change it, and keep the commas between entries."
+  ],
+  "stores": [
+    {
+      "store": "No Frills",
+      "url": "https://www.nofrills.ca/en/deals/flyer",
+      "startsOn": "thu",
+      "label": "weekly flyer",
+      "category": "grocery"
+    },
+    {
+      "store": "Food Basics",
+      "url": "https://www.foodbasics.ca/en/flyer",
+      "startsOn": "thu",
+      "label": "weekly flyer",
+      "category": "grocery"
+    },
+    {
+      "store": "FreshCo",
+      "url": "https://www.freshco.com/flyer",
+      "startsOn": "thu",
+      "label": "weekly flyer",
+      "category": "grocery"
+    },
+    {
+      "store": "Metro",
+      "url": "https://www.metro.ca/en/flyer",
+      "startsOn": "thu",
+      "label": "weekly flyer",
+      "category": "grocery"
+    },
+    {
+      "store": "Walmart",
+      "url": "https://www.walmart.ca/en/flyer",
+      "startsOn": "thu",
+      "label": "weekly flyer",
+      "category": "other"
+    },
+    {
+      "store": "Giant Tiger",
+      "url": "https://www.gianttiger.com/collections/flyers-and-deals",
+      "startsOn": "wed",
+      "label": "weekly flyer",
+      "category": "other"
+    },
+    {
+      "store": "Shoppers Drug Mart",
+      "url": "https://www.shoppersdrugmart.ca/flyer",
+      "startsOn": "sat",
+      "label": "weekly flyer",
+      "category": "health-beauty"
+    },
+    {
+      "store": "Canadian Tire",
+      "url": "https://www.canadiantire.ca/en/promotions/hot-deals.html",
+      "startsOn": "thu",
+      "label": "weekly deals",
+      "category": "home"
+    },
+    {
+      "store": "Best Buy",
+      "url": "https://www.bestbuy.ca/en-ca/flyer",
+      "startsOn": "fri",
+      "label": "weekly deals",
+      "category": "electronics"
+    }
+  ]
+}

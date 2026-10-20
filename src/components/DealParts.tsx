@@ -11,6 +11,22 @@ import { formatPrice } from "@/lib/format";
 
 /* Small pieces shared by the deal card and the deal detail popup. */
 
+/**
+ * Deal title, keeping a trailing "· Oct 15–21" together on one line so dates never
+ * split as "Oct 15–" / "21".
+ */
+export function DealTitleText({ title }: { title: string }) {
+  const at = title.lastIndexOf(" · ");
+  if (at === -1) return title;
+  return (
+    <>
+      {title.slice(0, at)}
+      {" · "}
+      <span className="whitespace-nowrap">{title.slice(at + 3)}</span>
+    </>
+  );
+}
+
 /** Sale price (or "Free" / "30% off") with the original price crossed out. */
 export function DealPrice({ deal, size = "md" }: { deal: Deal; size?: "md" | "lg" }) {
   const free = isFree(deal);
