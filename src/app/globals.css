@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+/* next-themes puts `.dark` on <html>; `dark:` utilities follow that class, not the OS. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Design tokens. Every colour on the site comes from here, so light and dark
+ * stay in sync. All text/background pairs were checked for WCAG AA (≥ 4.5:1),
+ * including text on glass sitting over the most saturated part of the backdrop.
+ */
+:root {
+  color-scheme: light;
+  --page: #f6f2ee;
+  --ink: #1c1917;
+  --ink-muted: #57534e;
+
+  --glass: rgb(255 255 255 / 0.55);
+  --glass-strong: rgb(255 255 255 / 0.72);
+  --glass-border: rgb(255 255 255 / 0.7);
+  --glass-shadow: 0 1px 2px rgb(28 25 23 / 0.04), 0 12px 32px -16px rgb(28 25 23 / 0.18);
+  --glass-shadow-hover: 0 1px 2px rgb(28 25 23 / 0.05), 0 18px 40px -16px rgb(28 25 23 / 0.24);
+  --surface-solid: #fbf9f7;
+
+  --accent: #c2410c;
+  --accent-hover: #9a3412;
+  --accent-fg: #ffffff;
+  --accent-soft: rgb(234 88 12 / 0.12);
+  --accent-text: #8a2e0e;
+  --teal-soft: rgb(31 95 99 / 0.12);
+  --teal-text: #174d51;
+  --neutral-soft: rgb(28 25 23 / 0.06);
+  --line: rgb(28 25 23 / 0.1);
+  --ring: #174d51;
+
+  --blob-orange: rgb(244 162 97 / 0.35);
+  --blob-coral: rgb(240 128 128 / 0.22);
+  --blob-teal: rgb(42 110 115 / 0.22);
+}
+
+.dark {
+  color-scheme: dark;
+  --page: #0c1517;
+  --ink: #f4f1ee;
+  --ink-muted: #c2bbb5;
+
+  --glass: rgb(255 255 255 / 0.06);
+  --glass-strong: rgb(22 32 34 / 0.72);
+  --glass-border: rgb(255 255 255 / 0.1);
+  --glass-shadow: 0 1px 2px rgb(0 0 0 / 0.2), 0 12px 32px -16px rgb(0 0 0 / 0.6);
+  --glass-shadow-hover: 0 1px 2px rgb(0 0 0 / 0.25), 0 18px 40px -16px rgb(0 0 0 / 0.7);
+  --surface-solid: #152022;
+
+  --accent: #f08a5d;
+  --accent-hover: #f4a07a;
+  --accent-fg: #1a0f0a;
+  --accent-soft: rgb(240 138 93 / 0.16);
+  --accent-text: #f8b08f;
+  --teal-soft: rgb(124 196 199 / 0.14);
+  --teal-text: #9ad8db;
+  --neutral-soft: rgb(255 255 255 / 0.08);
+  --line: rgb(255 255 255 / 0.1);
+  --ring: #9ad8db;
+
+  --blob-orange: rgb(214 120 70 / 0.18);
+  --blob-coral: rgb(200 90 90 / 0.14);
+  --blob-teal: rgb(38 110 115 / 0.3);
+}
+
+/* Old browsers without backdrop-filter, or users who ask for less transparency: go solid. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root {
+    --glass: var(--surface-solid);
+    --glass-strong: var(--surface-solid);
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --glass: var(--surface-solid);
+    --glass-strong: var(--surface-solid);
+  }
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-text: var(--accent-text);
+  --color-teal-soft: var(--teal-soft);
+  --color-teal-text: var(--teal-text);
+  --color-neutral-soft: var(--neutral-soft);
+  --color-line: var(--line);
+  --color-ring: var(--ring);
+  --color-glass-strong: var(--glass-strong);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --animate-fade-in: fade-in 200ms ease-out both;
+}
+
+@theme {
+  /* Large phones (430px) get a two-column grid. */
+  --breakpoint-xs: 26.5rem;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Frosted glass surface: translucent fill, hairline border, soft shadow. */
+@utility glass {
+  background-color: var(--glass);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+/* Slightly more opaque glass for the navbar, menus and modals. */
+@utility glass-strong {
+  background-color: var(--glass-strong);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+/*
+ * The actual blur. It's the expensive part, so it only goes on a few layers
+ * (navbar, menus, search, filter bar, modal). Cards sit on a smooth gradient,
+ * where blur is invisible anyway, so they skip it unless `frosted` is set.
+ */
+@utility frost {
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(150%);
+}
+
+/* Horizontal page padding that also clears the iPhone notch in landscape. */
+@utility px-page {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+  @media (width >= 40rem) {
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
+  }
+  @media (width >= 64rem) {
+    padding-left: max(2rem, env(safe-area-inset-left));
+    padding-right: max(2rem, env(safe-area-inset-right));
+  }
+}
+
+/* Horizontal chip rows on mobile: scrollable, no visible scrollbar. */
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--page);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    /* Safety net against accidental sideways scrolling; `clip` keeps sticky positioning working. */
+    overflow-x: clip;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--accent-soft);
+  }
+}
+
+/* Soft, blurred koi-coloured glow behind everything. Pure gradients, so it costs no blur. */
+.koi-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(42rem 34rem at 8% -4%, var(--blob-orange), transparent 70%),
+    radial-gradient(36rem 30rem at 100% 18%, var(--blob-coral), transparent 70%),
+    radial-gradient(52rem 38rem at 45% 108%, var(--blob-teal), transparent 72%);
+}
+
+/* Honour "reduce motion": no transitions, no animations, no hover lifts. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

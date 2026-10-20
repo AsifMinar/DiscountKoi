@@ -1,0 +1,31 @@
+import type { NextConfig } from "next";
+
+/**
+ * GitHub Pages serves this site from https://<user>.github.io/discount-koi/,
+ * so every route and asset lives under /discount-koi. Set PAGES_BASE_PATH=""
+ * if you ever move to a custom domain.
+ */
+const basePath = process.env.PAGES_BASE_PATH ?? "/discount-koi";
+
+const nextConfig: NextConfig = {
+  // Static HTML export: no server needed, so GitHub Pages can host it for free.
+  output: "export",
+  basePath,
+  assetPrefix: basePath || undefined,
+  // Emit /about/index.html instead of /about.html so GitHub Pages resolves clean URLs.
+  trailingSlash: true,
+  // The Next.js image optimizer needs a server, which a static export doesn't have.
+  images: { unoptimized: true },
+  // Lets client code build URLs to files in /public (e.g. deals.json) under the base path.
+  env: { NEXT_PUBLIC_BASE_PATH: basePath },
+  turbopack: {
+    rules: {
+      "*.css": {
+        loaders: ["@tailwindcss/turbopack"],
+        as: "*.css",
+      },
+    },
+  },
+};
+
+export default nextConfig;
