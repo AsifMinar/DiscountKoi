@@ -15,14 +15,14 @@ npm install
 npm run dev
 ```
 
-Open **http://localhost:3000/discount-koi/**. The `/discount-koi` part is there because GitHub Pages
+Open **http://localhost:3000/DiscountKoi/**. The `/DiscountKoi` part is there because GitHub Pages
 serves the site from that folder, and local development matches it.
 
 ### Preview the production build
 
 ```bash
 npm run build      # writes the static site to /out
-npm run preview    # serves /out at http://localhost:4173/discount-koi/
+npm run preview    # serves /out at http://localhost:4173/DiscountKoi/
 ```
 
 ### Code quality
@@ -188,4 +188,35 @@ are off.
 
 ## Edit student discounts _(coming in Phase 5)_
 
-## Deploy to GitHub Pages _(coming in Phase 6)_
+## Deploy to GitHub Pages
+
+The site lives at **https://asifminar.github.io/DiscountKoi/**. Every push to `main` runs
+`.github/workflows/deploy.yml`, which builds the static site and publishes it. Nothing else to do.
+
+### One-time setup
+
+1. On GitHub, open the repository → **Settings** → **Pages** (left sidebar).
+2. Under **Build and deployment** → **Source**, choose **GitHub Actions**.
+
+That's it. If this isn't set, the deploy fails at the step "Check that GitHub Pages is turned on".
+
+### Publishing a change
+
+```bash
+git add -A
+git commit -m "Describe what you changed"
+git push
+```
+
+Then open the **Actions** tab on GitHub to watch "Deploy to GitHub Pages" run (about 1–2 minutes).
+A green tick means it's live; click the run to see the site link. To redeploy without changing
+anything, open the workflow on the Actions tab and press **Run workflow**.
+
+### Good to know
+
+- The base path `/DiscountKoi` is set in `next.config.ts` and must match the repository name
+  exactly (capital letters included). If you rename the repo, change it there too.
+- `public/.nojekyll` tells GitHub Pages not to run Jekyll, which would otherwise hide the `_next`
+  folder that holds the site's scripts and styles.
+- All workflow actions are pinned to exact commit SHAs (with the version in a comment) so a
+  compromised or changed action can't sneak into your builds.

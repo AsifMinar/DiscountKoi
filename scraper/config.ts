@@ -2,7 +2,7 @@
  * Scraper settings, all in one place. Change the numbers freely.
  */
 
-// In GitHub Actions this becomes e.g. https://github.com/you/discount-koi, so site owners
+// In GitHub Actions this becomes https://github.com/AsifMinar/DiscountKoi, so site owners
 // can see who is visiting and how to get in touch.
 const contact = process.env.GITHUB_REPOSITORY
   ? `+https://github.com/${process.env.GITHUB_REPOSITORY}`

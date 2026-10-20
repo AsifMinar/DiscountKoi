@@ -1,11 +1,11 @@
-// Serves the static export in /out under /discount-koi/, the same way GitHub Pages will.
-// Usage: npm run build && npm run preview  →  http://localhost:4173/discount-koi/
+// Serves the static export in /out under /DiscountKoi/, the same way GitHub Pages will.
+// Usage: npm run build && npm run preview  →  http://localhost:4173/DiscountKoi/
 import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
 import { extname, join, normalize, resolve, sep } from "node:path";
 
 const ROOT = resolve("out");
-const BASE = process.env.PAGES_BASE_PATH ?? "/discount-koi";
+const BASE = process.env.PAGES_BASE_PATH ?? "/DiscountKoi";
 const PORT = Number(process.env.PORT ?? 4173);
 
 const TYPES = {

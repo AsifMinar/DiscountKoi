@@ -1,11 +1,12 @@
 import type { NextConfig } from "next";
 
 /**
- * GitHub Pages serves this site from https://<user>.github.io/discount-koi/,
- * so every route and asset lives under /discount-koi. Set PAGES_BASE_PATH=""
- * if you ever move to a custom domain.
+ * GitHub Pages serves this site from https://asifminar.github.io/DiscountKoi/,
+ * so every route and asset lives under /DiscountKoi. It must match the repository
+ * name exactly (it's case-sensitive). Set PAGES_BASE_PATH="" if you ever move to a
+ * custom domain.
  */
-const basePath = process.env.PAGES_BASE_PATH ?? "/discount-koi";
+const basePath = process.env.PAGES_BASE_PATH ?? "/DiscountKoi";
 
 const nextConfig: NextConfig = {
   // Static HTML export: no server needed, so GitHub Pages can host it for free.
