@@ -1,74 +1,25 @@
 "use client";
 
-import Image from "next/image";
-import { useState, type MouseEvent } from "react";
+import type { MouseEvent } from "react";
 import type { Deal } from "@shared/deal";
-import { DEAL_TYPES, locationBadge } from "@shared/taxonomy";
+import { DealBadges, DealPrice, DealThumbnail, DiscountBadge } from "@/components/DealParts";
 import { Avatar } from "@/components/ui/Avatar";
-import { Badge } from "@/components/ui/Badge";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { cn } from "@/lib/cn";
-import { isFree } from "@/lib/filters";
-import { daysBetween, endsLabel, formatPrice } from "@/lib/format";
-import { navigateSearch } from "@/lib/url-state";
+import { daysBetween, endsLabel } from "@/lib/format";
+import { openDeal } from "@/lib/url-state";
 
-/** Link that opens this deal's detail view (the ?deal= param), keeping current filters. */
+/** Link that opens this deal's detail popup (the ?deal= param), keeping current filters. */
 function dealHref(search: string, id: string) {
   const params = new URLSearchParams(search);
   params.set("deal", id);
   return `?${params.toString()}`;
 }
 
-function Price({ deal }: { deal: Deal }) {
-  const free = isFree(deal);
-  const main = free
-    ? "Free"
-    : deal.salePrice !== undefined
-      ? formatPrice(deal.salePrice)
-      : deal.discountPercent
-        ? `${deal.discountPercent}% off`
-        : null;
-  if (!main) return null;
-
-  const showWas = deal.originalPrice !== undefined && deal.originalPrice > (deal.salePrice ?? 0);
-  return (
-    <p className="flex flex-wrap items-baseline gap-x-2">
-      <span className={cn("text-2xl font-semibold tracking-tight", free && "text-accent-text")}>
-        {main}
-      </span>
-      {showWas && (
-        <s className="text-sm text-ink-muted">
-          <span className="sr-only">was </span>
-          {formatPrice(deal.originalPrice!)}
-        </s>
-      )}
-    </p>
-  );
-}
-
-/** Product thumbnail, hotlinked from the store. Quietly disappears if it fails to load. */
-function Thumbnail({ src }: { src: string }) {
-  const [failed, setFailed] = useState(false);
-  if (failed) return null;
-  return (
-    <Image
-      src={src}
-      alt=""
-      width={64}
-      height={64}
-      unoptimized
-      referrerPolicy="no-referrer"
-      onError={() => setFailed(true)}
-      className="size-16 shrink-0 rounded-2xl bg-neutral-soft object-cover"
-    />
-  );
-}
-
 type DealCardProps = { deal: Deal; today: string; search: string };
 
 /** One deal. The whole card is clickable (via the title link stretched over it). */
 export function DealCard({ deal, today, search }: DealCardProps) {
-  const free = isFree(deal);
   const ends = deal.endDate ? endsLabel(deal.endDate, today) : null;
   const endsSoon = deal.endDate ? daysBetween(today, deal.endDate) <= 1 : false;
 
@@ -76,7 +27,7 @@ export function DealCard({ deal, today, search }: DealCardProps) {
     // Let Ctrl/Cmd/middle-click open a new tab as usual.
     if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     e.preventDefault();
-    navigateSearch(dealHref(window.location.search, deal.id).slice(1), "push");
+    openDeal(deal.id);
   };
 
   return (
@@ -103,39 +54,15 @@ export function DealCard({ deal, today, search }: DealCardProps) {
             {deal.title}
           </a>
         </h3>
-        {deal.imageUrl && <Thumbnail src={deal.imageUrl} />}
+        {deal.imageUrl && <DealThumbnail src={deal.imageUrl} />}
       </div>
 
       <div className="mt-auto flex flex-col gap-3">
         <div className="flex items-center gap-2">
-          <Price deal={deal} />
-          {deal.discountPercent && !free && (
-            <Badge tone="accent" className="ml-auto">
-              <span aria-hidden="true">−{deal.discountPercent}%</span>
-              <span className="sr-only">{deal.discountPercent}% off</span>
-            </Badge>
-          )}
+          <DealPrice deal={deal} />
+          <DiscountBadge deal={deal} className="ml-auto" />
         </div>
-
-        <div className="flex flex-wrap gap-1.5">
-          <Badge
-            tone={
-              deal.location === "sudbury"
-                ? "teal"
-                : deal.location === "ontario"
-                  ? "neutral"
-                  : "outline"
-            }
-          >
-            {locationBadge(deal.location)}
-          </Badge>
-          {DEAL_TYPES.filter((t) => deal.dealType.includes(t.id)).map((t) => (
-            <Badge key={t.id} tone={t.id === "free" ? "accent" : "neutral"}>
-              {t.badge}
-            </Badge>
-          ))}
-        </div>
-
+        <DealBadges deal={deal} />
         {ends && (
           <p className={cn("text-xs", endsSoon ? "text-accent-text" : "text-ink-muted")}>{ends}</p>
         )}

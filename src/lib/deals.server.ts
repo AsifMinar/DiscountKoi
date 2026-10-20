@@ -1,7 +1,9 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { DealSchema, DealsFileSchema, type Deal, type DealsFile } from "@shared/deal";
-import { isExpired, sortDeals } from "@/lib/filters";
+import type { DealTypeId } from "@shared/taxonomy";
+import type { DealExplorerProps } from "@/components/DealExplorer";
+import { PAGE_SIZE, isExpired, sortDeals, splitDefaultView, storeOptions } from "@/lib/filters";
 import { torontoDate } from "@/lib/format";
 
 /**
@@ -25,4 +27,22 @@ export function loadDeals(): DealsFile {
   }
 
   return { updatedAt: file.updatedAt, deals: sortDeals(deals, "sudbury") };
+}
+
+/**
+ * Everything a deal page needs at build time. Only the first screen of deals goes
+ * into the HTML; the rest loads as /deals.json in the browser.
+ */
+export function explorerData(lockedType?: DealTypeId) {
+  const { updatedAt, deals: all } = loadDeals();
+  const deals = lockedType ? all.filter((d) => d.dealType.includes(lockedType)) : all;
+  const { highlight, rest } = splitDefaultView(deals);
+  const explorer: DealExplorerProps = {
+    initialDeals: [...highlight, ...rest.slice(0, PAGE_SIZE)],
+    total: deals.length,
+    stores: storeOptions(deals),
+    buildDay: torontoDate(),
+    lockedType,
+  };
+  return { updatedAt, isSample: all.some((d) => d.source === "sample"), explorer };
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { CATEGORIES, DEAL_TYPES, LOCATIONS } from "@shared/taxonomy";
+import { CATEGORIES, DEAL_TYPES, LOCATIONS, type DealTypeId } from "@shared/taxonomy";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
 import { GlassCard } from "@/components/ui/GlassCard";
@@ -18,14 +18,16 @@ type FilterBarProps = {
   filters: Filters;
   update: (patch: Partial<Filters>) => void;
   stores: StoreOption[];
+  /** A type the page already locks in (e.g. Student on the Student page), so its chip is hidden. */
+  hiddenType?: DealTypeId;
 };
 
 /** Deal type chips, category chips, and location/store dropdowns in one glass panel. */
-export function FilterBar({ filters, update, stores }: FilterBarProps) {
+export function FilterBar({ filters, update, stores, hiddenType }: FilterBarProps) {
   return (
     <GlassCard frosted className="flex flex-col gap-3 p-3 sm:p-4">
       <div role="group" aria-label="Deal type" className={CHIP_ROW}>
-        {DEAL_TYPES.map((t) => (
+        {DEAL_TYPES.filter((t) => t.id !== hiddenType).map((t) => (
           <Chip
             key={t.id}
             selected={filters.types.includes(t.id)}

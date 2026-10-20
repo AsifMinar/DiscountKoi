@@ -18,6 +18,11 @@ const nextConfig: NextConfig = {
   images: { unoptimized: true },
   // Lets client code build URLs to files in /public (e.g. deals.json) under the base path.
   env: { NEXT_PUBLIC_BASE_PATH: basePath },
+  experimental: {
+    // The on-disk build cache once served a stale globals.css. Builds take seconds and CI
+    // starts clean anyway, so always build fresh.
+    turbopackFileSystemCacheForBuild: false,
+  },
   turbopack: {
     rules: {
       "*.css": {

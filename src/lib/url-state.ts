@@ -51,6 +51,39 @@ export function useFilters(): [Filters, (patch: Partial<Filters>) => void] {
   return [filters, update];
 }
 
+/* ---------- Deal detail (?deal=<id>) ---------- */
+
+// True while the open deal was opened from a card on this page, so closing it can
+// step back in history (making Close and the Back button behave the same).
+let openedFromList = false;
+
+/** Opens a deal's detail popup by adding ?deal=<id> as a new history entry. */
+export function openDeal(id: string) {
+  const params = new URLSearchParams(window.location.search);
+  params.set("deal", id);
+  openedFromList = true;
+  navigateSearch(params.toString(), "push");
+}
+
+/** Closes the popup: steps back if we opened it, otherwise just drops ?deal= from the URL. */
+export function closeDeal() {
+  if (openedFromList) {
+    openedFromList = false;
+    window.history.back();
+    return;
+  }
+  const params = new URLSearchParams(window.location.search);
+  params.delete("deal");
+  navigateSearch(params.toString(), "replace");
+}
+
+/** Call when the popup has closed some other way (e.g. the Back button). */
+export function forgetOpenedDeal() {
+  openedFromList = false;
+}
+
+export const dealIdFrom = (search: string) => new URLSearchParams(search).get("deal");
+
 const noSubscribe = () => () => {};
 
 /**

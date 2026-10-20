@@ -25,11 +25,28 @@ async function resolveFile(urlPath) {
   // Block path traversal: the final path must stay inside /out.
   const target = normalize(join(ROOT, decodeURIComponent(urlPath)));
   if (target !== ROOT && !target.startsWith(ROOT + sep)) return null;
-  for (const candidate of [target, join(target, "index.html"), `${target}.html`]) {
+  for (const candidate of [
+    target,
+    join(target, "index.html"),
+    `${target}.html`,
+    windowsSegmentPath(target),
+  ]) {
+    if (!candidate) continue;
     const info = await stat(candidate).catch(() => null);
     if (info?.isFile()) return candidate;
   }
   return null;
+}
+
+// Next.js 16's static export, when run on Windows, writes prefetch files for nested
+// pages as `__next.about/__PAGE__.txt` instead of `__next.about.__PAGE__.txt` (it builds
+// the name from a backslash path). Linux builds (like GitHub Actions) are correct, so this
+// fallback only keeps local previews on Windows free of 404s.
+function windowsSegmentPath(target) {
+  const match = /^(.*[\\/])__next\.([^\\/]+)\.txt$/.exec(target);
+  if (!match) return null;
+  const [first, ...rest] = match[2].split(".");
+  return rest.length ? join(match[1], `__next.${first}`, ...rest) + ".txt" : null;
 }
 
 createServer(async (req, res) => {

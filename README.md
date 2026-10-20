@@ -45,6 +45,17 @@ src/lib/            filtering & sorting, URL state, date/price formatting
 scripts/            helper scripts (local preview server)
 ```
 
+### Pages
+
+| URL           | What it shows                                                               |
+| ------------- | --------------------------------------------------------------------------- |
+| `/`           | All deals: search, filters, a "Sudbury deals" section, then everything else |
+| `/student/`   | Only student deals (same filters, minus the Student chip)                   |
+| `/free/`      | Only free stuff (same filters, minus the Free chip)                         |
+| `/about/`     | What Discount Koi is, update schedule, sources, badge meanings, privacy     |
+| `?deal=<id>`  | On any deal page, opens that deal's detail popup. Shareable; Back closes it |
+| anything else | Friendly 404 page (`404.html`, which GitHub Pages serves automatically)     |
+
 ### How the home page loads deals
 
 - At build time, the first screen of deals (the Sudbury section + 24 more) is written straight into

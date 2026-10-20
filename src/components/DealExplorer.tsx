@@ -2,7 +2,9 @@
 
 import { useDeferredValue, useMemo, useState, type ReactNode } from "react";
 import type { Deal } from "@shared/deal";
+import type { DealTypeId } from "@shared/taxonomy";
 import { DealCard, DealCardSkeleton } from "@/components/DealCard";
+import { DealModal } from "@/components/DealModal";
 import { EmptyState } from "@/components/EmptyState";
 import { FilterBar } from "@/components/FilterBar";
 import { Button } from "@/components/ui/Button";
@@ -13,6 +15,7 @@ import {
   SORTS,
   filterDeals,
   filtersToSearch,
+  hasActiveFilters,
   isDefaultView,
   sortDeals,
   splitDefaultView,
@@ -62,7 +65,7 @@ function DealList({ deals, today, search }: { deals: Deal[]; today: string; sear
   );
 }
 
-type DealExplorerProps = {
+export type DealExplorerProps = {
   /** First screen of deals, baked into the HTML at build time. */
   initialDeals: Deal[];
   /** Total deal count at build time (shown until the full list loads). */
@@ -70,21 +73,34 @@ type DealExplorerProps = {
   stores: StoreOption[];
   /** Sudbury date of the build, used for "Ends in X days" in the static HTML. */
   buildDay: string;
+  /** Only show deals of this type (the Student and Free pages). Its chip is hidden. */
+  lockedType?: DealTypeId;
 };
 
 /** Filters + deal grid. Filter state lives in the URL; filtering runs in the browser. */
-export function DealExplorer({ initialDeals, total, stores, buildDay }: DealExplorerProps) {
+export function DealExplorer({
+  initialDeals,
+  total,
+  stores,
+  buildDay,
+  lockedType,
+}: DealExplorerProps) {
   const [filters, update] = useFilters();
   const search = useSearchString();
   const today = useToday(buildDay);
   const { deals: allDeals, failed } = useAllDeals();
+  const pageDeals = useMemo(
+    () =>
+      allDeals && lockedType ? allDeals.filter((d) => d.dealType.includes(lockedType)) : allDeals,
+    [allDeals, lockedType],
+  );
 
   // Typing stays snappy: the list re-filters a beat behind the keystrokes.
   const active = useDeferredValue(filters);
   const defaultView = isDefaultView(active);
-  const source = allDeals ?? initialDeals;
-  // The baked-in deals are enough for the untouched home page; anything else needs the full list.
-  const ready = allDeals !== null || defaultView;
+  const source = pageDeals ?? initialDeals;
+  // The baked-in deals are enough for the untouched page; anything else needs the full list.
+  const ready = pageDeals !== null || defaultView;
 
   const results = useMemo(
     () => sortDeals(filterDeals(source, active, today), active.sort),
@@ -99,7 +115,7 @@ export function DealExplorer({ initialDeals, total, stores, buildDay }: DealExpl
 
   const list = defaultView ? rest : results;
   // Before the full list arrives, the untouched home page knows its size from the build.
-  const listTotal = defaultView && !allDeals ? total - highlight.length : list.length;
+  const listTotal = defaultView && !pageDeals ? total - highlight.length : list.length;
 
   const sortSelect = (
     <Select
@@ -114,7 +130,7 @@ export function DealExplorer({ initialDeals, total, stores, buildDay }: DealExpl
 
   return (
     <div className="flex flex-col gap-12">
-      <FilterBar filters={filters} update={update} stores={stores} />
+      <FilterBar filters={filters} update={update} stores={stores} hiddenType={lockedType} />
 
       {defaultView && highlight.length > 0 && (
         <section aria-labelledby="sudbury-heading" className="flex flex-col gap-5">
@@ -135,7 +151,12 @@ export function DealExplorer({ initialDeals, total, stores, buildDay }: DealExpl
         </section>
       )}
 
-      <section id="deals" aria-label="Deals" className="flex scroll-mt-28 flex-col gap-5">
+      <section
+        id="deals"
+        aria-label="Deals"
+        hidden={defaultView && highlight.length > 0 && listTotal === 0}
+        className="flex scroll-mt-28 flex-col gap-5"
+      >
         <SectionHeader
           title={defaultView ? (highlight.length ? "More deals" : "All deals") : "Results"}
           count={ready ? plural(listTotal) : "Loading deals…"}
@@ -162,12 +183,18 @@ export function DealExplorer({ initialDeals, total, stores, buildDay }: DealExpl
           </ul>
         )}
 
-        {ready && list.length === 0 && (
+        {ready && list.length === 0 && hasActiveFilters(active) && (
           <EmptyState
             title="No deals match your filters"
             action={<Button onClick={clearAll}>Clear filters</Button>}
           >
             Try removing a filter or searching for something else.
+          </EmptyState>
+        )}
+
+        {ready && list.length === 0 && !hasActiveFilters(active) && highlight.length === 0 && (
+          <EmptyState title="No deals here right now">
+            New deals arrive every morning at 6 AM. Check back tomorrow.
           </EmptyState>
         )}
 
@@ -180,7 +207,7 @@ export function DealExplorer({ initialDeals, total, stores, buildDay }: DealExpl
                 <Button
                   variant="secondary"
                   size="lg"
-                  disabled={!allDeals}
+                  disabled={!pageDeals}
                   onClick={() => setPaging({ signature, count: visible + PAGE_SIZE })}
                 >
                   Show more
@@ -193,6 +220,8 @@ export function DealExplorer({ initialDeals, total, stores, buildDay }: DealExpl
           </div>
         )}
       </section>
+
+      <DealModal allDeals={allDeals} initialDeals={initialDeals} failed={failed} today={today} />
     </div>
   );
 }
