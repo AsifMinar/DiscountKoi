@@ -4,7 +4,15 @@ import { DealSchema, DealsFileSchema, type Deal, type DealsFile } from "@shared/
 import { lowestInSudbury } from "@shared/products";
 import type { DealTypeId } from "@shared/taxonomy";
 import type { DealExplorerProps } from "@/components/DealExplorer";
-import { PAGE_SIZE, isExpired, sortDeals, splitDefaultView, storeOptions } from "@/lib/filters";
+import {
+  DEFAULT_FILTERS,
+  PAGE_SIZE,
+  facetCounts,
+  isExpired,
+  sortDeals,
+  splitDefaultView,
+  storeOptions,
+} from "@/lib/filters";
 import { torontoDate } from "@/lib/format";
 
 /**
@@ -53,15 +61,17 @@ export function explorerData(lockedType?: DealTypeId) {
   const { updatedAt, deals: loaded } = loadDeals();
   const all = forDealGrids(loaded);
   const deals = lockedType ? all.filter((d) => d.dealType.includes(lockedType)) : all;
-  const { highlight, rest } = splitDefaultView(deals);
+  // Food help isn't in the HTML: the home page only shows how many there are.
+  const { flyers, highlight, rest } = splitDefaultView(deals, !lockedType);
   const explorer: DealExplorerProps = {
-    initialDeals: [...highlight, ...rest.slice(0, PAGE_SIZE)],
+    initialDeals: [...flyers, ...highlight, ...rest.slice(0, PAGE_SIZE)],
     total: deals.length,
     stores: storeOptions(deals),
+    counts: facetCounts(deals, DEFAULT_FILTERS, torontoDate()),
     buildDay: torontoDate(),
     lockedType,
   };
-  return { updatedAt, isSample: all.some((d) => d.source === "sample"), explorer };
+  return { updatedAt, explorer };
 }
 
 /** How many product listings go into the Products page's HTML; more load as /deals.json. */

@@ -75,27 +75,6 @@ jobs:
             echo "run=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Does any source need a browser?
-        id: browser
-        if: steps.gate.outputs.run == 'true'
-        run: npm run --silent scrape:needs-browser
-
-      - name: Restore cached Chromium
-        id: chromium
-        if: steps.browser.outputs.browser == 'true'
-        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          path: ~/.cache/ms-playwright
-          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-
-      - name: Install Chromium
-        if: steps.browser.outputs.browser == 'true' && steps.chromium.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps chromium
-
-      - name: Install Chromium's system libraries
-        if: steps.browser.outputs.browser == 'true' && steps.chromium.outputs.cache-hit == 'true'
-        run: npx playwright install-deps chromium
-
       # Yesterday's ETag / Last-Modified cache, so unchanged pages come back as tiny 304s.
       - name: Restore the scraper's page cache
         if: steps.gate.outputs.run == 'true'

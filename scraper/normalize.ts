@@ -1,3 +1,4 @@
+import { isIsoDay } from "@shared/dates";
 import { DealSchema, type Deal } from "@shared/deal";
 import type { DealTypeId } from "@shared/taxonomy";
 import { UNITS, resolveUnitPrice } from "@shared/units";
@@ -6,11 +7,7 @@ import { isFreeDeal, isStudentDeal } from "./detect";
 import { cleanText, dealId, parsePrice, percentOff, safeUrl } from "./lib/text";
 import type { RawDeal } from "./sources/types";
 
-const ISO_DAY = /^\d{4}-\d{2}-\d{2}$/;
-const validDay = (value?: string) =>
-  value && ISO_DAY.test(value) && !Number.isNaN(Date.parse(`${value}T00:00:00Z`))
-    ? value
-    : undefined;
+const validDay = (value?: string) => (value && isIsoDay(value) ? value : undefined);
 
 export type NormalizeResult = { ok: true; deal: Deal } | { ok: false; reason: string };
 

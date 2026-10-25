@@ -7,28 +7,31 @@ import { DealCard, DealCardSkeleton } from "@/components/DealCard";
 import { DealModal } from "@/components/DealModal";
 import { EmptyState } from "@/components/EmptyState";
 import { FilterBar } from "@/components/FilterBar";
+import { FlyerLinks } from "@/components/FlyerLinks";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/ui/Button";
+import { GlassCard } from "@/components/ui/GlassCard";
 import { Select } from "@/components/ui/Select";
 import {
   DEFAULT_FILTERS,
   PAGE_SIZE,
   SORTS,
+  facetCounts,
   filterDeals,
   filtersToSearch,
   hasActiveFilters,
   isDefaultView,
   sortDeals,
   splitDefaultView,
+  type FacetCounts,
   type SortId,
   type StoreOption,
 } from "@/lib/filters";
+import { plural } from "@/lib/format";
 import { useFilters, useSearchString, useToday } from "@/lib/url-state";
 import { useAllDeals } from "@/lib/use-all-deals";
 
 const GRID = "grid grid-cols-1 gap-3 xs:grid-cols-2 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4";
-
-const plural = (n: number) => `${n.toLocaleString("en-CA")} ${n === 1 ? "deal" : "deals"}`;
 
 function DealList({ deals, today, search }: { deals: Deal[]; today: string; search: string }) {
   return (
@@ -48,6 +51,8 @@ export type DealExplorerProps = {
   /** Total deal count at build time (shown until the full list loads). */
   total: number;
   stores: StoreOption[];
+  /** Deals per type and category at build time: which chips to show, and their first counts. */
+  counts: FacetCounts;
   /** Sudbury date of the build, used for "Ends in X days" in the static HTML. */
   buildDay: string;
   /** Only show deals of this type (the Student and Free pages). Its chip is hidden. */
@@ -59,6 +64,7 @@ export function DealExplorer({
   initialDeals,
   total,
   stores,
+  counts,
   buildDay,
   lockedType,
 }: DealExplorerProps) {
@@ -84,7 +90,23 @@ export function DealExplorer({
     () => sortDeals(filterDeals(source, active, today), active.sort),
     [source, active, today],
   );
-  const { highlight, sudburyTotal, rest } = useMemo(() => splitDefaultView(results), [results]);
+  // The home page groups flyers and food help; the Student and Free pages list everything.
+  const grouped = !lockedType;
+  const { flyers, foodHelp, highlight, sudburyTotal, rest } = useMemo(
+    () => splitDefaultView(results, grouped),
+    [results, grouped],
+  );
+  // Food help isn't in the first-screen HTML, so the build's count stands in until it loads.
+  const foodHelpCount = !grouped
+    ? 0
+    : pageDeals
+      ? foodHelp.length
+      : (counts.cats["food-help"] ?? 0);
+  // Chip counts follow the other filters once every deal is here.
+  const liveCounts = useMemo(
+    () => (pageDeals ? facetCounts(pageDeals, active, today) : counts),
+    [pageDeals, active, today, counts],
+  );
 
   // "Show more" count, reset whenever the filters change.
   const signature = filtersToSearch(active);
@@ -93,7 +115,12 @@ export function DealExplorer({
 
   const list = defaultView ? rest : results;
   // Before the full list arrives, the untouched home page knows its size from the build.
-  const listTotal = defaultView && !pageDeals ? total - highlight.length : list.length;
+  const listTotal =
+    defaultView && !pageDeals
+      ? total - flyers.length - highlight.length - foodHelpCount
+      : list.length;
+  // Anything shown above the main list on the untouched page.
+  const sectionsAbove = defaultView && flyers.length + highlight.length + foodHelpCount > 0;
 
   const sortSelect = (
     <Select
@@ -108,7 +135,16 @@ export function DealExplorer({
 
   return (
     <div className="flex flex-col gap-12">
-      <FilterBar filters={filters} update={update} stores={stores} hiddenType={lockedType} />
+      <FilterBar
+        filters={filters}
+        update={update}
+        stores={stores}
+        available={counts}
+        counts={liveCounts}
+        hiddenType={lockedType}
+      />
+
+      {defaultView && flyers.length > 0 && <FlyerLinks flyers={flyers} />}
 
       {defaultView && highlight.length > 0 && (
         <section aria-labelledby="sudbury-heading" className="flex flex-col gap-5">
@@ -129,15 +165,35 @@ export function DealExplorer({
         </section>
       )}
 
+      {defaultView && foodHelpCount > 0 && (
+        <GlassCard
+          as="section"
+          aria-labelledby="food-help-heading"
+          className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6"
+        >
+          <div>
+            <h2 id="food-help-heading" className="text-xl font-semibold tracking-tight">
+              Food help in Sudbury
+            </h2>
+            <p className="mt-0.5 text-sm text-pretty text-ink-muted">
+              {foodHelpCount} food banks, meal programs and Good Food Box locations
+            </p>
+          </div>
+          <Button variant="secondary" onClick={() => update({ cats: ["food-help"] })}>
+            See all {foodHelpCount}
+          </Button>
+        </GlassCard>
+      )}
+
       <section
         id="deals"
         aria-label="Deals"
-        hidden={defaultView && highlight.length > 0 && listTotal === 0}
+        hidden={sectionsAbove && listTotal === 0}
         className="flex scroll-mt-28 flex-col gap-5"
       >
         <SectionHeader
-          title={defaultView ? (highlight.length ? "More deals" : "All deals") : "Results"}
-          count={ready ? plural(listTotal) : "Loading deals…"}
+          title={defaultView ? (sectionsAbove ? "More deals" : "All deals") : "Results"}
+          count={ready ? plural(listTotal, "deal") : "Loading deals…"}
         >
           {sortSelect}
         </SectionHeader>
@@ -170,9 +226,9 @@ export function DealExplorer({
           </EmptyState>
         )}
 
-        {ready && list.length === 0 && !hasActiveFilters(active) && highlight.length === 0 && (
+        {ready && list.length === 0 && !hasActiveFilters(active) && !sectionsAbove && (
           <EmptyState title="No deals here right now">
-            New deals arrive every morning at 6 AM. Check back tomorrow.
+            New deals arrive every morning. Check back tomorrow.
           </EmptyState>
         )}
 

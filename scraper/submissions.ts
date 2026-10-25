@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { isIsoDay } from "@shared/dates";
 import { CATEGORIES, DEAL_TYPE_IDS, LOCATIONS, CATEGORY_IDS, LOCATION_IDS } from "@shared/taxonomy";
 import type { CategoryId, DealTypeId, LocationId } from "@shared/taxonomy";
 import { UNITS, type Unit } from "@shared/units";
@@ -176,7 +177,7 @@ export function submissionToDeal(body: string, issue: number, today: string): Su
   const endText = raw("endDate").trim();
   let endDate: string | undefined;
   if (endText) {
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(endText) || Number.isNaN(Date.parse(`${endText}T00:00:00Z`))) {
+    if (!isIsoDay(endText)) {
       errors.push("the end date must look like 2026-10-28");
     } else if (endText < today) {
       errors.push("the deal has already ended");

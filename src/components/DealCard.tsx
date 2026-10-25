@@ -19,11 +19,8 @@ type DealCardProps = { deal: Deal; today: string; search: string };
 
 /** One deal. The whole card is clickable (via the title link stretched over it). */
 export function DealCard({ deal, today, search }: DealCardProps) {
-  const ends = deal.endDate
-    ? endsLabel(deal.endDate, today)
-    : deal.ongoing
-      ? "Ongoing program"
-      : null;
+  // Ongoing programs say so in the popup; on the card it would only repeat on every one.
+  const ends = deal.endDate ? endsLabel(deal.endDate, today) : null;
   const endsSoon = deal.endDate ? daysBetween(today, deal.endDate) <= 1 : false;
 
   return (

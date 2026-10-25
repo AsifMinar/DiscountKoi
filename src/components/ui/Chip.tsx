@@ -16,10 +16,10 @@ export function Chip({ selected, count, children, className, ...props }: ChipPro
       aria-pressed={selected}
       className={cn(
         "inline-flex h-11 shrink-0 items-center gap-2 rounded-full px-4 text-sm font-medium whitespace-nowrap",
-        "transition-colors duration-150 ease-out",
+        "transition-colors duration-150 ease-out disabled:cursor-default disabled:opacity-45",
         selected
           ? "border border-transparent bg-ink text-page"
-          : "glass text-ink hover:bg-glass-strong",
+          : "glass text-ink enabled:hover:bg-glass-strong",
         className,
       )}
       {...props}

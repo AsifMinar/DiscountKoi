@@ -24,6 +24,14 @@ export function torontoHour(date: Date = new Date()): number {
   return Number(hourFormat.format(date));
 }
 
+/** True for a real calendar day written as YYYY-MM-DD. */
+export const isIsoDay = (value: string) =>
+  /^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(Date.parse(`${value}T00:00:00Z`));
+
+/** The YYYY-MM-DD `days` after (or before, if negative) another one. */
+export const addDays = (isoDay: string, days: number) =>
+  new Date(Date.parse(`${isoDay}T00:00:00Z`) + days * 86_400_000).toISOString().slice(0, 10);
+
 /** Whole days from one YYYY-MM-DD to another (negative if `to` is earlier). */
 export function daysBetween(from: string, to: string): number {
   const ms = Date.parse(`${to}T00:00:00Z`) - Date.parse(`${from}T00:00:00Z`);

@@ -1,4 +1,3 @@
-import type { CategoryId } from "@shared/taxonomy";
 import { csvToObjects } from "../lib/csv";
 import { cleanText, safeUrl } from "../lib/text";
 import type { RawDeal, Source } from "./types";
@@ -6,8 +5,8 @@ import type { RawDeal, Source } from "./types";
 /*
  * Free and low-cost food programs in Greater Sudbury, from the City's open data
  * ("EarthCare Sudbury Food Access Map"). Food banks and meal programs are free; the
- * Good Food Box is affordable produce. Gardens, markets and farm-gate sales aren't deals,
- * so they're left out.
+ * Good Food Box is affordable produce. All three go under "Food Help". Gardens, markets
+ * and farm-gate sales aren't deals, so they're left out.
  *
  * Licence: Open Data Licence – City of Greater Sudbury (attribution required).
  * robots.txt asks for a 60-second Crawl-delay, which the fetcher honours.
@@ -22,10 +21,10 @@ export const FOOD_ACCESS_PAGE =
 export const OPEN_DATA_CREDIT =
   "Contains information licensed under the Open Data Licence – City of Greater Sudbury.";
 
-const PROGRAMS: Record<string, { label: string; category: CategoryId }> = {
-  "Food Bank": { label: "Free food bank", category: "grocery" },
-  "Meal Program": { label: "Free meal program", category: "food-restaurants" },
-  "Good Food Box": { label: "Good Food Box (affordable produce)", category: "grocery" },
+const PROGRAMS: Record<string, string> = {
+  "Food Bank": "Free food bank",
+  "Meal Program": "Free meal program",
+  "Good Food Box": "Good Food Box (affordable produce)",
 };
 
 /** First plain web link in a field like "https://a.ca and https://b.ca". */
@@ -39,12 +38,12 @@ export function foodProgramsToDeals(csv: string, lastModified?: string): RawDeal
     if (!program || !row.Name) continue;
     const address = cleanText(row.Address, 80);
     deals.push({
-      title: address ? `${program.label} · ${address}` : program.label,
+      title: address ? `${program} · ${address}` : program,
       url: firstLink(row.Website ?? "") ?? FOOD_ACCESS_PAGE,
       store: row.Name,
       location: "sudbury",
       description: row.Services,
-      category: program.category,
+      category: "food-help",
       ongoing: true,
       // When the City last updated the dataset, so these don't all look brand new.
       publishedAt: lastModified ? new Date(lastModified).toISOString() : undefined,

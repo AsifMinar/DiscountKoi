@@ -116,16 +116,22 @@ export function ProductBadges({ deal }: { deal: Deal }) {
   );
 }
 
-/** Location badge first, then one badge per deal type, then any product badges. */
+/**
+ * Location badge first, then one badge per deal type, then any product badges.
+ * No "Free" badge when the price already reads "Free".
+ */
 export function DealBadges({ deal }: { deal: Deal }) {
+  const free = isFree(deal);
   return (
     <div className="flex flex-wrap gap-1.5">
       <Badge tone={LOCATION_TONE[deal.location]}>{locationBadge(deal.location)}</Badge>
-      {DEAL_TYPES.filter((t) => deal.dealType.includes(t.id)).map((t) => (
-        <Badge key={t.id} tone={t.id === "free" ? "accent" : "neutral"}>
-          {t.badge}
-        </Badge>
-      ))}
+      {DEAL_TYPES.filter((t) => deal.dealType.includes(t.id) && !(free && t.id === "free")).map(
+        (t) => (
+          <Badge key={t.id} tone={t.id === "free" ? "accent" : "neutral"}>
+            {t.badge}
+          </Badge>
+        ),
+      )}
       <ProductBadges deal={deal} />
     </div>
   );

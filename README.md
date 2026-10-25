@@ -2,7 +2,7 @@
 
 Every discount, deal and freebie for Sudbury, Ontario (plus Ontario-wide deals), in one calm place:
 weekly flyer links, store-by-store product prices, student discounts, free programs and events, and
-deals people submit. A scraper refreshes everything every morning at 6 AM Sudbury time, and the site
+deals people submit. A scraper refreshes everything every morning (from 6 AM Sudbury time), and the site
 is hosted for free on GitHub Pages at **https://asifminar.github.io/DiscountKoi/**.
 
 - Minimal frosted-glass design, light and dark mode, works on any phone.
@@ -228,8 +228,8 @@ Every request goes through `scraper/lib/http.ts` and `scraper/lib/engine/`:
 
 Sources read **structured data** where they can (`scraper/lib/structured.ts`: schema.org JSON-LD
 Product/Offer/Event and Open Graph tags), RSS/Atom (`lib/feeds.ts`) and CSV (`lib/csv.ts`), which
-are far sturdier than CSS selectors. Playwright (headless Chromium) is only used by sources that set
-`needsBrowser: true`, and the workflow only installs it then.
+are far sturdier than CSS selectors. There's no headless browser: a site that only works with
+JavaScript usually has a feed or JSON-LD to read instead.
 
 ### What happens to every deal
 
@@ -271,8 +271,7 @@ ongoing programs never), and duplicates, and `scraper/price-history.ts` updates 
    ```
 
    Only `title`, `url`, `store` and `location` are required; see `scraper/sources/types.ts` for
-   the rest (including product fields like `productName`, `size` and `unit`). For pages that need
-   JavaScript, use `await http.rendered(url)` and set `needsBrowser: true`.
+   the rest (including product fields like `productName`, `size` and `unit`).
 
 3. Add it to the list in `scraper/sources/index.ts`.
 4. Try it: `npm run scrape -- --only=my-source --dry-run`, and add a test in `scraper/tests/`.
@@ -315,7 +314,7 @@ next one.
 
 ## Daily automatic updates
 
-`.github/workflows/daily-scrape.yml` runs the scraper every morning at **6 AM Sudbury time**,
+`.github/workflows/daily-scrape.yml` runs the scraper every morning from **6 AM Sudbury time**,
 commits `data/deals.json` and `data/price-history.json` to `main` (as "Asif Minar"), then rebuilds
 and publishes the site.
 
@@ -331,8 +330,7 @@ and publishes the site.
 - **Results:** open a run and scroll to the summary: deals, new, removed and invalid per source.
 - **Stays switched on:** GitHub pauses scheduled workflows after 60 days without repository
   activity. Every run changes `updatedAt`, so every run makes a commit and the schedule stays alive.
-- **Speed:** `node_modules` is cached, and Chromium is only installed (and cached) if an enabled
-  source sets `needsBrowser: true`.
+- **Speed:** `node_modules` and the scraper's page cache are kept between runs.
 
 ## Deploy to GitHub Pages
 

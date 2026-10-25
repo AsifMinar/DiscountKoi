@@ -9,6 +9,9 @@
  *   src/app/apple-icon.png                     180×180 iPhone home screen
  *   public/icons/icon-192.png, icon-512.png    installed app icons
  *   public/icons/maskable-512.png              Android adaptive icon
+ *
+ * The committed files were then shrunk to 256 colours (about 60% smaller, no visible
+ * change). After a re-run, do the same with any PNG optimiser, e.g. pngquant or TinyPNG.
  */
 import { mkdirSync, readdirSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";

@@ -88,6 +88,7 @@ body:
       options:
         - "Food & Restaurants"
         - "Grocery"
+        - "Food Help"
         - "Gadgets & Electronics"
         - "Clothes & Fashion"
         - "Home & Furniture"

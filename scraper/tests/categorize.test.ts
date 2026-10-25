@@ -22,6 +22,8 @@ test("categorize picks sensible categories", () => {
     ["Synthetic oil change for $39.99", "Canadian Tire", "automotive"],
     ["Prime Student: 6-month free trial", "Amazon.ca", "services"],
     ["Ice cream, 1.5 L", "Metro", "grocery"],
+    ["Free community meal every Tuesday", "Trinity United Church", "food-help"],
+    ["Holiday food hampers for families", "Sudbury Food Bank", "food-help"],
     ["Mystery item", "Food Basics", "grocery"], // store fallback
     ["Mystery item", "PetSmart", "pets"], // store-name keyword
     ["Mystery item", "Unknown Shop", "other"],

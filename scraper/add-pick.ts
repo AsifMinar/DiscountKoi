@@ -1,4 +1,4 @@
-import { daysBetween } from "@shared/dates";
+import { addDays, daysBetween } from "@shared/dates";
 import { flyerWeek } from "./sources/flyer-links";
 import { PickSchema, type Pick } from "./sources/weekly-picks";
 import { parsePrice } from "./lib/text";
@@ -10,9 +10,6 @@ import { parsePrice } from "./lib/text";
  */
 
 type Weekday = Parameters<typeof flyerWeek>[1];
-
-const addDays = (isoDay: string, days: number) =>
-  new Date(Date.parse(`${isoDay}T00:00:00Z`) + days * 86_400_000).toISOString().slice(0, 10);
 
 /**
  * The flyer week a new pick most likely belongs to: the current one, or next week's

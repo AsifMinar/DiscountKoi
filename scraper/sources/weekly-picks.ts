@@ -1,8 +1,9 @@
 import { readFileSync } from "node:fs";
 import { z } from "zod";
+import { weekLabel } from "@shared/dates";
 import { CATEGORY_IDS, LOCATION_IDS } from "@shared/taxonomy";
 import { UNITS } from "@shared/units";
-import { FLYER_STORES_FILE, weekLabel } from "./flyer-links";
+import { FLYER_STORES_FILE } from "./flyer-links";
 import type { RawDeal, Source } from "./types";
 
 /*

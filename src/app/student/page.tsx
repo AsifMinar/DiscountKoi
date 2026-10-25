@@ -12,10 +12,10 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function StudentPage() {
-  const { updatedAt, isSample, explorer } = explorerData("student");
+  const { updatedAt, explorer } = explorerData("student");
   return (
     <PageShell>
-      <PageHero title="Student discounts" updatedAt={updatedAt} isSample={isSample}>
+      <PageHero title="Student discounts" updatedAt={updatedAt}>
         For Laurentian, Cambrian and Collège Boréal students, SPC members, and anyone with a valid
         student ID.
       </PageHero>

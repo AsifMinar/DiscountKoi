@@ -86,6 +86,7 @@ test("itch.io: USD prices, sale end date, 100% off becomes Free, skips 0% and no
   );
   assert.equal(half.endDate, "2026-10-25"); // 6:59 PM in Sudbury
   assert.equal(half.location, "ships-to-ontario");
+  assert.equal(half.imageUrl, undefined, "itch.io blocks hotlinked covers");
   assert.ok(free.dealType.includes("free") && free.dealType.includes("online"));
 });
 
@@ -135,6 +136,7 @@ test("Food programs: food banks, meals and Good Food Box only, never contact det
   );
   assert.equal(raw[0].url, "https://elm.example/");
   assert.equal(raw[1].url, FOOD_ACCESS_PAGE);
+  assert.ok(raw.every((r) => r.category === "food-help"));
   const everything = JSON.stringify(raw);
   assert.doesNotMatch(everything, /705-555|@example\.com/, "no phone numbers or emails");
 

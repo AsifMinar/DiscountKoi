@@ -3,7 +3,8 @@ import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import { possessive } from "../lib/text";
 import { buildDealsFile } from "../pipeline";
-import { buildFlyerCards, FLYER_STORES_FILE, flyerWeek, weekLabel } from "../sources/flyer-links";
+import { weekLabel } from "@shared/dates";
+import { buildFlyerCards, FLYER_STORES_FILE, flyerWeek } from "../sources/flyer-links";
 
 // Tuesday, Oct 20 2026, 6:05 AM in Sudbury.
 const NOW = new Date("2026-10-20T10:05:00Z");

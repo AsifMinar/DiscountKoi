@@ -9,11 +9,9 @@ import { ProductGroupCard } from "@/components/ProductGroupCard";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Button, ButtonLink } from "@/components/ui/Button";
 import { isExpired } from "@/lib/filters";
+import { plural } from "@/lib/format";
 import { useFilters, useSearchString, useToday } from "@/lib/url-state";
 import { useAllDeals } from "@/lib/use-all-deals";
-
-const plural = (n: number, word: string) =>
-  `${n.toLocaleString("en-CA")} ${word}${n === 1 ? "" : "s"}`;
 
 export type ProductExplorerProps = {
   /** Product listings baked into the HTML at build time. */

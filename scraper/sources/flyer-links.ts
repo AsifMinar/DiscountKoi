@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { z } from "zod";
-import { torontoDate, weekLabel } from "@shared/dates";
+import { addDays, torontoDate, weekLabel } from "@shared/dates";
 import { CATEGORY_IDS, LOCATION_IDS } from "@shared/taxonomy";
 import { possessive } from "../lib/text";
 import type { RawDeal, Source } from "./types";
@@ -31,9 +31,6 @@ const FlyerStoresSchema = z.object({
   ),
 });
 
-const addDays = (isoDay: string, days: number) =>
-  new Date(Date.parse(`${isoDay}T00:00:00Z`) + days * 86_400_000).toISOString().slice(0, 10);
-
 /** The flyer week (YYYY-MM-DD start and end) that contains `today`. */
 export function flyerWeek(today: string, startsOn: (typeof WEEKDAYS)[number]) {
   const weekday = new Date(`${today}T00:00:00Z`).getUTCDay();
@@ -41,8 +38,6 @@ export function flyerWeek(today: string, startsOn: (typeof WEEKDAYS)[number]) {
   const start = addDays(today, -back);
   return { start, end: addDays(start, 6) };
 }
-
-export { weekLabel } from "@shared/dates";
 
 /** Builds this week's cards. Exported separately so tests can pass their own list and date. */
 export function buildFlyerCards(file: unknown, now: Date): RawDeal[] {

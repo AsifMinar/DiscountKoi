@@ -81,11 +81,6 @@ export type Source = {
   /** Set to false to switch a source off without deleting it. */
   enabled: boolean;
   /**
-   * Set to true if this source calls `http.rendered()` (headless Chromium). The daily
-   * workflow only installs the browser when an enabled source needs it.
-   */
-  needsBrowser?: boolean;
-  /**
    * Set to true if this source only reads files in this repo (no web requests), so
    * `npm run scrape:local` and the deploy build can run it any time.
    */

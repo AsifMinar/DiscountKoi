@@ -17,7 +17,6 @@
     "add-pick": "tsx scripts/add-pick.ts",
     "approve-deal": "tsx scripts/approve-deal.ts",
     "scrape:check-time": "tsx scraper/time-gate.ts",
-    "scrape:needs-browser": "tsx scraper/needs-browser.ts",
     "test": "node --import tsx --test \"scraper/tests/*.test.ts\"",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

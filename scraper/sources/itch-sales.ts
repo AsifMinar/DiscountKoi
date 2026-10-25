@@ -6,6 +6,7 @@ import type { RawDeal, Source } from "./types";
 /*
  * itch.io "on sale" games (official RSS feed). Online deals that work from Ontario,
  * priced in US dollars and shown as "US$". Items at 0% off and non-USD prices are skipped.
+ * Cover images aren't kept: img.itch.zone refuses them to other sites (HTTP 403).
  * Allowed: robots.txt allows the feed and itch.io's terms have no anti-scraping clause.
  */
 
@@ -30,7 +31,6 @@ export function itchFeedToDeals(xml: string): RawDeal[] {
       currency: "USD",
       dealType: ["online"],
       category: "entertainment",
-      imageUrl: item.field("imageurl"),
       endDate: Number.isFinite(endsAt) ? torontoDate(new Date(endsAt)) : undefined,
     });
   }

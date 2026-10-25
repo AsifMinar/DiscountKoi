@@ -15,7 +15,8 @@ export function PageHero({
   title: string;
   children: ReactNode;
   updatedAt: string;
-  isSample: boolean;
+  /** Products page only: the list includes sample listings. */
+  isSample?: boolean;
   searchLabel?: string;
   searchPlaceholder?: string;
   resultsId?: string;

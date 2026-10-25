@@ -20,6 +20,13 @@ import { fold } from "./lib/text";
 // prettier-ignore
 export const CATEGORY_RULES: ReadonlyArray<{ category: CategoryId; keywords: string[] }> = [
   {
+    category: "food-help",
+    keywords: [
+      "food bank", "food banks", "foodbank", "meal program", "soup kitchen", "community meal",
+      "community fridge", "good food box", "food hamper", "food hampers",
+    ],
+  },
+  {
     category: "pets",
     keywords: [
       "pet", "pets", "dog", "dogs", "puppy", "cat", "cats", "kitten", "kitty", "litter",

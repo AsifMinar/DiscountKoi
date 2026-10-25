@@ -155,18 +155,49 @@ export function sortDeals(deals: Deal[], sort: SortId): Deal[] {
   return [...deals].sort(COMPARATORS[sort]);
 }
 
+const isSudbury = (d: Deal) => d.location === "sudbury";
+
 /**
- * Splits the default home page into the "Sudbury deals" highlight and everything else.
+ * Splits the untouched page into its sections: this week's flyer links, the "Sudbury
+ * deals" highlight, food help (shown as one summary card) and everything else.
+ * With `grouped` off (the Student and Free pages), flyers and food help stay in the grid.
  * Expects `sorted` to be in the default (Sudbury first) order.
  */
-export function splitDefaultView(sorted: Deal[]) {
-  const highlight = sorted.filter((d) => d.location === "sudbury").slice(0, SUDBURY_SECTION_SIZE);
+export function splitDefaultView(sorted: Deal[], grouped = true) {
+  const flyers = grouped ? sorted.filter((d) => d.source === "flyer-links") : [];
+  const foodHelp = grouped ? sorted.filter((d) => d.category === "food-help") : [];
+  const apart = new Set([...flyers, ...foodHelp]);
+  const deals = sorted.filter((d) => !apart.has(d));
+  const highlight = deals.filter(isSudbury).slice(0, SUDBURY_SECTION_SIZE);
   const shown = new Set(highlight);
   return {
+    flyers,
+    foodHelp,
     highlight,
-    sudburyTotal: sorted.filter((d) => d.location === "sudbury").length,
-    rest: sorted.filter((d) => !shown.has(d)),
+    sudburyTotal: sorted.filter(isSudbury).length,
+    rest: deals.filter((d) => !shown.has(d)),
   };
+}
+
+export type FacetCounts = {
+  types: Partial<Record<DealTypeId, number>>;
+  cats: Partial<Record<CategoryId, number>>;
+};
+
+/**
+ * How many deals each type and category chip would show if picked, given the other
+ * filters. A group ignores its own selection, so picking Grocery doesn't zero out
+ * every other category.
+ */
+export function facetCounts(deals: Deal[], f: Filters, today: string): FacetCounts {
+  const counts: FacetCounts = { types: {}, cats: {} };
+  for (const d of filterDeals(deals, { ...f, types: [] }, today)) {
+    for (const t of d.dealType) counts.types[t] = (counts.types[t] ?? 0) + 1;
+  }
+  for (const d of filterDeals(deals, { ...f, cats: [] }, today)) {
+    counts.cats[d.category] = (counts.cats[d.category] ?? 0) + 1;
+  }
+  return counts;
 }
 
 export type StoreOption = { name: string; count: number };

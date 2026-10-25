@@ -52,8 +52,8 @@ export default function AboutPage() {
 
       <Section title="How often it updates">
         <p>
-          Every morning at <strong className="font-semibold text-ink">6:00 AM Sudbury time</strong>,
-          Discount Koi checks its sources for new deals and removes the ones that have ended.
+          <strong className="font-semibold text-ink">Every morning</strong>, Discount Koi checks its
+          sources for new deals and removes the ones that have ended.
         </p>
         <p>
           Last updated: <time dateTime={updatedAt}>{formatUpdated(updatedAt)}</time> (Sudbury time).

@@ -36,8 +36,6 @@ export function productKey(name: string): string {
     .join(" ");
 }
 
-export const isProduct = (deal: Deal): boolean => Boolean(deal.productName);
-
 /** Price per gram / mL / item, when the deal has a unit price. */
 function yardstick(deal: Deal) {
   return deal.unit && deal.unitPrice !== undefined ? perBase(deal.unit, deal.unitPrice) : undefined;

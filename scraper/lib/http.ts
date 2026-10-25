@@ -71,7 +71,6 @@ export class PoliteFetcher {
   private readonly scheduler: HostScheduler;
   private readonly robots: RobotsCache;
   private readonly cache: Promise<HttpCache>;
-  private browser: import("playwright").Browser | null = null;
 
   constructor(
     private readonly log: (message: string) => void = () => {},
@@ -169,47 +168,9 @@ export class PoliteFetcher {
     throw new Error(`Too many redirects starting at ${url}`);
   }
 
-  /**
-   * Loads a page in headless Chromium and returns the rendered HTML. Only for pages that
-   * need JavaScript. Same robots.txt check, same queue, same honest user agent.
-   */
-  async rendered(url: string, waitForSelector?: string): Promise<string> {
-    await this.assertAllowed(url);
-    return this.scheduler.run(new URL(url).host, async () => {
-      if (!this.browser) {
-        const { chromium } = await import("playwright");
-        this.browser = await chromium.launch();
-      }
-      const context = await this.browser.newContext({
-        userAgent: CONFIG.userAgent,
-        locale: "en-CA",
-      });
-      try {
-        const page = await context.newPage();
-        const res = await page.goto(url, {
-          timeout: this.options.timeoutMs,
-          waitUntil: "domcontentloaded",
-        });
-        this.requestCount++;
-        const status = res?.status() ?? 0;
-        if (status === 401 || status === 403 || status === 429) {
-          throw new BlockedError(url, `HTTP ${status}`);
-        }
-        if (waitForSelector) {
-          await page.waitForSelector(waitForSelector, { timeout: this.options.timeoutMs });
-        }
-        return await page.content();
-      } finally {
-        await context.close();
-      }
-    });
-  }
-
-  /** Saves the page cache and closes the browser if one was started. */
+  /** Saves the page cache. */
   async close() {
     await (await this.cache).save();
-    await this.browser?.close();
-    this.browser = null;
   }
 
   private async assertAllowed(url: string) {
