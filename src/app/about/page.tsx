@@ -74,7 +74,6 @@ export default function AboutPage() {
           </li>
           <li>Well-known national student programs, each linking to its official page.</li>
           <li>Online sales from official public feeds, like itch.io&apos;s.</li>
-          <li>Deals submitted by people in Sudbury, published only after a check.</li>
         </ul>
         <p>
           Discount Koi doesn&apos;t copy flyers from store websites, and every card links straight
@@ -97,14 +96,6 @@ export default function AboutPage() {
           means the cheapest of two or more Sudbury stores listing it.{" "}
           <strong className="font-semibold text-ink">Price drop</strong> means it costs less than
           the last time the same store listed it.
-        </p>
-      </Section>
-
-      <Section title="Found a deal?">
-        <p>
-          Use <strong className="font-semibold text-ink">Submit a deal</strong> at the top or bottom
-          of any page. It opens a short form on GitHub (a free account is needed). Each submission
-          is checked by hand before it appears here.
         </p>
       </Section>
 

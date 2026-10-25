@@ -2,7 +2,6 @@ import { affiliateFeeds } from "./affiliate-feeds";
 import { downtownSudbury } from "./downtown-sudbury";
 import { flyerLinks } from "./flyer-links";
 import { itchSales } from "./itch-sales";
-import { manualDeals } from "./manual-deals";
 import { ontarioParks } from "./ontario-parks";
 import { rfdHotDeals } from "./rfd-hot-deals";
 import { studentDiscounts } from "./student-discounts";
@@ -22,7 +21,6 @@ import { weeklyPicks } from "./weekly-picks";
 export const SOURCES: Source[] = [
   flyerLinks,
   weeklyPicks,
-  manualDeals,
   studentDiscounts,
   sudburyCityNews,
   downtownSudbury,

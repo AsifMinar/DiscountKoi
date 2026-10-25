@@ -15,7 +15,3 @@ export const SHARE_IMAGE = {
   height: 630,
   alt: "Discount Koi: every deal in Sudbury, in one calm place. Weekly flyers, price comparisons, student discounts and free stuff.",
 };
-
-export const REPO_URL = "https://github.com/AsifMinar/DiscountKoi";
-/** Opens the "Submit a deal" issue form on GitHub (needs a free GitHub account). */
-export const SUBMIT_DEAL_URL = `${REPO_URL}/issues/new?template=submit-deal.yml`;

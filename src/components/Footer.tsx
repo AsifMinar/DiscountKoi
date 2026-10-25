@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { KoiMark } from "@/components/Logo";
-import { externalLinkProps } from "@/components/ui/Button";
-import { SUBMIT_DEAL_URL } from "@/lib/site";
 
 const FOOTER_LINK =
   "inline-flex h-11 items-center rounded-full px-3 whitespace-nowrap hover:text-ink";
@@ -22,12 +20,6 @@ export function Footer() {
               <Link href="/products/" className={FOOTER_LINK}>
                 Products
               </Link>
-            </li>
-            <li>
-              <a href={SUBMIT_DEAL_URL} {...externalLinkProps()} className={FOOTER_LINK}>
-                Submit a deal
-                <span className="sr-only"> (opens GitHub in a new tab)</span>
-              </a>
             </li>
             <li>
               <Link href="/about/" className={FOOTER_LINK}>

@@ -1,7 +1,7 @@
 # Security
 
 Discount Koi is a static site: no server, no database, no logins, no cookies. The risks are
-untrusted text (scraped pages, feeds, submissions) ending up as code in a visitor's browser, and
+untrusted text (scraped pages and feeds) ending up as code in a visitor's browser, and
 the supply chain (dependencies and GitHub Actions). Each protection and where it lives:
 
 ## In the browser
@@ -11,19 +11,18 @@ the supply chain (dependencies and GitHub Actions). Each protection and where it
 | **Content Security Policy** on every page. Scripts only from this site plus each page's hashed inline scripts; no `unsafe-inline` or `unsafe-eval` for scripts; images from this site or `https:`; no plugins, frames or outside connections. | `scripts/csp-hash.ts`, run by `npm run build` after `next build`                              |
 | **Referrer policy** `strict-origin-when-cross-origin`: stores see only "asifminar.github.io", never which page or search you came from. Thumbnails also load with `no-referrer`.                                                              | `src/app/layout.tsx` (`metadata.referrer`), `src/components/DealParts.tsx`                    |
 | **Safe outside links**: always `target="_blank" rel="noopener noreferrer"`; affiliate links add `sponsored`.                                                                                                                                  | `externalLinkProps()` in `src/components/ui/Button.tsx` (the only place `_blank` is used)     |
-| **No raw HTML**: every deal, product, feed and submitted text is rendered as plain text by React. The project never uses `dangerouslySetInnerHTML`.                                                                                           | all components                                                                                |
+| **No raw HTML**: every deal, product and feed text is rendered as plain text by React. The project never uses `dangerouslySetInnerHTML`.                                                                                                      | all components                                                                                |
 | **Links and images checked twice**: http(s) only for links, https only for thumbnails. Once by the scraper, again by the schema when the site is built.                                                                                       | `scraper/lib/text.ts` (`safeUrl`), `shared/deal.ts` (`DealSchema`), `src/lib/deals.server.ts` |
 | **URL parameters whitelisted**: filters only accept known values; search text is capped at 100 characters and only ever shown as text.                                                                                                        | `src/lib/filters.ts` (`parseFilters`)                                                         |
 
 ## In the data
 
-| Protection                                                                                                                                                                                                                                                                         | Where                                                                                             |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| **Everything scraped is cleaned**: HTML tags, scripts, entities, control and invisible characters (zero-width, bidi overrides) stripped; lengths capped.                                                                                                                           | `scraper/lib/text.ts` (`cleanText`), `scraper/normalize.ts`                                       |
-| **Every deal validated** against one schema before saving, and again at build time. Bad deals are dropped and logged, never shown.                                                                                                                                                 | `shared/deal.ts`, `scraper/pipeline.ts`                                                           |
-| **Submissions are never published automatically.** `npm run approve-deal` re-checks every field (HTML stripped, `javascript:`/`data:` links and passwords in links refused, overlong text refused, forged form sections refused), shows you the result, and asks before adding it. | `scraper/submissions.ts`, `scripts/approve-deal.ts`, tests in `scraper/tests/submissions.test.ts` |
-| **Personal data isn't copied**: the open-data food program list contains contact phone numbers and emails; they're deliberately left out.                                                                                                                                          | `scraper/sources/sudbury-food-programs.ts`                                                        |
-| **Polite, honest scraping**: robots.txt and Crawl-delay obeyed, one identifying user agent, 401/403/429 treated as "blocked" and never worked around, response size capped, gzip bombs capped.                                                                                     | `scraper/lib/http.ts`, `scraper/lib/engine/`                                                      |
+| Protection                                                                                                                                                                                     | Where                                                       |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| **Everything scraped is cleaned**: HTML tags, scripts, entities, control and invisible characters (zero-width, bidi overrides) stripped; lengths capped.                                       | `scraper/lib/text.ts` (`cleanText`), `scraper/normalize.ts` |
+| **Every deal validated** against one schema before saving, and again at build time. Bad deals are dropped and logged, never shown.                                                             | `shared/deal.ts`, `scraper/pipeline.ts`                     |
+| **Personal data isn't copied**: the open-data food program list contains contact phone numbers and emails; they're deliberately left out.                                                      | `scraper/sources/sudbury-food-programs.ts`                  |
+| **Polite, honest scraping**: robots.txt and Crawl-delay obeyed, one identifying user agent, 401/403/429 treated as "blocked" and never worked around, response size capped, gzip bombs capped. | `scraper/lib/http.ts`, `scraper/lib/engine/`                |
 
 ## Supply chain and automation
 

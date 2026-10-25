@@ -1,8 +1,8 @@
 # Discount Koi
 
 Every discount, deal and freebie for Sudbury, Ontario (plus Ontario-wide deals), in one calm place:
-weekly flyer links, store-by-store product prices, student discounts, free programs and events, and
-deals people submit. A scraper refreshes everything every morning (from 6 AM Sudbury time), and the site
+weekly flyer links, store-by-store product prices, student discounts, and free programs and events.
+Visitors can only read: there are no forms and nothing to submit. A scraper refreshes everything every morning (from 6 AM Sudbury time), and the site
 is hosted for free on GitHub Pages at **https://asifminar.github.io/DiscountKoi/**.
 
 - Minimal frosted-glass design, light and dark mode, works on any phone.
@@ -31,7 +31,7 @@ npm run preview    # serves /out at http://localhost:4173/DiscountKoi/ (gzipped,
 ### Checks
 
 ```bash
-npm test             # scraper, products, submissions and security tests (no internet needed)
+npm test             # scraper, products, filters and security tests (no internet needed)
 npm run lint         # ESLint
 npm run typecheck    # TypeScript
 npm run format       # Prettier (also sorts Tailwind classes)
@@ -54,7 +54,6 @@ data/
   flyer-stores.json      Sudbury stores that get a weekly flyer card          ← you edit
   weekly-picks.json      product prices you pick from the flyers each week     ← you edit (npm run add-pick)
   student-discounts.json national student programs                             ← you edit
-  manual-deals.json      approved "Submit a deal" submissions                  ← npm run approve-deal
   affiliate-feeds.json   affiliate product feeds (switched off)                ← you edit once approved
 docs/                    affiliate setup, RFD permission email, security notes
 shared/                  deal schema (Zod), categories/locations, unit prices, product comparison
@@ -62,8 +61,8 @@ scraper/                 the daily scraper: sources/, polite HTTP engine (lib/),
 src/app/                 pages, sitemap, robots.txt, web app manifest, global styles
 src/components/          deal grid, product comparison, popup, navbar, footer, design system (ui/)
 src/lib/                 filtering & sorting, URL state, formatting, page metadata, site links
-scripts/                 add-pick, approve-deal, preview server, CSP, screenshots, Lighthouse, images
-.github/                 daily scrape + deploy workflows, "Submit a deal" issue form
+scripts/                 add-pick, preview server, CSP, screenshots, Lighthouse, images
+.github/                 daily scrape + deploy workflows
 ```
 
 ### Pages
@@ -99,7 +98,6 @@ is reported as "skipped (blocked)" and never worked around.
 | --------------------------- | ------------------------------------------------------------------- | --------------------------------------------- |
 | `flyer-links`               | One card per store per flyer week, linking to the official flyer    | on (no web requests)                          |
 | `weekly-picks`              | Product prices you write from the flyers (`data/weekly-picks.json`) | on (no web requests)                          |
-| `manual-deals`              | Approved "Submit a deal" submissions                                | on (no web requests)                          |
 | `student-discounts`         | National student programs (`data/student-discounts.json`)           | on (no web requests)                          |
 | `sudbury-city-news`         | City of Greater Sudbury news releases about free things (RSS)       | on                                            |
 | `downtown-sudbury`          | Downtown Sudbury BIA specials (schema.org structured data)          | on (none published yet)                       |
@@ -164,25 +162,6 @@ regular price and the flyer dates (suggested for you). It checks everything, sav
 Beans, Prime Student, Spotify, Apple, YouTube, Microsoft 365, GitHub, JetBrains, Figma, Notion,
 Adobe, Dell), each linking to its official page. They never expire on their own. Edit the file and
 run `npm run scrape:local` (or push). Only add programs you've checked on their official page.
-
-## "Submit a deal"
-
-The **Submit a deal** button (navbar and footer) opens a GitHub issue form
-(`.github/ISSUE_TEMPLATE/submit-deal.yml`; people need a free GitHub account). Nothing goes live
-until you approve it:
-
-```bash
-npm run approve-deal -- 42        # 42 = the issue number
-```
-
-It reads the issue through GitHub's public API, checks every field (HTML stripped; `javascript:`
-or `data:` links, overlong text, past end dates and hand-edited forms refused), shows you the
-result and asks before adding it to `data/manual-deals.json`. Then commit and push
-`data/manual-deals.json` and `data/deals.json`, and close the issue. Submissions with a price and a
-size or unit also show on the Products page. To take one down, delete its entry and push.
-
-Tip: create a label called **deal submission** on GitHub (Issues → Labels) so the form can tag
-submissions.
 
 ## Run the scraper manually
 
@@ -378,5 +357,5 @@ Then open the **Actions** tab on GitHub to watch "Deploy to GitHub Pages" run (a
 
 A strict Content Security Policy on every page (hashed inline scripts, no `unsafe-inline` or
 `unsafe-eval` for scripts), a strict referrer policy, safe outside links, plain-text rendering of
-all scraped and submitted data, and `npm audit` at 0. Details, and the GitHub settings to turn on,
+all scraped data, and `npm audit` at 0. Details, and the GitHub settings to turn on,
 are in [docs/security.md](docs/security.md).

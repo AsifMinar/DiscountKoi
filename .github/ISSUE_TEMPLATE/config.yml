@@ -1,6 +1,0 @@
-# Keeps normal blank issues available (for bug reports) next to the "Submit a deal" form.
-blank_issues_enabled: true
-contact_links:
-  - name: Browse today's deals
-    url: https://asifminar.github.io/DiscountKoi/
-    about: See what's already on Discount Koi before submitting.

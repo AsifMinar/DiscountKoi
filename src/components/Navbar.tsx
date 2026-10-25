@@ -5,10 +5,9 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Logo } from "@/components/Logo";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { buttonClasses, externalLinkProps } from "@/components/ui/Button";
-import { ArrowUpRightIcon, CloseIcon, MenuIcon, PlusIcon } from "@/components/icons";
+import { buttonClasses } from "@/components/ui/Button";
+import { CloseIcon, MenuIcon } from "@/components/icons";
 import { cn } from "@/lib/cn";
-import { SUBMIT_DEAL_URL } from "@/lib/site";
 
 export const NAV_LINKS = [
   { href: "/", label: "Deals" },
@@ -84,21 +83,6 @@ export function Navbar() {
           </ul>
 
           <div className="flex items-center gap-1">
-            {/* Phones get it in the menu; tablets an icon, where the links leave no room for words. */}
-            <div className="hidden md:block">
-              <a
-                href={SUBMIT_DEAL_URL}
-                {...externalLinkProps()}
-                aria-label="Submit a deal (opens GitHub in a new tab)"
-                className={buttonClasses({
-                  variant: "secondary",
-                  className: "w-11 px-0 lg:w-auto lg:px-5",
-                })}
-              >
-                <PlusIcon className="size-5 shrink-0 lg:hidden" />
-                <span className="max-lg:sr-only">Submit a deal</span>
-              </a>
-            </div>
             <ThemeToggle />
             <button
               type="button"
@@ -131,18 +115,6 @@ export function Navbar() {
                   </Link>
                 </li>
               ))}
-              <li className="mt-1 border-t border-line pt-1">
-                <a
-                  href={SUBMIT_DEAL_URL}
-                  {...externalLinkProps()}
-                  className={linkClass(SUBMIT_DEAL_URL, "w-full gap-2 text-base")}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Submit a deal
-                  <ArrowUpRightIcon className="size-4" />
-                  <span className="sr-only">(opens GitHub in a new tab)</span>
-                </a>
-              </li>
             </ul>
           </div>
         )}

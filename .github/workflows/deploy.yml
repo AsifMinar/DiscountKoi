@@ -47,7 +47,7 @@ jobs:
       - name: Check that GitHub Pages is turned on
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
 
-      # Hand-edited files (weekly picks, approved submissions…) show up on the next push,
+      # Hand-edited files (weekly picks, flyer stores…) show up on the next push,
       # not only after the next 6 AM scrape. Reads files only; no web requests.
       - name: Merge hand-edited deal files
         run: npm run scrape:local
