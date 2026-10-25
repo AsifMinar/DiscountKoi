@@ -44,10 +44,19 @@ test("daylight saving switch days (2026: Mar 8 forward, Nov 1 back)", () => {
   assert.equal(shouldRun(new Date("2026-11-01T11:00:00Z"), "2026-10-31T10:02:00Z").run, true);
 });
 
-test("never runs outside the window", () => {
-  assert.equal(shouldRun(new Date("2026-07-15T16:00:00Z"), null).run, false);
+test("GitHub starting the run hours late still scrapes, once", () => {
+  // Real delays seen in Oct 2026: the 10:00 UTC run started at 14:00 and 14:39 UTC.
+  assert.equal(shouldRun(new Date("2026-10-25T14:00:05Z"), "2026-10-20T08:45:16Z").run, true);
+  assert.equal(shouldRun(new Date("2026-10-25T14:39:11Z"), "2026-10-25T14:01:30Z").run, false);
+  // The 16:00 UTC backup (noon EDT) catches up if both morning runs were dropped.
+  assert.equal(shouldRun(new Date("2026-07-15T16:00:00Z"), "2026-07-14T10:03:00Z").run, true);
+  // 11:59 PM EDT is still today.
+  assert.equal(shouldRun(new Date("2026-07-16T03:59:00Z"), "2026-07-14T10:03:00Z").run, true);
+});
+
+test("never runs before 6 AM", () => {
   assert.equal(shouldRun(new Date("2026-07-15T09:59:00Z"), null).run, false); // 5:59 AM EDT
-  assert.equal(shouldRun(new Date("2026-07-15T12:00:00Z"), null).run, false); // 8:00 AM EDT
+  assert.equal(shouldRun(new Date("2026-07-15T04:00:00Z"), null).run, false); // midnight EDT
 });
 
 test("first ever run (no deals.json yet) goes ahead in the window", () => {

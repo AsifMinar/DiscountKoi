@@ -48,10 +48,11 @@ export const CONFIG = {
   httpCacheMaxAgeDays: 30,
 
   /**
-   * Scheduled runs only go ahead between these hours, Sudbury time (6:00–7:59 AM),
-   * and only once per day. Manual runs ignore this.
+   * Scheduled runs only go ahead between these hours, Sudbury time (6 AM to midnight),
+   * and only once per day. The window is wide because GitHub often starts scheduled
+   * runs hours late; a late run is better than none. Manual runs ignore this.
    */
-  runWindow: { fromHour: 6, toHour: 8 },
+  runWindow: { fromHour: 6, toHour: 24 },
 
   /** Where the finished deal list is written. */
   dealsFile: "data/deals.json",

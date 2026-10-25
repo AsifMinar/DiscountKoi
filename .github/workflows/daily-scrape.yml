@@ -3,7 +3,9 @@
 #
 # - GitHub cron uses UTC and Sudbury switches between EDT (UTC-4) and EST (UTC-5), so the
 #   job fires at 10:00 and 11:00 UTC and scraper/time-gate.ts lets exactly one through:
-#   it must be 6:00–7:59 AM in Sudbury and the scraper must not have run yet that day.
+#   it must be 6 AM or later in Sudbury and the scraper must not have run yet that day.
+#   GitHub often starts scheduled runs hours late, so the gate accepts any time until
+#   midnight, and the 16:00 UTC backup covers days when GitHub drops the morning runs.
 # - "Run workflow" on the Actions tab runs it immediately and skips the time check.
 # - The run fails (and GitHub emails you) if the scrape finds 0 deals or every source fails.
 
@@ -13,6 +15,7 @@ on:
   schedule:
     - cron: "0 10 * * *" # 6:00 AM EDT (summer)
     - cron: "0 11 * * *" # 6:00 AM EST (winter)
+    - cron: "0 16 * * *" # backup: noon EDT / 11 AM EST, in case both morning runs are dropped
   workflow_dispatch:
 
 # Nothing by default; each job asks only for what it needs below.

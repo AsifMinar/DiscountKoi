@@ -2,9 +2,10 @@
  * Decides whether a *scheduled* run should go ahead.
  *
  * GitHub's cron runs in UTC and Sudbury switches between EDT and EST, so the workflow
- * fires at both 10:00 and 11:00 UTC. This check lets exactly one of them through:
- * it must be 6:00–7:59 AM in Sudbury, and the scraper must not have run yet today.
- * (If the 6 AM run is delayed or dropped by GitHub, the 7 AM one catches up.)
+ * fires at 10:00 and 11:00 UTC (plus a 16:00 UTC backup). This check lets exactly one
+ * of them through: it must be 6 AM or later in Sudbury, and the scraper must not have
+ * run yet today. GitHub often starts scheduled runs hours late (9–11 AM is common),
+ * so whichever firing arrives first after 6 AM does the scrape and the rest skip.
  *
  * Prints the decision and writes `run=true|false` to $GITHUB_OUTPUT for later steps.
  */
@@ -18,7 +19,7 @@ export function shouldRun(now: Date, lastUpdated: string | null): { run: boolean
   if (hour < fromHour || hour >= toHour) {
     return {
       run: false,
-      reason: `it's ${hour}:00 in Sudbury, outside the ${fromHour}–${toHour} AM window`,
+      reason: `it's ${hour}:00 in Sudbury, outside the ${fromHour}:00–${toHour}:00 window`,
     };
   }
   if (lastUpdated) {

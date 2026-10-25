@@ -320,9 +320,11 @@ commits `data/deals.json` and `data/price-history.json` to `main` (as "Asif Mina
 and publishes the site.
 
 - **Timing:** GitHub's schedule runs in UTC, and Sudbury switches between EDT and EST, so the
-  workflow wakes at 10:00 and 11:00 UTC. `scraper/time-gate.ts` lets exactly one through: it must be
-  6:00–7:59 AM in Sudbury and the scraper must not have run yet that day. If GitHub delays or drops
-  the 6 AM run, the 7 AM one catches up. The skipped run finishes green in a few seconds.
+  workflow wakes at 10:00 and 11:00 UTC (plus a 16:00 UTC backup). `scraper/time-gate.ts` lets
+  exactly one through: it must be 6 AM or later in Sudbury and the scraper must not have run yet
+  that day. GitHub often starts scheduled runs hours late (9–11 AM Sudbury time is common), so the
+  first one to arrive after 6 AM does the scrape, and "Last updated" shows when that was. The
+  skipped runs finish green in a few seconds.
 - **Run it now:** Actions tab → **Daily scrape** → **Run workflow**. Manual runs skip the time check.
 - **Failures email you:** the run turns red (and GitHub emails you) if the scrape finds 0 deals or
   every source fails. Nothing is saved in that case, so the site keeps yesterday's deals.
