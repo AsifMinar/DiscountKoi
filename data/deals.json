@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T16:21:54.236Z",
+  "updatedAt": "2026-10-27T15:36:44.095Z",
   "deals": [
     {
       "id": "10a4b2f185365768",
@@ -1026,6 +1026,140 @@
       "ongoing": true
     },
     {
+      "id": "a64b3f6528fcde5d",
+      "title": "Death Crown — itch.io edition",
+      "description": "Death Crown is a minimalistic RTS in 1bit style, where you will be Death sheself.",
+      "store": "itch.io",
+      "originalPrice": 9.99,
+      "salePrice": 0.99,
+      "discountPercent": 90,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://co5monaut.itch.io/death-crown",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-27T15:36:44.095Z",
+      "currency": "USD"
+    },
+    {
+      "id": "f05b5ea75be12007",
+      "title": "Don't Stop In Red Wood: Chapter One & Two v2.0",
+      "description": "A legend returns: the cold pines of Red Wood whisper of a hunter reborn… Is he alive, stalking us again?",
+      "store": "itch.io",
+      "originalPrice": 6.5,
+      "salePrice": 3.25,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://noxusgamesstudio.itch.io/dont-stop-in-red-wood-2",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-27T15:36:44.095Z",
+      "currency": "USD"
+    },
+    {
+      "id": "6fb2f4087903f34d",
+      "title": "Labyrinth.os",
+      "description": "Lyrical Labyrinth Role Playing Game",
+      "store": "itch.io",
+      "originalPrice": 19.99,
+      "salePrice": 14.99,
+      "discountPercent": 25,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://dataerase.itch.io/labyrinthos",
+      "endDate": "2026-11-01",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-27T15:36:44.095Z",
+      "currency": "USD"
+    },
+    {
+      "id": "cfc364881fbfccab",
+      "title": "Printcremental",
+      "description": "Print the Library of Babel before a virus eats the last copy.",
+      "store": "itch.io",
+      "originalPrice": 3.99,
+      "salePrice": 2.99,
+      "discountPercent": 25,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://halogamesofficial.itch.io/printcremental",
+      "endDate": "2026-11-01",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-27T15:36:44.095Z",
+      "currency": "USD"
+    },
+    {
+      "id": "0850281fca794de0",
+      "title": "さいはて駅 (Saihate Station) + Artbook",
+      "description": "Exploration, horror, adventure, love-hate relationship",
+      "store": "itch.io",
+      "originalPrice": 0,
+      "salePrice": 0,
+      "discountPercent": 20,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://viv8k.itch.io/saihateeki",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-27T15:36:44.095Z",
+      "currency": "USD"
+    },
+    {
+      "id": "563685a3dea3c814",
+      "title": "Dungeonbound (In Development)",
+      "description": "An incremental roguelite dungeon crawler, where you craft items, defeat various enemies and dungeons",
+      "store": "itch.io",
+      "originalPrice": 12,
+      "salePrice": 10.2,
+      "discountPercent": 15,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://louidev.itch.io/dungeonbound",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-27T15:36:44.095Z",
+      "currency": "USD"
+    },
+    {
+      "id": "311b74f2670cf0df",
+      "title": "Empty Box:空盒子",
+      "description": "...HE SEES YOU?",
+      "store": "itch.io",
+      "originalPrice": 2.99,
+      "salePrice": 2.69,
+      "discountPercent": 10,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://mimu2026.itch.io/empty-box",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-27T15:36:44.095Z",
+      "currency": "USD"
+    },
+    {
       "id": "33af9c92a7b4c384",
       "title": "Trox The Reversal (Demo)",
       "description": "\"When survival becomes the law\".",
@@ -1080,7 +1214,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://hexnut-studios.itch.io/final-witness",
-      "endDate": "2026-10-28",
+      "endDate": "2026-10-30",
       "source": "itch-io-sales",
       "scrapedAt": "2026-10-26T16:21:54.236Z",
       "currency": "USD"
@@ -1162,25 +1296,6 @@
       "currency": "USD"
     },
     {
-      "id": "b690247a69f2c3cc",
-      "title": "A Monster's Expedition",
-      "description": "(Through Puzzling Exhibitions)",
-      "store": "itch.io",
-      "originalPrice": 19.99,
-      "salePrice": 5.99,
-      "discountPercent": 70,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://draknek.itch.io/a-monsters-expedition",
-      "endDate": "2026-11-02",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-26T16:21:54.236Z",
-      "currency": "USD"
-    },
-    {
       "id": "11401dd3a7fd1fad",
       "title": "Enkhirydion: Testament of Shadows",
       "description": "A gothic pixel art metroidvania forged in faith, fire, and forgotten sins.",
@@ -1233,25 +1348,6 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://erytau.itch.io/bunny-forest",
-      "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-26T16:21:54.236Z",
-      "currency": "USD"
-    },
-    {
-      "id": "38a42180cd6f2e6f",
-      "title": "Traumatarium: Penitent",
-      "description": "Master the dungeons while staying alive in search of penitence.",
-      "store": "itch.io",
-      "originalPrice": 9.99,
-      "salePrice": 4.99,
-      "discountPercent": 50,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://horatiunyc.itch.io/traumatarium-penitent",
       "endDate": "2026-11-04",
       "source": "itch-io-sales",
       "scrapedAt": "2026-10-26T16:21:54.236Z",
@@ -1394,25 +1490,6 @@
       "currency": "USD"
     },
     {
-      "id": "76d7d93909bf05ed",
-      "title": "Mycopsychosys",
-      "description": "Survive the storm or become one with us",
-      "store": "itch.io",
-      "originalPrice": 4.99,
-      "salePrice": 3.99,
-      "discountPercent": 20,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://delta-cat-studio.itch.io/mycopsychosys",
-      "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-26T16:21:54.236Z",
-      "currency": "USD"
-    },
-    {
       "id": "a531f142a47d2efa",
       "title": "Criminally Yours",
       "description": "He's both your work crush and the villain you need to stop...?",
@@ -1427,26 +1504,6 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://meant-to-bee-studios.itch.io/criminally-yours",
-      "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-26T16:21:54.236Z",
-      "currency": "USD"
-    },
-    {
-      "id": "b3505968550d11c5",
-      "title": "Give Me Back My Goat!",
-      "description": "A necromancer climbs a mountain with an army of the dead to get her goat back.",
-      "store": "itch.io",
-      "originalPrice": 0,
-      "salePrice": 0,
-      "discountPercent": 20,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://blindhermit.itch.io/give-me-back-my-goat",
       "endDate": "2026-11-04",
       "source": "itch-io-sales",
       "scrapedAt": "2026-10-26T16:21:54.236Z",
@@ -1511,26 +1568,6 @@
       "currency": "USD"
     },
     {
-      "id": "90e97e9cd016e891",
-      "title": "Sabado: Day One",
-      "description": "3D Mystery Anime Horror",
-      "store": "itch.io",
-      "originalPrice": 1,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://kiwidreams-01.itch.io/sabado-day-one",
-      "endDate": "2026-10-29",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
       "id": "9bee1e1574867107",
       "title": "Fear Assessment",
       "description": "Take an assessment for fear-based torture methods",
@@ -1545,64 +1582,6 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://alexander-wiseman.itch.io/fear-assessment",
-      "endDate": "2026-11-01",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "b96158799592cba8",
-      "title": "The Black Within",
-      "description": "The Black Within follows Laila Rose as her quest for fame drives her into a chilling, eerie descent.",
-      "store": "itch.io",
-      "originalPrice": 9.99,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://waleedzo.itch.io/the-black-within",
-      "endDate": "2026-10-31",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "b9e6089a73089d3d",
-      "title": "Lihiman (Full Game)",
-      "description": "Cute 3D Family Horror (Full Game)",
-      "store": "itch.io",
-      "originalPrice": 4.99,
-      "salePrice": 1.24,
-      "discountPercent": 75,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://kiwidreams-01.itch.io/lihiman-full",
-      "endDate": "2026-10-29",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "8fd7a12de4f5528f",
-      "title": "Pixel Fireplace",
-      "description": "Type commands, roast marshmallows, throw logs onto a crackling fire. Enjoy",
-      "store": "itch.io",
-      "originalPrice": 4.99,
-      "salePrice": 1.94,
-      "discountPercent": 61,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://hammertail.itch.io/pixel-fireplace",
       "endDate": "2026-11-04",
       "source": "itch-io-sales",
       "scrapedAt": "2026-10-20T08:45:16.084Z",
