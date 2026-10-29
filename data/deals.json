@@ -1,6 +1,102 @@
 {
-  "updatedAt": "2026-10-28T16:20:49.424Z",
+  "updatedAt": "2026-10-29T16:30:44.736Z",
   "deals": [
+    {
+      "id": "410059f84befd199",
+      "title": "Walmart weekly flyer · Oct 29 – Nov 4",
+      "description": "This week's Walmart weekly flyer. Open it on Walmart's site and choose your Greater Sudbury store to see local prices.",
+      "store": "Walmart",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "other",
+      "location": "sudbury",
+      "url": "https://www.walmart.ca/en/flyer",
+      "startDate": "2026-10-29",
+      "endDate": "2026-11-04",
+      "source": "flyer-links",
+      "scrapedAt": "2026-10-29T16:30:44.736Z"
+    },
+    {
+      "id": "548fa2b887f1e2d0",
+      "title": "Metro weekly flyer · Oct 29 – Nov 4",
+      "description": "This week's Metro weekly flyer. Open it on Metro's site and choose your Greater Sudbury store to see local prices.",
+      "store": "Metro",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://www.metro.ca/en/flyer",
+      "startDate": "2026-10-29",
+      "endDate": "2026-11-04",
+      "source": "flyer-links",
+      "scrapedAt": "2026-10-29T16:30:44.736Z"
+    },
+    {
+      "id": "7528918a75e6b5c6",
+      "title": "FreshCo weekly flyer · Oct 29 – Nov 4",
+      "description": "This week's FreshCo weekly flyer. Open it on FreshCo's site and choose your Greater Sudbury store to see local prices.",
+      "store": "FreshCo",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://www.freshco.com/flyer",
+      "startDate": "2026-10-29",
+      "endDate": "2026-11-04",
+      "source": "flyer-links",
+      "scrapedAt": "2026-10-29T16:30:44.736Z"
+    },
+    {
+      "id": "7904864bfc6db5b9",
+      "title": "Canadian Tire weekly deals · Oct 29 – Nov 4",
+      "description": "This week's Canadian Tire weekly deals. Open it on Canadian Tire's site and choose your Greater Sudbury store to see local prices.",
+      "store": "Canadian Tire",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "home",
+      "location": "sudbury",
+      "url": "https://www.canadiantire.ca/en/promotions/hot-deals.html",
+      "startDate": "2026-10-29",
+      "endDate": "2026-11-04",
+      "source": "flyer-links",
+      "scrapedAt": "2026-10-29T16:30:44.736Z"
+    },
+    {
+      "id": "afdd24b1eb31f6ed",
+      "title": "Food Basics weekly flyer · Oct 29 – Nov 4",
+      "description": "This week's Food Basics weekly flyer. Open it on Food Basics' site and choose your Greater Sudbury store to see local prices.",
+      "store": "Food Basics",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://www.foodbasics.ca/en/flyer",
+      "startDate": "2026-10-29",
+      "endDate": "2026-11-04",
+      "source": "flyer-links",
+      "scrapedAt": "2026-10-29T16:30:44.736Z"
+    },
+    {
+      "id": "c6678692ea2c1dc8",
+      "title": "No Frills weekly flyer · Oct 29 – Nov 4",
+      "description": "This week's No Frills weekly flyer. Open it on No Frills' site and choose your Greater Sudbury store to see local prices.",
+      "store": "No Frills",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://www.nofrills.ca/en/deals/flyer",
+      "startDate": "2026-10-29",
+      "endDate": "2026-11-04",
+      "source": "flyer-links",
+      "scrapedAt": "2026-10-29T16:30:44.736Z"
+    },
     {
       "id": "22d55fa96c889dbe",
       "title": "Giant Tiger weekly flyer · Oct 28 – Nov 3",
@@ -16,86 +112,6 @@
       "endDate": "2026-11-03",
       "source": "flyer-links",
       "scrapedAt": "2026-10-28T16:20:49.424Z"
-    },
-    {
-      "id": "10a4b2f185365768",
-      "title": "Food Basics weekly flyer · Oct 22–28",
-      "description": "This week's Food Basics weekly flyer. Open it on Food Basics' site and choose your Greater Sudbury store to see local prices.",
-      "store": "Food Basics",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.foodbasics.ca/en/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "flyer-links",
-      "scrapedAt": "2026-10-26T16:21:54.236Z"
-    },
-    {
-      "id": "13d3d23eac811d6c",
-      "title": "Walmart weekly flyer · Oct 22–28",
-      "description": "This week's Walmart weekly flyer. Open it on Walmart's site and choose your Greater Sudbury store to see local prices.",
-      "store": "Walmart",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "other",
-      "location": "sudbury",
-      "url": "https://www.walmart.ca/en/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "flyer-links",
-      "scrapedAt": "2026-10-26T16:21:54.236Z"
-    },
-    {
-      "id": "274c8e2e4bd36f9b",
-      "title": "No Frills weekly flyer · Oct 22–28",
-      "description": "This week's No Frills weekly flyer. Open it on No Frills' site and choose your Greater Sudbury store to see local prices.",
-      "store": "No Frills",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.nofrills.ca/en/deals/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "flyer-links",
-      "scrapedAt": "2026-10-26T16:21:54.236Z"
-    },
-    {
-      "id": "4e2978ce9e55c776",
-      "title": "Canadian Tire weekly deals · Oct 22–28",
-      "description": "This week's Canadian Tire weekly deals. Open it on Canadian Tire's site and choose your Greater Sudbury store to see local prices.",
-      "store": "Canadian Tire",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "home",
-      "location": "sudbury",
-      "url": "https://www.canadiantire.ca/en/promotions/hot-deals.html",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "flyer-links",
-      "scrapedAt": "2026-10-26T16:21:54.236Z"
-    },
-    {
-      "id": "61849d00d17fc84e",
-      "title": "Metro weekly flyer · Oct 22–28",
-      "description": "This week's Metro weekly flyer. Open it on Metro's site and choose your Greater Sudbury store to see local prices.",
-      "store": "Metro",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.metro.ca/en/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "flyer-links",
-      "scrapedAt": "2026-10-26T16:21:54.236Z"
     },
     {
       "id": "74a1407f65bfbb42",
@@ -128,226 +144,6 @@
       "endDate": "2026-10-30",
       "source": "flyer-links",
       "scrapedAt": "2026-10-26T16:21:54.236Z"
-    },
-    {
-      "id": "e1d33b3e7b54e943",
-      "title": "FreshCo weekly flyer · Oct 22–28",
-      "description": "This week's FreshCo weekly flyer. Open it on FreshCo's site and choose your Greater Sudbury store to see local prices.",
-      "store": "FreshCo",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.freshco.com/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "flyer-links",
-      "scrapedAt": "2026-10-26T16:21:54.236Z"
-    },
-    {
-      "id": "fc3095d49d5ddf17",
-      "title": "Large eggs, dozen",
-      "description": "From the Metro flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
-      "store": "Metro",
-      "originalPrice": 5.29,
-      "salePrice": 4.49,
-      "discountPercent": 15,
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.metro.ca/en/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "weekly-picks",
-      "scrapedAt": "2026-10-20T16:32:27.998Z",
-      "productName": "Large eggs",
-      "size": "dozen",
-      "unit": "each",
-      "unitPrice": 0.3742,
-      "sample": true
-    },
-    {
-      "id": "70aa6cb9c0945b1e",
-      "title": "Large eggs, dozen",
-      "description": "From the No Frills flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
-      "store": "No Frills",
-      "salePrice": 3.97,
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.nofrills.ca/en/deals/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "weekly-picks",
-      "scrapedAt": "2026-10-20T16:32:27.998Z",
-      "productName": "Large eggs",
-      "size": "dozen",
-      "unit": "each",
-      "unitPrice": 0.3308,
-      "sample": true
-    },
-    {
-      "id": "97f6c40a5512ff49",
-      "title": "Chicken breast, boneless skinless",
-      "description": "From the No Frills flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
-      "store": "No Frills",
-      "originalPrice": 5.99,
-      "salePrice": 3.99,
-      "discountPercent": 33,
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.nofrills.ca/en/deals/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "weekly-picks",
-      "scrapedAt": "2026-10-20T16:27:14.962Z",
-      "productName": "Chicken breast, boneless skinless",
-      "unit": "lb",
-      "unitPrice": 3.99,
-      "sample": true
-    },
-    {
-      "id": "324a9b0da02ba46a",
-      "title": "Cheddar cheese, 400 g",
-      "description": "From the Food Basics flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
-      "store": "Food Basics",
-      "originalPrice": 7.99,
-      "salePrice": 5.99,
-      "discountPercent": 25,
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.foodbasics.ca/en/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "weekly-picks",
-      "scrapedAt": "2026-10-20T16:27:14.962Z",
-      "productName": "Cheddar cheese",
-      "size": "400 g",
-      "unit": "100g",
-      "unitPrice": 1.4975,
-      "sample": true
-    },
-    {
-      "id": "b9a6aa209d4d5258",
-      "title": "Milk, 2%, 1 L",
-      "description": "From the Metro flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
-      "store": "Metro",
-      "originalPrice": 2.99,
-      "salePrice": 2.49,
-      "discountPercent": 17,
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.metro.ca/en/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "weekly-picks",
-      "scrapedAt": "2026-10-20T16:27:14.962Z",
-      "productName": "Milk, 2%",
-      "size": "1 L",
-      "unit": "L",
-      "unitPrice": 2.49,
-      "sample": true
-    },
-    {
-      "id": "181eb581c13db0e6",
-      "title": "Chicken breast, boneless skinless",
-      "description": "From the Metro flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
-      "store": "Metro",
-      "salePrice": 9.9,
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.metro.ca/en/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "weekly-picks",
-      "scrapedAt": "2026-10-20T16:27:14.962Z",
-      "productName": "Chicken breast, boneless skinless",
-      "unit": "kg",
-      "unitPrice": 9.9,
-      "sample": true
-    },
-    {
-      "id": "938e3de728f4c430",
-      "title": "Milk, 2%, 4 L",
-      "description": "From the Food Basics flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
-      "store": "Food Basics",
-      "salePrice": 5.29,
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.foodbasics.ca/en/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "weekly-picks",
-      "scrapedAt": "2026-10-20T16:27:14.962Z",
-      "productName": "Milk, 2%",
-      "size": "4 L",
-      "unit": "L",
-      "unitPrice": 1.3225,
-      "sample": true
-    },
-    {
-      "id": "a9dcd81f16496f25",
-      "title": "Bananas",
-      "description": "From the FreshCo flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
-      "store": "FreshCo",
-      "salePrice": 0.69,
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.freshco.com/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "weekly-picks",
-      "scrapedAt": "2026-10-20T16:27:14.962Z",
-      "productName": "Bananas",
-      "unit": "lb",
-      "unitPrice": 0.69,
-      "previousPrice": 0.79,
-      "sample": true
-    },
-    {
-      "id": "cd538102bd31b0ed",
-      "title": "Milk, 2%, 4 L",
-      "description": "From the No Frills flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
-      "store": "No Frills",
-      "salePrice": 5.49,
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.nofrills.ca/en/deals/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "weekly-picks",
-      "scrapedAt": "2026-10-20T16:27:14.962Z",
-      "productName": "Milk, 2%",
-      "size": "4 L",
-      "unit": "L",
-      "unitPrice": 1.3725,
-      "sample": true
     },
     {
       "id": "0091dd236e44ae70",
@@ -1026,6 +822,63 @@
       "ongoing": true
     },
     {
+      "id": "9a0749866a5c468e",
+      "title": "Long Live The Queen",
+      "description": "Rule the world or die trying",
+      "store": "itch.io",
+      "originalPrice": 10,
+      "salePrice": 3.5,
+      "discountPercent": 65,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://hanakogames.itch.io/long-live-the-queen",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-29T16:30:44.736Z",
+      "currency": "USD"
+    },
+    {
+      "id": "eec57e9785d29222",
+      "title": "Roguecraft GB (Game Boy Color)",
+      "description": "A modern roguelike for the Game Boy Color!",
+      "store": "itch.io",
+      "originalPrice": 9.99,
+      "salePrice": 4.99,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://thalamusdigital.itch.io/roguecraft-gb-game-boy-color",
+      "endDate": "2026-11-02",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-29T16:30:44.736Z",
+      "currency": "USD"
+    },
+    {
+      "id": "a5c21219e695739b",
+      "title": "Islands of the Caliph",
+      "description": "Old School RPG based on Medieval Middle-Eastern folklore and Islamic Spiritual Tradition.",
+      "store": "itch.io",
+      "originalPrice": 9.99,
+      "salePrice": 6.99,
+      "discountPercent": 30,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://schmidt-workshops.itch.io/islands-of-the-caliph",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-29T16:30:44.736Z",
+      "currency": "USD"
+    },
+    {
       "id": "cd9b8558d4e3ac3e",
       "title": "Changeling",
       "description": "An Urban Fantasy visual novel that explores romance within a dangerous paranormal community",
@@ -1058,25 +911,6 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://steamberry.itch.io/gildedshadows",
-      "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-28T16:20:49.424Z",
-      "currency": "USD"
-    },
-    {
-      "id": "7b96f8fed89d0a70",
-      "title": "Demonizer",
-      "description": "Turn hateful humans into lovable demons in this 90s arcade style shooter",
-      "store": "itch.io",
-      "originalPrice": 12,
-      "salePrice": 4.8,
-      "discountPercent": 60,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://ioribranford.itch.io/demonizer",
       "endDate": "2026-11-04",
       "source": "itch-io-sales",
       "scrapedAt": "2026-10-28T16:20:49.424Z",
@@ -1351,26 +1185,6 @@
       "currency": "USD"
     },
     {
-      "id": "a1fd9b3704d8cd78",
-      "title": "Final Witness",
-      "description": "You found the truth. Can you survive? A PSX-style horror game.",
-      "store": "itch.io",
-      "originalPrice": 3.99,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://hexnut-studios.itch.io/final-witness",
-      "endDate": "2026-10-30",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-26T16:21:54.236Z",
-      "currency": "USD"
-    },
-    {
       "id": "f20cd19afd9bae2b",
       "title": "Grim Fandango Remastered",
       "description": "Meet Manny Calavera, travel agent at the Department of Death.",
@@ -1539,25 +1353,6 @@
       "location": "ships-to-ontario",
       "url": "https://nomnomnami.itch.io/bad-end-theater",
       "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-26T16:21:54.236Z",
-      "currency": "USD"
-    },
-    {
-      "id": "f5fab45092cc5e42",
-      "title": "Andromeda Six",
-      "description": "A sci-fi themed Visual Novel game.",
-      "store": "itch.io",
-      "originalPrice": 14.99,
-      "salePrice": 10.49,
-      "discountPercent": 30,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://wanderlust-games.itch.io/andromeda-six",
-      "endDate": "2026-11-06",
       "source": "itch-io-sales",
       "scrapedAt": "2026-10-26T16:21:54.236Z",
       "currency": "USD"
