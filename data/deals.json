@@ -1,6 +1,22 @@
 {
-  "updatedAt": "2026-10-29T16:30:44.736Z",
+  "updatedAt": "2026-10-30T16:22:23.259Z",
   "deals": [
+    {
+      "id": "75fa02f7cd5ba967",
+      "title": "Best Buy weekly deals · Oct 30 – Nov 5",
+      "description": "This week's Best Buy weekly deals. Open it on Best Buy's site and choose your Greater Sudbury store to see local prices.",
+      "store": "Best Buy",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "electronics",
+      "location": "sudbury",
+      "url": "https://www.bestbuy.ca/en-ca/flyer",
+      "startDate": "2026-10-30",
+      "endDate": "2026-11-05",
+      "source": "flyer-links",
+      "scrapedAt": "2026-10-30T16:22:23.259Z"
+    },
     {
       "id": "410059f84befd199",
       "title": "Walmart weekly flyer · Oct 29 – Nov 4",
@@ -112,22 +128,6 @@
       "endDate": "2026-11-03",
       "source": "flyer-links",
       "scrapedAt": "2026-10-28T16:20:49.424Z"
-    },
-    {
-      "id": "74a1407f65bfbb42",
-      "title": "Best Buy weekly deals · Oct 23–29",
-      "description": "This week's Best Buy weekly deals. Open it on Best Buy's site and choose your Greater Sudbury store to see local prices.",
-      "store": "Best Buy",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "electronics",
-      "location": "sudbury",
-      "url": "https://www.bestbuy.ca/en-ca/flyer",
-      "startDate": "2026-10-23",
-      "endDate": "2026-10-29",
-      "source": "flyer-links",
-      "scrapedAt": "2026-10-26T16:21:54.236Z"
     },
     {
       "id": "bdffab1671efae0b",
@@ -822,6 +822,64 @@
       "ongoing": true
     },
     {
+      "id": "b9e6089a73089d3d",
+      "title": "Lihiman (Full Game)",
+      "description": "Cute 3D Family Horror (Full Game)",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 1.24,
+      "discountPercent": 75,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://kiwidreams-01.itch.io/lihiman-full",
+      "endDate": "2026-11-29",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-30T16:22:23.259Z",
+      "currency": "USD"
+    },
+    {
+      "id": "48a614385b6cb221",
+      "title": "Poolscape",
+      "description": "Explore the Poolrooms as if it were lost media from 1998.",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 2.99,
+      "discountPercent": 40,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://cosmicarcadegames.itch.io/poolscape",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-30T16:22:23.259Z",
+      "currency": "USD"
+    },
+    {
+      "id": "d57e39d4ad9957cc",
+      "title": "Trapped with Jester",
+      "description": "You wake up in a carriage with an annoying stranger...",
+      "store": "itch.io",
+      "originalPrice": 0,
+      "salePrice": 0,
+      "discountPercent": 22,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://ant-san.itch.io/jester",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-30T16:22:23.259Z",
+      "currency": "USD"
+    },
+    {
       "id": "9a0749866a5c468e",
       "title": "Long Live The Queen",
       "description": "Rule the world or die trying",
@@ -836,25 +894,6 @@
       "location": "ships-to-ontario",
       "url": "https://hanakogames.itch.io/long-live-the-queen",
       "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-29T16:30:44.736Z",
-      "currency": "USD"
-    },
-    {
-      "id": "eec57e9785d29222",
-      "title": "Roguecraft GB (Game Boy Color)",
-      "description": "A modern roguelike for the Game Boy Color!",
-      "store": "itch.io",
-      "originalPrice": 9.99,
-      "salePrice": 4.99,
-      "discountPercent": 50,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://thalamusdigital.itch.io/roguecraft-gb-game-boy-color",
-      "endDate": "2026-11-02",
       "source": "itch-io-sales",
       "scrapedAt": "2026-10-29T16:30:44.736Z",
       "currency": "USD"
@@ -892,25 +931,6 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://steamberry.itch.io/changeling",
-      "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-28T16:20:49.424Z",
-      "currency": "USD"
-    },
-    {
-      "id": "d448382bd4dfb049",
-      "title": "Gilded Shadows",
-      "description": "A cyberpunk and solarpunk adventure-romance that explores a world where one side is forever day and the other, night.",
-      "store": "itch.io",
-      "originalPrice": 29.99,
-      "salePrice": 5.99,
-      "discountPercent": 80,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://steamberry.itch.io/gildedshadows",
       "endDate": "2026-11-04",
       "source": "itch-io-sales",
       "scrapedAt": "2026-10-28T16:20:49.424Z",
@@ -1244,7 +1264,7 @@
     {
       "id": "11401dd3a7fd1fad",
       "title": "Enkhirydion: Testament of Shadows",
-      "description": "A gothic pixel art metroidvania forged in faith, fire, and forgotten sins.",
+      "description": "A gothic pixel-art metroidvania forged in faith, fire, and forgotten sins.",
       "store": "itch.io",
       "originalPrice": 9,
       "salePrice": 3.6,
@@ -1255,26 +1275,6 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://lemonade-soft.itch.io/enkhirydion-testament-of-shadows",
-      "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-26T16:21:54.236Z",
-      "currency": "USD"
-    },
-    {
-      "id": "9e2478d272d51199",
-      "title": "Bunny Forest",
-      "description": "Calm game about bunnies",
-      "store": "itch.io",
-      "originalPrice": 0,
-      "salePrice": 0,
-      "discountPercent": 60,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://erytau.itch.io/bunny-forest",
       "endDate": "2026-11-04",
       "source": "itch-io-sales",
       "scrapedAt": "2026-10-26T16:21:54.236Z",
