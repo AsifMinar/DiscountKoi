@@ -1,6 +1,22 @@
 {
-  "updatedAt": "2026-10-30T16:22:23.259Z",
+  "updatedAt": "2026-10-31T15:32:49.678Z",
   "deals": [
+    {
+      "id": "bbec2614c6f31ede",
+      "title": "Shoppers Drug Mart weekly flyer · Oct 31 – Nov 6",
+      "description": "This week's Shoppers Drug Mart weekly flyer. Open it on Shoppers Drug Mart's site and choose your Greater Sudbury store to see local prices.",
+      "store": "Shoppers Drug Mart",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "health-beauty",
+      "location": "sudbury",
+      "url": "https://www.shoppersdrugmart.ca/flyer",
+      "startDate": "2026-10-31",
+      "endDate": "2026-11-06",
+      "source": "flyer-links",
+      "scrapedAt": "2026-10-31T15:32:49.678Z"
+    },
     {
       "id": "75fa02f7cd5ba967",
       "title": "Best Buy weekly deals · Oct 30 – Nov 5",
@@ -128,22 +144,6 @@
       "endDate": "2026-11-03",
       "source": "flyer-links",
       "scrapedAt": "2026-10-28T16:20:49.424Z"
-    },
-    {
-      "id": "bdffab1671efae0b",
-      "title": "Shoppers Drug Mart weekly flyer · Oct 24–30",
-      "description": "This week's Shoppers Drug Mart weekly flyer. Open it on Shoppers Drug Mart's site and choose your Greater Sudbury store to see local prices.",
-      "store": "Shoppers Drug Mart",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "health-beauty",
-      "location": "sudbury",
-      "url": "https://www.shoppersdrugmart.ca/flyer",
-      "startDate": "2026-10-24",
-      "endDate": "2026-10-30",
-      "source": "flyer-links",
-      "scrapedAt": "2026-10-26T16:21:54.236Z"
     },
     {
       "id": "0091dd236e44ae70",
@@ -822,6 +822,120 @@
       "ongoing": true
     },
     {
+      "id": "d448382bd4dfb049",
+      "title": "Gilded Shadows",
+      "description": "A cyberpunk and solarpunk adventure-romance that explores a world where one side is forever day and the other, night.",
+      "store": "itch.io",
+      "originalPrice": 29.99,
+      "salePrice": 5.99,
+      "discountPercent": 80,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://steamberry.itch.io/gildedshadows",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-31T15:32:49.678Z",
+      "currency": "USD"
+    },
+    {
+      "id": "31f00c676b6540de",
+      "title": "Tiny Logic",
+      "description": "Build a computer from transistors up, then make it run DOOM.",
+      "store": "itch.io",
+      "originalPrice": 9.99,
+      "salePrice": 4.99,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://whoismuzzy.itch.io/tinylogic",
+      "endDate": "2026-11-02",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-31T15:32:49.678Z",
+      "currency": "USD"
+    },
+    {
+      "id": "51fb98d6c04efa4d",
+      "title": "New Meat",
+      "description": "Horror-comedy roguelite about burgers, monsters and dead-end jobs.",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 2.49,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://rocketlex.itch.io/new-meat",
+      "endDate": "2026-11-06",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-31T15:32:49.678Z",
+      "currency": "USD"
+    },
+    {
+      "id": "c753c704e98f2d65",
+      "title": "RogueSlide",
+      "description": "Sliding puzzle meets dungeon-crawler",
+      "store": "itch.io",
+      "originalPrice": 3.99,
+      "salePrice": 1.99,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://beepyeah.itch.io/rogueslide",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-31T15:32:49.678Z",
+      "currency": "USD"
+    },
+    {
+      "id": "89c65aade1652fdf",
+      "title": "The Librarian",
+      "description": "Something is wrong in the Library!",
+      "store": "itch.io",
+      "originalPrice": 3.99,
+      "salePrice": 2.59,
+      "discountPercent": 35,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://octavinavarro.itch.io/the-librarian",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-31T15:32:49.678Z",
+      "currency": "USD"
+    },
+    {
+      "id": "54a1d88d8dd9985e",
+      "title": "Hot Wax 🔥",
+      "description": "Arcade puzzler with falling candles 🕯️",
+      "store": "itch.io",
+      "originalPrice": 8,
+      "salePrice": 6,
+      "discountPercent": 25,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://punkcake.itch.io/hotwax",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-31T15:32:49.678Z",
+      "currency": "USD"
+    },
+    {
       "id": "b9e6089a73089d3d",
       "title": "Lihiman (Full Game)",
       "description": "Cute 3D Family Horror (Full Game)",
@@ -915,25 +1029,6 @@
       "endDate": "2026-11-04",
       "source": "itch-io-sales",
       "scrapedAt": "2026-10-29T16:30:44.736Z",
-      "currency": "USD"
-    },
-    {
-      "id": "cd9b8558d4e3ac3e",
-      "title": "Changeling",
-      "description": "An Urban Fantasy visual novel that explores romance within a dangerous paranormal community",
-      "store": "itch.io",
-      "originalPrice": 19.99,
-      "salePrice": 1.99,
-      "discountPercent": 90,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://steamberry.itch.io/changeling",
-      "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-28T16:20:49.424Z",
       "currency": "USD"
     },
     {
@@ -1109,44 +1204,6 @@
       "currency": "USD"
     },
     {
-      "id": "6fb2f4087903f34d",
-      "title": "Labyrinth.os",
-      "description": "Lyrical Labyrinth Role Playing Game",
-      "store": "itch.io",
-      "originalPrice": 19.99,
-      "salePrice": 14.99,
-      "discountPercent": 25,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://dataerase.itch.io/labyrinthos",
-      "endDate": "2026-11-01",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-27T15:36:44.095Z",
-      "currency": "USD"
-    },
-    {
-      "id": "cfc364881fbfccab",
-      "title": "Printcremental",
-      "description": "Print the Library of Babel before a virus eats the last copy.",
-      "store": "itch.io",
-      "originalPrice": 3.99,
-      "salePrice": 2.99,
-      "discountPercent": 25,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://halogamesofficial.itch.io/printcremental",
-      "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-27T15:36:44.095Z",
-      "currency": "USD"
-    },
-    {
       "id": "0850281fca794de0",
       "title": "さいはて駅 (Saihate Station) + Artbook",
       "description": "Exploration, horror, adventure, love-hate relationship",
@@ -1224,25 +1281,6 @@
       "currency": "USD"
     },
     {
-      "id": "a2a37e06f2a9e9a8",
-      "title": "Super Hexagon",
-      "description": "A minimal action game by Terry Cavanagh, with music by Chipzel.",
-      "store": "itch.io",
-      "originalPrice": 2.99,
-      "salePrice": 0.74,
-      "discountPercent": 75,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://terrycavanagh.itch.io/super-hexagon",
-      "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-26T16:21:54.236Z",
-      "currency": "USD"
-    },
-    {
       "id": "7b0e741b352520c9",
       "title": "Batty Zabella",
       "description": "A horror point-and-click game made with 30% nostalgia, and 70% sass.",
@@ -1314,44 +1352,6 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://sourmiiiilk.itch.io/my-sweet-housemate",
-      "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-26T16:21:54.236Z",
-      "currency": "USD"
-    },
-    {
-      "id": "5e52b1fe450e2619",
-      "title": "Ad Nauseam - The Wrong Side [ STEAM RELEASE OUT NOW!!!! ]",
-      "description": "Did you wake up on the wrong side?",
-      "store": "itch.io",
-      "originalPrice": 11,
-      "salePrice": 6.6,
-      "discountPercent": 40,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://throwpup.itch.io/ad-nauseam-the-wrong-side",
-      "endDate": "2026-10-31",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-26T16:21:54.236Z",
-      "currency": "USD"
-    },
-    {
-      "id": "21cd768838582d00",
-      "title": "BAD END THEATER",
-      "description": "select your protagonist and explore a variety of terrible fates!",
-      "store": "itch.io",
-      "originalPrice": 9.99,
-      "salePrice": 6.99,
-      "discountPercent": 30,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://nomnomnami.itch.io/bad-end-theater",
       "endDate": "2026-11-04",
       "source": "itch-io-sales",
       "scrapedAt": "2026-10-26T16:21:54.236Z",
