@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T15:32:49.678Z",
+  "updatedAt": "2026-11-01T16:30:11.203Z",
   "deals": [
     {
       "id": "bbec2614c6f31ede",
@@ -822,6 +822,64 @@
       "ongoing": true
     },
     {
+      "id": "78c681c7158ccba6",
+      "title": "Requiem Station",
+      "description": "This Station Wasn't Supposed to Exist...",
+      "store": "itch.io",
+      "originalPrice": 1,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://batpan-games.itch.io/requiem-station",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-01T16:30:11.203Z",
+      "currency": "USD"
+    },
+    {
+      "id": "b8f9404812704fa4",
+      "title": "Dicey Dungeons",
+      "description": "Fighting against fortune would be a lot easier if you weren't a walking dice.",
+      "store": "itch.io",
+      "originalPrice": 14.99,
+      "salePrice": 3.74,
+      "discountPercent": 75,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://terrycavanagh.itch.io/dicey-dungeons",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-01T16:30:11.203Z",
+      "currency": "USD"
+    },
+    {
+      "id": "70ac8b52d75a3b6b",
+      "title": "The Bag Man's Curse",
+      "description": "This game follows a 12-year-old boy named Peter who lives in a town where there are reports of a being called Bagman.",
+      "store": "itch.io",
+      "originalPrice": 1,
+      "salePrice": 0.28,
+      "discountPercent": 72,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://caramelgames.itch.io/the-bagmans-curse",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-01T16:30:11.203Z",
+      "currency": "USD"
+    },
+    {
       "id": "d448382bd4dfb049",
       "title": "Gilded Shadows",
       "description": "A cyberpunk and solarpunk adventure-romance that explores a world where one side is forever day and the other, night.",
@@ -994,25 +1052,6 @@
       "currency": "USD"
     },
     {
-      "id": "9a0749866a5c468e",
-      "title": "Long Live The Queen",
-      "description": "Rule the world or die trying",
-      "store": "itch.io",
-      "originalPrice": 10,
-      "salePrice": 3.5,
-      "discountPercent": 65,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://hanakogames.itch.io/long-live-the-queen",
-      "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-29T16:30:44.736Z",
-      "currency": "USD"
-    },
-    {
       "id": "a5c21219e695739b",
       "title": "Islands of the Caliph",
       "description": "Old School RPG based on Medieval Middle-Eastern folklore and Islamic Spiritual Tradition.",
@@ -1045,7 +1084,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://missxero.itch.io/bewitching-sinners-visual-novel",
-      "endDate": "2026-11-02",
+      "endDate": "2026-11-04",
       "source": "itch-io-sales",
       "scrapedAt": "2026-10-28T16:20:49.424Z",
       "currency": "USD"
@@ -1372,25 +1411,6 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://meant-to-bee-studios.itch.io/criminally-yours",
-      "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-26T16:21:54.236Z",
-      "currency": "USD"
-    },
-    {
-      "id": "47a0f75a011716e3",
-      "title": "Good Boy!",
-      "description": "He's a really good boy... and so is his dog!",
-      "store": "itch.io",
-      "originalPrice": 2.99,
-      "salePrice": 2.54,
-      "discountPercent": 15,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://lunamakaio.itch.io/good-boy",
       "endDate": "2026-11-04",
       "source": "itch-io-sales",
       "scrapedAt": "2026-10-26T16:21:54.236Z",
