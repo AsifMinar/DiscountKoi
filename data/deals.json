@@ -1,325 +1,9 @@
 {
-  "updatedAt": "2026-10-20T08:45:16.084Z",
+  "updatedAt": "2026-11-01T16:30:11.203Z",
   "deals": [
     {
-      "id": "fc3095d49d5ddf17",
-      "title": "Large eggs, dozen",
-      "description": "From the Metro flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
-      "store": "Metro",
-      "originalPrice": 5.29,
-      "salePrice": 4.49,
-      "discountPercent": 15,
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.metro.ca/en/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "weekly-picks",
-      "scrapedAt": "2026-10-20T16:32:27.998Z",
-      "productName": "Large eggs",
-      "size": "dozen",
-      "unit": "each",
-      "unitPrice": 0.3742,
-      "sample": true
-    },
-    {
-      "id": "70aa6cb9c0945b1e",
-      "title": "Large eggs, dozen",
-      "description": "From the No Frills flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
-      "store": "No Frills",
-      "salePrice": 3.97,
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.nofrills.ca/en/deals/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "weekly-picks",
-      "scrapedAt": "2026-10-20T16:32:27.998Z",
-      "productName": "Large eggs",
-      "size": "dozen",
-      "unit": "each",
-      "unitPrice": 0.3308,
-      "sample": true
-    },
-    {
-      "id": "97f6c40a5512ff49",
-      "title": "Chicken breast, boneless skinless",
-      "description": "From the No Frills flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
-      "store": "No Frills",
-      "originalPrice": 5.99,
-      "salePrice": 3.99,
-      "discountPercent": 33,
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.nofrills.ca/en/deals/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "weekly-picks",
-      "scrapedAt": "2026-10-20T16:27:14.962Z",
-      "productName": "Chicken breast, boneless skinless",
-      "unit": "lb",
-      "unitPrice": 3.99,
-      "sample": true
-    },
-    {
-      "id": "324a9b0da02ba46a",
-      "title": "Cheddar cheese, 400 g",
-      "description": "From the Food Basics flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
-      "store": "Food Basics",
-      "originalPrice": 7.99,
-      "salePrice": 5.99,
-      "discountPercent": 25,
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.foodbasics.ca/en/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "weekly-picks",
-      "scrapedAt": "2026-10-20T16:27:14.962Z",
-      "productName": "Cheddar cheese",
-      "size": "400 g",
-      "unit": "100g",
-      "unitPrice": 1.4975,
-      "sample": true
-    },
-    {
-      "id": "b9a6aa209d4d5258",
-      "title": "Milk, 2%, 1 L",
-      "description": "From the Metro flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
-      "store": "Metro",
-      "originalPrice": 2.99,
-      "salePrice": 2.49,
-      "discountPercent": 17,
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.metro.ca/en/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "weekly-picks",
-      "scrapedAt": "2026-10-20T16:27:14.962Z",
-      "productName": "Milk, 2%",
-      "size": "1 L",
-      "unit": "L",
-      "unitPrice": 2.49,
-      "sample": true
-    },
-    {
-      "id": "181eb581c13db0e6",
-      "title": "Chicken breast, boneless skinless",
-      "description": "From the Metro flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
-      "store": "Metro",
-      "salePrice": 9.9,
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.metro.ca/en/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "weekly-picks",
-      "scrapedAt": "2026-10-20T16:27:14.962Z",
-      "productName": "Chicken breast, boneless skinless",
-      "unit": "kg",
-      "unitPrice": 9.9,
-      "sample": true
-    },
-    {
-      "id": "938e3de728f4c430",
-      "title": "Milk, 2%, 4 L",
-      "description": "From the Food Basics flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
-      "store": "Food Basics",
-      "salePrice": 5.29,
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.foodbasics.ca/en/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "weekly-picks",
-      "scrapedAt": "2026-10-20T16:27:14.962Z",
-      "productName": "Milk, 2%",
-      "size": "4 L",
-      "unit": "L",
-      "unitPrice": 1.3225,
-      "sample": true
-    },
-    {
-      "id": "a9dcd81f16496f25",
-      "title": "Bananas",
-      "description": "From the FreshCo flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
-      "store": "FreshCo",
-      "salePrice": 0.69,
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.freshco.com/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "weekly-picks",
-      "scrapedAt": "2026-10-20T16:27:14.962Z",
-      "productName": "Bananas",
-      "unit": "lb",
-      "unitPrice": 0.69,
-      "previousPrice": 0.79,
-      "sample": true
-    },
-    {
-      "id": "cd538102bd31b0ed",
-      "title": "Milk, 2%, 4 L",
-      "description": "From the No Frills flyer (Oct 22–28). Prices can differ between stores, so check the flyer for your Sudbury store.",
-      "store": "No Frills",
-      "salePrice": 5.49,
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.nofrills.ca/en/deals/flyer",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-28",
-      "source": "weekly-picks",
-      "scrapedAt": "2026-10-20T16:27:14.962Z",
-      "productName": "Milk, 2%",
-      "size": "4 L",
-      "unit": "L",
-      "unitPrice": 1.3725,
-      "sample": true
-    },
-    {
-      "id": "0675c9ae64db446b",
-      "title": "FreshCo weekly flyer · Oct 15–21",
-      "description": "This week's FreshCo weekly flyer. Open it on FreshCo's site and choose your Greater Sudbury store to see local prices.",
-      "store": "FreshCo",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.freshco.com/flyer",
-      "startDate": "2026-10-15",
-      "endDate": "2026-10-21",
-      "source": "flyer-links",
-      "scrapedAt": "2026-10-20T05:32:04.762Z"
-    },
-    {
-      "id": "30d9dd9dac7385d4",
-      "title": "Food Basics weekly flyer · Oct 15–21",
-      "description": "This week's Food Basics weekly flyer. Open it on Food Basics' site and choose your Greater Sudbury store to see local prices.",
-      "store": "Food Basics",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.foodbasics.ca/en/flyer",
-      "startDate": "2026-10-15",
-      "endDate": "2026-10-21",
-      "source": "flyer-links",
-      "scrapedAt": "2026-10-20T05:32:04.762Z"
-    },
-    {
-      "id": "5c0553b8d850378e",
-      "title": "Walmart weekly flyer · Oct 15–21",
-      "description": "This week's Walmart weekly flyer. Open it on Walmart's site and choose your Greater Sudbury store to see local prices.",
-      "store": "Walmart",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "other",
-      "location": "sudbury",
-      "url": "https://www.walmart.ca/en/flyer",
-      "startDate": "2026-10-15",
-      "endDate": "2026-10-21",
-      "source": "flyer-links",
-      "scrapedAt": "2026-10-20T05:32:04.762Z"
-    },
-    {
-      "id": "abfb6fefe5e86075",
-      "title": "Metro weekly flyer · Oct 15–21",
-      "description": "This week's Metro weekly flyer. Open it on Metro's site and choose your Greater Sudbury store to see local prices.",
-      "store": "Metro",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "grocery",
-      "location": "sudbury",
-      "url": "https://www.metro.ca/en/flyer",
-      "startDate": "2026-10-15",
-      "endDate": "2026-10-21",
-      "source": "flyer-links",
-      "scrapedAt": "2026-10-20T05:32:04.762Z"
-    },
-    {
-      "id": "c69e11eef83eb12d",
-      "title": "Best Buy weekly deals · Oct 16–22",
-      "description": "This week's Best Buy weekly deals. Open it on Best Buy's site and choose your Greater Sudbury store to see local prices.",
-      "store": "Best Buy",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "electronics",
-      "location": "sudbury",
-      "url": "https://www.bestbuy.ca/en-ca/flyer",
-      "startDate": "2026-10-16",
-      "endDate": "2026-10-22",
-      "source": "flyer-links",
-      "scrapedAt": "2026-10-20T05:32:04.762Z"
-    },
-    {
-      "id": "c815bbc29de1f68b",
-      "title": "Canadian Tire weekly deals · Oct 15–21",
-      "description": "This week's Canadian Tire weekly deals. Open it on Canadian Tire's site and choose your Greater Sudbury store to see local prices.",
-      "store": "Canadian Tire",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "home",
-      "location": "sudbury",
-      "url": "https://www.canadiantire.ca/en/promotions/hot-deals.html",
-      "startDate": "2026-10-15",
-      "endDate": "2026-10-21",
-      "source": "flyer-links",
-      "scrapedAt": "2026-10-20T05:32:04.762Z"
-    },
-    {
-      "id": "c9acdb55b64b4310",
-      "title": "Giant Tiger weekly flyer · Oct 14–20",
-      "description": "This week's Giant Tiger weekly flyer. Open it on Giant Tiger's site and choose your Greater Sudbury store to see local prices.",
-      "store": "Giant Tiger",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "other",
-      "location": "sudbury",
-      "url": "https://www.gianttiger.com/collections/flyers-and-deals",
-      "startDate": "2026-10-14",
-      "endDate": "2026-10-20",
-      "source": "flyer-links",
-      "scrapedAt": "2026-10-20T05:32:04.762Z"
-    },
-    {
-      "id": "f5ee613fb745b28e",
-      "title": "Shoppers Drug Mart weekly flyer · Oct 17–23",
+      "id": "bbec2614c6f31ede",
+      "title": "Shoppers Drug Mart weekly flyer · Oct 31 – Nov 6",
       "description": "This week's Shoppers Drug Mart weekly flyer. Open it on Shoppers Drug Mart's site and choose your Greater Sudbury store to see local prices.",
       "store": "Shoppers Drug Mart",
       "dealType": [
@@ -328,14 +12,110 @@
       "category": "health-beauty",
       "location": "sudbury",
       "url": "https://www.shoppersdrugmart.ca/flyer",
-      "startDate": "2026-10-17",
-      "endDate": "2026-10-23",
+      "startDate": "2026-10-31",
+      "endDate": "2026-11-06",
       "source": "flyer-links",
-      "scrapedAt": "2026-10-20T05:32:04.762Z"
+      "scrapedAt": "2026-10-31T15:32:49.678Z"
     },
     {
-      "id": "fcd1a87e583a24e2",
-      "title": "No Frills weekly flyer · Oct 15–21",
+      "id": "75fa02f7cd5ba967",
+      "title": "Best Buy weekly deals · Oct 30 – Nov 5",
+      "description": "This week's Best Buy weekly deals. Open it on Best Buy's site and choose your Greater Sudbury store to see local prices.",
+      "store": "Best Buy",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "electronics",
+      "location": "sudbury",
+      "url": "https://www.bestbuy.ca/en-ca/flyer",
+      "startDate": "2026-10-30",
+      "endDate": "2026-11-05",
+      "source": "flyer-links",
+      "scrapedAt": "2026-10-30T16:22:23.259Z"
+    },
+    {
+      "id": "410059f84befd199",
+      "title": "Walmart weekly flyer · Oct 29 – Nov 4",
+      "description": "This week's Walmart weekly flyer. Open it on Walmart's site and choose your Greater Sudbury store to see local prices.",
+      "store": "Walmart",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "other",
+      "location": "sudbury",
+      "url": "https://www.walmart.ca/en/flyer",
+      "startDate": "2026-10-29",
+      "endDate": "2026-11-04",
+      "source": "flyer-links",
+      "scrapedAt": "2026-10-29T16:30:44.736Z"
+    },
+    {
+      "id": "548fa2b887f1e2d0",
+      "title": "Metro weekly flyer · Oct 29 – Nov 4",
+      "description": "This week's Metro weekly flyer. Open it on Metro's site and choose your Greater Sudbury store to see local prices.",
+      "store": "Metro",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://www.metro.ca/en/flyer",
+      "startDate": "2026-10-29",
+      "endDate": "2026-11-04",
+      "source": "flyer-links",
+      "scrapedAt": "2026-10-29T16:30:44.736Z"
+    },
+    {
+      "id": "7528918a75e6b5c6",
+      "title": "FreshCo weekly flyer · Oct 29 – Nov 4",
+      "description": "This week's FreshCo weekly flyer. Open it on FreshCo's site and choose your Greater Sudbury store to see local prices.",
+      "store": "FreshCo",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://www.freshco.com/flyer",
+      "startDate": "2026-10-29",
+      "endDate": "2026-11-04",
+      "source": "flyer-links",
+      "scrapedAt": "2026-10-29T16:30:44.736Z"
+    },
+    {
+      "id": "7904864bfc6db5b9",
+      "title": "Canadian Tire weekly deals · Oct 29 – Nov 4",
+      "description": "This week's Canadian Tire weekly deals. Open it on Canadian Tire's site and choose your Greater Sudbury store to see local prices.",
+      "store": "Canadian Tire",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "home",
+      "location": "sudbury",
+      "url": "https://www.canadiantire.ca/en/promotions/hot-deals.html",
+      "startDate": "2026-10-29",
+      "endDate": "2026-11-04",
+      "source": "flyer-links",
+      "scrapedAt": "2026-10-29T16:30:44.736Z"
+    },
+    {
+      "id": "afdd24b1eb31f6ed",
+      "title": "Food Basics weekly flyer · Oct 29 – Nov 4",
+      "description": "This week's Food Basics weekly flyer. Open it on Food Basics' site and choose your Greater Sudbury store to see local prices.",
+      "store": "Food Basics",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "grocery",
+      "location": "sudbury",
+      "url": "https://www.foodbasics.ca/en/flyer",
+      "startDate": "2026-10-29",
+      "endDate": "2026-11-04",
+      "source": "flyer-links",
+      "scrapedAt": "2026-10-29T16:30:44.736Z"
+    },
+    {
+      "id": "c6678692ea2c1dc8",
+      "title": "No Frills weekly flyer · Oct 29 – Nov 4",
       "description": "This week's No Frills weekly flyer. Open it on No Frills' site and choose your Greater Sudbury store to see local prices.",
       "store": "No Frills",
       "dealType": [
@@ -344,10 +124,26 @@
       "category": "grocery",
       "location": "sudbury",
       "url": "https://www.nofrills.ca/en/deals/flyer",
-      "startDate": "2026-10-15",
-      "endDate": "2026-10-21",
+      "startDate": "2026-10-29",
+      "endDate": "2026-11-04",
       "source": "flyer-links",
-      "scrapedAt": "2026-10-20T05:32:04.762Z"
+      "scrapedAt": "2026-10-29T16:30:44.736Z"
+    },
+    {
+      "id": "22d55fa96c889dbe",
+      "title": "Giant Tiger weekly flyer · Oct 28 – Nov 3",
+      "description": "This week's Giant Tiger weekly flyer. Open it on Giant Tiger's site and choose your Greater Sudbury store to see local prices.",
+      "store": "Giant Tiger",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "other",
+      "location": "sudbury",
+      "url": "https://www.gianttiger.com/collections/flyers-and-deals",
+      "startDate": "2026-10-28",
+      "endDate": "2026-11-03",
+      "source": "flyer-links",
+      "scrapedAt": "2026-10-28T16:20:49.424Z"
     },
     {
       "id": "0091dd236e44ae70",
@@ -1026,9 +822,9 @@
       "ongoing": true
     },
     {
-      "id": "29b579d1a43f44bf",
-      "title": "Pigeon West: Call Of Gun. ISEKAI",
-      "description": "What if the Wild West’s most dangerous outlaw got isekai’d into a generic world—not even as the main hero?",
+      "id": "78c681c7158ccba6",
+      "title": "Requiem Station",
+      "description": "This Station Wasn't Supposed to Exist...",
       "store": "itch.io",
       "originalPrice": 1,
       "salePrice": 0,
@@ -1039,130 +835,604 @@
       ],
       "category": "entertainment",
       "location": "ships-to-ontario",
-      "url": "https://squidsquadpapi.itch.io/pigeon-west-call-of-gun-isekai",
-      "endDate": "2026-10-30",
+      "url": "https://batpan-games.itch.io/requiem-station",
+      "endDate": "2026-11-04",
       "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "scrapedAt": "2026-11-01T16:30:11.203Z",
       "currency": "USD"
     },
     {
-      "id": "3f0c9b71901d8056",
-      "title": "Family Manners",
-      "description": "It’s just another typical day in the wonderful life of the Evans, right?",
+      "id": "b8f9404812704fa4",
+      "title": "Dicey Dungeons",
+      "description": "Fighting against fortune would be a lot easier if you weren't a walking dice.",
       "store": "itch.io",
-      "originalPrice": 2.99,
-      "salePrice": 0,
-      "discountPercent": 100,
+      "originalPrice": 14.99,
+      "salePrice": 3.74,
+      "discountPercent": 75,
       "dealType": [
-        "online",
-        "free"
+        "online"
       ],
       "category": "entertainment",
       "location": "ships-to-ontario",
-      "url": "https://nney.itch.io/family-manners",
-      "endDate": "2026-10-26",
+      "url": "https://terrycavanagh.itch.io/dicey-dungeons",
+      "endDate": "2026-11-04",
       "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "scrapedAt": "2026-11-01T16:30:11.203Z",
       "currency": "USD"
     },
     {
-      "id": "4065bed8f894b5ce",
-      "title": "PARTY LINE",
-      "description": "The Party is listening",
-      "store": "itch.io",
-      "originalPrice": 1,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://notsospecialgames.itch.io/party-line",
-      "endDate": "2026-10-25",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "67d6ec9821ab17bd",
-      "title": "Trox The Reversal",
-      "description": "\"When survival becomes the law\".",
+      "id": "70ac8b52d75a3b6b",
+      "title": "The Bag Man's Curse",
+      "description": "This game follows a 12-year-old boy named Peter who lives in a town where there are reports of a being called Bagman.",
       "store": "itch.io",
       "originalPrice": 1,
-      "salePrice": 0,
-      "discountPercent": 100,
+      "salePrice": 0.28,
+      "discountPercent": 72,
       "dealType": [
-        "online",
-        "free"
+        "online"
       ],
       "category": "entertainment",
       "location": "ships-to-ontario",
-      "url": "https://troj4nblazing.itch.io/trox-the-reversal",
-      "endDate": "2026-10-31",
+      "url": "https://caramelgames.itch.io/the-bagmans-curse",
+      "endDate": "2026-11-04",
       "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "scrapedAt": "2026-11-01T16:30:11.203Z",
       "currency": "USD"
     },
     {
-      "id": "6ff1e7e2511ee048",
-      "title": "The Green Light",
-      "description": "A first-person horror game. Trapped in a dead-end job, Fred follows a voice promising peace through a green light.",
+      "id": "d448382bd4dfb049",
+      "title": "Gilded Shadows",
+      "description": "A cyberpunk and solarpunk adventure-romance that explores a world where one side is forever day and the other, night.",
+      "store": "itch.io",
+      "originalPrice": 29.99,
+      "salePrice": 5.99,
+      "discountPercent": 80,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://steamberry.itch.io/gildedshadows",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-31T15:32:49.678Z",
+      "currency": "USD"
+    },
+    {
+      "id": "31f00c676b6540de",
+      "title": "Tiny Logic",
+      "description": "Build a computer from transistors up, then make it run DOOM.",
       "store": "itch.io",
       "originalPrice": 9.99,
-      "salePrice": 0,
-      "discountPercent": 100,
+      "salePrice": 4.99,
+      "discountPercent": 50,
       "dealType": [
-        "online",
-        "free"
+        "online"
       ],
       "category": "entertainment",
       "location": "ships-to-ontario",
-      "url": "https://waleedzo.itch.io/the-green-light",
-      "endDate": "2026-10-24",
+      "url": "https://whoismuzzy.itch.io/tinylogic",
+      "endDate": "2026-11-02",
       "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "scrapedAt": "2026-10-31T15:32:49.678Z",
       "currency": "USD"
     },
     {
-      "id": "86f28aec9806d021",
-      "title": "THE MIDNIGHT BUS",
-      "description": "No way out - Psychological Horror",
+      "id": "51fb98d6c04efa4d",
+      "title": "New Meat",
+      "description": "Horror-comedy roguelite about burgers, monsters and dead-end jobs.",
       "store": "itch.io",
-      "originalPrice": 1.99,
-      "salePrice": 0,
-      "discountPercent": 100,
+      "originalPrice": 4.99,
+      "salePrice": 2.49,
+      "discountPercent": 50,
       "dealType": [
-        "online",
-        "free"
+        "online"
       ],
       "category": "entertainment",
       "location": "ships-to-ontario",
-      "url": "https://itandfeel.itch.io/the-midnight-bus",
-      "endDate": "2026-10-22",
+      "url": "https://rocketlex.itch.io/new-meat",
+      "endDate": "2026-11-06",
       "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "scrapedAt": "2026-10-31T15:32:49.678Z",
       "currency": "USD"
     },
     {
-      "id": "90e97e9cd016e891",
-      "title": "Sabado: Day One",
-      "description": "3D Mystery Anime Horror",
+      "id": "c753c704e98f2d65",
+      "title": "RogueSlide",
+      "description": "Sliding puzzle meets dungeon-crawler",
       "store": "itch.io",
-      "originalPrice": 1,
+      "originalPrice": 3.99,
+      "salePrice": 1.99,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://beepyeah.itch.io/rogueslide",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-31T15:32:49.678Z",
+      "currency": "USD"
+    },
+    {
+      "id": "89c65aade1652fdf",
+      "title": "The Librarian",
+      "description": "Something is wrong in the Library!",
+      "store": "itch.io",
+      "originalPrice": 3.99,
+      "salePrice": 2.59,
+      "discountPercent": 35,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://octavinavarro.itch.io/the-librarian",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-31T15:32:49.678Z",
+      "currency": "USD"
+    },
+    {
+      "id": "54a1d88d8dd9985e",
+      "title": "Hot Wax 🔥",
+      "description": "Arcade puzzler with falling candles 🕯️",
+      "store": "itch.io",
+      "originalPrice": 8,
+      "salePrice": 6,
+      "discountPercent": 25,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://punkcake.itch.io/hotwax",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-31T15:32:49.678Z",
+      "currency": "USD"
+    },
+    {
+      "id": "b9e6089a73089d3d",
+      "title": "Lihiman (Full Game)",
+      "description": "Cute 3D Family Horror (Full Game)",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 1.24,
+      "discountPercent": 75,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://kiwidreams-01.itch.io/lihiman-full",
+      "endDate": "2026-11-29",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-30T16:22:23.259Z",
+      "currency": "USD"
+    },
+    {
+      "id": "48a614385b6cb221",
+      "title": "Poolscape",
+      "description": "Explore the Poolrooms as if it were lost media from 1998.",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 2.99,
+      "discountPercent": 40,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://cosmicarcadegames.itch.io/poolscape",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-30T16:22:23.259Z",
+      "currency": "USD"
+    },
+    {
+      "id": "d57e39d4ad9957cc",
+      "title": "Trapped with Jester",
+      "description": "You wake up in a carriage with an annoying stranger...",
+      "store": "itch.io",
+      "originalPrice": 0,
       "salePrice": 0,
-      "discountPercent": 100,
+      "discountPercent": 22,
       "dealType": [
         "online",
         "free"
       ],
       "category": "entertainment",
       "location": "ships-to-ontario",
-      "url": "https://kiwidreams-01.itch.io/sabado-day-one",
-      "endDate": "2026-10-29",
+      "url": "https://ant-san.itch.io/jester",
+      "endDate": "2026-11-04",
       "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
+      "scrapedAt": "2026-10-30T16:22:23.259Z",
+      "currency": "USD"
+    },
+    {
+      "id": "a5c21219e695739b",
+      "title": "Islands of the Caliph",
+      "description": "Old School RPG based on Medieval Middle-Eastern folklore and Islamic Spiritual Tradition.",
+      "store": "itch.io",
+      "originalPrice": 9.99,
+      "salePrice": 6.99,
+      "discountPercent": 30,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://schmidt-workshops.itch.io/islands-of-the-caliph",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-29T16:30:44.736Z",
+      "currency": "USD"
+    },
+    {
+      "id": "f81b8d1053c0136b",
+      "title": "Bewitching Sinners",
+      "description": "A bewitching otome and BL dating sim",
+      "store": "itch.io",
+      "originalPrice": 18,
+      "salePrice": 8.1,
+      "discountPercent": 55,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://missxero.itch.io/bewitching-sinners-visual-novel",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-28T16:20:49.424Z",
+      "currency": "USD"
+    },
+    {
+      "id": "4c8ac8d0a4b8e144",
+      "title": "Tavern Talk [full]",
+      "description": "A Cozy Visual Novel Game",
+      "store": "itch.io",
+      "originalPrice": 17.99,
+      "salePrice": 8.99,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://gentle-troll.itch.io/tavern-talk",
+      "endDate": "2026-11-07",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-28T16:20:49.424Z",
+      "currency": "USD"
+    },
+    {
+      "id": "5fa3cb8748511212",
+      "title": "Sprout Valley",
+      "description": "A simple casual game about harvesting and gathering resources",
+      "store": "itch.io",
+      "originalPrice": 2.99,
+      "salePrice": 1.49,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://zefrost.itch.io/sprout-valley",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-28T16:20:49.424Z",
+      "currency": "USD"
+    },
+    {
+      "id": "0c93bb4517fd62ab",
+      "title": "A Date with Death",
+      "description": "Enter a week long bet against the Grim Reaper to keep your soul... and maybe fall in love along the way?",
+      "store": "itch.io",
+      "originalPrice": 0,
+      "salePrice": 0,
+      "discountPercent": 40,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://twoandahalfstudios.itch.io/a-date-with-death",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-28T16:20:49.424Z",
+      "currency": "USD"
+    },
+    {
+      "id": "4a42e38e0ac8183d",
+      "title": "A Date with Death - Beyond the Bet DLC",
+      "description": "Five more days with your favorite Grim Reaper... a DLC for A Date with Death!",
+      "store": "itch.io",
+      "originalPrice": 9.99,
+      "salePrice": 5.99,
+      "discountPercent": 40,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://twoandahalfstudios.itch.io/beyond-the-bet-dlc",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-28T16:20:49.424Z",
+      "currency": "USD"
+    },
+    {
+      "id": "a84e4d6c0406be87",
+      "title": "Soul of Sovereignty Prelude",
+      "description": "a tale of deadly kindness and selfish virtue",
+      "store": "itch.io",
+      "originalPrice": 9.99,
+      "salePrice": 6.99,
+      "discountPercent": 30,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://gigidigi.itch.io/soulsov",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-28T16:20:49.424Z",
+      "currency": "USD"
+    },
+    {
+      "id": "a6b1e1dc1dfb3654",
+      "title": "OBSCURA",
+      "description": "No one goes under the mountain without a reason.",
+      "store": "itch.io",
+      "originalPrice": 14.99,
+      "salePrice": 11.24,
+      "discountPercent": 25,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://rottenraccoons.itch.io/obscura",
+      "endDate": "2026-11-10",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-28T16:20:49.424Z",
+      "currency": "USD"
+    },
+    {
+      "id": "2c00b2ce39a39452",
+      "title": "Lancer Tactics",
+      "description": "Mecha RPG adapted from Lancer tabletop",
+      "store": "itch.io",
+      "originalPrice": 20,
+      "salePrice": 17,
+      "discountPercent": 15,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://wick.itch.io/lancer-tactics",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-28T16:20:49.424Z",
+      "currency": "USD"
+    },
+    {
+      "id": "a64b3f6528fcde5d",
+      "title": "Death Crown — itch.io edition",
+      "description": "Death Crown is a minimalistic RTS in 1bit style, where you will be Death sheself.",
+      "store": "itch.io",
+      "originalPrice": 9.99,
+      "salePrice": 0.99,
+      "discountPercent": 90,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://co5monaut.itch.io/death-crown",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-27T15:36:44.095Z",
+      "currency": "USD"
+    },
+    {
+      "id": "0850281fca794de0",
+      "title": "さいはて駅 (Saihate Station) + Artbook",
+      "description": "Exploration, horror, adventure, love-hate relationship",
+      "store": "itch.io",
+      "originalPrice": 0,
+      "salePrice": 0,
+      "discountPercent": 20,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://viv8k.itch.io/saihateeki",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-27T15:36:44.095Z",
+      "currency": "USD"
+    },
+    {
+      "id": "563685a3dea3c814",
+      "title": "Dungeonbound (In Development)",
+      "description": "An incremental roguelite dungeon crawler, where you craft items, defeat various enemies and dungeons",
+      "store": "itch.io",
+      "originalPrice": 12,
+      "salePrice": 10.2,
+      "discountPercent": 15,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://louidev.itch.io/dungeonbound",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-27T15:36:44.095Z",
+      "currency": "USD"
+    },
+    {
+      "id": "311b74f2670cf0df",
+      "title": "Empty Box:空盒子",
+      "description": "...HE SEES YOU?",
+      "store": "itch.io",
+      "originalPrice": 2.99,
+      "salePrice": 2.69,
+      "discountPercent": 10,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://mimu2026.itch.io/empty-box",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-27T15:36:44.095Z",
+      "currency": "USD"
+    },
+    {
+      "id": "f20cd19afd9bae2b",
+      "title": "Grim Fandango Remastered",
+      "description": "Meet Manny Calavera, travel agent at the Department of Death.",
+      "store": "itch.io",
+      "originalPrice": 14.99,
+      "salePrice": 2.24,
+      "discountPercent": 85,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://doublefine.itch.io/grim-fandango-remastered",
+      "endDate": "2026-11-02",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-26T16:21:54.236Z",
+      "currency": "USD"
+    },
+    {
+      "id": "7b0e741b352520c9",
+      "title": "Batty Zabella",
+      "description": "A horror point-and-click game made with 30% nostalgia, and 70% sass.",
+      "store": "itch.io",
+      "originalPrice": 6.66,
+      "salePrice": 1.99,
+      "discountPercent": 70,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://icecoldblood.itch.io/batty-zabella",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-26T16:21:54.236Z",
+      "currency": "USD"
+    },
+    {
+      "id": "11401dd3a7fd1fad",
+      "title": "Enkhirydion: Testament of Shadows",
+      "description": "A gothic pixel-art metroidvania forged in faith, fire, and forgotten sins.",
+      "store": "itch.io",
+      "originalPrice": 9,
+      "salePrice": 3.6,
+      "discountPercent": 60,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://lemonade-soft.itch.io/enkhirydion-testament-of-shadows",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-26T16:21:54.236Z",
+      "currency": "USD"
+    },
+    {
+      "id": "c10e8097e72c5641",
+      "title": "SuperTuxKart",
+      "description": "A go kart racing game featuring Tux & Friends",
+      "store": "itch.io",
+      "originalPrice": 0,
+      "salePrice": 0,
+      "discountPercent": 50,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://supertuxkart.itch.io/supertuxkart",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-26T16:21:54.236Z",
+      "currency": "USD"
+    },
+    {
+      "id": "38611bfeaf78da99",
+      "title": "My Sweet! Housemate",
+      "description": "A horror comedy about cannibalism",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 2.99,
+      "discountPercent": 40,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://sourmiiiilk.itch.io/my-sweet-housemate",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-26T16:21:54.236Z",
+      "currency": "USD"
+    },
+    {
+      "id": "a531f142a47d2efa",
+      "title": "Criminally Yours",
+      "description": "He's both your work crush and the villain you need to stop...?",
+      "store": "itch.io",
+      "originalPrice": 0,
+      "salePrice": 0,
+      "discountPercent": 20,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://meant-to-bee-studios.itch.io/criminally-yours",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-26T16:21:54.236Z",
+      "currency": "USD"
+    },
+    {
+      "id": "2257233a584070b8",
+      "title": "Usuimo",
+      "description": "A fully animated and voiced life-sim with roguelite runs.",
+      "store": "itch.io",
+      "originalPrice": 15,
+      "salePrice": 13.5,
+      "discountPercent": 10,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://nlch.itch.io/usuimo",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-10-26T16:21:54.236Z",
       "currency": "USD"
     },
     {
@@ -1180,201 +1450,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://alexander-wiseman.itch.io/fear-assessment",
-      "endDate": "2026-11-01",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "b053365241a15de3",
-      "title": "Lost In Transit",
-      "description": "The next package is waiting.",
-      "store": "itch.io",
-      "originalPrice": 1.99,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://boxer-gaming.itch.io/lost-in-transit",
-      "endDate": "2026-10-24",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "b910dbe28dd36359",
-      "title": "Cherophobia",
-      "description": "You find yourself stranded in a forest after your car breaks down.",
-      "store": "itch.io",
-      "originalPrice": 1.99,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://worsteventgames.itch.io/cherophobia",
-      "endDate": "2026-10-22",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "b96158799592cba8",
-      "title": "The Black Within",
-      "description": "The Black Within follows Laila Rose as her quest for fame drives her into a chilling, eerie descent.",
-      "store": "itch.io",
-      "originalPrice": 9.99,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://waleedzo.itch.io/the-black-within",
-      "endDate": "2026-10-24",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "f0081a50375ffadd",
-      "title": "PARTY LINE: RECLASSIFIED",
-      "description": "The Party is still listening.",
-      "store": "itch.io",
-      "originalPrice": 2.99,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://notsospecialgames.itch.io/party-line-reclassified",
-      "endDate": "2026-10-25",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "f8ab9bfca9bd0d83",
-      "title": "Brütal Legend",
-      "description": "Brütal Legend is an action-adventure that marries visceral action combat with open-world freedom.",
-      "store": "itch.io",
-      "originalPrice": 14.99,
-      "salePrice": 2.24,
-      "discountPercent": 85,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://doublefine.itch.io/brutal-legend",
-      "endDate": "2026-10-20",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "64d7a4dc0c73b06a",
-      "title": "Demetrios - The BIG Cynical Adventure",
-      "description": "The Journey of an Idiot. 8 to 12 hours of fun!",
-      "store": "itch.io",
-      "originalPrice": 4.99,
-      "salePrice": 0.99,
-      "discountPercent": 80,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://cowcat.itch.io/demetrios",
-      "endDate": "2026-10-30",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "b9e6089a73089d3d",
-      "title": "Lihiman (Full Game)",
-      "description": "Cute 3D Family Horror (Full Game)",
-      "store": "itch.io",
-      "originalPrice": 4.99,
-      "salePrice": 1.24,
-      "discountPercent": 75,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://kiwidreams-01.itch.io/lihiman-full",
-      "endDate": "2026-10-29",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "3aaa798626ccc498",
-      "title": "Death is a Guest",
-      "description": "What the hell happened to Mr. Host? Solve the mystery and maybe find love along the way.",
-      "store": "itch.io",
-      "originalPrice": 4.99,
-      "salePrice": 1.49,
-      "discountPercent": 70,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://honeybunny-of.itch.io/deathguest",
-      "endDate": "2026-10-31",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "a3c6492c163225d7",
-      "title": "Cosmic Express",
-      "description": "A puzzle game about planning the train route for the world's most awkward space colony",
-      "store": "itch.io",
-      "originalPrice": 14.99,
-      "salePrice": 4.49,
-      "discountPercent": 70,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://draknek.itch.io/cosmic-express",
-      "endDate": "2026-11-02",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "2ec2686f27345643",
-      "title": "My teacher",
-      "description": "Who could it mean that evening extra classes with a teacher would lead to something more?",
-      "store": "itch.io",
-      "originalPrice": 4,
-      "salePrice": 2,
-      "discountPercent": 50,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://w3stgta.itch.io/my-teacher",
-      "endDate": "2026-11-08",
+      "endDate": "2026-11-04",
       "source": "itch-io-sales",
       "scrapedAt": "2026-10-20T08:45:16.084Z",
       "currency": "USD"
@@ -1393,235 +1469,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://prikarin.itch.io/where-winter-crows-go",
-      "endDate": "2026-10-31",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "8fd7a12de4f5528f",
-      "title": "Pixel Fireplace",
-      "description": "Type commands, roast marshmallows, throw logs onto a crackling fire. Enjoy",
-      "store": "itch.io",
-      "originalPrice": 4.99,
-      "salePrice": 2.49,
-      "discountPercent": 50,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://hammertail.itch.io/pixel-fireplace",
-      "endDate": "2026-10-26",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "b23aab363fb02ac4",
-      "title": "Kalayaan Road",
-      "description": "Play as Kuya Jesse, a fresh architecture graduate uncovering his father's dark secret.",
-      "store": "itch.io",
-      "originalPrice": 3.99,
-      "salePrice": 1.99,
-      "discountPercent": 50,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://lawdgames.itch.io/kalayaan-road",
-      "endDate": "2026-11-14",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "cc3faeaf29a258d0",
-      "title": "BROK the InvestiGator",
-      "description": "One croc. Lots of trouble...!",
-      "store": "itch.io",
-      "originalPrice": 19.99,
-      "salePrice": 9.99,
-      "discountPercent": 50,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://cowcat.itch.io/brok",
-      "endDate": "2026-10-30",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "e460094011ea9f2b",
-      "title": "OFFRECORD",
-      "description": "So much for a fresh start.",
-      "store": "itch.io",
-      "originalPrice": 4,
-      "salePrice": 2,
-      "discountPercent": 50,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://redcap-games.itch.io/offrecord-episode-1",
-      "endDate": "2026-10-25",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "fbd10d78cc8e4ae0",
-      "title": "KILLCACHE",
-      "description": "Hunt giant monsters, strip them for parts, and get out alive. A top-down extraction shooter.",
-      "store": "itch.io",
-      "originalPrice": 10,
-      "salePrice": 5,
-      "discountPercent": 50,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://verybadscavr.itch.io/killcache",
-      "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "f09b5db4ededcce4",
-      "title": "The Failure Even Death Rejects Otome/BL Complete",
-      "description": "A contract for death turns into a dangerous game of love.",
-      "store": "itch.io",
-      "originalPrice": 22,
-      "salePrice": 15.4,
-      "discountPercent": 30,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://bigdeal.itch.io/the-failure-even-death-rejects",
-      "endDate": "2026-10-26",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "3f28dfbbbd633763",
-      "title": "Ruby's Trick or Treat [Halloween Anime Horror]",
-      "description": "She's back for more. An anime horror game where breaking the rules has deadly consequences.",
-      "store": "itch.io",
-      "originalPrice": 2.99,
-      "salePrice": 2.24,
-      "discountPercent": 25,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://kripkode.itch.io/rubys-trick-or-treat",
-      "endDate": "2026-10-25",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "b476cf71ea665453",
-      "title": "The Wrong Way",
-      "description": "",
-      "store": "itch.io",
-      "originalPrice": 3.99,
-      "salePrice": 2.99,
-      "discountPercent": 25,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://zestosyt.itch.io/the-wrong-way",
-      "endDate": "2026-11-01",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "d17673d554ab08ba",
-      "title": "UNEARTHED",
-      "description": "An Interstellar Puzzle Game",
-      "store": "itch.io",
-      "originalPrice": 12,
-      "salePrice": 9,
-      "discountPercent": 25,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://benjelter.itch.io/unearthed",
-      "endDate": "2026-10-31",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "fae937199a041bbe",
-      "title": "First Contact Protocol",
-      "description": "A sci-fi adventure game with branching choices and a crew fighting to survive.",
-      "store": "itch.io",
-      "originalPrice": 13,
-      "salePrice": 9.75,
-      "discountPercent": 25,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://benjelter.itch.io/first-contact-protocol",
-      "endDate": "2026-10-31",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "1adf4883774bfd60",
-      "title": "The Mayor of Sanctuary",
-      "description": "Expanded Edition",
-      "store": "itch.io",
-      "originalPrice": 4.99,
-      "salePrice": 3.99,
-      "discountPercent": 20,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://naramakesgames.itch.io/the-mayor-of-sanctuary",
-      "endDate": "2026-11-01",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "325f91fe99814cf3",
-      "title": "Roguecraft DX (ZX Spectrum Next)",
-      "description": "A modern roguelike for the ZX Spectrum Next!",
-      "store": "itch.io",
-      "originalPrice": 9.99,
-      "salePrice": 7.99,
-      "discountPercent": 20,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://thalamusdigital.itch.io/roguecraft-dx-next",
-      "endDate": "2026-10-24",
+      "endDate": "2026-11-02",
       "source": "itch-io-sales",
       "scrapedAt": "2026-10-20T08:45:16.084Z",
       "currency": "USD"
