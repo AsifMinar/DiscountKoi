@@ -67,15 +67,17 @@ scripts/                 add-pick, preview server, CSP, screenshots, Lighthouse,
 
 ### Pages
 
-| URL           | What it shows                                                                   |
-| ------------- | ------------------------------------------------------------------------------- |
-| `/`           | All deals: search, filters, a "Sudbury deals" section, then everything else     |
-| `/products/`  | Search a product and compare every store's price side by side, cheapest first   |
-| `/student/`   | Student programs and student deals                                              |
-| `/free/`      | Free programs, events and freebies                                              |
-| `/about/`     | What Discount Koi is, sources, badges, affiliate links, privacy                 |
-| `?deal=<id>`  | On any deal or product page, opens that item's popup. Shareable; Back closes it |
-| anything else | Friendly 404 page (`404.html`, which GitHub Pages serves automatically)         |
+| URL              | What it shows                                                                                                                      |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `/`              | Shop-style home: category icons, flyer strip, Top deals and Ending soon rows, Shop by store, then every deal with a filter sidebar |
+| `/products/`     | Search a product and compare every store's price side by side, cheapest first                                                      |
+| `/stores/`       | Every store with a deal or flyer (food banks listed separately)                                                                    |
+| `/store/<name>/` | One store: its weekly flyer button and all its deals (one page per store, made at build time)                                      |
+| `/student/`      | Student programs and student deals                                                                                                 |
+| `/free/`         | Free programs, events and freebies, plus food banks and meal programs                                                              |
+| `/about/`        | What Discount Koi is, sources, badges, affiliate links, privacy                                                                    |
+| `?deal=<id>`     | On any deal or product page, opens that item's popup. Shareable; Back closes it                                                    |
+| anything else    | Friendly 404 page (`404.html`, which GitHub Pages serves automatically)                                                            |
 
 Also generated at build time: `/deals.json` (the full list the browser filters), `/sitemap.xml`,
 `/robots.txt`, `/manifest.webmanifest`, the app icons and the link-preview image.
@@ -86,8 +88,9 @@ Also generated at build time: `/deals.json` (the full list the browser filters),
   deals instantly and search engines can read them.
 - The full list is published as `/deals.json`. The browser downloads it right after the page loads
   and does all filtering, searching and sorting locally. No server is involved.
-- Filters live in the URL (e.g. `?type=free&cat=grocery&loc=sudbury&sort=newest`), so any filtered
-  view can be shared as a link.
+- Filters live in the URL (e.g. `?ch=in-store&cat=grocery&loc=sudbury&off=25&under=50&sort=price`),
+  so any filtered view can be shared as a link. `ch` is the All / In store / Online switch, `off` is
+  "at least X% off", `under` is "under $X". Old `?type=in-store` links still work.
 
 ## Where the deals come from
 

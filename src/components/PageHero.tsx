@@ -11,6 +11,9 @@ export function PageHero({
   searchLabel,
   searchPlaceholder,
   resultsId,
+  noSearch,
+  before,
+  actions,
 }: {
   title: string;
   children: ReactNode;
@@ -20,14 +23,24 @@ export function PageHero({
   searchLabel?: string;
   searchPlaceholder?: string;
   resultsId?: string;
+  /** Pages without a deal list to search (e.g. All stores). */
+  noSearch?: boolean;
+  /** Shown above the title, e.g. a store's badge. */
+  before?: ReactNode;
+  /** Buttons under the subtitle, e.g. a store's flyer link. */
+  actions?: ReactNode;
 }) {
   return (
-    <section className="flex flex-col items-center gap-5 text-center">
-      <h1 className="max-w-2xl text-[2.125rem] leading-[1.1] font-semibold tracking-tight text-balance sm:text-5xl">
+    <section className="flex flex-col items-center gap-4 text-center">
+      {before}
+      <h1 className="max-w-2xl text-[2rem] leading-[1.1] font-semibold tracking-tight text-balance sm:text-[2.75rem]">
         {title}
       </h1>
-      <p className="max-w-xl text-base text-pretty text-ink-muted sm:text-lg">{children}</p>
-      <SearchBar label={searchLabel} placeholder={searchPlaceholder} resultsId={resultsId} />
+      <p className="max-w-xl text-base text-pretty text-ink-muted">{children}</p>
+      {actions && <div className="flex flex-wrap justify-center gap-3">{actions}</div>}
+      {!noSearch && (
+        <SearchBar label={searchLabel} placeholder={searchPlaceholder} resultsId={resultsId} />
+      )}
       <p className="text-xs text-ink-muted">
         Last updated: <time dateTime={updatedAt}>{formatUpdated(updatedAt)}</time> (Sudbury time)
         {isSample && " · Includes sample listings (marked Sample)"}
@@ -39,7 +52,7 @@ export function PageHero({
 /** Shared page width and spacing. */
 export function PageShell({ children }: { children: ReactNode }) {
   return (
-    <div className="mx-auto flex max-w-[88rem] flex-col gap-10 pt-10 sm:gap-14 sm:pt-16">
+    <div className="mx-auto flex max-w-[88rem] flex-col gap-10 pt-8 sm:gap-12 sm:pt-12">
       {children}
     </div>
   );

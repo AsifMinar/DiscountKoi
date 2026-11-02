@@ -1,4 +1,5 @@
 import type { Deal } from "@shared/deal";
+import { daysBetween, torontoDate } from "@shared/dates";
 import {
   CATEGORY_IDS,
   DEAL_TYPE_IDS,
@@ -8,22 +9,39 @@ import {
   type DealTypeId,
   type LocationId,
 } from "@shared/taxonomy";
+import { isFlyer, storeSlug } from "@/lib/stores";
 
 /*
  * Everything about filtering and sorting deals lives here. It's plain functions on
- * the deal list, so the home page, Student and Free pages all behave the same.
+ * the deal list, so the home, Student, Free and store pages all behave the same.
  */
 
 export const PAGE_SIZE = 24;
-export const SUDBURY_SECTION_SIZE = 8;
+/** How many deals the "Top deals" and "Ending soon" rows on the home page show. */
+export const ROW_SIZE = 10;
+/** A home page row needs at least this many deals, or it's left out. */
+export const ROW_MIN = 4;
 
 export const SORTS = [
   { id: "sudbury", label: "Sudbury first" },
   { id: "newest", label: "Newest" },
   { id: "discount", label: "Biggest discount" },
+  { id: "price", label: "Lowest price" },
   { id: "ending", label: "Ending soon" },
 ] as const;
 export type SortId = (typeof SORTS)[number]["id"];
+
+/** Where you buy it: the "All / In store / Online" switch. */
+export const CHANNELS = [
+  { id: "in-store", label: "In store" },
+  { id: "online", label: "Online" },
+] as const satisfies ReadonlyArray<{ id: DealTypeId; label: string }>;
+export type ChannelId = (typeof CHANNELS)[number]["id"];
+
+/** "At least X% off" choices. */
+export const MIN_DISCOUNTS = [10, 25, 50] as const;
+/** "Under $X" choices. */
+export const MAX_PRICES = [10, 25, 50, 100] as const;
 
 export type Filters = {
   q: string;
@@ -31,6 +49,11 @@ export type Filters = {
   cats: CategoryId[];
   loc: LocationId | null;
   store: string | null;
+  channel: ChannelId | null;
+  /** At least this many percent off. */
+  off: number | null;
+  /** Costs this much or less. */
+  under: number | null;
   sort: SortId;
 };
 
@@ -40,26 +63,44 @@ export const DEFAULT_FILTERS: Filters = {
   cats: [],
   loc: null,
   store: null,
+  channel: null,
+  off: null,
+  under: null,
   sort: "sudbury",
 };
 
-// URL keys. Example: ?q=coffee&type=free&cat=grocery&cat=pets&loc=sudbury&sort=newest
-const KEYS = ["q", "type", "cat", "loc", "store", "sort"] as const;
+// URL keys. Example: ?q=coffee&type=free&cat=grocery&loc=sudbury&ch=online&off=25&under=50&sort=newest
+const KEYS = ["q", "type", "cat", "loc", "store", "ch", "off", "under", "sort"] as const;
 
 const pick = <T extends string>(allowed: readonly T[], values: string[]) =>
   [...new Set(values)].filter((v): v is T => (allowed as readonly string[]).includes(v));
+
+const pickNumber = (allowed: readonly number[], value: string | null) =>
+  allowed.find((n) => String(n) === value) ?? null;
 
 /** Reads filters from a query string, ignoring anything unknown or malformed. */
 export function parseFilters(search: string): Filters {
   const params = new URLSearchParams(search);
   const loc = params.get("loc");
+  const ch = params.get("ch");
   const sort = params.get("sort");
+  let types = pick(DEAL_TYPE_IDS, params.getAll("type"));
+  let channel = CHANNELS.find((c) => c.id === ch)?.id ?? null;
+  // Older links said ?type=in-store; that's the In store switch now.
+  const legacy = types.filter((t): t is ChannelId => CHANNELS.some((c) => c.id === t));
+  if (legacy.length === 1 && !channel) {
+    channel = legacy[0];
+    types = types.filter((t) => t !== channel);
+  }
   return {
     q: (params.get("q") ?? "").slice(0, 100),
-    types: pick(DEAL_TYPE_IDS, params.getAll("type")),
+    types,
     cats: pick(CATEGORY_IDS, params.getAll("cat")),
     loc: pick(LOCATION_IDS, loc ? [loc] : [])[0] ?? null,
     store: params.get("store")?.slice(0, 80) || null,
+    channel,
+    off: pickNumber(MIN_DISCOUNTS, params.get("off")),
+    under: pickNumber(MAX_PRICES, params.get("under")),
     sort: SORTS.some((s) => s.id === sort) ? (sort as SortId) : "sudbury",
   };
 }
@@ -73,13 +114,28 @@ export function filtersToSearch(filters: Filters, current = ""): string {
   filters.cats.forEach((c) => params.append("cat", c));
   if (filters.loc) params.set("loc", filters.loc);
   if (filters.store) params.set("store", filters.store);
+  if (filters.channel) params.set("ch", filters.channel);
+  if (filters.off) params.set("off", String(filters.off));
+  if (filters.under) params.set("under", String(filters.under));
   if (filters.sort !== "sudbury") params.set("sort", filters.sort);
   return params.toString();
 }
 
 /** True when anything narrows the list (sort alone doesn't count). */
 export function hasActiveFilters(f: Filters): boolean {
-  return Boolean(f.q.trim() || f.types.length || f.cats.length || f.loc || f.store);
+  return activeFilterCount(f) > 0 || Boolean(f.q.trim() || f.channel);
+}
+
+/**
+ * How many filters in the filter panel are picked, for the "Filters (3)" button. Search,
+ * sort and the In store / Online switch have their own controls, so they don't count.
+ */
+export function activeFilterCount(f: Filters): number {
+  return (
+    f.types.length +
+    f.cats.length +
+    [f.loc, f.store, f.off, f.under].filter((v) => v !== null).length
+  );
 }
 
 /** The untouched home page: no filters and the default sort. */
@@ -129,6 +185,9 @@ export function filterDeals(deals: Deal[], f: Filters, today: string): Deal[] {
       (!f.cats.length || f.cats.includes(d.category)) &&
       (!f.loc || d.location === f.loc) &&
       (!f.store || d.store === f.store || d.brand === f.store) &&
+      (!f.channel || d.dealType.includes(f.channel)) &&
+      (!f.off || effectiveDiscount(d) >= f.off) &&
+      (!f.under || (d.salePrice !== undefined && d.salePrice <= f.under)) &&
       (!words.length || words.every((w) => haystack(d).includes(w))),
   );
 }
@@ -136,6 +195,8 @@ export function filterDeals(deals: Deal[], f: Filters, today: string): Deal[] {
 const newestFirst = (a: Deal, b: Deal) => b.scrapedAt.localeCompare(a.scrapedAt);
 const biggestFirst = (a: Deal, b: Deal) => effectiveDiscount(b) - effectiveDiscount(a);
 const byId = (a: Deal, b: Deal) => a.id.localeCompare(b.id);
+// Free counts as $0; deals without a price go last.
+const priceOf = (d: Deal) => (isFree(d) ? 0 : (d.salePrice ?? Infinity));
 
 const COMPARATORS: Record<SortId, (a: Deal, b: Deal) => number> = {
   // Sudbury, then Ontario, then ships-to-ON; inside each: newest, then biggest discount.
@@ -146,6 +207,7 @@ const COMPARATORS: Record<SortId, (a: Deal, b: Deal) => number> = {
     byId(a, b),
   newest: (a, b) => newestFirst(a, b) || biggestFirst(a, b) || byId(a, b),
   discount: (a, b) => biggestFirst(a, b) || newestFirst(a, b) || byId(a, b),
+  price: (a, b) => priceOf(a) - priceOf(b) || COMPARATORS.sudbury(a, b),
   // Deals with an end date first (soonest on top), then the rest in default order.
   ending: (a, b) =>
     (a.endDate ?? "9999").localeCompare(b.endDate ?? "9999") || COMPARATORS.sudbury(a, b),
@@ -155,27 +217,61 @@ export function sortDeals(deals: Deal[], sort: SortId): Deal[] {
   return [...deals].sort(COMPARATORS[sort]);
 }
 
-const isSudbury = (d: Deal) => d.location === "sudbury";
+/* ---------- Which deals a page shows ---------- */
 
 /**
- * Splits the untouched page into its sections: this week's flyer links, the "Sudbury
- * deals" highlight, food help (shown as one summary card) and everything else.
- * With `grouped` off (the Student and Free pages), flyers and food help stay in the grid.
- * Expects `sorted` to be in the default (Sudbury first) order.
+ * The set of deals a page lists before any filter: the home page leaves food help to
+ * the Free page, Student and Free list their type, a store page lists that store.
  */
-export function splitDefaultView(sorted: Deal[], grouped = true) {
-  const flyers = grouped ? sorted.filter((d) => d.source === "flyer-links") : [];
-  const foodHelp = grouped ? sorted.filter((d) => d.category === "food-help") : [];
-  const apart = new Set([...flyers, ...foodHelp]);
-  const deals = sorted.filter((d) => !apart.has(d));
-  const highlight = deals.filter(isSudbury).slice(0, SUDBURY_SECTION_SIZE);
-  const shown = new Set(highlight);
+export type PageScope =
+  { page: "home" } | { page: "student" } | { page: "free" } | { page: "store"; slug: string };
+
+const isFoodHelp = (d: Deal) => d.category === "food-help";
+
+export function inScope(deal: Deal, scope: PageScope): boolean {
+  switch (scope.page) {
+    case "home":
+      return !isFoodHelp(deal);
+    case "student":
+      return deal.dealType.includes("student");
+    case "free":
+      return deal.dealType.includes("free") || isFoodHelp(deal);
+    case "store":
+      // The store page shows its weekly flyer in the header, not as a card.
+      return storeSlug(deal.store) === scope.slug && !isFlyer(deal);
+  }
+}
+
+/** The deal type a page already locks in, so its filter is hidden. */
+export function lockedType(scope: PageScope): DealTypeId | undefined {
+  return scope.page === "student" || scope.page === "free" ? scope.page : undefined;
+}
+
+/* ---------- Home page sections ---------- */
+
+/** First seen today (Sudbury time): gets a "New" badge. */
+export const isNewToday = (deal: Deal, today: string) =>
+  torontoDate(new Date(deal.scrapedAt)) === today;
+
+/**
+ * The rows above the main grid on the untouched home page: this week's flyer links,
+ * the biggest discounts, and deals ending within a week. Flyers stay out of the grid;
+ * the other rows only highlight deals that are in the grid too.
+ */
+export function homeSections(deals: Deal[], today: string) {
+  const live = deals.filter((d) => !isFlyer(d) && !isExpired(d, today));
+  const top = sortDeals(
+    live.filter((d) => d.discountPercent && !isFree(d)),
+    "discount",
+  ).slice(0, ROW_SIZE);
+  const ending = sortDeals(
+    live.filter((d) => d.endDate && daysBetween(today, d.endDate) <= 7),
+    "ending",
+  ).slice(0, ROW_SIZE);
   return {
-    flyers,
-    foodHelp,
-    highlight,
-    sudburyTotal: sorted.filter(isSudbury).length,
-    rest: deals.filter((d) => !shown.has(d)),
+    flyers: deals.filter((d) => isFlyer(d) && !isExpired(d, today)),
+    top: top.length >= ROW_MIN ? top : [],
+    ending: ending.length >= ROW_MIN ? ending : [],
   };
 }
 

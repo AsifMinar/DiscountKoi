@@ -12,7 +12,7 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function StudentPage() {
-  const { updatedAt, explorer } = explorerData("student");
+  const { updatedAt, explorer } = explorerData({ page: "student" });
   return (
     <PageShell>
       <PageHero title="Student discounts" updatedAt={updatedAt}>

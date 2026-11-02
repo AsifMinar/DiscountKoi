@@ -16,6 +16,7 @@ import { spawn } from "node:child_process";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { chromium, type Page } from "playwright";
+import { storeSlug } from "@/lib/stores";
 
 const PORT = Number(process.env.SCREENSHOT_PORT ?? 4180);
 const ORIGIN = `http://localhost:${PORT}`;
@@ -27,10 +28,21 @@ const THEMES = ["light", "dark"] as const;
 /** iPhone notch and home bar, applied at phone widths. */
 const SAFE_AREA = { top: 47, bottom: 34 };
 
-type Deal = { id: string; productName?: string; salePrice?: number; lowestInSudbury?: boolean };
+type Deal = {
+  id: string;
+  store: string;
+  source: string;
+  productName?: string;
+  salePrice?: number;
+  lowestInSudbury?: boolean;
+};
 const deals = (JSON.parse(readFileSync("out/deals.json", "utf8")) as { deals: Deal[] }).deals;
 const dealId = (deals.find((d) => d.salePrice !== undefined && !d.productName) ?? deals[0])?.id;
 const productId = (deals.find((d) => d.lowestInSudbury) ?? deals.find((d) => d.productName))?.id;
+// The store with the most deals, so its page shows the filters too.
+const perStore = new Map<string, number>();
+for (const d of deals) perStore.set(d.store, (perStore.get(d.store) ?? 0) + 1);
+const storeName = [...perStore].sort((a, b) => b[1] - a[1])[0]?.[0] ?? "";
 
 type State = {
   name: string;
@@ -44,13 +56,15 @@ type State = {
 
 const STATES: State[] = [
   { name: "home", path: "/" },
-  { name: "home-filtered", path: "/?type=in-store&cat=grocery" },
+  { name: "home-filtered", path: "/?ch=online&cat=entertainment&off=50" },
   { name: "search-no-results", path: "/?q=unicorn%20saddle" },
   { name: "deal-popup", path: `/?deal=${dealId}`, viewportOnly: true },
   { name: "products-search", path: "/products/?q=milk" },
   { name: "product-popup", path: `/products/?deal=${productId}`, viewportOnly: true },
   { name: "student", path: "/student/" },
   { name: "free", path: "/free/" },
+  { name: "stores", path: "/stores/" },
+  { name: "store", path: `/store/${storeSlug(storeName)}/` },
   { name: "about", path: "/about/" },
   { name: "not-found", path: "/this-page-does-not-exist/" },
   {
@@ -61,6 +75,16 @@ const STATES: State[] = [
     action: async (page) => {
       await page.getByRole("button", { name: "Open menu" }).click();
       await page.locator("#mobile-menu").waitFor();
+    },
+  },
+  {
+    name: "filter-sheet",
+    path: "/",
+    viewportOnly: true,
+    maxWidth: 1023,
+    action: async (page) => {
+      await page.getByRole("button", { name: /^Filters/ }).click();
+      await page.locator("dialog[open]").waitFor();
     },
   },
 ];
@@ -118,8 +142,11 @@ function inspect(safe: { top: number; bottom: number } | null): {
     ...root.querySelectorAll("a[href], button, input, select, textarea, summary, [role=button]"),
   ].filter((el) => isShown(el) && !el.closest("[inert]"));
 
-  // The size a tap actually hits: a card's title link covers the whole card (::after).
+  // The size a tap actually hits: a card's title link covers the whole card (::after),
+  // and a checkbox or radio button's whole label row is tappable.
   const hitBox = (el: Element) => {
+    const label = el instanceof HTMLInputElement ? el.closest("label") : null;
+    if (label) return label.getBoundingClientRect();
     const after = getComputedStyle(el, "::after");
     if (after.content !== "none" && after.position === "absolute" && el instanceof HTMLElement) {
       const host = el.offsetParent;
@@ -152,13 +179,27 @@ function inspect(safe: { top: number; bottom: number } | null): {
     }
     return document.body;
   };
+  // The part of an element that's on screen: scrolling panels (like the filter sheet) hide the rest.
+  const visibleRect = (el: Element) => {
+    let { top, bottom, left, right } = el.getBoundingClientRect();
+    for (let p = el.parentElement; p && p !== document.body; p = p.parentElement) {
+      const cs = getComputedStyle(p);
+      if (cs.overflowX === "visible" && cs.overflowY === "visible") continue;
+      const pr = p.getBoundingClientRect();
+      top = Math.max(top, pr.top);
+      bottom = Math.min(bottom, pr.bottom);
+      left = Math.max(left, pr.left);
+      right = Math.min(right, pr.right);
+    }
+    return { top, bottom, left, right };
+  };
   for (let i = 0; i < interactive.length; i++) {
     for (let j = i + 1; j < interactive.length; j++) {
       const a = interactive[i];
       const b = interactive[j];
       if (a.contains(b) || b.contains(a) || layerOf(a) !== layerOf(b)) continue;
-      const ra = a.getBoundingClientRect();
-      const rb = b.getBoundingClientRect();
+      const ra = visibleRect(a);
+      const rb = visibleRect(b);
       const w = Math.min(ra.right, rb.right) - Math.max(ra.left, rb.left);
       const h = Math.min(ra.bottom, rb.bottom) - Math.max(ra.top, rb.top);
       if (w > 4 && h > 4)
@@ -201,7 +242,8 @@ function inspect(safe: { top: number; bottom: number } | null): {
       )
       .concat(interactive);
     for (const el of texty) {
-      const r = el.getBoundingClientRect();
+      const r = visibleRect(el);
+      if (r.bottom <= r.top) continue;
       if (r.top < safe.top && r.bottom > 0 && window.scrollY === 0) {
         issues.push({ type: "under the notch", detail: describe(el) });
       }

@@ -6,9 +6,11 @@ import type { Deal } from "@shared/deal";
 import { isPriceDrop } from "@shared/products";
 import { DEAL_TYPES, locationBadge } from "@shared/taxonomy";
 import { soldByUnit, unitLabel } from "@shared/units";
+import { CategoryIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/Badge";
 import { cn } from "@/lib/cn";
-import { isFree } from "@/lib/filters";
+import { isFree, isNewToday } from "@/lib/filters";
+import { categoryTint } from "@/lib/tints";
 import { formatPrice, formatUnitPrice } from "@/lib/format";
 
 /* Small pieces shared by the deal card and the deal detail popup. */
@@ -155,5 +157,79 @@ export function DealThumbnail({ src, size = 64 }: { src: string; size?: 64 | 112
         size === 64 ? "size-16" : "size-28",
       )}
     />
+  );
+}
+
+const CHANNEL_TEXT = { "in-store": "In store", online: "Online" } as const;
+
+/** "In store · Sudbury", "Online · Ships to ON", "In store & online · Ontario". */
+export function whereLabel(deal: Deal): string {
+  const channels = (["in-store", "online"] as const).filter((t) => deal.dealType.includes(t));
+  const how =
+    channels.length === 2 ? "In store & online" : channels.length ? CHANNEL_TEXT[channels[0]] : "";
+  return [how, locationBadge(deal.location)].filter(Boolean).join(" · ");
+}
+
+/**
+ * The picture at the top of a card: the product photo when there is one, otherwise the
+ * category's icon on its colour. Discount and "New" / "Ends today" tags sit on top.
+ */
+export function DealPicture({ deal, today }: { deal: Deal; today: string }) {
+  const [failed, setFailed] = useState(false);
+  const photo = deal.imageUrl && !failed ? deal.imageUrl : null;
+  const status = deal.endDate === today ? "Ends today" : isNewToday(deal, today) ? "New" : null;
+  const discount = deal.discountPercent && !isFree(deal) ? deal.discountPercent : null;
+
+  return (
+    <div
+      className={cn(
+        "relative flex h-28 shrink-0 items-center justify-center sm:h-32",
+        photo ? "bg-white" : categoryTint(deal.category),
+      )}
+    >
+      {photo ? (
+        <Image
+          src={photo}
+          alt=""
+          width={256}
+          height={128}
+          unoptimized
+          referrerPolicy="no-referrer"
+          onError={() => setFailed(true)}
+          className="size-full object-contain p-3"
+        />
+      ) : (
+        <CategoryIcon category={deal.category} className="size-11 opacity-90 sm:size-12" />
+      )}
+      {discount && (
+        <span className="absolute top-3 left-3 rounded-full bg-accent px-2.5 py-1 text-xs leading-none font-semibold text-accent-fg tabular-nums">
+          <span aria-hidden="true">−{discount}%</span>
+          <span className="sr-only">{discount}% off</span>
+        </span>
+      )}
+      {status && (
+        <span
+          className={cn(
+            "absolute top-3 right-3 rounded-full px-2.5 py-1 text-xs leading-none font-semibold",
+            status === "New" ? "bg-ink text-page" : "bg-surface text-accent-text",
+          )}
+        >
+          {status}
+        </span>
+      )}
+    </div>
+  );
+}
+
+/** The few badges a card has room for: Student, then the product badges. */
+export function CardBadges({ deal }: { deal: Deal }) {
+  const student = deal.dealType.includes("student");
+  if (!student && !deal.lowestInSudbury && !isPriceDrop(deal) && !deal.sample && !deal.affiliate)
+    return null;
+  return (
+    <div className="flex flex-wrap gap-1.5">
+      {student && <Badge tone="neutral">Student</Badge>}
+      <ProductBadges deal={deal} />
+    </div>
   );
 }

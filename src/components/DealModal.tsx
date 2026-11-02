@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, type ReactNode } from "react";
 import type { Deal } from "@shared/deal";
 import { categoryLabel, type LocationId } from "@shared/taxonomy";
@@ -11,11 +13,12 @@ import {
   DiscountBadge,
   UnitPrice,
 } from "@/components/DealParts";
-import { ArrowUpRightIcon, CloseIcon } from "@/components/icons";
+import { ArrowRightIcon, ArrowUpRightIcon, CloseIcon } from "@/components/icons";
 import { Avatar } from "@/components/ui/Avatar";
 import { Button, ButtonLink, buttonClasses } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 import { daysBetween, endsLabel, formatDay, formatPrice, torontoDate } from "@/lib/format";
+import { storeHref } from "@/lib/stores";
 import { closeDeal, dealIdFrom, forgetOpenedDeal, useSearchString } from "@/lib/url-state";
 
 const WHERE: Record<LocationId, string> = {
@@ -127,6 +130,28 @@ function DealDetails({ deal, today }: { deal: Deal; today: string }) {
           {deal.attribution && <span className="mt-1 block">Source: {deal.attribution}</span>}
         </p>
       </div>
+
+      <MoreFromStore deal={deal} />
+    </div>
+  );
+}
+
+/** "More from No Frills →" to the store's page, unless we're already on it. */
+function MoreFromStore({ deal }: { deal: Deal }) {
+  const pathname = usePathname() ?? "";
+  const href = storeHref(deal.store);
+  // Sample listings aren't on any store page.
+  if (deal.sample || pathname.replace(/\/*$/, "/") === href) return null;
+  return (
+    <div className="border-t border-line pt-3">
+      <Link
+        href={href}
+        className="-mx-2 flex min-h-12 items-center gap-3 rounded-2xl px-2 text-sm font-medium transition-colors duration-150 ease-out hover:bg-neutral-soft"
+      >
+        <Avatar name={deal.store} className="size-8 text-xs" />
+        <span className="min-w-0 flex-1 truncate">More from {deal.store}</span>
+        <ArrowRightIcon aria-hidden="true" className="size-4 shrink-0 text-ink-muted" />
+      </Link>
     </div>
   );
 }

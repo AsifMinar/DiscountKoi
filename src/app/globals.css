@@ -28,6 +28,17 @@
   --accent-text: #8a2e0e;
   --teal-soft: rgb(31 95 99 / 0.12);
   --teal-text: #174d51;
+  /* Store and category tints: a soft fill with dark text (light) or light text (dark). */
+  --tint-blue: rgb(37 99 235 / 0.12);
+  --tint-blue-text: #1e3a8a;
+  --tint-green: rgb(22 163 74 / 0.13);
+  --tint-green-text: #14532d;
+  --tint-plum: rgb(147 51 234 / 0.11);
+  --tint-plum-text: #581c87;
+  --tint-gold: rgb(202 138 4 / 0.16);
+  --tint-gold-text: #713f12;
+  --tint-rose: rgb(225 29 72 / 0.11);
+  --tint-rose-text: #881337;
   --neutral-soft: rgb(28 25 23 / 0.06);
   --line: rgb(28 25 23 / 0.1);
   --ring: #174d51;
@@ -60,6 +71,16 @@
   --accent-text: #f8b08f;
   --teal-soft: rgb(124 196 199 / 0.14);
   --teal-text: #9ad8db;
+  --tint-blue: rgb(96 165 250 / 0.16);
+  --tint-blue-text: #bfdbfe;
+  --tint-green: rgb(74 222 128 / 0.14);
+  --tint-green-text: #bbf7d0;
+  --tint-plum: rgb(192 132 252 / 0.16);
+  --tint-plum-text: #e9d5ff;
+  --tint-gold: rgb(250 204 21 / 0.14);
+  --tint-gold-text: #fde68a;
+  --tint-rose: rgb(251 113 133 / 0.15);
+  --tint-rose-text: #fecdd3;
   --neutral-soft: rgb(255 255 255 / 0.08);
   --line: rgb(255 255 255 / 0.1);
   --ring: #9ad8db;
@@ -97,10 +118,21 @@
   --color-accent-text: var(--accent-text);
   --color-teal-soft: var(--teal-soft);
   --color-teal-text: var(--teal-text);
+  --color-tint-blue: var(--tint-blue);
+  --color-tint-blue-text: var(--tint-blue-text);
+  --color-tint-green: var(--tint-green);
+  --color-tint-green-text: var(--tint-green-text);
+  --color-tint-plum: var(--tint-plum);
+  --color-tint-plum-text: var(--tint-plum-text);
+  --color-tint-gold: var(--tint-gold);
+  --color-tint-gold-text: var(--tint-gold-text);
+  --color-tint-rose: var(--tint-rose);
+  --color-tint-rose-text: var(--tint-rose-text);
   --color-neutral-soft: var(--neutral-soft);
   --color-line: var(--line);
   --color-ring: var(--ring);
   --color-glass-strong: var(--glass-strong);
+  --color-surface: var(--surface-solid);
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --animate-fade-in: fade-in 200ms ease-out both;

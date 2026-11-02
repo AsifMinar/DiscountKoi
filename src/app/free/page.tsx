@@ -7,16 +7,17 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = pageMetadata({
   title: "Free stuff in Sudbury",
   description:
-    "Free events, food programs, giveaways and freebies in Greater Sudbury and across Ontario, updated every morning.",
+    "Free events, food banks, meal programs, giveaways and freebies in Greater Sudbury and across Ontario, updated every morning.",
   path: "free/",
 });
 
 export default function FreePage() {
-  const { updatedAt, explorer } = explorerData("free");
+  const { updatedAt, explorer } = explorerData({ page: "free" });
   return (
     <PageShell>
       <PageHero title="Free stuff" updatedAt={updatedAt}>
-        Giveaways, free samples, free events and freebies in Sudbury and across Ontario.
+        Giveaways, free events, freebies, food banks and meal programs in Sudbury and across
+        Ontario.
       </PageHero>
       <DealExplorer {...explorer} />
     </PageShell>

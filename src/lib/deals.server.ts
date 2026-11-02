@@ -2,17 +2,19 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { DealSchema, DealsFileSchema, type Deal, type DealsFile } from "@shared/deal";
 import { lowestInSudbury } from "@shared/products";
-import type { DealTypeId } from "@shared/taxonomy";
 import type { DealExplorerProps } from "@/components/DealExplorer";
 import {
   DEFAULT_FILTERS,
   PAGE_SIZE,
   facetCounts,
+  homeSections,
+  inScope,
   isExpired,
   sortDeals,
-  splitDefaultView,
   storeOptions,
+  type PageScope,
 } from "@/lib/filters";
+import { isFlyer, storeDirectory } from "@/lib/stores";
 import { torontoDate } from "@/lib/format";
 
 /**
@@ -57,21 +59,45 @@ export const forDealGrids = (deals: Deal[]) => deals.filter((d) => !d.sample);
  * Everything a deal page needs at build time. Only the first screen of deals goes
  * into the HTML; the rest loads as /deals.json in the browser.
  */
-export function explorerData(lockedType?: DealTypeId) {
+export function explorerData(scope: PageScope = { page: "home" }) {
   const { updatedAt, deals: loaded } = loadDeals();
   const all = forDealGrids(loaded);
-  const deals = lockedType ? all.filter((d) => d.dealType.includes(lockedType)) : all;
-  // Food help isn't in the HTML: the home page only shows how many there are.
-  const { flyers, highlight, rest } = splitDefaultView(deals, !lockedType);
+  const deals = all.filter((d) => inScope(d, scope));
+  const today = torontoDate();
+  const isHome = scope.page === "home";
+
+  // The untouched home page shows its rows and the first grid page; others just the grid.
+  const sections = isHome ? homeSections(deals, today) : null;
+  const firstPage = deals.filter((d) => !(isHome && isFlyer(d))).slice(0, PAGE_SIZE);
+  const initial = new Map(
+    [
+      ...(sections ? [...sections.flyers, ...sections.top, ...sections.ending] : []),
+      ...firstPage,
+    ].map((d) => [d.id, d]),
+  );
+
   const explorer: DealExplorerProps = {
-    initialDeals: [...flyers, ...highlight, ...rest.slice(0, PAGE_SIZE)],
+    initialDeals: [...initial.values()],
     total: deals.length,
     stores: storeOptions(deals),
-    counts: facetCounts(deals, DEFAULT_FILTERS, torontoDate()),
-    buildDay: torontoDate(),
-    lockedType,
+    counts: facetCounts(deals, DEFAULT_FILTERS, today),
+    buildDay: today,
+    scope,
+    home: isHome
+      ? {
+          stores: storeDirectory(deals),
+          studentCount: all.filter((d) => inScope(d, { page: "student" })).length,
+          freeCount: all.filter((d) => inScope(d, { page: "free" })).length,
+        }
+      : undefined,
   };
   return { updatedAt, explorer };
+}
+
+/** Every store with a page, for /stores/ and /store/<slug>/. Food help is included. */
+export function storesData() {
+  const { updatedAt, deals } = loadDeals();
+  return { updatedAt, stores: storeDirectory(forDealGrids(deals)) };
 }
 
 /** How many product listings go into the Products page's HTML; more load as /deals.json. */
