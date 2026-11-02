@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     permissions:
-      contents: write # commit data/deals.json and data/price-history.json to main
+      contents: write # commit the data files (deals, price history, photos, Ontario prices) to main
     outputs:
       run: ${{ steps.gate.outputs.run }}
       sha: ${{ steps.save.outputs.sha }}
@@ -98,7 +98,7 @@ jobs:
         run: |
           git config user.name "Asif Minar"
           git config user.email "62024088+AsifMinar@users.noreply.github.com"
-          git add data/deals.json data/price-history.json
+          git add data/deals.json data/price-history.json data/product-photos.json data/ontario-prices.json
           if git diff --cached --quiet; then
             echo "Nothing changed; nothing to commit."
           else

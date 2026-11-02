@@ -111,6 +111,19 @@ export class PoliteFetcher {
     return JSON.parse((await this.fetch(url, "application/json")).body) as T;
   }
 
+  /**
+   * Sends a JSON query with POST and parses the JSON answer, for read-only data APIs that
+   * take their question as a POST body (e.g. Statistics Canada). Same rules as a GET:
+   * robots.txt, the per-site queue, retries and blocks. Not cached, no redirects.
+   */
+  async postJson<T = unknown>(url: string, payload: unknown): Promise<T> {
+    await this.assertAllowed(url);
+    const res = await this.getWithRetries(url, "application/json", {}, JSON.stringify(payload));
+    if (res.status < 200 || res.status >= 300) throw new Error(`HTTP ${res.status} for ${url}`);
+    const body = decodeBody(res.body ?? Buffer.alloc(0), res.headers, this.options.maxBodyBytes);
+    return JSON.parse(body) as T;
+  }
+
   /** Fetches a page and returns its details (final URL, Last-Modified, whether it was cached). */
   async fetch(url: string, accept = "*/*"): Promise<FetchedPage> {
     const cache = await this.cache;
@@ -178,11 +191,15 @@ export class PoliteFetcher {
     if (!verdict.allowed) throw new BlockedError(url, verdict.reason);
   }
 
-  /** One GET, retried on network errors and 5xx, honouring Retry-After; 401/403/429 block. */
+  /**
+   * One GET (or a POST when `postBody` is given), retried on network errors and 5xx,
+   * honouring Retry-After; 401/403/429 block.
+   */
   private async getWithRetries(
     url: string,
     accept: string,
     extraHeaders: Record<string, string>,
+    postBody?: string,
   ): Promise<RawResponse> {
     const host = new URL(url).host;
     const { maxRetries, backoffBaseMs, maxRetryAfterMs } = this.options;
@@ -190,7 +207,7 @@ export class PoliteFetcher {
     for (let attempt = 0; ; attempt++) {
       let res: RawResponse;
       try {
-        res = await this.scheduler.run(host, () => this.send(url, accept, extraHeaders));
+        res = await this.scheduler.run(host, () => this.send(url, accept, extraHeaders, postBody));
       } catch (error) {
         if (attempt < maxRetries && isTransientError(error)) {
           await this.pause(url, backoffMs(attempt, backoffBaseMs), (error as Error).message);
@@ -222,20 +239,24 @@ export class PoliteFetcher {
     await sleep(ms);
   }
 
-  /** A single HTTP GET with our user agent and a timeout. Reads the body only for 2xx. */
+  /** A single HTTP GET (or POST) with our user agent and a timeout. Reads the body only for 2xx. */
   private async send(
     url: string,
     accept: string,
     extraHeaders: Record<string, string>,
+    postBody?: string,
   ): Promise<RawResponse> {
     const started = Date.now();
     this.requestCount++;
+    const method = postBody === undefined ? "GET" : "POST";
     const res = await request(url, {
-      method: "GET",
+      method,
+      body: postBody,
       headers: {
         "user-agent": CONFIG.userAgent,
         accept,
         "accept-language": "en-CA,en;q=0.8",
+        ...(postBody !== undefined && { "content-type": "application/json" }),
         ...extraHeaders,
       },
       signal: AbortSignal.timeout(this.options.timeoutMs),
@@ -248,7 +269,7 @@ export class PoliteFetcher {
     } else {
       await res.body.dump();
     }
-    this.log(`GET ${res.statusCode} ${Date.now() - started}ms ${url}`);
+    this.log(`${method} ${res.statusCode} ${Date.now() - started}ms ${url}`);
     return { status: res.statusCode, headers: res.headers, body };
   }
 

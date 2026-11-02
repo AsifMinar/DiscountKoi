@@ -9,7 +9,9 @@
  *                                    (flyer links, weekly picks, manual deals…), no web
  *                                    requests. Keeps updatedAt, so the 6 AM run still happens.
  *
- * Also keeps data/price-history.json up to date (for the "Price drop" badge).
+ * Also keeps data/price-history.json up to date (for the "Price drop" badge), looks up
+ * product photos by barcode (data/product-photos.json) and, once a week, the Ontario
+ * average prices from Statistics Canada (data/ontario-prices.json).
  *
  * Exits with an error (and saves nothing) if the run produced 0 deals or every source
  * failed, so the daily GitHub workflow turns red and GitHub emails you.
@@ -19,6 +21,7 @@ import { torontoDate } from "@shared/dates";
 import { DealsFileSchema, type DealsFile } from "@shared/deal";
 import { CONFIG } from "./config";
 import { BlockedError, PoliteFetcher } from "./lib/http";
+import { ONTARIO_PRICES_FILE, serializeOntarioPrices, updateOntarioPrices } from "./ontario-prices";
 import { buildDealsFile, runProblem, type SourceRun } from "./pipeline";
 import {
   PRICE_HISTORY_FILE,
@@ -26,6 +29,14 @@ import {
   readPriceHistory,
   serializePriceHistory,
 } from "./price-history";
+import {
+  PRODUCT_PHOTOS_FILE,
+  applyProductPhotos,
+  photoFromProductPage,
+  productPageUrl,
+  readPhotoBook,
+  serializePhotoBook,
+} from "./product-photos";
 import { formatSummary, writeGithubSummary } from "./report";
 import { SOURCES } from "./sources";
 
@@ -53,6 +64,9 @@ async function main() {
   const previous = readPrevious();
   const http = new PoliteFetcher(log);
   const runs: SourceRun[] = [];
+  const today = torontoDate(now);
+  // Runs that make no web requests only use photos and averages that are already saved.
+  const online = !localOnly && !only;
 
   if (only && !SOURCES.some((s) => s.id === only)) {
     throw new Error(`Unknown source "${only}". Known: ${SOURCES.map((s) => s.id).join(", ")}`);
@@ -83,14 +97,47 @@ async function main() {
         log(`  ✗ ${blocked ? "skipped (blocked)" : "failed"}: ${message}`);
       }
     }
-  } finally {
+  } catch (error) {
     await http.close();
+    throw error;
   }
 
   const built = buildDealsFile(previous, runs, now);
   const { summary } = built;
   const problem = runProblem(summary);
-  const priced = applyPriceHistory(built.file.deals, readPriceHistory(), torontoDate(now));
+
+  log("▶ Product photos (Open Food Facts)");
+  const photos = await applyProductPhotos(
+    built.file.deals,
+    readPhotoBook(),
+    today,
+    online
+      ? async (code) => {
+          try {
+            return photoFromProductPage(await http.text(productPageUrl(code)));
+          } catch (error) {
+            if (/HTTP 404/.test((error as Error).message)) return null;
+            throw error;
+          }
+        }
+      : null,
+    (m) => log(`  ${m}`),
+  );
+
+  let ontario = null;
+  if (online) {
+    log("▶ Ontario average prices (Statistics Canada)");
+    try {
+      ontario = await updateOntarioPrices(http, today);
+      log(ontario ? `  ✓ ${ontario.items.length} prices for ${ontario.period}` : "  up to date");
+    } catch (error) {
+      // Not a deal source: the site keeps last week's averages.
+      log(`  ✗ kept the saved averages: ${(error as Error).message}`);
+    }
+  }
+  await http.close();
+
+  const priced = applyPriceHistory(photos.deals, readPriceHistory(), today);
   const file: DealsFile = {
     // A local-only run isn't the daily check, so "Last updated" (and the time gate) stay put.
     updatedAt: localOnly && previous ? previous.updatedAt : built.file.updatedAt,
@@ -107,6 +154,8 @@ async function main() {
   } else {
     writeFileSync(CONFIG.dealsFile, `${JSON.stringify(file, null, 2)}\n`);
     writeFileSync(PRICE_HISTORY_FILE, serializePriceHistory(priced.history));
+    writeFileSync(PRODUCT_PHOTOS_FILE, serializePhotoBook(photos.book));
+    if (ontario) writeFileSync(ONTARIO_PRICES_FILE, serializeOntarioPrices(ontario));
     log(`Saved ${file.deals.length} deals to ${CONFIG.dealsFile}`);
     log(`Saved ${priced.history.length} price history entries to ${PRICE_HISTORY_FILE}`);
   }

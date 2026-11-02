@@ -106,11 +106,15 @@ export function UnitPrice({ deal, className }: { deal: Deal; className?: string 
   );
 }
 
-/** Badges that only product listings get. */
-export function ProductBadges({ deal }: { deal: Deal }) {
+/** Badges that only product listings get. `short` for narrow cards. */
+export function ProductBadges({ deal, short }: { deal: Deal; short?: boolean }) {
   return (
     <>
-      {deal.lowestInSudbury && <Badge tone="teal">Lowest price in Sudbury this week</Badge>}
+      {deal.lowestInSudbury && (
+        <Badge tone="teal">
+          {short ? "Lowest in Sudbury" : "Lowest price in Sudbury this week"}
+        </Badge>
+      )}
       {isPriceDrop(deal) && <Badge tone="accent">Price drop</Badge>}
       {deal.sample && <Badge tone="outline">Sample</Badge>}
       {deal.affiliate && <Badge tone="outline">Affiliate link</Badge>}
@@ -153,7 +157,8 @@ export function DealThumbnail({ src, size = 64 }: { src: string; size?: 64 | 112
       referrerPolicy="no-referrer"
       onError={() => setFailed(true)}
       className={cn(
-        "shrink-0 rounded-2xl bg-neutral-soft object-cover",
+        // Product photos (white background) are shown whole, never cropped.
+        "shrink-0 rounded-2xl bg-white object-contain p-1",
         size === 64 ? "size-16" : "size-28",
       )}
     />
@@ -229,7 +234,7 @@ export function CardBadges({ deal }: { deal: Deal }) {
   return (
     <div className="flex flex-wrap gap-1.5">
       {student && <Badge tone="neutral">Student</Badge>}
-      <ProductBadges deal={deal} />
+      <ProductBadges deal={deal} short />
     </div>
   );
 }

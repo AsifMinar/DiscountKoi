@@ -9,6 +9,7 @@ import {
   UnitPrice,
   whereLabel,
 } from "@/components/DealParts";
+import { SaveButton } from "@/components/SaveButtons";
 import { Avatar } from "@/components/ui/Avatar";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { cn } from "@/lib/cn";
@@ -34,7 +35,15 @@ export function DealCard({ deal, today, search }: DealCardProps) {
       interactive
       className="relative flex h-full flex-col overflow-hidden has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-2 has-[a:focus-visible]:outline-ring"
     >
-      <DealPicture deal={deal} today={today} />
+      <div className="relative">
+        <DealPicture deal={deal} today={today} />
+        {/* Above the card's stretched link, so it can be tapped on its own. */}
+        <SaveButton
+          dealId={deal.id}
+          title={deal.title}
+          className="absolute right-2 bottom-2 z-10"
+        />
+      </div>
 
       <div className="flex flex-1 flex-col gap-2 p-4">
         <div className="flex min-w-0 items-center gap-2">
@@ -67,6 +76,35 @@ export function DealCard({ deal, today, search }: DealCardProps) {
         </div>
       </div>
     </GlassCard>
+  );
+}
+
+// Narrower grid next to the filter sidebar on big screens.
+export const GRID =
+  "grid grid-cols-1 gap-3 xs:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4";
+export const WIDE_GRID =
+  "grid grid-cols-1 gap-3 xs:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5";
+
+/** Deal cards in a responsive grid. */
+export function DealGrid({
+  deals,
+  today,
+  search,
+  grid = WIDE_GRID,
+}: {
+  deals: Deal[];
+  today: string;
+  search: string;
+  grid?: string;
+}) {
+  return (
+    <ul role="list" className={grid}>
+      {deals.map((deal) => (
+        <li key={deal.id}>
+          <DealCard deal={deal} today={today} search={search} />
+        </li>
+      ))}
+    </ul>
   );
 }
 

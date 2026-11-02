@@ -71,10 +71,32 @@ const STATES: State[] = [
     name: "mobile-menu",
     path: "/",
     viewportOnly: true,
-    maxWidth: 767,
+    maxWidth: 1023,
     action: async (page) => {
       await page.getByRole("button", { name: "Open menu" }).click();
       await page.locator("#mobile-menu").waitFor();
+    },
+  },
+  {
+    name: "saved",
+    path: "/saved/",
+    action: async (page) => {
+      const ids = deals
+        .filter((d) => d.source !== "flyer-links")
+        .slice(0, 3)
+        .map((d) => d.id);
+      await page.evaluate((v) => localStorage.setItem("discountkoi:saved", v), JSON.stringify(ids));
+      await page.reload({ waitUntil: "networkidle" });
+    },
+  },
+  {
+    name: "list",
+    path: "/list/",
+    action: async (page) => {
+      const names = [...new Set(deals.flatMap((d) => (d.productName ? [d.productName] : [])))];
+      const list = JSON.stringify([...names.slice(0, 4), "Saffron"]);
+      await page.evaluate((v) => localStorage.setItem("discountkoi:list", v), list);
+      await page.reload({ waitUntil: "networkidle" });
     },
   },
   {

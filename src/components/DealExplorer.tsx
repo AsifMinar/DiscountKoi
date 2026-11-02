@@ -2,7 +2,7 @@
 
 import { useDeferredValue, useMemo, useState } from "react";
 import type { Deal } from "@shared/deal";
-import { DealCard, DealCardSkeleton } from "@/components/DealCard";
+import { DealCardSkeleton, DealGrid, GRID, WIDE_GRID } from "@/components/DealCard";
 import { DealModal } from "@/components/DealModal";
 import { EmptyState } from "@/components/EmptyState";
 import { ChannelSwitch, FilterSheet, FilterSidebar, clearFilters } from "@/components/FilterPanel";
@@ -41,36 +41,8 @@ import { isFlyer, type StoreSummary } from "@/lib/stores";
 import { useFilters, useSearchString, useToday } from "@/lib/url-state";
 import { useAllDeals } from "@/lib/use-all-deals";
 
-// Narrower grid next to the sidebar on big screens.
-const GRID =
-  "grid grid-cols-1 gap-3 xs:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4";
-const WIDE_GRID =
-  "grid grid-cols-1 gap-3 xs:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5";
-
 /** A store with only a few deals doesn't need filters. */
 const FEW_DEALS = 6;
-
-function DealList({
-  deals,
-  today,
-  search,
-  grid,
-}: {
-  deals: Deal[];
-  today: string;
-  search: string;
-  grid: string;
-}) {
-  return (
-    <ul role="list" className={grid}>
-      {deals.map((deal) => (
-        <li key={deal.id}>
-          <DealCard deal={deal} today={today} search={search} />
-        </li>
-      ))}
-    </ul>
-  );
-}
 
 export type DealExplorerProps = {
   /** First screen of deals, baked into the HTML at build time. */
@@ -320,7 +292,7 @@ export function DealExplorer({
           {ready && list.length > 0 && (
             // Re-keyed on every filter change so new results fade in softly.
             <div key={signature} className="flex animate-fade-in flex-col gap-8">
-              <DealList deals={list.slice(0, visible)} today={today} search={search} grid={grid} />
+              <DealGrid deals={list.slice(0, visible)} today={today} search={search} grid={grid} />
               {listTotal > visible && (
                 <div className="flex flex-col items-center gap-2">
                   <Button

@@ -18,6 +18,8 @@ import { Avatar } from "@/components/ui/Avatar";
 import { Button, ButtonLink, buttonClasses } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 import { daysBetween, endsLabel, formatDay, formatPrice, torontoDate } from "@/lib/format";
+import { PriceCheck } from "@/components/PriceCheck";
+import { ListButton, SaveButton } from "@/components/SaveButtons";
 import { storeHref } from "@/lib/stores";
 import { closeDeal, dealIdFrom, forgetOpenedDeal, useSearchString } from "@/lib/url-state";
 
@@ -60,6 +62,8 @@ function DealDetails({ deal, today }: { deal: Deal; today: string }) {
       </div>
 
       <DealBadges deal={deal} />
+
+      <PriceCheck deal={deal} />
 
       {deal.sample && (
         <p className="rounded-2xl border border-line p-4 text-sm text-pretty text-ink-muted">
@@ -105,19 +109,25 @@ function DealDetails({ deal, today }: { deal: Deal; today: string }) {
       </dl>
 
       <div className="flex flex-col gap-3">
-        <ButtonLink
-          href={deal.url}
-          external
-          sponsored={deal.affiliate}
-          size="lg"
-          className="w-full sm:w-auto sm:self-start"
-        >
-          {/* Priced deals get "Get this deal"; flyers, events, programs and picks say where they go. */}
-          {hasPrice && (deal.affiliate || !deal.productName)
-            ? "Get this deal"
-            : `Open on ${hostOf(deal.url)}`}
-          <ArrowUpRightIcon className="size-4" />
-        </ButtonLink>
+        <div className="flex flex-wrap items-center gap-2">
+          <ButtonLink
+            href={deal.url}
+            external
+            sponsored={deal.affiliate}
+            size="lg"
+            className="max-sm:flex-1"
+          >
+            {/* Priced deals get "Get this deal"; flyers, events, programs and picks say where they go. */}
+            {hasPrice && (deal.affiliate || !deal.productName)
+              ? "Get this deal"
+              : `Open on ${hostOf(deal.url)}`}
+            <ArrowUpRightIcon className="size-4" />
+          </ButtonLink>
+          <SaveButton dealId={deal.id} title={deal.title} className="size-12" />
+          {deal.productName && !deal.sample && (
+            <ListButton name={deal.productName} className="h-12" />
+          )}
+        </div>
         <p className="text-xs text-pretty text-ink-muted">
           Opens {hostOf(deal.url)} in a new tab. Details come from public sources and can change, so
           please confirm them on the original site.
@@ -128,6 +138,9 @@ function DealDetails({ deal, today }: { deal: Deal; today: string }) {
             </span>
           )}
           {deal.attribution && <span className="mt-1 block">Source: {deal.attribution}</span>}
+          {deal.imageUrl && deal.imageCredit && (
+            <span className="mt-1 block">Photo: {deal.imageCredit}</span>
+          )}
         </p>
       </div>
 

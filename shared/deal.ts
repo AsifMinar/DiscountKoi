@@ -43,6 +43,8 @@ export const DealSchema = z.object({
   url: webUrl,
   /** Hotlinked thumbnail only. Images are never downloaded or re-hosted. */
   imageUrl: httpsUrl.optional(),
+  /** Credit line for the photo, e.g. "Open Food Facts contributors (CC BY-SA)". */
+  imageCredit: z.string().trim().min(1).max(120).optional(),
   startDate: isoDate.optional(),
   endDate: isoDate.optional(),
   /** Which scraper found it, e.g. "flyers" or "rfd-hot-deals". */
@@ -62,6 +64,11 @@ export const DealSchema = z.object({
   productName: z.string().trim().min(1).max(120).optional(),
   /** Package size or quantity as printed, e.g. "4 L", "1.36 kg", "12 eggs". */
   size: z.string().trim().min(1).max(40).optional(),
+  /** The product's barcode (UPC/EAN), used to find its photo on Open Food Facts. */
+  barcode: z
+    .string()
+    .regex(/^\d{8,14}$/)
+    .optional(),
   /** What the unit price is per (lb, kg, 100g, L, 100mL, each). */
   unit: z.enum(UNITS).optional(),
   /** Price per `unit`, for fair comparison between package sizes and stores. */

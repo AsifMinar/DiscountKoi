@@ -25,6 +25,8 @@ export type RawDeal = {
   category?: CategoryId;
   /** Thumbnail URL to hotlink (never downloaded). Must be https. */
   imageUrl?: string;
+  /** Credit line for the photo, if its licence needs one. */
+  imageCredit?: string;
   /** YYYY-MM-DD */
   startDate?: string;
   /** YYYY-MM-DD */
@@ -48,6 +50,8 @@ export type RawDeal = {
   size?: string;
   unit?: Unit;
   unitPrice?: number;
+  /** Barcode (UPC/EAN, 8–14 digits): the product photo is looked up from it. */
+  barcode?: string;
   /** Price last time it was listed, if the source knows it (otherwise price history fills it). */
   previousPrice?: number;
   /** Affiliate link: labelled on the site and marked rel="sponsored". */

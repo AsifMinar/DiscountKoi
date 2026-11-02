@@ -51,6 +51,9 @@ git-ignored.
 data/
   deals.json             every deal on the site; written by the scraper
   price-history.json     product prices for the last 90 days ("Price drop"); written by the scraper
+  product-photos.json    product photo per barcode (Open Food Facts); written by the scraper
+  ontario-prices.json    Ontario average prices (Statistics Canada), refreshed weekly by the scraper
+  picks-sheet.json       the link to your Google Sheet of weekly picks       ← you edit once
   flyer-stores.json      Sudbury stores that get a weekly flyer card          ← you edit
   weekly-picks.json      product prices you pick from the flyers each week     ← you edit (npm run add-pick)
   student-discounts.json national student programs                             ← you edit
@@ -75,11 +78,14 @@ scripts/                 add-pick, preview server, CSP, screenshots, Lighthouse,
 | `/store/<name>/` | One store: its weekly flyer button and all its deals (one page per store, made at build time)                                      |
 | `/student/`      | Student programs and student deals                                                                                                 |
 | `/free/`         | Free programs, events and freebies, plus food banks and meal programs                                                              |
+| `/saved/`        | Deals the visitor saved with ♡ (kept in their browser only)                                                                        |
+| `/list/`         | Shopping list: which store, or two stores, is cheapest for the whole list (kept in the browser only)                               |
 | `/about/`        | What Discount Koi is, sources, badges, affiliate links, privacy                                                                    |
 | `?deal=<id>`     | On any deal or product page, opens that item's popup. Shareable; Back closes it                                                    |
 | anything else    | Friendly 404 page (`404.html`, which GitHub Pages serves automatically)                                                            |
 
-Also generated at build time: `/deals.json` (the full list the browser filters), `/sitemap.xml`,
+Also generated at build time: `/deals.json` (the full list the browser filters), `/price-info.json`
+(price history and Ontario averages for the popup's price check), `/sitemap.xml`,
 `/robots.txt`, `/manifest.webmanifest`, the app icons and the link-preview image.
 
 ### How pages load deals
@@ -97,18 +103,19 @@ Also generated at build time: `/deals.json` (the full list the browser filters),
 Every enabled source was checked: its robots.txt **and** its terms allow this use. A blocked source
 is reported as "skipped (blocked)" and never worked around.
 
-| Source (`scraper/sources/`) | What it gives                                                       | Status                                        |
-| --------------------------- | ------------------------------------------------------------------- | --------------------------------------------- |
-| `flyer-links`               | One card per store per flyer week, linking to the official flyer    | on (no web requests)                          |
-| `weekly-picks`              | Product prices you write from the flyers (`data/weekly-picks.json`) | on (no web requests)                          |
-| `student-discounts`         | National student programs (`data/student-discounts.json`)           | on (no web requests)                          |
-| `sudbury-city-news`         | City of Greater Sudbury news releases about free things (RSS)       | on                                            |
-| `downtown-sudbury`          | Downtown Sudbury BIA specials (schema.org structured data)          | on (none published yet)                       |
-| `sudbury-food-programs`     | Food banks, meal programs, Good Food Box (City open data, CSV)      | on                                            |
-| `ontario-parks`             | Ontario Parks blog posts about free days (RSS)                      | on                                            |
-| `itch-sales`                | itch.io game sales (official RSS)                                   | on                                            |
-| `affiliate-feeds`           | Discounted products from affiliate networks                         | **off**: see `docs/affiliate-setup.md`        |
-| `rfd-hot-deals`             | RedFlagDeals Hot Deals forum titles and links                       | **off**: see `docs/rfd-permission-request.md` |
+| Source (`scraper/sources/`) | What it gives                                                         | Status                                        |
+| --------------------------- | --------------------------------------------------------------------- | --------------------------------------------- |
+| `flyer-links`               | One card per store per flyer week, linking to the official flyer      | on (no web requests)                          |
+| `weekly-picks`              | Product prices you write from the flyers (`data/weekly-picks.json`)   | on (no web requests)                          |
+| `sheet-picks`               | The same, typed into your Google Sheet (`docs/google-sheet-setup.md`) | on once you link a sheet                      |
+| `student-discounts`         | National student programs (`data/student-discounts.json`)             | on (no web requests)                          |
+| `sudbury-city-news`         | City of Greater Sudbury news releases about free things (RSS)         | on                                            |
+| `downtown-sudbury`          | Downtown Sudbury BIA specials (schema.org structured data)            | on (none published yet)                       |
+| `sudbury-food-programs`     | Food banks, meal programs, Good Food Box (City open data, CSV)        | on                                            |
+| `ontario-parks`             | Ontario Parks blog posts about free days (RSS)                        | on                                            |
+| `itch-sales`                | itch.io game sales (official RSS)                                     | on                                            |
+| `affiliate-feeds`           | Discounted products from affiliate networks                           | **off**: see `docs/affiliate-setup.md`        |
+| `rfd-hot-deals`             | RedFlagDeals Hot Deals forum titles and links                         | **off**: see `docs/rfd-permission-request.md` |
 
 ## Weekly product picks
 
@@ -158,6 +165,25 @@ regular price and the flyer dates (suggested for you). It checks everything, sav
 - **Price drop**: cheaper than the last time the same store listed it, from
   `data/price-history.json` (one entry per product, store and flyer week, kept for 90 days). Unit
   prices are compared, so a smaller package at the same price isn't a "drop".
+
+## Product photos and the price check
+
+- **Photos:** a pick with a barcode (sheet column or `"barcode"` in `weekly-picks.json`) gets its
+  photo from its public Open Food Facts product page, looked up once and remembered in
+  `data/product-photos.json` (at most 20 new barcodes a day). Open Food Facts' `/api` is off limits
+  to bots in their robots.txt, so it isn't used. Photos are hotlinked and credited (CC BY-SA).
+- **Ontario averages:** once a week the scraper asks Statistics Canada's data API for table
+  18-10-0245-01 (110 everyday products, Ontario, latest month) and saves `data/ontario-prices.json`.
+- **Price check** (in a product's popup): "Lowest price in 90 days", "Good price", "Usual price"
+  or "Higher than usual". With 3 or more earlier listings of the product it compares against them;
+  otherwise against the Ontario average (±10%). Prices are compared per unit, so sizes don't matter.
+
+## Saved deals and the shopping list
+
+Both live in the visitor's browser (localStorage), with no account and nothing sent anywhere.
+The shopping list adds up one package of each item (or 1 lb/kg for things sold by weight) at each
+store, and shows the best single store, the best pair of stores (when it beats one store) and the
+cheapest of all. The maths is in `shared/shopping.ts`.
 
 ## Student discounts
 

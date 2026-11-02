@@ -34,6 +34,8 @@ export type PickAnswers = {
   category?: string;
   note?: string;
   url?: string;
+  brand?: string;
+  barcode?: string;
 };
 
 const blank = (value?: string) => (value?.trim() ? value.trim() : undefined);
@@ -62,6 +64,8 @@ export function buildPick(answers: PickAnswers): { pick: Pick } | { error: strin
     ...(blank(answers.category) && { category: blank(answers.category) }),
     ...(blank(answers.note) && { note: blank(answers.note) }),
     ...(blank(answers.url) && { url: blank(answers.url) }),
+    ...(blank(answers.brand) && { brand: blank(answers.brand) }),
+    ...(blank(answers.barcode) && { barcode: blank(answers.barcode) }),
   };
   const parsed = PickSchema.safeParse(candidate);
   if (!parsed.success) {

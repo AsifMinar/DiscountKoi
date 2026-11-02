@@ -4,6 +4,7 @@ import { flyerLinks } from "./flyer-links";
 import { itchSales } from "./itch-sales";
 import { ontarioParks } from "./ontario-parks";
 import { rfdHotDeals } from "./rfd-hot-deals";
+import { sheetPicks } from "./sheet-picks";
 import { studentDiscounts } from "./student-discounts";
 import { sudburyCityNews } from "./sudbury-city-news";
 import { sudburyFoodPrograms } from "./sudbury-food-programs";
@@ -21,6 +22,7 @@ import { weeklyPicks } from "./weekly-picks";
 export const SOURCES: Source[] = [
   flyerLinks,
   weeklyPicks,
+  sheetPicks,
   studentDiscounts,
   sudburyCityNews,
   downtownSudbury,

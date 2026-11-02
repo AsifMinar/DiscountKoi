@@ -37,6 +37,11 @@ export const PickSchema = z
     category: z.enum(CATEGORY_IDS).default("grocery"),
     location: z.enum(LOCATION_IDS).default("sudbury"),
     brand: z.string().trim().min(1).max(80).optional(),
+    /** The barcode under the product (8–14 digits), so its photo can be shown. */
+    barcode: z
+      .string()
+      .regex(/^\d{8,14}$/, "a barcode is 8 to 14 digits")
+      .optional(),
     /** A short line in your own words. */
     note: z.string().trim().min(1).max(160).optional(),
     /** "sample" marks an example entry: labelled on the site, never in price history. */
@@ -71,6 +76,7 @@ export function pickToDeal(pick: Pick, flyers: Map<string, string>): RawDeal | s
       pick.note ??
       `From the ${pick.store} flyer${week}. Prices can differ between stores, so check the flyer for your Sudbury store.`,
     productName: pick.productName,
+    barcode: pick.barcode,
     size: pick.size,
     unit: pick.unit,
     unitPrice: pick.unitPrice,

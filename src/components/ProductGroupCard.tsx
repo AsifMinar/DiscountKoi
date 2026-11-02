@@ -3,7 +3,8 @@
 import type { Deal } from "@shared/deal";
 import { unitPriceIn, type ProductGroup } from "@shared/products";
 import { soldByUnit, unitLabel } from "@shared/units";
-import { ProductBadges } from "@/components/DealParts";
+import { DealThumbnail, ProductBadges } from "@/components/DealParts";
+import { ListButton } from "@/components/SaveButtons";
 import { Avatar } from "@/components/ui/Avatar";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { cn } from "@/lib/cn";
@@ -49,14 +50,19 @@ type ProductGroupCardProps = { group: ProductGroup; today: string; search: strin
 /** One product, every store's price side by side, cheapest first. Each row opens the popup. */
 export function ProductGroupCard({ group, today, search }: ProductGroupCardProps) {
   const compared = group.deals.length > 1;
+  const photo = group.deals.find((d) => d.imageUrl)?.imageUrl;
   return (
     <GlassCard as="article" className="flex h-full flex-col gap-3 p-3 sm:p-4">
-      <header className="px-2 pt-1">
-        <h3 className="text-base leading-snug font-semibold text-pretty">{group.name}</h3>
-        <p className="mt-0.5 text-xs text-ink-muted">
-          {group.stores === 1 ? "1 store" : `${group.stores} stores`}
-          {compared && " · cheapest first"}
-        </p>
+      <header className="flex items-start gap-3 px-2 pt-1">
+        {photo && <DealThumbnail src={photo} />}
+        <div className="min-w-0 flex-1">
+          <h3 className="text-base leading-snug font-semibold text-pretty">{group.name}</h3>
+          <p className="mt-0.5 text-xs text-ink-muted">
+            {group.stores === 1 ? "1 store" : `${group.stores} stores`}
+            {compared && " · cheapest first"}
+          </p>
+        </div>
+        <ListButton name={group.name} className="-mr-1 shrink-0 px-3.5" />
       </header>
 
       <ol className="flex flex-col gap-1">

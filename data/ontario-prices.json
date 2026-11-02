@@ -1,0 +1,887 @@
+{
+  "_about": "Statistics Canada, Table 18-10-0245-01, Monthly average retail prices for selected products",
+  "checked": "2026-11-01",
+  "period": "2026-08",
+  "items": [
+    {
+      "name": "Beef stewing cuts, per kilogram",
+      "product": "Beef stewing cuts",
+      "price": 26.31,
+      "unit": "kg",
+      "unitPrice": 26.31,
+      "period": "2026-08"
+    },
+    {
+      "name": "Bacon, 500 grams",
+      "product": "Bacon",
+      "price": 6.33,
+      "unit": "kg",
+      "unitPrice": 12.66,
+      "period": "2026-08"
+    },
+    {
+      "name": "Canned pear, 398 millilitres",
+      "product": "Canned pear",
+      "price": 2.85,
+      "unit": "L",
+      "unitPrice": 7.1608,
+      "period": "2026-08"
+    },
+    {
+      "name": "Dry beans and legumes, 900 grams",
+      "product": "Dry beans and legumes",
+      "price": 3.65,
+      "unit": "kg",
+      "unitPrice": 4.0556,
+      "period": "2026-08"
+    },
+    {
+      "name": "Tofu, 350 grams",
+      "product": "Tofu",
+      "price": 2.92,
+      "unit": "kg",
+      "unitPrice": 8.3429,
+      "period": "2026-08"
+    },
+    {
+      "name": "Hummus, 227 grams",
+      "product": "Hummus",
+      "price": 3.75,
+      "unit": "kg",
+      "unitPrice": 16.5198,
+      "period": "2026-08"
+    },
+    {
+      "name": "Salsa, 418 millilitres",
+      "product": "Salsa",
+      "price": 5.08,
+      "unit": "L",
+      "unitPrice": 12.1531,
+      "period": "2026-08"
+    },
+    {
+      "name": "Pasta sauce, 650 millilitres",
+      "product": "Pasta sauce",
+      "price": 3.05,
+      "unit": "L",
+      "unitPrice": 4.6923,
+      "period": "2026-08"
+    },
+    {
+      "name": "Salad dressing, 475 millilitres",
+      "product": "Salad dressing",
+      "price": 3.61,
+      "unit": "L",
+      "unitPrice": 7.6,
+      "period": "2026-08"
+    },
+    {
+      "name": "Almonds, 200 grams",
+      "product": "Almonds",
+      "price": 5.32,
+      "unit": "kg",
+      "unitPrice": 26.6,
+      "period": "2026-08"
+    },
+    {
+      "name": "Peanuts, 450 grams",
+      "product": "Peanuts",
+      "price": 4.14,
+      "unit": "kg",
+      "unitPrice": 9.2,
+      "period": "2026-08"
+    },
+    {
+      "name": "Sunflower seeds, 400 grams",
+      "product": "Sunflower seeds",
+      "price": 4.99,
+      "unit": "kg",
+      "unitPrice": 12.475,
+      "period": "2026-08"
+    },
+    {
+      "name": "Wieners, 400 grams",
+      "product": "Wieners",
+      "price": 4.79,
+      "unit": "kg",
+      "unitPrice": 11.975,
+      "period": "2026-08"
+    },
+    {
+      "name": "Laundry detergent, 4.43 litres",
+      "product": "Laundry detergent",
+      "price": 13,
+      "unit": "L",
+      "unitPrice": 2.9345,
+      "period": "2026-08"
+    },
+    {
+      "name": "Canned tuna, 170 grams",
+      "product": "Canned tuna",
+      "price": 1.78,
+      "unit": "kg",
+      "unitPrice": 10.4706,
+      "period": "2026-08"
+    },
+    {
+      "name": "Milk, 1 litre",
+      "product": "Milk",
+      "price": 3.97,
+      "unit": "L",
+      "unitPrice": 3.97,
+      "period": "2026-08"
+    },
+    {
+      "name": "Milk, 2 litres",
+      "product": "Milk",
+      "price": 5.92,
+      "unit": "L",
+      "unitPrice": 2.96,
+      "period": "2026-08"
+    },
+    {
+      "name": "Milk, 4 litres",
+      "product": "Milk",
+      "price": 6.87,
+      "unit": "L",
+      "unitPrice": 1.7175,
+      "period": "2026-08"
+    },
+    {
+      "name": "Cream, 1 litre",
+      "product": "Cream",
+      "price": 4.74,
+      "unit": "L",
+      "unitPrice": 4.74,
+      "period": "2026-08"
+    },
+    {
+      "name": "Butter, 454 grams",
+      "product": "Butter",
+      "price": 5.75,
+      "unit": "kg",
+      "unitPrice": 12.6652,
+      "period": "2026-08"
+    },
+    {
+      "name": "Block cheese, 500 grams",
+      "product": "Block cheese",
+      "price": 6.98,
+      "unit": "kg",
+      "unitPrice": 13.96,
+      "period": "2026-08"
+    },
+    {
+      "name": "Yogurt, 500 grams",
+      "product": "Yogurt",
+      "price": 3.81,
+      "unit": "kg",
+      "unitPrice": 7.62,
+      "period": "2026-08"
+    },
+    {
+      "name": "Beef striploin cuts, per kilogram",
+      "product": "Beef striploin cuts",
+      "price": 39.49,
+      "unit": "kg",
+      "unitPrice": 39.49,
+      "period": "2026-08"
+    },
+    {
+      "name": "Eggs, 1 dozen",
+      "product": "Eggs",
+      "price": 5,
+      "unit": "each",
+      "unitPrice": 0.4167,
+      "period": "2026-08"
+    },
+    {
+      "name": "Apples, per kilogram",
+      "product": "Apples",
+      "price": 6.35,
+      "unit": "kg",
+      "unitPrice": 6.35,
+      "period": "2026-08"
+    },
+    {
+      "name": "Oranges, per kilogram",
+      "product": "Oranges",
+      "price": 4.61,
+      "unit": "kg",
+      "unitPrice": 4.61,
+      "period": "2026-08"
+    },
+    {
+      "name": "Oranges, 1.36 kilograms",
+      "product": "Oranges",
+      "price": 5.98,
+      "unit": "kg",
+      "unitPrice": 4.3971,
+      "period": "2026-08"
+    },
+    {
+      "name": "Bananas, per kilogram",
+      "product": "Bananas",
+      "price": 1.71,
+      "unit": "kg",
+      "unitPrice": 1.71,
+      "period": "2026-08"
+    },
+    {
+      "name": "Pears, per kilogram",
+      "product": "Pears",
+      "price": 5.6,
+      "unit": "kg",
+      "unitPrice": 5.6,
+      "period": "2026-08"
+    },
+    {
+      "name": "Lemons, unit",
+      "product": "Lemons",
+      "price": 1.07,
+      "unit": "each",
+      "unitPrice": 1.07,
+      "period": "2026-08"
+    },
+    {
+      "name": "Grapes, per kilogram",
+      "product": "Grapes",
+      "price": 7,
+      "unit": "kg",
+      "unitPrice": 7,
+      "period": "2026-08"
+    },
+    {
+      "name": "Cantaloupe, unit",
+      "product": "Cantaloupe",
+      "price": 2.63,
+      "unit": "each",
+      "unitPrice": 2.63,
+      "period": "2026-08"
+    },
+    {
+      "name": "Avocado, unit",
+      "product": "Avocado",
+      "price": 2.15,
+      "unit": "each",
+      "unitPrice": 2.15,
+      "period": "2026-08"
+    },
+    {
+      "name": "Beef top sirloin cuts, per kilogram",
+      "product": "Beef top sirloin cuts",
+      "price": 28.05,
+      "unit": "kg",
+      "unitPrice": 28.05,
+      "period": "2026-08"
+    },
+    {
+      "name": "Potatoes, 4.54 kilograms",
+      "product": "Potatoes",
+      "price": 4.34,
+      "unit": "kg",
+      "unitPrice": 0.9559,
+      "period": "2026-08"
+    },
+    {
+      "name": "Tomatoes, per kilogram",
+      "product": "Tomatoes",
+      "price": 4.41,
+      "unit": "kg",
+      "unitPrice": 4.41,
+      "period": "2026-08"
+    },
+    {
+      "name": "Cabbage, per kilogram",
+      "product": "Cabbage",
+      "price": 2.77,
+      "unit": "kg",
+      "unitPrice": 2.77,
+      "period": "2026-08"
+    },
+    {
+      "name": "Carrots, 1.36 kilograms",
+      "product": "Carrots",
+      "price": 3.89,
+      "unit": "kg",
+      "unitPrice": 2.8603,
+      "period": "2026-08"
+    },
+    {
+      "name": "Onions, per kilogram",
+      "product": "Onions",
+      "price": 5.57,
+      "unit": "kg",
+      "unitPrice": 5.57,
+      "period": "2026-08"
+    },
+    {
+      "name": "Onions, 1.36 kilograms",
+      "product": "Onions",
+      "price": 4.78,
+      "unit": "kg",
+      "unitPrice": 3.5147,
+      "period": "2026-08"
+    },
+    {
+      "name": "Celery, unit",
+      "product": "Celery",
+      "price": 2.91,
+      "unit": "each",
+      "unitPrice": 2.91,
+      "period": "2026-08"
+    },
+    {
+      "name": "Cucumber, unit",
+      "product": "Cucumber",
+      "price": 1.28,
+      "unit": "each",
+      "unitPrice": 1.28,
+      "period": "2026-08"
+    },
+    {
+      "name": "Mushrooms, 227 grams",
+      "product": "Mushrooms",
+      "price": 2.53,
+      "unit": "kg",
+      "unitPrice": 11.1454,
+      "period": "2026-08"
+    },
+    {
+      "name": "Broccoli, unit",
+      "product": "Broccoli",
+      "price": 2.56,
+      "unit": "each",
+      "unitPrice": 2.56,
+      "period": "2026-08"
+    },
+    {
+      "name": "Ground beef, per kilogram",
+      "product": "Ground beef",
+      "price": 16.09,
+      "unit": "kg",
+      "unitPrice": 16.09,
+      "period": "2026-08"
+    },
+    {
+      "name": "Peppers, per kilogram",
+      "product": "Peppers",
+      "price": 5.88,
+      "unit": "kg",
+      "unitPrice": 5.88,
+      "period": "2026-08"
+    },
+    {
+      "name": "Beef rib cuts, per kilogram",
+      "product": "Beef rib cuts",
+      "price": 33.53,
+      "unit": "kg",
+      "unitPrice": 33.53,
+      "period": "2026-08"
+    },
+    {
+      "name": "Pork shoulder cuts, per kilogram",
+      "product": "Pork shoulder cuts",
+      "price": 9.6,
+      "unit": "kg",
+      "unitPrice": 9.6,
+      "period": "2026-08"
+    },
+    {
+      "name": "Chicken drumsticks, per kilogram",
+      "product": "Chicken drumsticks",
+      "price": 6.63,
+      "unit": "kg",
+      "unitPrice": 6.63,
+      "period": "2026-08"
+    },
+    {
+      "name": "Canned salmon, 213 grams",
+      "product": "Canned salmon",
+      "price": 5.5,
+      "unit": "kg",
+      "unitPrice": 25.8216,
+      "period": "2026-08"
+    },
+    {
+      "name": "Limes, unit",
+      "product": "Limes",
+      "price": 0.77,
+      "unit": "each",
+      "unitPrice": 0.77,
+      "period": "2026-08"
+    },
+    {
+      "name": "Potatoes, per kilogram",
+      "product": "Potatoes",
+      "price": 5.38,
+      "unit": "kg",
+      "unitPrice": 5.38,
+      "period": "2026-08"
+    },
+    {
+      "name": "Sweet potatoes, per kilogram",
+      "product": "Sweet potatoes",
+      "price": 4.58,
+      "unit": "kg",
+      "unitPrice": 4.58,
+      "period": "2026-08"
+    },
+    {
+      "name": "Iceberg lettuce, unit",
+      "product": "Iceberg lettuce",
+      "price": 2.85,
+      "unit": "each",
+      "unitPrice": 2.85,
+      "period": "2026-08"
+    },
+    {
+      "name": "Romaine lettuce, unit",
+      "product": "Romaine lettuce",
+      "price": 3.2,
+      "unit": "each",
+      "unitPrice": 3.2,
+      "period": "2026-08"
+    },
+    {
+      "name": "Pork loin cuts, per kilogram",
+      "product": "Pork loin cuts",
+      "price": 8.83,
+      "unit": "kg",
+      "unitPrice": 8.83,
+      "period": "2026-08"
+    },
+    {
+      "name": "Frozen french fried potatoes, 750 grams",
+      "product": "Frozen french fried potatoes",
+      "price": 3.48,
+      "unit": "kg",
+      "unitPrice": 4.64,
+      "period": "2026-08"
+    },
+    {
+      "name": "Frozen green beans, 750 grams",
+      "product": "Frozen green beans",
+      "price": 4.47,
+      "unit": "kg",
+      "unitPrice": 5.96,
+      "period": "2026-08"
+    },
+    {
+      "name": "Frozen broccoli, 500 grams",
+      "product": "Frozen broccoli",
+      "price": 4.01,
+      "unit": "kg",
+      "unitPrice": 8.02,
+      "period": "2026-08"
+    },
+    {
+      "name": "Frozen corn, 750 grams",
+      "product": "Frozen corn",
+      "price": 3.66,
+      "unit": "kg",
+      "unitPrice": 4.88,
+      "period": "2026-08"
+    },
+    {
+      "name": "Frozen mixed vegetables, 750 grams",
+      "product": "Frozen mixed vegetables",
+      "price": 4.14,
+      "unit": "kg",
+      "unitPrice": 5.52,
+      "period": "2026-08"
+    },
+    {
+      "name": "Frozen peas, 750 grams",
+      "product": "Frozen peas",
+      "price": 3.68,
+      "unit": "kg",
+      "unitPrice": 4.9067,
+      "period": "2026-08"
+    },
+    {
+      "name": "White bread, 675 grams",
+      "product": "White bread",
+      "price": 3.27,
+      "unit": "kg",
+      "unitPrice": 4.8444,
+      "period": "2026-08"
+    },
+    {
+      "name": "Dry or fresh pasta, 500 grams",
+      "product": "Dry or fresh pasta",
+      "price": 3.32,
+      "unit": "kg",
+      "unitPrice": 6.64,
+      "period": "2026-08"
+    },
+    {
+      "name": "Cereal, 400 grams",
+      "product": "Cereal",
+      "price": 4.14,
+      "unit": "kg",
+      "unitPrice": 10.35,
+      "period": "2026-08"
+    },
+    {
+      "name": "Wheat flour, 2.5 kilograms",
+      "product": "Wheat flour",
+      "price": 5.33,
+      "unit": "kg",
+      "unitPrice": 2.132,
+      "period": "2026-08"
+    },
+    {
+      "name": "Pork rib cuts, per kilogram",
+      "product": "Pork rib cuts",
+      "price": 9.02,
+      "unit": "kg",
+      "unitPrice": 9.02,
+      "period": "2026-08"
+    },
+    {
+      "name": "White sugar, 2 kilograms",
+      "product": "White sugar",
+      "price": 2.81,
+      "unit": "kg",
+      "unitPrice": 1.405,
+      "period": "2026-08"
+    },
+    {
+      "name": "Apple juice, 2 litres",
+      "product": "Apple juice",
+      "price": 3.96,
+      "unit": "L",
+      "unitPrice": 1.98,
+      "period": "2026-08"
+    },
+    {
+      "name": "Orange juice, 2 litres",
+      "product": "Orange juice",
+      "price": 6.1,
+      "unit": "L",
+      "unitPrice": 3.05,
+      "period": "2026-08"
+    },
+    {
+      "name": "Roasted or ground coffee, 340 grams",
+      "product": "Roasted or ground coffee",
+      "price": 9.38,
+      "unit": "kg",
+      "unitPrice": 27.5882,
+      "period": "2026-08"
+    },
+    {
+      "name": "Tea (20 bags)",
+      "product": "Tea",
+      "price": 4.28,
+      "unit": "each",
+      "unitPrice": 0.214,
+      "period": "2026-08"
+    },
+    {
+      "name": "Ketchup, 1 litre",
+      "product": "Ketchup",
+      "price": 4.44,
+      "unit": "L",
+      "unitPrice": 4.44,
+      "period": "2026-08"
+    },
+    {
+      "name": "Vegetable oil, 3 litres",
+      "product": "Vegetable oil",
+      "price": 8.87,
+      "unit": "L",
+      "unitPrice": 2.9567,
+      "period": "2026-08"
+    },
+    {
+      "name": "Baby food, 128 millilitres",
+      "product": "Baby food",
+      "price": 1.55,
+      "unit": "L",
+      "unitPrice": 12.1094,
+      "period": "2026-08"
+    },
+    {
+      "name": "Peanut butter, 1 kilogram",
+      "product": "Peanut butter",
+      "price": 5.98,
+      "unit": "kg",
+      "unitPrice": 5.98,
+      "period": "2026-08"
+    },
+    {
+      "name": "Mayonnaise, 890 millilitres",
+      "product": "Mayonnaise",
+      "price": 6.44,
+      "unit": "L",
+      "unitPrice": 7.236,
+      "period": "2026-08"
+    },
+    {
+      "name": "Whole chicken, per kilogram",
+      "product": "Whole chicken",
+      "price": 6.86,
+      "unit": "kg",
+      "unitPrice": 6.86,
+      "period": "2026-08"
+    },
+    {
+      "name": "Canned baked beans, 398 millilitres",
+      "product": "Canned baked beans",
+      "price": 1.62,
+      "unit": "L",
+      "unitPrice": 4.0704,
+      "period": "2026-08"
+    },
+    {
+      "name": "Canned tomatoes, 796 millilitres",
+      "product": "Canned tomatoes",
+      "price": 2.13,
+      "unit": "L",
+      "unitPrice": 2.6759,
+      "period": "2026-08"
+    },
+    {
+      "name": "Canned soup, 284 millilitres",
+      "product": "Canned soup",
+      "price": 1.4,
+      "unit": "L",
+      "unitPrice": 4.9296,
+      "period": "2026-08"
+    },
+    {
+      "name": "Canned beans and lentils, 540 millilitres",
+      "product": "Canned beans and lentils",
+      "price": 1.73,
+      "unit": "L",
+      "unitPrice": 3.2037,
+      "period": "2026-08"
+    },
+    {
+      "name": "Dried lentils, 900 grams",
+      "product": "Dried lentils",
+      "price": 3.61,
+      "unit": "kg",
+      "unitPrice": 4.0111,
+      "period": "2026-08"
+    },
+    {
+      "name": "Deodorant, 85 grams",
+      "product": "Deodorant",
+      "price": 8.21,
+      "unit": "kg",
+      "unitPrice": 96.5882,
+      "period": "2026-08"
+    },
+    {
+      "name": "Toothpaste, 100 millilitres",
+      "product": "Toothpaste",
+      "price": 4.45,
+      "unit": "L",
+      "unitPrice": 44.5,
+      "period": "2026-08"
+    },
+    {
+      "name": "Shampoo, 400 millilitres",
+      "product": "Shampoo",
+      "price": 7.29,
+      "unit": "L",
+      "unitPrice": 18.225,
+      "period": "2026-08"
+    },
+    {
+      "name": "Salmon, per kilogram",
+      "product": "Salmon",
+      "price": 28.81,
+      "unit": "kg",
+      "unitPrice": 28.81,
+      "period": "2026-08"
+    },
+    {
+      "name": "Shrimp, 300 grams",
+      "product": "Shrimp",
+      "price": 7.26,
+      "unit": "kg",
+      "unitPrice": 24.2,
+      "period": "2026-08"
+    },
+    {
+      "name": "Chicken breasts, per kilogram",
+      "product": "Chicken breasts",
+      "price": 13.94,
+      "unit": "kg",
+      "unitPrice": 13.94,
+      "period": "2026-08"
+    },
+    {
+      "name": "Meatless burgers, 226 grams",
+      "product": "Meatless burgers",
+      "price": 6.72,
+      "unit": "kg",
+      "unitPrice": 29.7345,
+      "period": "2026-08"
+    },
+    {
+      "name": "Soy milk, 1.89 litres",
+      "product": "Soy milk",
+      "price": 4.32,
+      "unit": "L",
+      "unitPrice": 2.2857,
+      "period": "2026-08"
+    },
+    {
+      "name": "Nut milk, 1.89 litres",
+      "product": "Nut milk",
+      "price": 4.22,
+      "unit": "L",
+      "unitPrice": 2.2328,
+      "period": "2026-08"
+    },
+    {
+      "name": "Margarine, 907 grams",
+      "product": "Margarine",
+      "price": 5.53,
+      "unit": "kg",
+      "unitPrice": 6.097,
+      "period": "2026-08"
+    },
+    {
+      "name": "Strawberries, 454 grams",
+      "product": "Strawberries",
+      "price": 3.85,
+      "unit": "kg",
+      "unitPrice": 8.4802,
+      "period": "2026-08"
+    },
+    {
+      "name": "Squash, per kilogram",
+      "product": "Squash",
+      "price": 5.06,
+      "unit": "kg",
+      "unitPrice": 5.06,
+      "period": "2026-08"
+    },
+    {
+      "name": "Salad greens, 142 grams",
+      "product": "Salad greens",
+      "price": 4.29,
+      "unit": "kg",
+      "unitPrice": 30.2113,
+      "period": "2026-08"
+    },
+    {
+      "name": "Frozen pizza, 390 grams",
+      "product": "Frozen pizza",
+      "price": 4.61,
+      "unit": "kg",
+      "unitPrice": 11.8205,
+      "period": "2026-08"
+    },
+    {
+      "name": "Frozen spinach, 300 grams",
+      "product": "Frozen spinach",
+      "price": 2.28,
+      "unit": "kg",
+      "unitPrice": 7.6,
+      "period": "2026-08"
+    },
+    {
+      "name": "Frozen strawberries, 600 grams",
+      "product": "Frozen strawberries",
+      "price": 5.24,
+      "unit": "kg",
+      "unitPrice": 8.7333,
+      "period": "2026-08"
+    },
+    {
+      "name": "Chicken thigh, per kilogram",
+      "product": "Chicken thigh",
+      "price": 13.01,
+      "unit": "kg",
+      "unitPrice": 13.01,
+      "period": "2026-08"
+    },
+    {
+      "name": "Flatbread and pita, 500 grams",
+      "product": "Flatbread and pita",
+      "price": 3.26,
+      "unit": "kg",
+      "unitPrice": 6.52,
+      "period": "2026-08"
+    },
+    {
+      "name": "Crackers and crisp breads, 200 grams",
+      "product": "Crackers and crisp breads",
+      "price": 2.48,
+      "unit": "kg",
+      "unitPrice": 12.4,
+      "period": "2026-08"
+    },
+    {
+      "name": "Cookies and sweet biscuits, 300 grams",
+      "product": "Cookies and sweet biscuits",
+      "price": 3.37,
+      "unit": "kg",
+      "unitPrice": 11.2333,
+      "period": "2026-08"
+    },
+    {
+      "name": "Brown rice, 900 grams",
+      "product": "Brown rice",
+      "price": 5.8,
+      "unit": "kg",
+      "unitPrice": 6.4444,
+      "period": "2026-08"
+    },
+    {
+      "name": "White rice, 2 kilograms",
+      "product": "White rice",
+      "price": 9.29,
+      "unit": "kg",
+      "unitPrice": 4.645,
+      "period": "2026-08"
+    },
+    {
+      "name": "Canola oil, 3 litres",
+      "product": "Canola oil",
+      "price": 10.17,
+      "unit": "L",
+      "unitPrice": 3.39,
+      "period": "2026-08"
+    },
+    {
+      "name": "Olive oil, 1 litre",
+      "product": "Olive oil",
+      "price": 11.71,
+      "unit": "L",
+      "unitPrice": 11.71,
+      "period": "2026-08"
+    },
+    {
+      "name": "Infant formula, 900 grams",
+      "product": "Infant formula",
+      "price": 50.92,
+      "unit": "kg",
+      "unitPrice": 56.5778,
+      "period": "2026-08"
+    },
+    {
+      "name": "Canned corn, 341 millilitres",
+      "product": "Canned corn",
+      "price": 1.65,
+      "unit": "L",
+      "unitPrice": 4.8387,
+      "period": "2026-08"
+    },
+    {
+      "name": "Canned peach, 398 millilitres",
+      "product": "Canned peach",
+      "price": 2.52,
+      "unit": "L",
+      "unitPrice": 6.3317,
+      "period": "2026-08"
+    }
+  ]
+}

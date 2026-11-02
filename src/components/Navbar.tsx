@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Logo } from "@/components/Logo";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { buttonClasses } from "@/components/ui/Button";
-import { CloseIcon, MenuIcon } from "@/components/icons";
+import { CloseIcon, HeartIcon, ListIcon, MenuIcon } from "@/components/icons";
 import { cn } from "@/lib/cn";
+import { savedDeals, shoppingList } from "@/lib/local-lists";
 
 export const NAV_LINKS = [
   { href: "/", label: "Deals" },
@@ -20,12 +21,55 @@ export const NAV_LINKS = [
 
 const stripSlash = (path: string) => path.replace(/\/+$/, "") || "/";
 
+/** Icon link with a small count bubble (Saved deals, Shopping list). */
+function CountLink({
+  href,
+  label,
+  count,
+  current,
+  children,
+  className,
+}: {
+  href: string;
+  label: string;
+  count: number;
+  current: boolean;
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <Link
+      href={href}
+      aria-label={count ? `${label} (${count})` : label}
+      aria-current={current ? "page" : undefined}
+      title={label}
+      className={buttonClasses({
+        variant: "ghost",
+        size: "icon",
+        className: cn("relative", current && "bg-neutral-soft", className),
+      })}
+    >
+      {children}
+      {count > 0 && (
+        <span
+          aria-hidden="true"
+          className="absolute top-1 right-0.5 min-w-4.5 rounded-full bg-accent px-1 text-center text-[0.625rem] leading-4.5 font-semibold text-accent-fg tabular-nums"
+        >
+          {count > 99 ? "99+" : count}
+        </span>
+      )}
+    </Link>
+  );
+}
+
 /** Floating glass navbar. On phones the links fold into a small dropdown menu. */
 export function Navbar() {
   const pathname = stripSlash(usePathname() ?? "/");
   const [menuOpen, setMenuOpen] = useState(false);
   const [lastPath, setLastPath] = useState(pathname);
   const headerRef = useRef<HTMLElement>(null);
+  const saved = savedDeals.useList();
+  const list = shoppingList.useList();
 
   // Close the menu whenever the route changes (adjusting state during render, per React docs).
   if (lastPath !== pathname) {
@@ -69,7 +113,7 @@ export function Navbar() {
         >
           <Logo />
 
-          <ul className="hidden items-center gap-1 md:flex">
+          <ul className="hidden items-center gap-1 lg:flex">
             {NAV_LINKS.map(({ href, label }) => (
               <li key={href}>
                 <Link
@@ -84,10 +128,28 @@ export function Navbar() {
           </ul>
 
           <div className="flex items-center gap-1">
-            <ThemeToggle />
+            <CountLink
+              href="/saved/"
+              label="Saved deals"
+              count={saved.length}
+              current={pathname === "/saved"}
+              className="max-sm:hidden"
+            >
+              <HeartIcon className="size-5" />
+            </CountLink>
+            <CountLink
+              href="/list/"
+              label="Shopping list"
+              count={list.length}
+              current={pathname === "/list"}
+            >
+              <ListIcon className="size-5" />
+            </CountLink>
+            {/* On phones the bar only has room for the list; Saved and the theme are in the menu. */}
+            <ThemeToggle className="max-sm:hidden" />
             <button
               type="button"
-              className={buttonClasses({ variant: "ghost", size: "icon", className: "md:hidden" })}
+              className={buttonClasses({ variant: "ghost", size: "icon", className: "lg:hidden" })}
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
@@ -101,7 +163,7 @@ export function Navbar() {
         {menuOpen && (
           <div
             id="mobile-menu"
-            className="absolute inset-x-0 top-full mt-2 animate-fade-in rounded-3xl glass-strong p-2 frost md:hidden"
+            className="absolute inset-x-0 top-full mt-2 animate-fade-in rounded-3xl glass-strong p-2 frost lg:hidden"
           >
             <ul className="flex flex-col gap-1">
               {NAV_LINKS.map(({ href, label }) => (
@@ -116,6 +178,26 @@ export function Navbar() {
                   </Link>
                 </li>
               ))}
+              <li className="border-t border-line pt-1 sm:hidden">
+                <Link
+                  href="/saved/"
+                  className={linkClass("/saved/", "w-full gap-2 text-base")}
+                  aria-current={pathname === "/saved" ? "page" : undefined}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <HeartIcon className="size-5" />
+                  Saved deals
+                  {saved.length > 0 && (
+                    <span className="ml-auto text-sm text-ink-muted tabular-nums">
+                      {saved.length}
+                    </span>
+                  )}
+                </Link>
+              </li>
+              <li className="flex items-center justify-between pl-4 sm:hidden">
+                <span className="text-base font-medium text-ink-muted">Light or dark</span>
+                <ThemeToggle />
+              </li>
             </ul>
           </div>
         )}

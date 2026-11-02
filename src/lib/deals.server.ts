@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { DealSchema, DealsFileSchema, type Deal, type DealsFile } from "@shared/deal";
 import { lowestInSudbury } from "@shared/products";
+import type { HistoryPoint, OntarioPricesFile, PriceInfo } from "@shared/price-info";
 import type { DealExplorerProps } from "@/components/DealExplorer";
 import {
   DEFAULT_FILTERS,
@@ -113,5 +114,34 @@ export function productsData() {
     initialProducts: products.slice(0, PRODUCTS_IN_HTML),
     total: products.length,
     buildDay: torontoDate(),
+  };
+}
+
+const readJsonFile = (name: string): unknown => {
+  try {
+    return JSON.parse(readFileSync(join(process.cwd(), "data", name), "utf8"));
+  } catch {
+    return null;
+  }
+};
+
+/**
+ * Past product prices (data/price-history.json, last 90 days) and the Ontario averages
+ * (data/ontario-prices.json) for /price-info.json. Anything malformed is left out.
+ */
+export function priceInfo(): PriceInfo {
+  const history = (readJsonFile("price-history.json") as { entries?: unknown })?.entries;
+  const ontario = readJsonFile("ontario-prices.json") as Partial<OntarioPricesFile> | null;
+  const isPoint = (e: HistoryPoint) =>
+    typeof e?.product === "string" &&
+    typeof e.store === "string" &&
+    typeof e.date === "string" &&
+    typeof e.price === "number";
+  return {
+    history: Array.isArray(history) ? (history as HistoryPoint[]).filter(isPoint) : [],
+    ontario: Array.isArray(ontario?.items)
+      ? ontario.items.filter((i) => typeof i?.unitPrice === "number" && typeof i.unit === "string")
+      : [],
+    period: typeof ontario?.period === "string" ? ontario.period : "",
   };
 }

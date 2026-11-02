@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Badge } from "@/components/ui/Badge";
-import { ButtonLink } from "@/components/ui/Button";
+import { ButtonLink, externalLinkProps } from "@/components/ui/Button";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { loadDeals } from "@/lib/deals.server";
 import { formatUpdated } from "@/lib/format";
@@ -97,6 +97,31 @@ export default function AboutPage() {
           <strong className="font-semibold text-ink">Price drop</strong> means it costs less than
           the last time the same store listed it.
         </p>
+        <p>
+          The <strong className="font-semibold text-ink">price check</strong> in a product&apos;s
+          popup compares today&apos;s price with the last 90 days of listings and with the Ontario
+          average from Statistics Canada (Table 18-10-0245-01, Monthly average retail prices for
+          selected products, used under the Statistics Canada Open Licence).
+        </p>
+        <p>
+          Product photos come from{" "}
+          <a
+            href="https://world.openfoodfacts.org/"
+            className="underline underline-offset-2"
+            {...externalLinkProps()}
+          >
+            Open Food Facts
+          </a>
+          , taken by its contributors and shared under the CC BY-SA licence.
+        </p>
+      </Section>
+
+      <Section title="Saved deals and your shopping list">
+        <p>
+          Tap ♡ on any deal to keep it on your Saved page, and add products to your shopping list to
+          see which store, or which two stores, is cheapest for all of it. Totals count one package
+          of each item, or 1 lb/kg for things sold by weight.
+        </p>
       </Section>
 
       <Section title="Affiliate links">
@@ -137,9 +162,9 @@ export default function AboutPage() {
 
       <Section title="Privacy">
         <p>
-          No accounts, no cookies, no tracking. Your light or dark mode choice is saved only in your
-          own browser. Product thumbnails load straight from the store&apos;s website without
-          telling it which page you came from.
+          No accounts, no cookies, no tracking. Your light or dark mode choice, saved deals and
+          shopping list are kept only in your own browser and never sent anywhere. Product photos
+          load straight from where they&apos;re hosted without telling it which page you came from.
         </p>
       </Section>
 
