@@ -58,6 +58,9 @@ async function main() {
   console.log(`Categories: ${CATEGORY_IDS.join(", ")}`);
   const category = await ask("Category", "grocery");
   const note = await ask("A short note in your own words (Enter to skip)");
+  const barcode = await ask("Barcode numbers, to show the product photo (Enter to skip)").then(
+    (b) => b.replace(/\s/g, ""),
+  );
   const url = known ? "" : await ask("Link to the store's official flyer (https://…)");
 
   const answers: PickAnswers = {
@@ -72,6 +75,7 @@ async function main() {
     category,
     note,
     url,
+    barcode,
   };
   const result = buildPick(answers);
   if ("error" in result) {

@@ -117,7 +117,6 @@ export function ProductBadges({ deal, short }: { deal: Deal; short?: boolean }) 
       )}
       {isPriceDrop(deal) && <Badge tone="accent">Price drop</Badge>}
       {deal.sample && <Badge tone="outline">Sample</Badge>}
-      {deal.affiliate && <Badge tone="outline">Affiliate link</Badge>}
     </>
   );
 }
@@ -229,8 +228,7 @@ export function DealPicture({ deal, today }: { deal: Deal; today: string }) {
 /** The few badges a card has room for: Student, then the product badges. */
 export function CardBadges({ deal }: { deal: Deal }) {
   const student = deal.dealType.includes("student");
-  if (!student && !deal.lowestInSudbury && !isPriceDrop(deal) && !deal.sample && !deal.affiliate)
-    return null;
+  if (!student && !deal.lowestInSudbury && !isPriceDrop(deal) && !deal.sample) return null;
   return (
     <div className="flex flex-wrap gap-1.5">
       {student && <Badge tone="neutral">Student</Badge>}

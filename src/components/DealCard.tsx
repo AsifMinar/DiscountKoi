@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import type { Deal } from "@shared/deal";
 import {
   CardBadges,
@@ -22,7 +23,7 @@ type DealCardProps = { deal: Deal; today: string; search: string };
  * One deal, shop style: picture on top, then store, title, price and badges.
  * The whole card is clickable (via the title link stretched over it).
  */
-export function DealCard({ deal, today, search }: DealCardProps) {
+export const DealCard = memo(function DealCard({ deal, today, search }: DealCardProps) {
   // Ongoing programs say so in the popup; on the card it would only repeat on every one.
   // "Ends today" is already on the picture.
   const ends = deal.endDate && deal.endDate !== today ? endsLabel(deal.endDate, today) : null;
@@ -77,7 +78,18 @@ export function DealCard({ deal, today, search }: DealCardProps) {
       </div>
     </GlassCard>
   );
+}, sameCard);
+
+/**
+ * A card only redraws when its deal, the date or the URL changes. The full deal list
+ * arrives as new objects for the same deals, so comparing ids saves redrawing every card.
+ */
+function sameCard(a: DealCardProps, b: DealCardProps) {
+  return a.deal.id === b.deal.id && a.today === b.today && a.search === b.search;
 }
+
+/** Off-screen cards are only laid out when scrolled near (with a size guess until then). */
+export const LAZY_CARD = "[contain-intrinsic-size:auto_18rem] [content-visibility:auto]";
 
 // Narrower grid next to the filter sidebar on big screens.
 export const GRID =
@@ -100,7 +112,7 @@ export function DealGrid({
   return (
     <ul role="list" className={grid}>
       {deals.map((deal) => (
-        <li key={deal.id}>
+        <li key={deal.id} className={LAZY_CARD}>
           <DealCard deal={deal} today={today} search={search} />
         </li>
       ))}

@@ -1,9 +1,0 @@
-{
-  "_howTo": [
-    "Your Google Sheet of weekly picks. Type one product per row while you read a Sudbury flyer; the site reads the sheet every morning.",
-    "Setup (once): see docs/google-sheet-setup.md. In short: import docs/picks-sheet-template.csv into a new Google Sheet, then File → Share → Publish to web → choose the sheet → Comma-separated values (.csv) → Publish, and paste the link below.",
-    "The link must look like https://docs.google.com/spreadsheets/d/e/…/pub?…output=csv. Leave it empty to switch the sheet off.",
-    "Anyone with the link can see the sheet, so only put flyer prices in it, nothing private."
-  ],
-  "csvUrl": ""
-}

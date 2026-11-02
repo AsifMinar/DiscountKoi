@@ -20,7 +20,9 @@ export const PAGE_SIZE = 24;
 /** How many deals the "Top deals" and "Ending soon" rows on the home page show. */
 export const ROW_SIZE = 10;
 /** A home page row needs at least this many deals, or it's left out. */
-export const ROW_MIN = 4;
+export const ROW_MIN = 3;
+/** At most this many deals from one store per home page row, so one shop can't fill it. */
+export const ROW_PER_STORE = 3;
 
 export const SORTS = [
   { id: "sudbury", label: "Sudbury first" },
@@ -187,7 +189,8 @@ export function filterDeals(deals: Deal[], f: Filters, today: string): Deal[] {
       (!f.store || d.store === f.store || d.brand === f.store) &&
       (!f.channel || d.dealType.includes(f.channel)) &&
       (!f.off || effectiveDiscount(d) >= f.off) &&
-      (!f.under || (d.salePrice !== undefined && d.salePrice <= f.under)) &&
+      // "Under $X" means Canadian dollars, so US-dollar prices aren't compared with it.
+      (!f.under || (isCad(d) && d.salePrice !== undefined && d.salePrice <= f.under)) &&
       (!words.length || words.every((w) => haystack(d).includes(w))),
   );
 }
@@ -195,8 +198,10 @@ export function filterDeals(deals: Deal[], f: Filters, today: string): Deal[] {
 const newestFirst = (a: Deal, b: Deal) => b.scrapedAt.localeCompare(a.scrapedAt);
 const biggestFirst = (a: Deal, b: Deal) => effectiveDiscount(b) - effectiveDiscount(a);
 const byId = (a: Deal, b: Deal) => a.id.localeCompare(b.id);
-// Free counts as $0; deals without a price go last.
-const priceOf = (d: Deal) => (isFree(d) ? 0 : (d.salePrice ?? Infinity));
+const isCad = (d: Deal) => (d.currency ?? "CAD") === "CAD";
+// Free first, then Canadian prices, then US-dollar prices (not mixed in), then no price.
+const priceGroup = (d: Deal) => (isFree(d) ? 0 : d.salePrice === undefined ? 3 : isCad(d) ? 1 : 2);
+const priceOf = (d: Deal) => (isFree(d) ? 0 : (d.salePrice ?? 0));
 
 const COMPARATORS: Record<SortId, (a: Deal, b: Deal) => number> = {
   // Sudbury, then Ontario, then ships-to-ON; inside each: newest, then biggest discount.
@@ -207,7 +212,8 @@ const COMPARATORS: Record<SortId, (a: Deal, b: Deal) => number> = {
     byId(a, b),
   newest: (a, b) => newestFirst(a, b) || biggestFirst(a, b) || byId(a, b),
   discount: (a, b) => biggestFirst(a, b) || newestFirst(a, b) || byId(a, b),
-  price: (a, b) => priceOf(a) - priceOf(b) || COMPARATORS.sudbury(a, b),
+  price: (a, b) =>
+    priceGroup(a) - priceGroup(b) || priceOf(a) - priceOf(b) || COMPARATORS.sudbury(a, b),
   // Deals with an end date first (soonest on top), then the rest in default order.
   ending: (a, b) =>
     (a.endDate ?? "9999").localeCompare(b.endDate ?? "9999") || COMPARATORS.sudbury(a, b),
@@ -249,6 +255,23 @@ export function lockedType(scope: PageScope): DealTypeId | undefined {
 
 /* ---------- Home page sections ---------- */
 
+/** Sudbury first, then the rest of Canada, then US-dollar deals (the sort is stable). */
+const localFirst = (d: Deal) => (d.location === "sudbury" ? 0 : isCad(d) ? 1 : 2);
+
+/** The first ROW_SIZE deals, at most ROW_PER_STORE from any one store. */
+function varied(sorted: Deal[]): Deal[] {
+  const perStore = new Map<string, number>();
+  const picked: Deal[] = [];
+  for (const deal of sorted) {
+    const n = perStore.get(deal.store) ?? 0;
+    if (n >= ROW_PER_STORE) continue;
+    perStore.set(deal.store, n + 1);
+    picked.push(deal);
+    if (picked.length === ROW_SIZE) break;
+  }
+  return picked;
+}
+
 /** First seen today (Sudbury time): gets a "New" badge. */
 export const isNewToday = (deal: Deal, today: string) =>
   torontoDate(new Date(deal.scrapedAt)) === today;
@@ -260,14 +283,18 @@ export const isNewToday = (deal: Deal, today: string) =>
  */
 export function homeSections(deals: Deal[], today: string) {
   const live = deals.filter((d) => !isFlyer(d) && !isExpired(d, today));
-  const top = sortDeals(
-    live.filter((d) => d.discountPercent && !isFree(d)),
-    "discount",
-  ).slice(0, ROW_SIZE);
-  const ending = sortDeals(
-    live.filter((d) => d.endDate && daysBetween(today, d.endDate) <= 7),
-    "ending",
-  ).slice(0, ROW_SIZE);
+  const top = varied(
+    sortDeals(
+      live.filter((d) => d.discountPercent && !isFree(d)),
+      "discount",
+    ).sort((a, b) => localFirst(a) - localFirst(b)),
+  );
+  const ending = varied(
+    sortDeals(
+      live.filter((d) => d.endDate && daysBetween(today, d.endDate) <= 7),
+      "ending",
+    ).sort((a, b) => localFirst(a) - localFirst(b)),
+  );
   return {
     flyers: deals.filter((d) => isFlyer(d) && !isExpired(d, today)),
     top: top.length >= ROW_MIN ? top : [],

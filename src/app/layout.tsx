@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Geist } from "next/font/google";
+// The font file ships inside the project (npm package "geist"), so nothing is fetched
+// from Google, at build time or by visitors.
+import { GeistSans } from "geist/font/sans";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
@@ -7,11 +9,6 @@ import { Providers } from "@/components/Providers";
 import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, pageMetadata } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/lib/site";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   // Makes link-preview and canonical URLs absolute (https://asifminar.github.io/DiscountKoi/…).
@@ -38,7 +35,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     // next-themes edits the class on <html> before React hydrates, hence suppressHydrationWarning.
-    <html lang="en-CA" className={`${geistSans.variable} antialiased`} suppressHydrationWarning>
+    <html lang="en-CA" className={`${GeistSans.variable} antialiased`} suppressHydrationWarning>
       <body className="flex min-h-dvh flex-col">
         <Providers>
           <div aria-hidden="true" className="koi-backdrop" />

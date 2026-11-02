@@ -41,11 +41,11 @@ export function Button({
   return <button type={type} className={buttonClasses({ variant, size, className })} {...props} />;
 }
 
-/** target and rel for every off-site link (rel="sponsored" too for affiliate links). */
-export function externalLinkProps(sponsored = false) {
+/** target and rel for every off-site link. */
+export function externalLinkProps() {
   return {
     target: "_blank",
-    rel: sponsored ? "sponsored noopener noreferrer" : "noopener noreferrer",
+    rel: "noopener noreferrer",
   } as const;
 }
 
@@ -54,15 +54,12 @@ type ButtonLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> &
     href: string;
     /** Opens in a new tab with rel="noopener noreferrer". Use it for every off-site link. */
     external?: boolean;
-    /** Affiliate or paid link: adds rel="sponsored". */
-    sponsored?: boolean;
   };
 
 /** A link styled as a button. Internal links use next/link; external ones open safely in a new tab. */
 export function ButtonLink({
   href,
   external,
-  sponsored,
   variant,
   size,
   className,
@@ -70,7 +67,7 @@ export function ButtonLink({
 }: ButtonLinkProps) {
   const classes = buttonClasses({ variant, size, className });
   if (external) {
-    return <a href={href} className={classes} {...props} {...externalLinkProps(sponsored)} />;
+    return <a href={href} className={classes} {...props} {...externalLinkProps()} />;
   }
   return <Link href={href} className={classes} {...props} />;
 }

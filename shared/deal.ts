@@ -47,7 +47,7 @@ export const DealSchema = z.object({
   imageCredit: z.string().trim().min(1).max(120).optional(),
   startDate: isoDate.optional(),
   endDate: isoDate.optional(),
-  /** Which scraper found it, e.g. "flyers" or "rfd-hot-deals". */
+  /** Which scraper found it, e.g. "flyer-links" or "itch-io-sales". */
   source: z.string().min(1).max(40),
   /** When Discount Koi first found this deal (kept across daily runs, so "Newest" means new). */
   scrapedAt: z.iso.datetime({ offset: true }),
@@ -75,8 +75,6 @@ export const DealSchema = z.object({
   unitPrice: z.number().nonnegative().max(1_000_000).optional(),
   /** What this product cost at this store last time it was listed (from price history). */
   previousPrice: price.optional(),
-  /** Bought through an affiliate link (Discount Koi may earn a commission). Shown on the card. */
-  affiliate: z.boolean().optional(),
   /** An example entry that shows how listings look. Not a real price; labelled on the site. */
   sample: z.boolean().optional(),
   /** Set when the site is built: cheapest of 2+ Sudbury stores for this product this week. */

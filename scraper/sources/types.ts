@@ -54,8 +54,6 @@ export type RawDeal = {
   barcode?: string;
   /** Price last time it was listed, if the source knows it (otherwise price history fills it). */
   previousPrice?: number;
-  /** Affiliate link: labelled on the site and marked rel="sponsored". */
-  affiliate?: boolean;
   /** Example entry, labelled "Sample" on the site and never recorded in price history. */
   sample?: boolean;
   /**
@@ -78,7 +76,7 @@ export type SourceContext = {
  * scraper/sources/ that exports a Source, then add it to the list in sources/index.ts.
  */
 export type Source = {
-  /** Short, permanent id saved on every deal, e.g. "rfd-hot-deals". Don't change it later. */
+  /** Short, permanent id saved on every deal, e.g. "itch-io-sales". Don't change it later. */
   id: string;
   /** Human-friendly name for logs and the summary. */
   name: string;

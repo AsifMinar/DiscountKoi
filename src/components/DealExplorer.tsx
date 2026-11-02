@@ -5,7 +5,13 @@ import type { Deal } from "@shared/deal";
 import { DealCardSkeleton, DealGrid, GRID, WIDE_GRID } from "@/components/DealCard";
 import { DealModal } from "@/components/DealModal";
 import { EmptyState } from "@/components/EmptyState";
-import { ChannelSwitch, FilterSheet, FilterSidebar, clearFilters } from "@/components/FilterPanel";
+import {
+  ActiveFilters,
+  ChannelSwitch,
+  FilterSheet,
+  FilterSidebar,
+  clearFilters,
+} from "@/components/FilterPanel";
 import {
   CategoryRail,
   DealRow,
@@ -252,6 +258,8 @@ export function DealExplorer({
               )}
             </div>
           </div>
+
+          <ActiveFilters filters={filters} update={update} />
 
           {!ready && failed && (
             <EmptyState

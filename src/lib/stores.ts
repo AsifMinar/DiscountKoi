@@ -31,10 +31,12 @@ export type StoreSummary = {
   flyer: Deal | null;
   /** Food banks and meal programs, which the home page leaves to the Free page. */
   foodHelp: boolean;
+  /** Has a deal in Greater Sudbury: these stores come first. */
+  local: boolean;
 };
 
 /**
- * One entry per store, most deals first, then A to Z. Two names that make the same
+ * One entry per store: Sudbury stores first, then most deals, then A to Z. Two names that make the same
  * slug ("Café X" and "Cafe X") share one entry and one page.
  */
 export function storeDirectory(deals: Deal[]): StoreSummary[] {
@@ -43,15 +45,17 @@ export function storeDirectory(deals: Deal[]): StoreSummary[] {
     const slug = storeSlug(deal.store);
     let entry = bySlug.get(slug);
     if (!entry) {
-      entry = { name: deal.store, slug, count: 0, flyer: null, foodHelp: true };
+      entry = { name: deal.store, slug, count: 0, flyer: null, foodHelp: true, local: false };
       bySlug.set(slug, entry);
     }
     if (isFlyer(deal)) entry.flyer ??= deal;
     else entry.count += 1;
     if (deal.category !== "food-help") entry.foodHelp = false;
+    if (deal.location === "sudbury") entry.local = true;
   }
   return [...bySlug.values()].sort(
     (a, b) =>
+      Number(b.local) - Number(a.local) ||
       b.count - a.count ||
       Number(Boolean(b.flyer)) - Number(Boolean(a.flyer)) ||
       a.name.localeCompare(b.name, "en-CA", { sensitivity: "base" }),

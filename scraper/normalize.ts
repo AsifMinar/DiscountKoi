@@ -104,7 +104,6 @@ export function normalizeDeal(
     unitPrice: pricing?.unitPrice,
     barcode: productName && raw.barcode && /^\d{8,14}$/.test(raw.barcode) ? raw.barcode : undefined,
     previousPrice: productName ? parsePrice(raw.previousPrice) : undefined,
-    affiliate: raw.affiliate ? true : undefined,
     sample: raw.sample ? true : undefined,
   });
 

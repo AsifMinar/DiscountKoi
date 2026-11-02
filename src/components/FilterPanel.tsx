@@ -337,3 +337,83 @@ export function ChannelSwitch({
     </div>
   );
 }
+
+/**
+ * The filters in use as removable chips above the results ("Grocery ×", "Under $25 ×"),
+ * so it's always clear why the list looks the way it does.
+ */
+export function ActiveFilters({
+  filters,
+  update,
+}: {
+  filters: Filters;
+  update: (patch: Partial<Filters>) => void;
+}) {
+  const chips: Array<{ key: string; label: string; remove: () => void }> = [];
+  if (filters.q.trim()) {
+    chips.push({ key: "q", label: `“${filters.q.trim()}”`, remove: () => update({ q: "" }) });
+  }
+  for (const t of filters.types) {
+    const label = DEAL_TYPES.find((d) => d.id === t)?.label ?? t;
+    chips.push({
+      key: `type-${t}`,
+      label,
+      remove: () => update({ types: filters.types.filter((x) => x !== t) }),
+    });
+  }
+  for (const c of filters.cats) {
+    const label = CATEGORIES.find((x) => x.id === c)?.label ?? c;
+    chips.push({
+      key: `cat-${c}`,
+      label,
+      remove: () => update({ cats: filters.cats.filter((x) => x !== c) }),
+    });
+  }
+  if (filters.loc) {
+    const label = LOCATIONS.find((l) => l.id === filters.loc)?.label ?? filters.loc;
+    chips.push({ key: "loc", label, remove: () => update({ loc: null }) });
+  }
+  if (filters.store) {
+    chips.push({ key: "store", label: filters.store, remove: () => update({ store: null }) });
+  }
+  if (filters.off) {
+    chips.push({
+      key: "off",
+      label: `${filters.off}% off or more`,
+      remove: () => update({ off: null }),
+    });
+  }
+  if (filters.under) {
+    chips.push({
+      key: "under",
+      label: `Under $${filters.under}`,
+      remove: () => update({ under: null }),
+    });
+  }
+  if (!chips.length) return null;
+
+  return (
+    <ul aria-label="Filters in use" className="flex flex-wrap items-center gap-2">
+      {chips.map((chip) => (
+        <li key={chip.key}>
+          <button
+            type="button"
+            onClick={chip.remove}
+            aria-label={`Remove filter: ${chip.label}`}
+            className="inline-flex h-11 max-w-[16rem] items-center gap-1.5 rounded-full bg-ink pr-3 pl-4 text-sm font-medium text-page transition-opacity duration-150 ease-out hover:opacity-85"
+          >
+            <span className="truncate">{chip.label}</span>
+            <CloseIcon aria-hidden="true" className="size-4 shrink-0 opacity-80" />
+          </button>
+        </li>
+      ))}
+      {chips.length > 1 && (
+        <li>
+          <Button variant="ghost" onClick={() => update(clearFilters({ ...filters, q: "" }))}>
+            Clear all
+          </Button>
+        </li>
+      )}
+    </ul>
+  );
+}

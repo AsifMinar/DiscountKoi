@@ -124,15 +124,6 @@ export default function AboutPage() {
         </p>
       </Section>
 
-      <Section title="Affiliate links">
-        <p>
-          Some online deals may use affiliate links: if you buy through one, Discount Koi may earn a
-          small commission at no extra cost to you. Those deals always carry an{" "}
-          <strong className="font-semibold text-ink">Affiliate link</strong> label, and it never
-          changes which deal is cheapest.
-        </p>
-      </Section>
-
       <section className="flex flex-col gap-3 rounded-3xl border border-accent-soft bg-accent-soft p-6 sm:p-8">
         <h2 className="text-lg font-semibold tracking-tight text-accent-text">
           Always double-check before you go

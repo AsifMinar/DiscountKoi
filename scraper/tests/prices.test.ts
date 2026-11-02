@@ -128,7 +128,7 @@ const deal = (over: Partial<Deal>): Deal => ({
   category: "grocery",
   location: "sudbury",
   url: "https://www.metro.ca/en/flyer",
-  source: "sheet-picks",
+  source: "weekly-picks",
   scrapedAt: "2026-11-01T10:00:00.000Z",
   productName: "Large eggs",
   ...over,

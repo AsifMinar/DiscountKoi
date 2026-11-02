@@ -31,13 +31,6 @@ const FlyerStoresSchema = z.object({
   ),
 });
 
-/** Store name (lower case) → the weekday its flyer starts, from data/flyer-stores.json. */
-export function flyerStartDays(file: unknown): Map<string, (typeof WEEKDAYS)[number]> {
-  const parsed = FlyerStoresSchema.safeParse(file);
-  if (!parsed.success) return new Map();
-  return new Map(parsed.data.stores.map((s) => [s.store.toLowerCase(), s.startsOn]));
-}
-
 /** The flyer week (YYYY-MM-DD start and end) that contains `today`. */
 export function flyerWeek(today: string, startsOn: (typeof WEEKDAYS)[number]) {
   const weekday = new Date(`${today}T00:00:00Z`).getUTCDay();

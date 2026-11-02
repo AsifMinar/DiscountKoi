@@ -64,7 +64,9 @@ test("a failed or blocked source keeps yesterday's deals", () => {
     null,
     [
       ok("flyers", [raw()]),
-      ok("rfd", [raw({ title: "TV", url: "https://rfd.example/1", location: "ships-to-ontario" })]),
+      ok("forum", [
+        raw({ title: "TV", url: "https://forum.example/1", location: "ships-to-ontario" }),
+      ]),
     ],
     NOW,
   );
@@ -73,7 +75,7 @@ test("a failed or blocked source keeps yesterday's deals", () => {
     first.file,
     [
       { id: "flyers", name: "flyers", status: "failed", raw: [], error: "timeout" },
-      { id: "rfd", name: "rfd", status: "blocked", raw: [], error: "HTTP 403" },
+      { id: "forum", name: "forum", status: "blocked", raw: [], error: "HTTP 403" },
     ],
     later,
   );
@@ -167,7 +169,10 @@ test("runProblem: every source failing fails the run, even if old deals were kep
 test("runProblem: one failure among working sources is fine", () => {
   const { summary } = buildDealsFile(
     null,
-    [ok("flyers", [raw()]), { id: "rfd", name: "rfd", status: "blocked", raw: [], error: "403" }],
+    [
+      ok("flyers", [raw()]),
+      { id: "forum", name: "forum", status: "blocked", raw: [], error: "403" },
+    ],
     NOW,
   );
   assert.equal(runProblem(summary), null);
@@ -176,7 +181,7 @@ test("runProblem: one failure among working sources is fine", () => {
 test("runProblem: disabled and not-run sources don't count as failures", () => {
   const { summary } = buildDealsFile(
     null,
-    [ok("flyers", [raw()]), { id: "rfd", name: "rfd", status: "disabled", raw: [] }],
+    [ok("flyers", [raw()]), { id: "forum", name: "forum", status: "disabled", raw: [] }],
     NOW,
   );
   assert.equal(runProblem(summary), null);

@@ -123,9 +123,15 @@ test("page scopes: food help lives on the Free page, store pages skip the flyer 
   assert.equal(inScope(pick, { page: "store", slug: "metro" }), false);
 });
 
-test("home rows: top deals by discount (not free), ending within a week, at least 4 each", () => {
+test("home rows: top deals by discount (not free), ending within a week, at least 3 each", () => {
   const discounted = [10, 50, 30, 20, 40].map((p) =>
-    deal({ id: `off-${p}`, discountPercent: p, salePrice: 5, endDate: "2026-10-24" }),
+    deal({
+      id: `off-${p}`,
+      store: `Store ${p}`,
+      discountPercent: p,
+      salePrice: 5,
+      endDate: "2026-10-24",
+    }),
   );
   const extra = [
     deal({ id: "free", dealType: ["free"], salePrice: 0, discountPercent: 100 }),
@@ -144,7 +150,51 @@ test("home rows: top deals by discount (not free), ending within a week, at leas
   );
 
   // Too few for a row: no row at all.
-  assert.deepEqual(homeSections(discounted.slice(0, 3), TODAY).top, []);
+  assert.deepEqual(homeSections(discounted.slice(0, 2), TODAY).top, []);
+});
+
+test("home rows: at most 3 per store, Sudbury and Canadian deals before US-dollar ones", () => {
+  const games = [90, 85, 80, 75, 70].map((p) =>
+    deal({
+      id: `game-${p}`,
+      store: "itch.io",
+      location: "ships-to-ontario",
+      currency: "USD",
+      discountPercent: p,
+      salePrice: 1,
+    }),
+  );
+  const local = deal({ id: "eggs", store: "No Frills", discountPercent: 20, salePrice: 3.97 });
+  const top = homeSections([...games, local], TODAY).top.map((d) => d.id);
+  assert.deepEqual(top, ["eggs", "game-90", "game-85", "game-80"]);
+});
+
+test("Under $X counts Canadian prices only; Lowest price keeps US dollars apart", () => {
+  const list = [
+    deal({ id: "usd", salePrice: 2, currency: "USD" }),
+    deal({ id: "cad", salePrice: 8 }),
+    deal({ id: "free", dealType: ["free"], salePrice: 0, currency: "USD" }),
+  ];
+  assert.deepEqual(
+    filterDeals(list, { ...DEFAULT_FILTERS, under: 10 }, TODAY).map((d) => d.id),
+    ["cad"],
+  );
+  assert.deepEqual(
+    sortDeals(list, "price").map((d) => d.id),
+    ["free", "cad", "usd"],
+  );
+});
+
+test("store directory: Sudbury stores first", () => {
+  const dir = storeDirectory([
+    deal({ store: "itch.io", location: "ships-to-ontario" }),
+    deal({ store: "itch.io", location: "ships-to-ontario" }),
+    deal({ store: "No Frills", source: "flyer-links" }),
+  ]);
+  assert.deepEqual(
+    dir.map((s) => s.name),
+    ["No Frills", "itch.io"],
+  );
 });
 
 test("store slugs and the store directory", () => {

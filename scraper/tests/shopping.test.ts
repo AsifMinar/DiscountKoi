@@ -19,7 +19,7 @@ const listing = (
   category: "grocery",
   location: "sudbury",
   url: "https://store.example/flyer",
-  source: "sheet-picks",
+  source: "weekly-picks",
   scrapedAt: "2026-11-01T10:00:00.000Z",
   productName,
   salePrice,

@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 import type { Deal } from "@shared/deal";
 import { weekLabel } from "@shared/dates";
 import { CATEGORIES, type CategoryId } from "@shared/taxonomy";
-import { DealCard } from "@/components/DealCard";
+import { DealCard, LAZY_CARD } from "@/components/DealCard";
 import {
   ArrowRightIcon,
   ArrowUpRightIcon,
@@ -222,7 +222,7 @@ export function DealRow({
       </SectionTitle>
       <ul ref={ref} onScroll={sync} role="list" className={SCROLL_ROW}>
         {deals.map((deal) => (
-          <li key={deal.id} className="w-[min(16rem,72vw)] shrink-0 snap-start">
+          <li key={deal.id} className={cn("w-[min(16rem,72vw)] shrink-0 snap-start", LAZY_CARD)}>
             <DealCard deal={deal} today={today} search={search} />
           </li>
         ))}

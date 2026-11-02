@@ -86,10 +86,6 @@ jobs:
 
       - name: Run the scraper
         if: steps.gate.outputs.run == 'true'
-        env:
-          # Only used once affiliate feeds are switched on (see docs/affiliate-setup.md).
-          # Empty when the secret doesn't exist, which is fine.
-          AFFILIATE_FEED_URLS: ${{ secrets.AFFILIATE_FEED_URLS }}
         run: npm run scrape
 
       - name: Commit the new deals to main

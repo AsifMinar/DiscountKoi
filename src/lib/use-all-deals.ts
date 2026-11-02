@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { startTransition, useEffect, useState } from "react";
 import type { Deal, DealsFile } from "@shared/deal";
 
 const DEALS_URL = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/deals.json`;
@@ -34,12 +34,20 @@ export function useAllDeals(enabled = true): { deals: Deal[] | null; failed: boo
   useEffect(() => {
     if (!enabled) return;
     let active = true;
-    loadAllDeals().then(
-      (deals) => active && setState({ deals, failed: false }),
-      () => active && setState({ deals: null, failed: true }),
-    );
+    const load = () =>
+      loadAllDeals().then(
+        // A low-priority update: drawing the full list never blocks a tap or a keystroke.
+        (deals) => active && startTransition(() => setState({ deals, failed: false })),
+        () => active && setState({ deals: null, failed: true }),
+      );
+    // The first screen is already in the HTML, so fetch the rest once the page is idle
+    // (at most 1.5 s later). Browsers without requestIdleCallback start right away.
+    const idle =
+      "requestIdleCallback" in window ? window.requestIdleCallback(load, { timeout: 1500 }) : null;
+    if (idle === null) load();
     return () => {
       active = false;
+      if (idle !== null) window.cancelIdleCallback(idle);
     };
   }, [enabled]);
 
