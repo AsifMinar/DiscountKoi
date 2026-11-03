@@ -9,6 +9,7 @@ import {
   type DealTypeId,
   type LocationId,
 } from "@shared/taxonomy";
+import { isFoodHelp } from "@/lib/food-help";
 import { isFlyer, storeSlug } from "@/lib/stores";
 
 /*
@@ -21,6 +22,8 @@ export const PAGE_SIZE = 24;
 export const ROW_SIZE = 10;
 /** A home page row needs at least this many deals, or it's left out. */
 export const ROW_MIN = 3;
+/** ...and deals from at least this many stores, so a row is never one shop's ad. */
+export const ROW_MIN_STORES = 2;
 /** At most this many deals from one store per home page row, so one shop can't fill it. */
 export const ROW_PER_STORE = 3;
 
@@ -158,7 +161,8 @@ export function effectiveDiscount(deal: Deal): number {
   return deal.discountPercent ?? (isFree(deal) ? 100 : -1);
 }
 
-const fold = (text: string) =>
+/** Lower case without accents, so "Cafe" finds "Café". */
+export const fold = (text: string) =>
   text
     .normalize("NFD")
     .replace(/\p{Diacritic}/gu, "")
@@ -226,13 +230,12 @@ export function sortDeals(deals: Deal[], sort: SortId): Deal[] {
 /* ---------- Which deals a page shows ---------- */
 
 /**
- * The set of deals a page lists before any filter: the home page leaves food help to
- * the Free page, Student and Free list their type, a store page lists that store.
+ * The set of deals a page lists before any filter: Student and Free list their type, a
+ * store page lists that store. Food help is only on its store pages and in the Free
+ * page's own directory.
  */
 export type PageScope =
   { page: "home" } | { page: "student" } | { page: "free" } | { page: "store"; slug: string };
-
-const isFoodHelp = (d: Deal) => d.category === "food-help";
 
 export function inScope(deal: Deal, scope: PageScope): boolean {
   switch (scope.page) {
@@ -241,7 +244,7 @@ export function inScope(deal: Deal, scope: PageScope): boolean {
     case "student":
       return deal.dealType.includes("student");
     case "free":
-      return deal.dealType.includes("free") || isFoodHelp(deal);
+      return deal.dealType.includes("free") && !isFoodHelp(deal);
     case "store":
       // The store page shows its weekly flyer in the header, not as a card.
       return storeSlug(deal.store) === scope.slug && !isFlyer(deal);
@@ -276,29 +279,39 @@ function varied(sorted: Deal[]): Deal[] {
 export const isNewToday = (deal: Deal, today: string) =>
   torontoDate(new Date(deal.scrapedAt)) === today;
 
+/** A row is shown only with enough deals from enough different stores. */
+const fullRow = (row: Deal[]) =>
+  row.length >= ROW_MIN && new Set(row.map((d) => d.store)).size >= ROW_MIN_STORES ? row : [];
+
 /**
  * The rows above the main grid on the untouched home page: this week's flyer links,
  * the biggest discounts, and deals ending within a week. Flyers stay out of the grid;
- * the other rows only highlight deals that are in the grid too.
+ * the other rows only highlight deals that are in the grid too, and a deal shows in
+ * one row at most.
  */
 export function homeSections(deals: Deal[], today: string) {
   const live = deals.filter((d) => !isFlyer(d) && !isExpired(d, today));
-  const top = varied(
-    sortDeals(
-      live.filter((d) => d.discountPercent && !isFree(d)),
-      "discount",
-    ).sort((a, b) => localFirst(a) - localFirst(b)),
+  const top = fullRow(
+    varied(
+      sortDeals(
+        live.filter((d) => d.discountPercent && !isFree(d)),
+        "discount",
+      ).sort((a, b) => localFirst(a) - localFirst(b)),
+    ),
   );
-  const ending = varied(
-    sortDeals(
-      live.filter((d) => d.endDate && daysBetween(today, d.endDate) <= 7),
-      "ending",
-    ).sort((a, b) => localFirst(a) - localFirst(b)),
+  const inTop = new Set(top.map((d) => d.id));
+  const ending = fullRow(
+    varied(
+      sortDeals(
+        live.filter((d) => d.endDate && daysBetween(today, d.endDate) <= 7 && !inTop.has(d.id)),
+        "ending",
+      ).sort((a, b) => localFirst(a) - localFirst(b)),
+    ),
   );
   return {
     flyers: deals.filter((d) => isFlyer(d) && !isExpired(d, today)),
-    top: top.length >= ROW_MIN ? top : [],
-    ending: ending.length >= ROW_MIN ? ending : [],
+    top,
+    ending,
   };
 }
 

@@ -1,7 +1,8 @@
 # Discount Koi
 
 Every discount, deal and freebie for Sudbury, Ontario (plus Ontario-wide deals), in one calm place:
-weekly flyer links, store-by-store product prices, student discounts, and free programs and events.
+weekly flyer links, student discounts, free programs and events, and a food help directory.
+Everything updates on its own: there is nothing to type in by hand each week.
 Visitors can only read: there are no forms and nothing to submit. A scraper refreshes everything every morning (from 6 AM Sudbury time), and the site
 is hosted for free on GitHub Pages at **https://asifminar.github.io/DiscountKoi/**.
 
@@ -31,7 +32,7 @@ npm run preview    # serves /out at http://localhost:4173/DiscountKoi/ (gzipped,
 ### Checks
 
 ```bash
-npm test             # scraper, products, filters and security tests (no internet needed)
+npm test             # scraper, filters and security tests (no internet needed)
 npm run lint         # ESLint
 npm run typecheck    # TypeScript
 npm run format       # Prettier (also sorts Tailwind classes)
@@ -50,19 +51,15 @@ git-ignored.
 ```
 data/
   deals.json             every deal on the site; written by the scraper
-  price-history.json     product prices for the last 90 days ("Price drop"); written by the scraper
-  product-photos.json    product photo per barcode (Open Food Facts); written by the scraper
-  ontario-prices.json    Ontario average prices (Statistics Canada), refreshed weekly by the scraper
-  flyer-stores.json      Sudbury stores that get a weekly flyer card          ← you edit
-  weekly-picks.json      product prices you pick from the flyers each week     ← you edit (npm run add-pick)
-  student-discounts.json national student programs                             ← you edit
+  flyer-stores.json      Sudbury stores that get a weekly flyer card   ← edit only to add a store
+  student-discounts.json national student programs                     ← edit only to add a program
 docs/                    security notes
-shared/                  deal schema (Zod), categories/locations, unit prices, product comparison
+shared/                  deal schema (Zod), categories/locations, dates
 scraper/                 the daily scraper: sources/, polite HTTP engine (lib/), pipeline, tests/
 src/app/                 pages, sitemap, robots.txt, web app manifest, global styles
-src/components/          deal grid, product comparison, popup, navbar, footer, design system (ui/)
-src/lib/                 filtering & sorting, URL state, formatting, page metadata, site links
-scripts/                 add-pick, preview server, CSP, screenshots, Lighthouse, images
+src/components/          deal cards, popup, Free page directory, navbar, footer, design system (ui/)
+src/lib/                 filtering & sorting, food help directory, URL state, formatting, metadata
+scripts/                 preview server, CSP, screenshots, Lighthouse, images
 .github/                 daily scrape + deploy workflows
 ```
 
@@ -71,19 +68,16 @@ scripts/                 add-pick, preview server, CSP, screenshots, Lighthouse,
 | URL              | What it shows                                                                                                                      |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | `/`              | Shop-style home: category icons, flyer strip, Top deals and Ending soon rows, Shop by store, then every deal with a filter sidebar |
-| `/products/`     | Search a product and compare every store's price side by side, cheapest first                                                      |
 | `/stores/`       | Every store with a deal or flyer (food banks listed separately)                                                                    |
 | `/store/<name>/` | One store: its weekly flyer button and all its deals (one page per store, made at build time)                                      |
 | `/student/`      | Student programs and student deals                                                                                                 |
-| `/free/`         | Free programs, events and freebies, plus food banks and meal programs                                                              |
+| `/free/`         | Freebies and free events; `?show=food-help` switches to the food bank, meal program and Good Food Box directory                    |
 | `/saved/`        | Deals the visitor saved with ♡ (kept in their browser only)                                                                        |
-| `/list/`         | Shopping list: which store, or two stores, is cheapest for the whole list (kept in the browser only)                               |
 | `/about/`        | What Discount Koi is, sources, badges, privacy                                                                                     |
-| `?deal=<id>`     | On any deal or product page, opens that item's popup. Shareable; Back closes it                                                    |
+| `?deal=<id>`     | On any deal page, opens that deal's popup. Shareable; Back closes it                                                               |
 | anything else    | Friendly 404 page (`404.html`, which GitHub Pages serves automatically)                                                            |
 
-Also generated at build time: `/deals.json` (the full list the browser filters), `/price-info.json`
-(price history and Ontario averages for the popup's price check), `/sitemap.xml`,
+Also generated at build time: `/deals.json` (the full list the browser filters), `/sitemap.xml`,
 `/robots.txt`, `/manifest.webmanifest`, the app icons and the link-preview image.
 
 ### How pages load deals
@@ -101,85 +95,20 @@ Also generated at build time: `/deals.json` (the full list the browser filters),
 Every enabled source was checked: its robots.txt **and** its terms allow this use. A blocked source
 is reported as "skipped (blocked)" and never worked around.
 
-| Source (`scraper/sources/`) | What it gives                                                       | Status                  |
-| --------------------------- | ------------------------------------------------------------------- | ----------------------- |
-| `flyer-links`               | One card per store per flyer week, linking to the official flyer    | on (no web requests)    |
-| `weekly-picks`              | Product prices you write from the flyers (`data/weekly-picks.json`) | on (no web requests)    |
-| `student-discounts`         | National student programs (`data/student-discounts.json`)           | on (no web requests)    |
-| `sudbury-city-news`         | City of Greater Sudbury news releases about free things (RSS)       | on                      |
-| `downtown-sudbury`          | Downtown Sudbury BIA specials (schema.org structured data)          | on (none published yet) |
-| `sudbury-food-programs`     | Food banks, meal programs, Good Food Box (City open data, CSV)      | on                      |
-| `ontario-parks`             | Ontario Parks blog posts about free days (RSS)                      | on                      |
-| `itch-sales`                | itch.io game sales (official RSS)                                   | on                      |
+| Source (`scraper/sources/`) | What it gives                                                    | Status                  |
+| --------------------------- | ---------------------------------------------------------------- | ----------------------- |
+| `flyer-links`               | One card per store per flyer week, linking to the official flyer | on (no web requests)    |
+| `student-discounts`         | National student programs (`data/student-discounts.json`)        | on (no web requests)    |
+| `sudbury-city-news`         | City of Greater Sudbury news releases about free things (RSS)    | on                      |
+| `downtown-sudbury`          | Downtown Sudbury BIA specials (schema.org structured data)       | on (none published yet) |
+| `sudbury-food-programs`     | Food banks, meal programs, Good Food Box (City open data, CSV)   | on                      |
+| `ontario-parks`             | Ontario Parks blog posts about free days (RSS)                   | on                      |
+| `itch-sales`                | itch.io game sales (official RSS)                                | on                      |
 
-## Weekly product picks
+## Saved deals
 
-Short, factual product prices you take from the official Sudbury flyers each week, in your own
-words, each linking to the flyer. They power the **Products** page and also show as deal cards.
-
-**Easiest:** run
-
-```bash
-npm run add-pick
-```
-
-It asks for the store, product, price, whether it's per package or per lb/kg/100 g, the size, the
-regular price and the flyer dates (suggested for you). It checks everything, saves it to
-`data/weekly-picks.json`, and updates `data/deals.json`. Commit and push both files.
-
-**By hand:** copy the `_example` in `data/weekly-picks.json` into `picks`, edit it, then run
-`npm run scrape:local` (or just push; the deploy merges hand-edited files too).
-
-```json
-{
-  "productName": "Chicken breast, boneless skinless",
-  "store": "No Frills",
-  "salePrice": 3.99,
-  "unit": "lb",
-  "originalPrice": 5.99,
-  "startDate": "2026-10-22",
-  "endDate": "2026-10-28"
-}
-```
-
-- Sold by weight (e.g. $3.99/lb): set `unit` (`lb`, `kg`, `100g`, `L`, `100mL`, `each`) and no size.
-- Sold by package (e.g. $5.49 for 4 L): set `size` (`"4 L"`, `"400 g"`, `"dozen"`, `"12 x 355 mL"`).
-  The unit price ($1.37/L) is worked out for you.
-- `url` defaults to the store's flyer link in `data/flyer-stores.json`.
-- Entries with `"source": "sample"` are examples, labelled **Sample** on the site and never
-  recorded in price history. They're kept off the main deal grids. **Delete them** once you add
-  real picks (they also expire on their own after Oct 28, 2026).
-
-### Product comparison and badges
-
-- Listings with the same product name are grouped (plurals and punctuation don't matter), and each
-  store's price is shown side by side, **cheapest per unit first**, in the unit most of them use
-  (e.g. $9.90/kg is shown as $4.49/lb next to $3.99/lb).
-- **Lowest price in Sudbury this week**: the cheapest of 2 or more Sudbury stores listing it.
-  Worked out every time the site is built.
-- **Price drop**: cheaper than the last time the same store listed it, from
-  `data/price-history.json` (one entry per product, store and flyer week, kept for 90 days). Unit
-  prices are compared, so a smaller package at the same price isn't a "drop".
-
-## Product photos and the price check
-
-- **Photos:** a pick with a barcode (`npm run add-pick` asks for it, or add `"barcode"` in
-  `weekly-picks.json`) gets its
-  photo from its public Open Food Facts product page, looked up once and remembered in
-  `data/product-photos.json` (at most 20 new barcodes a day). Open Food Facts' `/api` is off limits
-  to bots in their robots.txt, so it isn't used. Photos are hotlinked and credited (CC BY-SA).
-- **Ontario averages:** once a week the scraper asks Statistics Canada's data API for table
-  18-10-0245-01 (110 everyday products, Ontario, latest month) and saves `data/ontario-prices.json`.
-- **Price check** (in a product's popup): "Lowest price in 90 days", "Good price", "Usual price"
-  or "Higher than usual". With 3 or more earlier listings of the product it compares against them;
-  otherwise against the Ontario average (±10%). Prices are compared per unit, so sizes don't matter.
-
-## Saved deals and the shopping list
-
-Both live in the visitor's browser (localStorage), with no account and nothing sent anywhere.
-The shopping list adds up one package of each item (or 1 lb/kg for things sold by weight) at each
-store, and shows the best single store, the best pair of stores (when it beats one store) and the
-cheapest of all. The maths is in `shared/shopping.ts`.
+Tapping ♡ saves a deal to the visitor's browser (localStorage), with no account and nothing sent
+anywhere. The Saved page lists them.
 
 ## Student discounts
 
@@ -238,10 +167,10 @@ JavaScript usually has a feed or JSON-LD to read instead.
 ### What happens to every deal
 
 `scraper/normalize.ts` strips all HTML from scraped text, rejects any link that isn't `http(s)`,
-works out the discount % and unit price, detects **Free** and **Student** deals, picks a category,
+works out the discount %, detects **Free** and **Student** deals, picks a category,
 gives it a stable id, and validates it with the Zod schema in `shared/deal.ts`. Then
 `scraper/pipeline.ts` removes expired deals, deals with no end date after 14 days (7 for freebies;
-ongoing programs never), and duplicates, and `scraper/price-history.ts` updates the price history.
+ongoing programs never), and duplicates.
 
 ## Add a new scraper source
 
@@ -274,7 +203,7 @@ ongoing programs never), and duplicates, and `scraper/price-history.ts` updates 
    ```
 
    Only `title`, `url`, `store` and `location` are required; see `scraper/sources/types.ts` for
-   the rest (including product fields like `productName`, `size` and `unit`).
+   the rest.
 
 3. Add it to the list in `scraper/sources/index.ts`.
 4. Try it: `npm run scrape -- --only=my-source --dry-run`, and add a test in `scraper/tests/`.
@@ -290,7 +219,6 @@ If a source throws, the run carries on and that source's previous deals are kept
 | Words that mark a deal Free / Student | `scraper/detect.ts`                                           |
 | 14-day / 7-day expiry, request delays | `scraper/config.ts`                                           |
 | Category names shown on the site      | `shared/taxonomy.ts` (change `label` only, never `id`)        |
-| Units and unit-price rules            | `shared/units.ts`                                             |
 
 ## Edit the weekly flyer stores
 
@@ -313,12 +241,12 @@ next one.
 
 > **Why links instead of scraped flyer prices?** The flyer sites' terms (Flipp, which hosts most
 > Canadian flyers, and each chain's own site) forbid copying or republishing their content, so
-> Discount Koi links to the flyers, and product prices are short listings you write yourself.
+> Discount Koi links to the flyers instead.
 
 ## Daily automatic updates
 
 `.github/workflows/daily-scrape.yml` runs the scraper every morning from **6 AM Sudbury time**,
-commits `data/deals.json` and `data/price-history.json` to `main` (as "Asif Minar"), then rebuilds
+commits `data/deals.json` to `main` (as "Asif Minar"), then rebuilds
 and publishes the site.
 
 - **Timing:** GitHub's schedule runs in UTC, and Sudbury switches between EDT and EST, so the

@@ -1,5 +1,5 @@
-# Every morning at 6 AM Sudbury time: run the scraper, commit data/deals.json (and the
-# price history) to main, then rebuild and publish the site.
+# Every morning at 6 AM Sudbury time: run the scraper, commit data/deals.json to main,
+# then rebuild and publish the site.
 #
 # - GitHub cron uses UTC and Sudbury switches between EDT (UTC-4) and EST (UTC-5), so the
 #   job fires at 10:00 and 11:00 UTC and scraper/time-gate.ts lets exactly one through:
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     permissions:
-      contents: write # commit the data files (deals, price history, photos, Ontario prices) to main
+      contents: write # commit data/deals.json to main
     outputs:
       run: ${{ steps.gate.outputs.run }}
       sha: ${{ steps.save.outputs.sha }}
@@ -94,7 +94,7 @@ jobs:
         run: |
           git config user.name "Asif Minar"
           git config user.email "62024088+AsifMinar@users.noreply.github.com"
-          git add data/deals.json data/price-history.json data/product-photos.json data/ontario-prices.json
+          git add data/deals.json
           if git diff --cached --quiet; then
             echo "Nothing changed; nothing to commit."
           else

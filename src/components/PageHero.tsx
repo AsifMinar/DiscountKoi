@@ -7,7 +7,6 @@ export function PageHero({
   title,
   children,
   updatedAt,
-  isSample,
   searchLabel,
   searchPlaceholder,
   resultsId,
@@ -18,8 +17,6 @@ export function PageHero({
   title: string;
   children: ReactNode;
   updatedAt: string;
-  /** Products page only: the list includes sample listings. */
-  isSample?: boolean;
   searchLabel?: string;
   searchPlaceholder?: string;
   resultsId?: string;
@@ -43,7 +40,6 @@ export function PageHero({
       )}
       <p className="text-xs text-ink-muted">
         Last updated: <time dateTime={updatedAt}>{formatUpdated(updatedAt)}</time> (Sudbury time)
-        {isSample && " · Includes sample listings (marked Sample)"}
       </p>
     </section>
   );

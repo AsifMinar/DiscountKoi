@@ -6,7 +6,6 @@ import { studentDiscounts } from "./student-discounts";
 import { sudburyCityNews } from "./sudbury-city-news";
 import { sudburyFoodPrograms } from "./sudbury-food-programs";
 import type { Source } from "./types";
-import { weeklyPicks } from "./weekly-picks";
 
 /**
  * Every source the scraper runs, in priority order (if two sources find the same
@@ -18,7 +17,6 @@ import { weeklyPicks } from "./weekly-picks";
  */
 export const SOURCES: Source[] = [
   flyerLinks,
-  weeklyPicks,
   studentDiscounts,
   sudburyCityNews,
   downtownSudbury,

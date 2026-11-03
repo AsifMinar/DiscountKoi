@@ -32,13 +32,10 @@ type Deal = {
   id: string;
   store: string;
   source: string;
-  productName?: string;
   salePrice?: number;
-  lowestInSudbury?: boolean;
 };
 const deals = (JSON.parse(readFileSync("out/deals.json", "utf8")) as { deals: Deal[] }).deals;
-const dealId = (deals.find((d) => d.salePrice !== undefined && !d.productName) ?? deals[0])?.id;
-const productId = (deals.find((d) => d.lowestInSudbury) ?? deals.find((d) => d.productName))?.id;
+const dealId = (deals.find((d) => d.salePrice !== undefined) ?? deals[0])?.id;
 // The store with the most deals, so its page shows the filters too.
 const perStore = new Map<string, number>();
 for (const d of deals) perStore.set(d.store, (perStore.get(d.store) ?? 0) + 1);
@@ -59,10 +56,9 @@ const STATES: State[] = [
   { name: "home-filtered", path: "/?ch=online&cat=entertainment&off=50" },
   { name: "search-no-results", path: "/?q=unicorn%20saddle" },
   { name: "deal-popup", path: `/?deal=${dealId}`, viewportOnly: true },
-  { name: "products-search", path: "/products/?q=milk" },
-  { name: "product-popup", path: `/products/?deal=${productId}`, viewportOnly: true },
   { name: "student", path: "/student/" },
   { name: "free", path: "/free/" },
+  { name: "free-food-help", path: "/free/?show=food-help" },
   { name: "stores", path: "/stores/" },
   { name: "store", path: `/store/${storeSlug(storeName)}/` },
   { name: "about", path: "/about/" },
@@ -86,16 +82,6 @@ const STATES: State[] = [
         .slice(0, 3)
         .map((d) => d.id);
       await page.evaluate((v) => localStorage.setItem("discountkoi:saved", v), JSON.stringify(ids));
-      await page.reload({ waitUntil: "networkidle" });
-    },
-  },
-  {
-    name: "list",
-    path: "/list/",
-    action: async (page) => {
-      const names = [...new Set(deals.flatMap((d) => (d.productName ? [d.productName] : [])))];
-      const list = JSON.stringify([...names.slice(0, 4), "Saffron"]);
-      await page.evaluate((v) => localStorage.setItem("discountkoi:list", v), list);
       await page.reload({ waitUntil: "networkidle" });
     },
   },

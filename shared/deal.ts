@@ -1,6 +1,5 @@
 import { z } from "zod";
 import { CATEGORY_IDS, DEAL_TYPE_IDS, LOCATION_IDS } from "./taxonomy";
-import { UNITS } from "./units";
 
 /** YYYY-MM-DD, read as a calendar day in Sudbury time. */
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "expected YYYY-MM-DD");
@@ -43,7 +42,7 @@ export const DealSchema = z.object({
   url: webUrl,
   /** Hotlinked thumbnail only. Images are never downloaded or re-hosted. */
   imageUrl: httpsUrl.optional(),
-  /** Credit line for the photo, e.g. "Open Food Facts contributors (CC BY-SA)". */
+  /** Credit line for the photo, if its licence needs one. */
   imageCredit: z.string().trim().min(1).max(120).optional(),
   startDate: isoDate.optional(),
   endDate: isoDate.optional(),
@@ -57,28 +56,6 @@ export const DealSchema = z.object({
   attribution: z.string().trim().min(1).max(200).optional(),
   /** A permanent program (e.g. a food bank) rather than a time-limited deal: never aged out. */
   ongoing: z.boolean().optional(),
-
-  /* ---- Product listings ("Chicken breast, $3.99/lb, No Frills"). All optional. ---- */
-
-  /** The product on its own, e.g. "Chicken breast". Its presence makes this a product listing. */
-  productName: z.string().trim().min(1).max(120).optional(),
-  /** Package size or quantity as printed, e.g. "4 L", "1.36 kg", "12 eggs". */
-  size: z.string().trim().min(1).max(40).optional(),
-  /** The product's barcode (UPC/EAN), used to find its photo on Open Food Facts. */
-  barcode: z
-    .string()
-    .regex(/^\d{8,14}$/)
-    .optional(),
-  /** What the unit price is per (lb, kg, 100g, L, 100mL, each). */
-  unit: z.enum(UNITS).optional(),
-  /** Price per `unit`, for fair comparison between package sizes and stores. */
-  unitPrice: z.number().nonnegative().max(1_000_000).optional(),
-  /** What this product cost at this store last time it was listed (from price history). */
-  previousPrice: price.optional(),
-  /** An example entry that shows how listings look. Not a real price; labelled on the site. */
-  sample: z.boolean().optional(),
-  /** Set when the site is built: cheapest of 2+ Sudbury stores for this product this week. */
-  lowestInSudbury: z.boolean().optional(),
 });
 
 export const DealsFileSchema = z.object({

@@ -14,7 +14,6 @@
     "make-images": "tsx scripts/make-images.ts",
     "scrape": "tsx scraper/index.ts",
     "scrape:local": "tsx scraper/index.ts --local",
-    "add-pick": "tsx scripts/add-pick.ts",
     "scrape:check-time": "tsx scraper/time-gate.ts",
     "test": "node --import tsx --test \"scraper/tests/*.test.ts\"",
     "lint": "eslint .",

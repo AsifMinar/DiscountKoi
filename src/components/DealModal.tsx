@@ -11,15 +11,13 @@ import {
   DealThumbnail,
   DealTitleText,
   DiscountBadge,
-  UnitPrice,
 } from "@/components/DealParts";
 import { ArrowRightIcon, ArrowUpRightIcon, CloseIcon } from "@/components/icons";
 import { Avatar } from "@/components/ui/Avatar";
 import { Button, ButtonLink, buttonClasses } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
-import { daysBetween, endsLabel, formatDay, formatPrice, torontoDate } from "@/lib/format";
-import { PriceCheck } from "@/components/PriceCheck";
-import { ListButton, SaveButton } from "@/components/SaveButtons";
+import { daysBetween, endsLabel, formatDay, torontoDate } from "@/lib/format";
+import { SaveButton } from "@/components/SaveButtons";
 import { storeHref } from "@/lib/stores";
 import { closeDeal, dealIdFrom, forgetOpenedDeal, useSearchString } from "@/lib/url-state";
 
@@ -50,28 +48,15 @@ function DealDetails({ deal, today }: { deal: Deal; today: string }) {
           <h2 id="deal-title" className="text-2xl leading-tight font-semibold tracking-tight">
             <DealTitleText title={deal.title} />
           </h2>
-          <div className="flex flex-col gap-1">
-            <div className="flex flex-wrap items-center gap-3">
-              <DealPrice deal={deal} size="lg" />
-              <DiscountBadge deal={deal} />
-            </div>
-            <UnitPrice deal={deal} className="text-sm" />
+          <div className="flex flex-wrap items-center gap-3">
+            <DealPrice deal={deal} size="lg" />
+            <DiscountBadge deal={deal} />
           </div>
         </div>
         {deal.imageUrl && <DealThumbnail src={deal.imageUrl} size={112} />}
       </div>
 
       <DealBadges deal={deal} />
-
-      <PriceCheck deal={deal} />
-
-      {deal.sample && (
-        <p className="rounded-2xl border border-line p-4 text-sm text-pretty text-ink-muted">
-          <strong className="font-semibold text-ink">Sample listing.</strong> It shows how product
-          prices will look on Discount Koi. It isn&apos;t a real price, so check the store&apos;s
-          flyer.
-        </p>
-      )}
 
       {deal.description && (
         <p className="text-base text-pretty text-ink-muted">{deal.description}</p>
@@ -101,24 +86,16 @@ function DealDetails({ deal, today }: { deal: Deal; today: string }) {
           )}
         </Detail>
         <Detail label="Listed">{formatDay(torontoDate(new Date(deal.scrapedAt)))}</Detail>
-        {deal.previousPrice !== undefined && (
-          <Detail label="Last time at this store">
-            {formatPrice(deal.previousPrice, deal.currency)}
-          </Detail>
-        )}
       </dl>
 
       <div className="flex flex-col gap-3">
         <div className="flex flex-wrap items-center gap-2">
           <ButtonLink href={deal.url} external size="lg" className="max-sm:flex-1">
-            {/* Priced deals get "Get this deal"; flyers, events, programs and picks say where they go. */}
-            {hasPrice && !deal.productName ? "Get this deal" : `Open on ${hostOf(deal.url)}`}
+            {/* Priced deals get "Get this deal"; flyers, events and programs say where they go. */}
+            {hasPrice ? "Get this deal" : `Open on ${hostOf(deal.url)}`}
             <ArrowUpRightIcon className="size-4" />
           </ButtonLink>
           <SaveButton dealId={deal.id} title={deal.title} className="size-12" />
-          {deal.productName && !deal.sample && (
-            <ListButton name={deal.productName} className="h-12" />
-          )}
         </div>
         <p className="text-xs text-pretty text-ink-muted">
           Opens {hostOf(deal.url)} in a new tab. Details come from public sources and can change, so
@@ -139,8 +116,7 @@ function DealDetails({ deal, today }: { deal: Deal; today: string }) {
 function MoreFromStore({ deal }: { deal: Deal }) {
   const pathname = usePathname() ?? "";
   const href = storeHref(deal.store);
-  // Sample listings aren't on any store page.
-  if (deal.sample || pathname.replace(/\/*$/, "/") === href) return null;
+  if (pathname.replace(/\/*$/, "/") === href) return null;
   return (
     <div className="border-t border-line pt-3">
       <Link

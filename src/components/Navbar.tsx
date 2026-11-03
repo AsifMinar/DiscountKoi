@@ -6,13 +6,12 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Logo } from "@/components/Logo";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { buttonClasses } from "@/components/ui/Button";
-import { CloseIcon, HeartIcon, ListIcon, MenuIcon } from "@/components/icons";
+import { CloseIcon, HeartIcon, MenuIcon } from "@/components/icons";
 import { cn } from "@/lib/cn";
-import { savedDeals, shoppingList } from "@/lib/local-lists";
+import { savedDeals } from "@/lib/local-lists";
 
 export const NAV_LINKS = [
   { href: "/", label: "Deals" },
-  { href: "/products/", label: "Products" },
   { href: "/stores/", label: "Stores" },
   { href: "/student/", label: "Student" },
   { href: "/free/", label: "Free" },
@@ -21,7 +20,7 @@ export const NAV_LINKS = [
 
 const stripSlash = (path: string) => path.replace(/\/+$/, "") || "/";
 
-/** Icon link with a small count bubble (Saved deals, Shopping list). */
+/** Icon link with a small count bubble (Saved deals). */
 function CountLink({
   href,
   label,
@@ -69,7 +68,6 @@ export function Navbar() {
   const [lastPath, setLastPath] = useState(pathname);
   const headerRef = useRef<HTMLElement>(null);
   const saved = savedDeals.useList();
-  const list = shoppingList.useList();
 
   // Close the menu whenever the route changes (adjusting state during render, per React docs).
   if (lastPath !== pathname) {
@@ -133,19 +131,10 @@ export function Navbar() {
               label="Saved deals"
               count={saved.length}
               current={pathname === "/saved"}
-              className="max-sm:hidden"
             >
               <HeartIcon className="size-5" />
             </CountLink>
-            <CountLink
-              href="/list/"
-              label="Shopping list"
-              count={list.length}
-              current={pathname === "/list"}
-            >
-              <ListIcon className="size-5" />
-            </CountLink>
-            {/* On phones the bar only has room for the list; Saved and the theme are in the menu. */}
+            {/* On phones the theme switch is in the menu. */}
             <ThemeToggle className="max-sm:hidden" />
             <button
               type="button"
@@ -178,23 +167,7 @@ export function Navbar() {
                   </Link>
                 </li>
               ))}
-              <li className="border-t border-line pt-1 sm:hidden">
-                <Link
-                  href="/saved/"
-                  className={linkClass("/saved/", "w-full gap-2 text-base")}
-                  aria-current={pathname === "/saved" ? "page" : undefined}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  <HeartIcon className="size-5" />
-                  Saved deals
-                  {saved.length > 0 && (
-                    <span className="ml-auto text-sm text-ink-muted tabular-nums">
-                      {saved.length}
-                    </span>
-                  )}
-                </Link>
-              </li>
-              <li className="flex items-center justify-between pl-4 sm:hidden">
+              <li className="flex items-center justify-between border-t border-line pt-1 pl-4 sm:hidden">
                 <span className="text-base font-medium text-ink-muted">Light or dark</span>
                 <ThemeToggle />
               </li>

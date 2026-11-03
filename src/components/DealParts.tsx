@@ -3,15 +3,13 @@
 import Image from "next/image";
 import { useState } from "react";
 import type { Deal } from "@shared/deal";
-import { isPriceDrop } from "@shared/products";
 import { DEAL_TYPES, locationBadge } from "@shared/taxonomy";
-import { soldByUnit, unitLabel } from "@shared/units";
 import { CategoryIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/Badge";
 import { cn } from "@/lib/cn";
 import { isFree, isNewToday } from "@/lib/filters";
 import { categoryTint } from "@/lib/tints";
-import { formatPrice, formatUnitPrice } from "@/lib/format";
+import { formatPrice } from "@/lib/format";
 
 /* Small pieces shared by the deal card and the deal detail popup. */
 
@@ -32,7 +30,7 @@ export function DealTitleText({ title }: { title: string }) {
   );
 }
 
-/** Sale price (or "Free" / "30% off") with the original price crossed out; "$3.99/lb" for weighed items. */
+/** Sale price (or "Free" / "30% off") with the original price crossed out. */
 export function DealPrice({ deal, size = "md" }: { deal: Deal; size?: "md" | "lg" }) {
   const free = isFree(deal);
   const main = free
@@ -45,22 +43,16 @@ export function DealPrice({ deal, size = "md" }: { deal: Deal; size?: "md" | "lg
   if (!main) return null;
 
   const showWas = deal.originalPrice !== undefined && deal.originalPrice > (deal.salePrice ?? 0);
-  const per = !free && soldByUnit(deal) && deal.unit ? unitLabel(deal.unit) : null;
   return (
     <p className="flex flex-wrap items-baseline gap-x-2">
       <span
         className={cn(
           "font-semibold tracking-tight",
-          size === "lg" ? "text-4xl" : "text-2xl",
+          size === "lg" ? "text-4xl" : "text-xl",
           free && "text-accent-text",
         )}
       >
         {main}
-        {per && (
-          <span className={cn("font-medium text-ink-muted", size === "lg" ? "text-lg" : "text-sm")}>
-            {per}
-          </span>
-        )}
       </span>
       {showWas && (
         <s className={cn("text-ink-muted", size === "lg" ? "text-base" : "text-sm")}>
@@ -72,9 +64,12 @@ export function DealPrice({ deal, size = "md" }: { deal: Deal; size?: "md" | "lg
   );
 }
 
-/** "−36%" pill. Hidden for free deals, where "Free" already says it. */
+/**
+ * "−36%" pill. Hidden for free deals, where "Free" already says it, and when the price
+ * itself reads "36% off".
+ */
 export function DiscountBadge({ deal, className }: { deal: Deal; className?: string }) {
-  if (!deal.discountPercent || isFree(deal)) return null;
+  if (!deal.discountPercent || isFree(deal) || deal.salePrice === undefined) return null;
   return (
     <Badge tone="accent" className={className}>
       <span aria-hidden="true">−{deal.discountPercent}%</span>
@@ -90,39 +85,7 @@ const LOCATION_TONE = {
 } as const;
 
 /**
- * "4 L · $1.37/L": package size and unit price, so different sizes compare fairly.
- * Nothing for weighed items, whose price already reads "$3.99/lb".
- */
-export function UnitPrice({ deal, className }: { deal: Deal; className?: string }) {
-  const unitPrice =
-    deal.unit && deal.unitPrice !== undefined && !soldByUnit(deal)
-      ? formatUnitPrice(deal.unitPrice, deal.unit, deal.currency)
-      : null;
-  if (!deal.size && !unitPrice) return null;
-  return (
-    <p className={cn("text-xs text-ink-muted", className)}>
-      {[deal.size, unitPrice].filter(Boolean).join(" · ")}
-    </p>
-  );
-}
-
-/** Badges that only product listings get. `short` for narrow cards. */
-export function ProductBadges({ deal, short }: { deal: Deal; short?: boolean }) {
-  return (
-    <>
-      {deal.lowestInSudbury && (
-        <Badge tone="teal">
-          {short ? "Lowest in Sudbury" : "Lowest price in Sudbury this week"}
-        </Badge>
-      )}
-      {isPriceDrop(deal) && <Badge tone="accent">Price drop</Badge>}
-      {deal.sample && <Badge tone="outline">Sample</Badge>}
-    </>
-  );
-}
-
-/**
- * Location badge first, then one badge per deal type, then any product badges.
+ * Location badge first, then one badge per deal type.
  * No "Free" badge when the price already reads "Free".
  */
 export function DealBadges({ deal }: { deal: Deal }) {
@@ -137,7 +100,6 @@ export function DealBadges({ deal }: { deal: Deal }) {
           </Badge>
         ),
       )}
-      <ProductBadges deal={deal} />
     </div>
   );
 }
@@ -175,19 +137,16 @@ export function whereLabel(deal: Deal): string {
 }
 
 /**
- * The picture at the top of a card: the product photo when there is one, otherwise the
- * category's icon on its colour. Discount and "New" / "Ends today" tags sit on top.
+ * The small square on the left of a card: the deal's photo when there is one, otherwise
+ * its category's icon on the category colour.
  */
-export function DealPicture({ deal, today }: { deal: Deal; today: string }) {
+export function DealTile({ deal }: { deal: Deal }) {
   const [failed, setFailed] = useState(false);
   const photo = deal.imageUrl && !failed ? deal.imageUrl : null;
-  const status = deal.endDate === today ? "Ends today" : isNewToday(deal, today) ? "New" : null;
-  const discount = deal.discountPercent && !isFree(deal) ? deal.discountPercent : null;
-
   return (
     <div
       className={cn(
-        "relative flex h-28 shrink-0 items-center justify-center sm:h-32",
+        "flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl sm:size-16",
         photo ? "bg-white" : categoryTint(deal.category),
       )}
     >
@@ -195,44 +154,32 @@ export function DealPicture({ deal, today }: { deal: Deal; today: string }) {
         <Image
           src={photo}
           alt=""
-          width={256}
-          height={128}
+          width={64}
+          height={64}
           unoptimized
           referrerPolicy="no-referrer"
           onError={() => setFailed(true)}
-          className="size-full object-contain p-3"
+          className="size-full object-contain p-1.5"
         />
       ) : (
-        <CategoryIcon category={deal.category} className="size-11 opacity-90 sm:size-12" />
-      )}
-      {discount && (
-        <span className="absolute top-3 left-3 rounded-full bg-accent px-2.5 py-1 text-xs leading-none font-semibold text-accent-fg tabular-nums">
-          <span aria-hidden="true">−{discount}%</span>
-          <span className="sr-only">{discount}% off</span>
-        </span>
-      )}
-      {status && (
-        <span
-          className={cn(
-            "absolute top-3 right-3 rounded-full px-2.5 py-1 text-xs leading-none font-semibold",
-            status === "New" ? "bg-ink text-page" : "bg-surface text-accent-text",
-          )}
-        >
-          {status}
-        </span>
+        <CategoryIcon category={deal.category} className="size-7 opacity-90" />
       )}
     </div>
   );
 }
 
-/** The few badges a card has room for: Student, then the product badges. */
-export function CardBadges({ deal }: { deal: Deal }) {
-  const student = deal.dealType.includes("student");
-  if (!student && !deal.lowestInSudbury && !isPriceDrop(deal) && !deal.sample) return null;
+/** "New" (first seen today) or "Ends today", shown next to the store name on a card. */
+export function StatusTag({ deal, today }: { deal: Deal; today: string }) {
+  const status = deal.endDate === today ? "Ends today" : isNewToday(deal, today) ? "New" : null;
+  if (!status) return null;
   return (
-    <div className="flex flex-wrap gap-1.5">
-      {student && <Badge tone="neutral">Student</Badge>}
-      <ProductBadges deal={deal} short />
-    </div>
+    <span
+      className={cn(
+        "shrink-0 rounded-full px-2 py-1 text-[0.6875rem] leading-none font-semibold",
+        status === "New" ? "bg-ink text-page" : "bg-accent-soft text-accent-text",
+      )}
+    >
+      {status}
+    </span>
   );
 }

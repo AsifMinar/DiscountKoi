@@ -1,8 +1,8 @@
 import { useSyncExternalStore } from "react";
 
 /*
- * Lists kept in the visitor's own browser (localStorage): saved deals and the shopping
- * list. Nothing is sent anywhere and there are no accounts, so they stay on this device.
+ * Lists kept in the visitor's own browser (localStorage), like saved deals. Nothing is
+ * sent anywhere and there are no accounts, so they stay on this device.
  * Every component using a list re-renders when it changes, in this tab or another one.
  */
 
@@ -62,6 +62,3 @@ function storedList(key: string, max: number) {
 
 /** Deal ids the visitor tapped ♡ on. */
 export const savedDeals = storedList("discountkoi:saved", 300);
-
-/** Product names on the shopping list (matched to this week's prices by product name). */
-export const shoppingList = storedList("discountkoi:list", 100);

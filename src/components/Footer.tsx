@@ -17,8 +17,8 @@ export function Footer() {
         <nav aria-label="Footer" className="sm:shrink-0">
           <ul className="-mx-3 flex flex-wrap gap-x-1 sm:mx-0">
             <li>
-              <Link href="/products/" className={FOOTER_LINK}>
-                Products
+              <Link href="/stores/" className={FOOTER_LINK}>
+                Stores
               </Link>
             </li>
             <li>

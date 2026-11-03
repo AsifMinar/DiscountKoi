@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { DealExplorer } from "@/components/DealExplorer";
+import { FreeSections } from "@/components/FreeSections";
 import { PageHero, PageShell } from "@/components/PageHero";
-import { explorerData } from "@/lib/deals.server";
+import { freePageData } from "@/lib/deals.server";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
@@ -12,14 +12,18 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function FreePage() {
-  const { updatedAt, explorer } = explorerData({ page: "free" });
+  const { updatedAt, explorer, foodHelp, foodHelpCredit } = freePageData();
   return (
     <PageShell>
-      <PageHero title="Free stuff" updatedAt={updatedAt}>
+      <PageHero
+        title="Free stuff"
+        updatedAt={updatedAt}
+        searchLabel="Search freebies, events and food programs"
+      >
         Giveaways, free events, freebies, food banks and meal programs in Sudbury and across
         Ontario.
       </PageHero>
-      <DealExplorer {...explorer} />
+      <FreeSections explorer={explorer} foodHelp={foodHelp} foodHelpCredit={foodHelpCredit} />
     </PageShell>
   );
 }

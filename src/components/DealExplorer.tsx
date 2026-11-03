@@ -21,7 +21,6 @@ import {
 } from "@/components/HomeSections";
 import { SlidersIcon } from "@/components/icons";
 import { Button } from "@/components/ui/Button";
-import { GlassCard } from "@/components/ui/GlassCard";
 import { Select } from "@/components/ui/Select";
 import { cn } from "@/lib/cn";
 import {
@@ -85,7 +84,7 @@ export function DealExplorer({
   const { deals: allDeals, failed } = useAllDeals();
   const [sheetOpen, setSheetOpen] = useState(false);
   const pageDeals = useMemo(
-    () => allDeals && allDeals.filter((d) => !d.sample && inScope(d, scope)),
+    () => allDeals && allDeals.filter((d) => inScope(d, scope)),
     [allDeals, scope],
   );
 
@@ -110,10 +109,6 @@ export function DealExplorer({
     () => (pageDeals ? facetCounts(pageDeals, active, today) : counts),
     [pageDeals, active, today, counts],
   );
-  // Food help isn't in the first-screen HTML, so the build's count stands in until it loads.
-  const foodHelpCount = pageDeals
-    ? pageDeals.filter((d) => d.category === "food-help").length
-    : (counts.cats["food-help"] ?? 0);
 
   // "Show more" count, reset whenever the filters change.
   const signature = filtersToSearch(active);
@@ -186,26 +181,6 @@ export function DealExplorer({
           {home && <StoreGrid stores={home.stores} />}
           {home && <PromoCards studentCount={home.studentCount} freeCount={home.freeCount} />}
         </>
-      )}
-
-      {scope.page === "free" && defaultView && foodHelpCount > 0 && (
-        <GlassCard
-          as="section"
-          aria-labelledby="food-help-heading"
-          className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6"
-        >
-          <div>
-            <h2 id="food-help-heading" className="text-xl font-semibold tracking-tight">
-              Food help in Sudbury
-            </h2>
-            <p className="mt-0.5 text-sm text-pretty text-ink-muted">
-              {foodHelpCount} food banks, meal programs and Good Food Box locations
-            </p>
-          </div>
-          <Button variant="secondary" onClick={() => update({ cats: ["food-help"] })}>
-            Show only food help
-          </Button>
-        </GlassCard>
       )}
 
       <section

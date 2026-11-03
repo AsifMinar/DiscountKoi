@@ -161,7 +161,7 @@ export function FlyerStrip({ flyers }: { flyers: Deal[] }) {
       </SectionTitle>
       <ul ref={ref} onScroll={sync} role="list" className={SCROLL_ROW}>
         {flyers.map((flyer) => (
-          <li key={flyer.id} className="w-52 shrink-0 snap-start">
+          <li key={flyer.id} className="w-56 shrink-0 snap-start">
             <GlassCard
               interactive
               className="relative flex h-full items-center gap-3 p-3 has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-2 has-[a:focus-visible]:outline-ring"
@@ -172,7 +172,7 @@ export function FlyerStrip({ flyers }: { flyers: Deal[] }) {
                   href={flyer.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block truncate text-sm font-medium outline-none after:absolute after:inset-0 after:rounded-3xl after:content-['']"
+                  className="line-clamp-2 text-sm leading-snug font-medium outline-none after:absolute after:inset-0 after:rounded-3xl after:content-['']"
                 >
                   {flyer.store}
                   <span className="sr-only"> flyer (opens in a new tab)</span>
@@ -222,7 +222,7 @@ export function DealRow({
       </SectionTitle>
       <ul ref={ref} onScroll={sync} role="list" className={SCROLL_ROW}>
         {deals.map((deal) => (
-          <li key={deal.id} className={cn("w-[min(16rem,72vw)] shrink-0 snap-start", LAZY_CARD)}>
+          <li key={deal.id} className={cn("w-[min(20rem,84vw)] shrink-0 snap-start", LAZY_CARD)}>
             <DealCard deal={deal} today={today} search={search} />
           </li>
         ))}
@@ -268,7 +268,7 @@ export function StoreTiles({ stores }: { stores: StoreSummary[] }) {
           >
             <Avatar name={store.name} />
             <span className="min-w-0 flex-1">
-              <span className="block truncate text-sm font-medium">{store.name}</span>
+              <span className="line-clamp-2 text-sm leading-snug font-medium">{store.name}</span>
               <span className="block text-xs text-ink-muted">{storeLine(store)}</span>
             </span>
             <ArrowRightIcon

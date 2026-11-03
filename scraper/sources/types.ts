@@ -1,5 +1,4 @@
 import type { CategoryId, DealTypeId, LocationId } from "@shared/taxonomy";
-import type { Unit } from "@shared/units";
 import type { PoliteFetcher } from "../lib/http";
 
 /**
@@ -42,25 +41,6 @@ export type RawDeal = {
    * "first seen" for new items so old feed posts don't show up as new and age out on time.
    */
   publishedAt?: string;
-
-  /* Product listings. Set productName to make it one; the unit price is worked out from
-     size (or from unit alone for "$3.99/lb" items) unless you give unitPrice yourself. */
-  productName?: string;
-  /** Package size as printed: "4 L", "1.36 kg", "12 eggs". */
-  size?: string;
-  unit?: Unit;
-  unitPrice?: number;
-  /** Barcode (UPC/EAN, 8–14 digits): the product photo is looked up from it. */
-  barcode?: string;
-  /** Price last time it was listed, if the source knows it (otherwise price history fills it). */
-  previousPrice?: number;
-  /** Example entry, labelled "Sample" on the site and never recorded in price history. */
-  sample?: boolean;
-  /**
-   * Extra text folded into the deal's id, for sources whose title and link repeat
-   * (e.g. the same product picked again from next week's flyer is a new listing).
-   */
-  variant?: string;
 };
 
 export type SourceContext = {

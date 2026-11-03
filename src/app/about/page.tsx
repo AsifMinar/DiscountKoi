@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Badge } from "@/components/ui/Badge";
-import { ButtonLink, externalLinkProps } from "@/components/ui/Button";
+import { ButtonLink } from "@/components/ui/Button";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { loadDeals } from "@/lib/deals.server";
 import { formatUpdated } from "@/lib/format";
@@ -10,7 +10,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = pageMetadata({
   title: "About this Sudbury deals site",
   description:
-    "What Discount Koi is, how often it updates, and where its Sudbury and Ontario deals, prices and freebies come from.",
+    "What Discount Koi is, how often it updates, and where its Sudbury and Ontario deals, flyers and freebies come from.",
   path: "about/",
 });
 
@@ -65,10 +65,6 @@ export default function AboutPage() {
         <ul className="flex list-disc flex-col gap-1.5 pl-5">
           <li>Links to each Sudbury store&apos;s official weekly flyer.</li>
           <li>
-            Weekly product picks: short, hand-written listings from those flyers, each linking to
-            the flyer itself.
-          </li>
-          <li>
             Free programs and events from the City of Greater Sudbury&apos;s news releases and open
             data, the Downtown Sudbury BIA and the Ontario Parks blog.
           </li>
@@ -85,43 +81,8 @@ export default function AboutPage() {
         </p>
       </Section>
 
-      <Section title="Comparing product prices">
-        <p>
-          The Products page puts each store&apos;s price for the same product side by side, cheapest
-          first. Unit prices (per lb, per 100 g, per L or each) make different package sizes fair to
-          compare.
-        </p>
-        <p>
-          <strong className="font-semibold text-ink">Lowest price in Sudbury this week</strong>{" "}
-          means the cheapest of two or more Sudbury stores listing it.{" "}
-          <strong className="font-semibold text-ink">Price drop</strong> means it costs less than
-          the last time the same store listed it.
-        </p>
-        <p>
-          The <strong className="font-semibold text-ink">price check</strong> in a product&apos;s
-          popup compares today&apos;s price with the last 90 days of listings and with the Ontario
-          average from Statistics Canada (Table 18-10-0245-01, Monthly average retail prices for
-          selected products, used under the Statistics Canada Open Licence).
-        </p>
-        <p>
-          Product photos come from{" "}
-          <a
-            href="https://world.openfoodfacts.org/"
-            className="underline underline-offset-2"
-            {...externalLinkProps()}
-          >
-            Open Food Facts
-          </a>
-          , taken by its contributors and shared under the CC BY-SA licence.
-        </p>
-      </Section>
-
-      <Section title="Saved deals and your shopping list">
-        <p>
-          Tap ♡ on any deal to keep it on your Saved page, and add products to your shopping list to
-          see which store, or which two stores, is cheapest for all of it. Totals count one package
-          of each item, or 1 lb/kg for things sold by weight.
-        </p>
+      <Section title="Saved deals">
+        <p>Tap ♡ on any deal to keep it on your Saved page, so you can find it again later.</p>
       </Section>
 
       <section className="flex flex-col gap-3 rounded-3xl border border-accent-soft bg-accent-soft p-6 sm:p-8">
@@ -153,9 +114,8 @@ export default function AboutPage() {
 
       <Section title="Privacy">
         <p>
-          No accounts, no cookies, no tracking. Your light or dark mode choice, saved deals and
-          shopping list are kept only in your own browser and never sent anywhere. Product photos
-          load straight from where they&apos;re hosted without telling it which page you came from.
+          No accounts, no cookies, no tracking. Your light or dark mode choice and saved deals are
+          kept only in your own browser and never sent anywhere.
         </p>
       </Section>
 

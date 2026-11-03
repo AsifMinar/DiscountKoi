@@ -41,7 +41,6 @@ export default function manifest(): MetadataRoute.Manifest {
       },
     ],
     shortcuts: [
-      { name: "Compare prices", url: `${root}products/` },
       { name: "Free stuff", url: `${root}free/` },
       { name: "Student discounts", url: `${root}student/` },
     ],

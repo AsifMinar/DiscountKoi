@@ -1,7 +1,6 @@
 import { isIsoDay } from "@shared/dates";
 import { DealSchema, type Deal } from "@shared/deal";
 import type { DealTypeId } from "@shared/taxonomy";
-import { UNITS, resolveUnitPrice } from "@shared/units";
 import { categorize } from "./categorize";
 import { isFreeDeal, isStudentDeal } from "./detect";
 import { cleanText, dealId, parsePrice, percentOff, safeUrl } from "./lib/text";
@@ -54,19 +53,7 @@ export function normalizeDeal(
 
   const startDate = validDay(raw.startDate);
   const endDate = validDay(raw.endDate);
-  const id = dealId(sourceId, url, raw.variant ? `${title}\n${raw.variant}` : title);
-
-  // Product listings: clean name and size, then work out the unit price.
-  const productName = cleanText(raw.productName, 120) || undefined;
-  const size = productName ? cleanText(raw.size, 40) || undefined : undefined;
-  const unit = productName && raw.unit && UNITS.includes(raw.unit) ? raw.unit : undefined;
-  const givenUnitPrice =
-    typeof raw.unitPrice === "number" && Number.isFinite(raw.unitPrice) && raw.unitPrice >= 0
-      ? raw.unitPrice
-      : undefined;
-  const pricing = productName
-    ? resolveUnitPrice({ salePrice, size, unit, unitPrice: givenUnitPrice })
-    : undefined;
+  const id = dealId(sourceId, url, title);
 
   // New items count as first seen when the source published them (never in the future).
   const published = raw.publishedAt ? Date.parse(raw.publishedAt) : NaN;
@@ -98,13 +85,6 @@ export function normalizeDeal(
     currency: raw.currency === "USD" ? "USD" : undefined,
     attribution: cleanText(raw.attribution, 200) || undefined,
     ongoing: raw.ongoing ? true : undefined,
-    productName,
-    size,
-    unit: pricing?.unit,
-    unitPrice: pricing?.unitPrice,
-    barcode: productName && raw.barcode && /^\d{8,14}$/.test(raw.barcode) ? raw.barcode : undefined,
-    previousPrice: productName ? parsePrice(raw.previousPrice) : undefined,
-    sample: raw.sample ? true : undefined,
   });
 
   if (!result.success) {

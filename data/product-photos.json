@@ -1,8 +1,0 @@
-{
-  "_about": [
-    "Written by the scraper: product photo per barcode, from Open Food Facts product pages.",
-    "url null means the product has no photo there yet (checked again after 30 days).",
-    "Safe to delete: photos are looked up again on the next run."
-  ],
-  "photos": {}
-}

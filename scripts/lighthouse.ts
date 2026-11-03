@@ -16,7 +16,7 @@ const LIGHTHOUSE = "lighthouse@13.5.0";
 const PORT = Number(process.env.LIGHTHOUSE_PORT ?? 4181);
 const BASE = `http://localhost:${PORT}/DiscountKoi`;
 const OUT = join("screenshots", "lighthouse");
-const PAGES = ["/", "/products/", "/student/", "/free/", "/about/"];
+const PAGES = ["/", "/stores/", "/student/", "/free/", "/about/"];
 const CATEGORIES = ["performance", "accessibility", "best-practices", "seo"] as const;
 const RUNS = Number(process.env.LIGHTHOUSE_RUNS ?? 3);
 

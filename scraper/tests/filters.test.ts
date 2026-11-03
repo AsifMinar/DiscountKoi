@@ -11,6 +11,7 @@ import {
   parseFilters,
   sortDeals,
 } from "@/lib/filters";
+import { foodProgramGroups } from "@/lib/food-help";
 import { storeDirectory, storeSlug } from "@/lib/stores";
 
 const TODAY = "2026-10-20";
@@ -25,7 +26,7 @@ const deal = (over: Partial<Deal> = {}): Deal => ({
   category: "grocery",
   location: "sudbury",
   url: "https://store.example/",
-  source: "weekly-picks",
+  source: "test-source",
   scrapedAt: "2026-10-20T10:00:00.000Z",
   ...over,
 });
@@ -110,20 +111,24 @@ test("Lowest price sort: free first, unpriced last", () => {
   );
 });
 
-test("page scopes: food help lives on the Free page, store pages skip the flyer card", () => {
-  const foodBank = deal({ category: "food-help", dealType: ["in-store"], store: "Food Bank" });
+test("page scopes: food help stays out of deal lists, store pages skip the flyer card", () => {
+  const foodBank = deal({ category: "food-help", dealType: ["free"], store: "Food Bank" });
+  const freebie = deal({ dealType: ["free"], salePrice: 0 });
   const flyer = deal({ source: "flyer-links", store: "No Frills" });
   const pick = deal({ store: "No Frills" });
 
+  // Food help has its own directory on the Free page, and its own store page.
   assert.equal(inScope(foodBank, { page: "home" }), false);
-  assert.equal(inScope(foodBank, { page: "free" }), true);
+  assert.equal(inScope(foodBank, { page: "free" }), false);
+  assert.equal(inScope(foodBank, { page: "store", slug: "food-bank" }), true);
+  assert.equal(inScope(freebie, { page: "free" }), true);
   assert.equal(inScope(flyer, { page: "home" }), true);
   assert.equal(inScope(flyer, { page: "store", slug: "no-frills" }), false);
   assert.equal(inScope(pick, { page: "store", slug: "no-frills" }), true);
   assert.equal(inScope(pick, { page: "store", slug: "metro" }), false);
 });
 
-test("home rows: top deals by discount (not free), ending within a week, at least 3 each", () => {
+test("home rows: top deals by discount (not free), ending within a week, no deal in both", () => {
   const discounted = [10, 50, 30, 20, 40].map((p) =>
     deal({
       id: `off-${p}`,
@@ -143,14 +148,24 @@ test("home rows: top deals by discount (not free), ending within a week, at leas
     rows.top.map((d) => d.id),
     ["off-50", "off-40", "off-30", "off-20", "off-10", "later"],
   );
-  assert.equal(rows.ending.length, 5); // the flyer and "later" are left out
+  // Every deal ending this week is already a top deal, so Ending soon has nothing new.
+  assert.deepEqual(rows.ending, []);
+  const soon = ["a", "b", "c"].map((s) =>
+    deal({ id: `soon-${s}`, store: `Shop ${s}`, endDate: "2026-10-23" }),
+  );
+  assert.deepEqual(
+    homeSections([...discounted, ...extra, ...soon], TODAY).ending.map((d) => d.id),
+    ["soon-a", "soon-b", "soon-c"],
+  );
   assert.deepEqual(
     rows.flyers.map((d) => d.id),
     ["flyer"],
   );
 
-  // Too few for a row: no row at all.
+  // Too few for a row, or all from one store: no row at all.
   assert.deepEqual(homeSections(discounted.slice(0, 2), TODAY).top, []);
+  const oneShop = discounted.map((d) => ({ ...d, store: "itch.io" }));
+  assert.deepEqual(homeSections(oneShop, TODAY).top, []);
 });
 
 test("home rows: at most 3 per store, Sudbury and Canadian deals before US-dollar ones", () => {
@@ -218,4 +233,23 @@ test("store slugs and the store directory", () => {
       ["Metro", 0, true, false],
     ],
   );
+});
+
+test("food help directory: grouped by kind, food banks first, address from the title", () => {
+  const food = (title: string, store: string) =>
+    deal({ title, store, category: "food-help", dealType: ["free"] });
+  const groups = foodProgramGroups([
+    food("Good Food Box (affordable produce) · 24 Delamere Road,", "Delamere Box"),
+    food("Free food bank · 44 Pine Street", "Coniston Food Bank"),
+    food("Free food bank · 1 Elm Street", "Blue Food Bank"),
+    deal({ title: "Not food help" }),
+  ]);
+  assert.deepEqual(
+    groups.map((g) => [g.label, g.programs.map((p) => p.name)]),
+    [
+      ["Food banks", ["Blue Food Bank", "Coniston Food Bank"]],
+      ["Good Food Box (affordable produce)", ["Delamere Box"]],
+    ],
+  );
+  assert.equal(groups[1].programs[0].address, "24 Delamere Road");
 });

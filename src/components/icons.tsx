@@ -154,30 +154,6 @@ export function HeartIcon({ filled, ...props }: SVGProps<SVGSVGElement> & { fill
   );
 }
 
-export function ListIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <Icon {...props}>
-      <path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01" strokeWidth={2.25} />
-    </Icon>
-  );
-}
-
-export function CheckIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <Icon {...props}>
-      <path d="m5 12.5 4.5 4.5L19 7.5" />
-    </Icon>
-  );
-}
-
-export function PlusIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <Icon {...props}>
-      <path d="M12 5v14M5 12h14" />
-    </Icon>
-  );
-}
-
 /* ---------- Category icons (the picture on cards without a product photo) ---------- */
 
 const CATEGORY_PATHS: Record<CategoryId, ReactNode> = {

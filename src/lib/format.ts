@@ -1,5 +1,4 @@
 import { SUDBURY_TZ, daysBetween } from "@shared/dates";
-import { unitLabel, type Unit } from "@shared/units";
 
 export { daysBetween, torontoDate } from "@shared/dates";
 
@@ -48,16 +47,6 @@ function moneyFormat(currency: string, digits: number) {
 /** "$8.99" or "$1,249" in Canadian dollars; US prices show as "US$2.00". */
 export function formatPrice(value: number, currency: "CAD" | "USD" = "CAD"): string {
   return moneyFormat(currency, Number.isInteger(value) ? 0 : 2).format(value);
-}
-
-/** "$1.37/L", "$0.88/100 g", "$0.33 each". Tiny amounts keep a third decimal ("$0.004/100 mL"). */
-export function formatUnitPrice(
-  value: number,
-  unit: Unit,
-  currency: "CAD" | "USD" = "CAD",
-): string {
-  const digits = value > 0 && value < 0.1 ? 3 : 2;
-  return `${moneyFormat(currency, digits).format(value)}${unitLabel(unit)}`;
 }
 
 /** "Ends today", "Ends tomorrow", "Ends in 4 days", or "Ends Nov. 30, 2026" when far off. */
