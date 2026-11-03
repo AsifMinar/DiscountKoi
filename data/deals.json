@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T19:53:48.579Z",
+  "updatedAt": "2026-11-03T17:25:23.558Z",
   "deals": [
     {
       "id": "bbec2614c6f31ede",
@@ -899,25 +899,6 @@
       "currency": "USD"
     },
     {
-      "id": "31f00c676b6540de",
-      "title": "Tiny Logic",
-      "description": "Build a computer from transistors up, then make it run DOOM.",
-      "store": "itch.io",
-      "originalPrice": 9.99,
-      "salePrice": 4.99,
-      "discountPercent": 50,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://whoismuzzy.itch.io/tinylogic",
-      "endDate": "2026-11-02",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-31T15:32:49.678Z",
-      "currency": "USD"
-    },
-    {
       "id": "51fb98d6c04efa4d",
       "title": "New Meat",
       "description": "Horror-comedy roguelite about burgers, monsters and dead-end jobs.",
@@ -1301,25 +1282,6 @@
       "currency": "USD"
     },
     {
-      "id": "f20cd19afd9bae2b",
-      "title": "Grim Fandango Remastered",
-      "description": "Meet Manny Calavera, travel agent at the Department of Death.",
-      "store": "itch.io",
-      "originalPrice": 14.99,
-      "salePrice": 2.24,
-      "discountPercent": 85,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://doublefine.itch.io/grim-fandango-remastered",
-      "endDate": "2026-11-02",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-26T16:21:54.236Z",
-      "currency": "USD"
-    },
-    {
       "id": "7b0e741b352520c9",
       "title": "Batty Zabella",
       "description": "A horror point-and-click game made with 30% nostalgia, and 70% sass.",
@@ -1451,25 +1413,6 @@
       "location": "ships-to-ontario",
       "url": "https://alexander-wiseman.itch.io/fear-assessment",
       "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-20T08:45:16.084Z",
-      "currency": "USD"
-    },
-    {
-      "id": "2f809af0ce51b039",
-      "title": "Where Winter Crows Go",
-      "description": "Would you risk living together with a stranger in an isolated cabin to avoid the freezing cold?",
-      "store": "itch.io",
-      "originalPrice": 5,
-      "salePrice": 2.5,
-      "discountPercent": 50,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://prikarin.itch.io/where-winter-crows-go",
-      "endDate": "2026-11-02",
       "source": "itch-io-sales",
       "scrapedAt": "2026-10-20T08:45:16.084Z",
       "currency": "USD"
