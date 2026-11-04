@@ -1,6 +1,22 @@
 {
-  "updatedAt": "2026-11-03T17:25:23.558Z",
+  "updatedAt": "2026-11-04T17:39:39.445Z",
   "deals": [
+    {
+      "id": "04f8c2297743b42e",
+      "title": "Giant Tiger weekly flyer · Nov 4–10",
+      "description": "This week's Giant Tiger weekly flyer. Open it on Giant Tiger's site and choose your Greater Sudbury store to see local prices.",
+      "store": "Giant Tiger",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "other",
+      "location": "sudbury",
+      "url": "https://www.gianttiger.com/collections/flyers-and-deals",
+      "startDate": "2026-11-04",
+      "endDate": "2026-11-10",
+      "source": "flyer-links",
+      "scrapedAt": "2026-11-04T17:39:39.445Z"
+    },
     {
       "id": "bbec2614c6f31ede",
       "title": "Shoppers Drug Mart weekly flyer · Oct 31 – Nov 6",
@@ -128,22 +144,6 @@
       "endDate": "2026-11-04",
       "source": "flyer-links",
       "scrapedAt": "2026-10-29T16:30:44.736Z"
-    },
-    {
-      "id": "22d55fa96c889dbe",
-      "title": "Giant Tiger weekly flyer · Oct 28 – Nov 3",
-      "description": "This week's Giant Tiger weekly flyer. Open it on Giant Tiger's site and choose your Greater Sudbury store to see local prices.",
-      "store": "Giant Tiger",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "other",
-      "location": "sudbury",
-      "url": "https://www.gianttiger.com/collections/flyers-and-deals",
-      "startDate": "2026-10-28",
-      "endDate": "2026-11-03",
-      "source": "flyer-links",
-      "scrapedAt": "2026-10-28T16:20:49.424Z"
     },
     {
       "id": "0091dd236e44ae70",
@@ -822,6 +822,221 @@
       "ongoing": true
     },
     {
+      "id": "34ba05870bded6b6",
+      "title": "MOLOKAUST",
+      "description": "",
+      "store": "itch.io",
+      "originalPrice": 10,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://elp3luca.itch.io/molokaust",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-04T17:39:39.445Z",
+      "currency": "USD"
+    },
+    {
+      "id": "90e97e9cd016e891",
+      "title": "Sabado: Day One",
+      "description": "3D Mystery Anime Horror",
+      "store": "itch.io",
+      "originalPrice": 1,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://kiwidreams-01.itch.io/sabado-day-one",
+      "endDate": "2026-11-29",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-04T17:39:39.445Z",
+      "currency": "USD"
+    },
+    {
+      "id": "e770dfa206b1f975",
+      "title": "Slasher Circus",
+      "description": "Circus themed PSX horror game about a boy who takes a step to find his presumed 'dead' father.",
+      "store": "itch.io",
+      "originalPrice": 1,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://redwolfstudios-deg.itch.io/slasher-circus",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-04T17:39:39.445Z",
+      "currency": "USD"
+    },
+    {
+      "id": "f3e236a2e6a28d94",
+      "title": "CTHON",
+      "description": "Battle the legions of the damned in the depths of space - and beyond.",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://gravitygames.itch.io/cthon",
+      "endDate": "2026-11-05",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-04T17:39:39.445Z",
+      "currency": "USD"
+    },
+    {
+      "id": "f2cf52f3fce14a67",
+      "title": "Golf Peaks",
+      "description": "golf + cards + puzzles",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 0.99,
+      "discountPercent": 80,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://afterburn.itch.io/golf-peaks",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-04T17:39:39.445Z",
+      "currency": "USD"
+    },
+    {
+      "id": "a2a37e06f2a9e9a8",
+      "title": "Super Hexagon",
+      "description": "A minimal action game by Terry Cavanagh, with music by Chipzel.",
+      "store": "itch.io",
+      "originalPrice": 2.99,
+      "salePrice": 0.74,
+      "discountPercent": 75,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://terrycavanagh.itch.io/super-hexagon",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-04T17:39:39.445Z",
+      "currency": "USD"
+    },
+    {
+      "id": "5dde1c025fe2caca",
+      "title": "SYNTAXIA",
+      "description": "A cozy horror game about bending reality.",
+      "store": "itch.io",
+      "originalPrice": 0,
+      "salePrice": 0,
+      "discountPercent": 50,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://spelkollektivet.itch.io/syntaxia",
+      "endDate": "2026-11-06",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-04T17:39:39.445Z",
+      "currency": "USD"
+    },
+    {
+      "id": "618e5cc278f6d9ab",
+      "title": "Shattered Pixel Dungeon",
+      "description": "A roguelike dungeon crawler RPG that's simple to get into but hard to master!",
+      "store": "itch.io",
+      "originalPrice": 0,
+      "salePrice": 0,
+      "discountPercent": 50,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://shattered-pixel.itch.io/shattered-pixel-dungeon",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-04T17:39:39.445Z",
+      "currency": "USD"
+    },
+    {
+      "id": "a363fc6100659263",
+      "title": "Deferral",
+      "description": "A war cult runs the country. For one week you watch it take your neighbours.",
+      "store": "itch.io",
+      "originalPrice": 9.99,
+      "salePrice": 6.99,
+      "discountPercent": 30,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://serhiy-andreiev.itch.io/deferral",
+      "endDate": "2026-11-06",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-04T17:39:39.445Z",
+      "currency": "USD"
+    },
+    {
+      "id": "4f85afe40dfd9ef9",
+      "title": "Love the Guard, Be the King (complete)",
+      "description": "The Kingdom and its future monarch are in your hands. The choice is yours. Love the Guard or be the king?",
+      "store": "itch.io",
+      "originalPrice": 7.99,
+      "salePrice": 6.39,
+      "discountPercent": 20,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://ligianunes.itch.io/love-the-guard-be-the-king",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-04T17:39:39.445Z",
+      "currency": "USD"
+    },
+    {
+      "id": "47a0f75a011716e3",
+      "title": "Good Boy!",
+      "description": "He's a really good boy... and so is his dog!",
+      "store": "itch.io",
+      "originalPrice": 2.99,
+      "salePrice": 2.54,
+      "discountPercent": 15,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://lunamakaio.itch.io/good-boy",
+      "endDate": "2026-11-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-04T17:39:39.445Z",
+      "currency": "USD"
+    },
+    {
       "id": "78c681c7158ccba6",
       "title": "Requiem Station",
       "description": "This Station Wasn't Supposed to Exist...",
@@ -863,7 +1078,7 @@
     {
       "id": "70ac8b52d75a3b6b",
       "title": "The Bag Man's Curse",
-      "description": "This game follows a 12-year-old boy named Peter who lives in a town where there are reports of a being called Bagman.",
+      "description": "Peter, a 12-year-old kid unlucky enough to live in a town haunted by some creepy bastard known as the Bagman.",
       "store": "itch.io",
       "originalPrice": 1,
       "salePrice": 0.28,
@@ -893,44 +1108,6 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://steamberry.itch.io/gildedshadows",
-      "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-31T15:32:49.678Z",
-      "currency": "USD"
-    },
-    {
-      "id": "51fb98d6c04efa4d",
-      "title": "New Meat",
-      "description": "Horror-comedy roguelite about burgers, monsters and dead-end jobs.",
-      "store": "itch.io",
-      "originalPrice": 4.99,
-      "salePrice": 2.49,
-      "discountPercent": 50,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://rocketlex.itch.io/new-meat",
-      "endDate": "2026-11-06",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-31T15:32:49.678Z",
-      "currency": "USD"
-    },
-    {
-      "id": "c753c704e98f2d65",
-      "title": "RogueSlide",
-      "description": "Sliding puzzle meets dungeon-crawler",
-      "store": "itch.io",
-      "originalPrice": 3.99,
-      "salePrice": 1.99,
-      "discountPercent": 50,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://beepyeah.itch.io/rogueslide",
       "endDate": "2026-11-04",
       "source": "itch-io-sales",
       "scrapedAt": "2026-10-31T15:32:49.678Z",
@@ -994,25 +1171,6 @@
       "currency": "USD"
     },
     {
-      "id": "48a614385b6cb221",
-      "title": "Poolscape",
-      "description": "Explore the Poolrooms as if it were lost media from 1998.",
-      "store": "itch.io",
-      "originalPrice": 4.99,
-      "salePrice": 2.99,
-      "discountPercent": 40,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://cosmicarcadegames.itch.io/poolscape",
-      "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-30T16:22:23.259Z",
-      "currency": "USD"
-    },
-    {
       "id": "d57e39d4ad9957cc",
       "title": "Trapped with Jester",
       "description": "You wake up in a carriage with an annoying stranger...",
@@ -1030,63 +1188,6 @@
       "endDate": "2026-11-04",
       "source": "itch-io-sales",
       "scrapedAt": "2026-10-30T16:22:23.259Z",
-      "currency": "USD"
-    },
-    {
-      "id": "a5c21219e695739b",
-      "title": "Islands of the Caliph",
-      "description": "Old School RPG based on Medieval Middle-Eastern folklore and Islamic Spiritual Tradition.",
-      "store": "itch.io",
-      "originalPrice": 9.99,
-      "salePrice": 6.99,
-      "discountPercent": 30,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://schmidt-workshops.itch.io/islands-of-the-caliph",
-      "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-29T16:30:44.736Z",
-      "currency": "USD"
-    },
-    {
-      "id": "f81b8d1053c0136b",
-      "title": "Bewitching Sinners",
-      "description": "A bewitching otome and BL dating sim",
-      "store": "itch.io",
-      "originalPrice": 18,
-      "salePrice": 8.1,
-      "discountPercent": 55,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://missxero.itch.io/bewitching-sinners-visual-novel",
-      "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-28T16:20:49.424Z",
-      "currency": "USD"
-    },
-    {
-      "id": "4c8ac8d0a4b8e144",
-      "title": "Tavern Talk [full]",
-      "description": "A Cozy Visual Novel Game",
-      "store": "itch.io",
-      "originalPrice": 17.99,
-      "salePrice": 8.99,
-      "discountPercent": 50,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://gentle-troll.itch.io/tavern-talk",
-      "endDate": "2026-11-07",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-28T16:20:49.424Z",
       "currency": "USD"
     },
     {
@@ -1244,25 +1345,6 @@
       "currency": "USD"
     },
     {
-      "id": "563685a3dea3c814",
-      "title": "Dungeonbound (In Development)",
-      "description": "An incremental roguelite dungeon crawler, where you craft items, defeat various enemies and dungeons",
-      "store": "itch.io",
-      "originalPrice": 12,
-      "salePrice": 10.2,
-      "discountPercent": 15,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://louidev.itch.io/dungeonbound",
-      "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-27T15:36:44.095Z",
-      "currency": "USD"
-    },
-    {
       "id": "311b74f2670cf0df",
       "title": "Empty Box:空盒子",
       "description": "...HE SEES YOU?",
@@ -1295,25 +1377,6 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://icecoldblood.itch.io/batty-zabella",
-      "endDate": "2026-11-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-26T16:21:54.236Z",
-      "currency": "USD"
-    },
-    {
-      "id": "11401dd3a7fd1fad",
-      "title": "Enkhirydion: Testament of Shadows",
-      "description": "A gothic pixel-art metroidvania forged in faith, fire, and forgotten sins.",
-      "store": "itch.io",
-      "originalPrice": 9,
-      "salePrice": 3.6,
-      "discountPercent": 60,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://lemonade-soft.itch.io/enkhirydion-testament-of-shadows",
       "endDate": "2026-11-04",
       "source": "itch-io-sales",
       "scrapedAt": "2026-10-26T16:21:54.236Z",
