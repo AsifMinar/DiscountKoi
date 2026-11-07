@@ -1,6 +1,22 @@
 {
-  "updatedAt": "2026-11-06T17:00:18.870Z",
+  "updatedAt": "2026-11-07T15:57:56.886Z",
   "deals": [
+    {
+      "id": "d76b6bbf4ccaeb93",
+      "title": "Shoppers Drug Mart weekly flyer · Nov 7–13",
+      "description": "This week's Shoppers Drug Mart weekly flyer. Open it on Shoppers Drug Mart's site and choose your Greater Sudbury store to see local prices.",
+      "store": "Shoppers Drug Mart",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "health-beauty",
+      "location": "sudbury",
+      "url": "https://www.shoppersdrugmart.ca/flyer",
+      "startDate": "2026-11-07",
+      "endDate": "2026-11-13",
+      "source": "flyer-links",
+      "scrapedAt": "2026-11-07T15:57:56.886Z"
+    },
     {
       "id": "97a968e86866be28",
       "title": "Best Buy weekly deals · Nov 6–12",
@@ -128,22 +144,6 @@
       "endDate": "2026-11-10",
       "source": "flyer-links",
       "scrapedAt": "2026-11-04T17:39:39.445Z"
-    },
-    {
-      "id": "bbec2614c6f31ede",
-      "title": "Shoppers Drug Mart weekly flyer · Oct 31 – Nov 6",
-      "description": "This week's Shoppers Drug Mart weekly flyer. Open it on Shoppers Drug Mart's site and choose your Greater Sudbury store to see local prices.",
-      "store": "Shoppers Drug Mart",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "health-beauty",
-      "location": "sudbury",
-      "url": "https://www.shoppersdrugmart.ca/flyer",
-      "startDate": "2026-10-31",
-      "endDate": "2026-11-06",
-      "source": "flyer-links",
-      "scrapedAt": "2026-10-31T15:32:49.678Z"
     },
     {
       "id": "0091dd236e44ae70",
@@ -822,6 +822,123 @@
       "ongoing": true
     },
     {
+      "id": "0006f54e2b1aaad6",
+      "title": "Agnadul",
+      "description": "Version 0.8.00 - Alpha Full Version, Alpha Demo version of the game. Pre-Alpha MAC Version playable, but outdated.",
+      "store": "itch.io",
+      "originalPrice": 1.8,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://leshii413.itch.io/agnadulofficial",
+      "endDate": "2026-11-08",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-07T15:57:56.886Z",
+      "currency": "USD"
+    },
+    {
+      "id": "20fdf570bbd17eec",
+      "title": "DEAD AIR",
+      "description": "Wheel of Fortune Roguelike In Retro 3D",
+      "store": "itch.io",
+      "originalPrice": 1,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://digitaldro.itch.io/dead-air",
+      "endDate": "2026-11-08",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-07T15:57:56.886Z",
+      "currency": "USD"
+    },
+    {
+      "id": "2807c7d707b2ab39",
+      "title": "Backrooms Crawlers",
+      "description": "An Incremental Dungeon Crawler",
+      "store": "itch.io",
+      "originalPrice": 1,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://worsteventgames.itch.io/backrooms-crawlers",
+      "endDate": "2026-11-21",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-07T15:57:56.886Z",
+      "currency": "USD"
+    },
+    {
+      "id": "e4736614da90c3e1",
+      "title": "One Night Stand",
+      "description": "After a night of fun, passion, and one too many drinks, you awake the next morning to find a stranger lying beside you.",
+      "store": "itch.io",
+      "originalPrice": 2.99,
+      "salePrice": 0.29,
+      "discountPercent": 90,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://kinmoku.itch.io/one-night-stand",
+      "endDate": "2026-11-21",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-07T15:57:56.886Z",
+      "currency": "USD"
+    },
+    {
+      "id": "fbd10d78cc8e4ae0",
+      "title": "KILLCACHE",
+      "description": "Hunt giant monsters, strip them for parts, and get out alive. A top-down extraction shooter, solo or co-op (beta).",
+      "store": "itch.io",
+      "originalPrice": 10,
+      "salePrice": 5,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://verybadscavr.itch.io/killcache",
+      "endDate": "2026-11-10",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-07T15:57:56.886Z",
+      "currency": "USD"
+    },
+    {
+      "id": "cebaa7388d1b85ba",
+      "title": "Demon Fish Dead Ahead",
+      "description": "Spooky Fishing Themed JRPG!",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 3.99,
+      "discountPercent": 20,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://rikoclon.itch.io/demon-fish-dead-ahead",
+      "endDate": "2026-11-20",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-07T15:57:56.886Z",
+      "currency": "USD"
+    },
+    {
       "id": "890c35ffa0084db8",
       "title": "The Noise Inside",
       "description": "Take your pills, but tonight, there are no left.",
@@ -862,25 +979,6 @@
       "currency": "USD"
     },
     {
-      "id": "a670847d409e5ac3",
-      "title": "Garbanzo Quest",
-      "description": "The crazy bullet-heck platformer where your main weapon is your own spit! Bring a friend!",
-      "store": "itch.io",
-      "originalPrice": 20,
-      "salePrice": 9,
-      "discountPercent": 55,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://zachisagardner.itch.io/garbanzo-quest",
-      "endDate": "2026-11-10",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-06T17:00:18.870Z",
-      "currency": "USD"
-    },
-    {
       "id": "8fd7a12de4f5528f",
       "title": "Pixel Fireplace",
       "description": "Type commands, roast marshmallows, throw logs onto a crackling fire. Enjoy",
@@ -894,25 +992,6 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://hammertail.itch.io/pixel-fireplace",
-      "endDate": "2026-11-30",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-06T17:00:18.870Z",
-      "currency": "USD"
-    },
-    {
-      "id": "1e0b3c5236b22089",
-      "title": "BROK: The Brawl Bar",
-      "description": "A wild party beat' em up with crazy challenges!",
-      "store": "itch.io",
-      "originalPrice": 9.99,
-      "salePrice": 6.69,
-      "discountPercent": 33,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://cowcat.itch.io/brok-the-brawl-bar",
       "endDate": "2026-11-30",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-06T17:00:18.870Z",
@@ -1019,26 +1098,6 @@
       "currency": "USD"
     },
     {
-      "id": "a1fd9b3704d8cd78",
-      "title": "Final Witness",
-      "description": "You found the truth. Can you survive? A PSX-style horror game.",
-      "store": "itch.io",
-      "originalPrice": 3.99,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://hexnut-studios.itch.io/final-witness",
-      "endDate": "2026-11-09",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-05T17:44:37.916Z",
-      "currency": "USD"
-    },
-    {
       "id": "a6a0274ef492302f",
       "title": "Penance",
       "description": "Goodrich Castle, England, 1221AD",
@@ -1101,9 +1160,9 @@
       "title": "Fix Her Pipes",
       "description": "Escape from Pipe Granny.",
       "store": "itch.io",
-      "originalPrice": 5.99,
-      "salePrice": 1.97,
-      "discountPercent": 67,
+      "originalPrice": 3.99,
+      "salePrice": 1.99,
+      "discountPercent": 50,
       "dealType": [
         "online"
       ],
@@ -1111,25 +1170,6 @@
       "location": "ships-to-ontario",
       "url": "https://deeplookgames.itch.io/fix-her-pipes",
       "endDate": "2026-12-03",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-05T17:44:37.916Z",
-      "currency": "USD"
-    },
-    {
-      "id": "4c8ac8d0a4b8e144",
-      "title": "Tavern Talk [full]",
-      "description": "A Cozy Visual Novel Game",
-      "store": "itch.io",
-      "originalPrice": 17.99,
-      "salePrice": 8.99,
-      "discountPercent": 50,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://gentle-troll.itch.io/tavern-talk",
-      "endDate": "2026-11-07",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-05T17:44:37.916Z",
       "currency": "USD"
@@ -1168,63 +1208,6 @@
       "location": "ships-to-ontario",
       "url": "https://geod.itch.io/3dnes",
       "endDate": "2026-11-08",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-05T17:44:37.916Z",
-      "currency": "USD"
-    },
-    {
-      "id": "678257cfaa2d7e2a",
-      "title": "Andromeda Six | Star Crossed Lovers",
-      "description": "An Andromeda Six Side-Story",
-      "store": "itch.io",
-      "originalPrice": 5,
-      "salePrice": 3.5,
-      "discountPercent": 30,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://wanderlust-games.itch.io/andromeda-six-star-crossed-lovers",
-      "endDate": "2026-11-06",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-05T17:44:37.916Z",
-      "currency": "USD"
-    },
-    {
-      "id": "f09b5db4ededcce4",
-      "title": "The Failure Even Death Rejects Otome/BL Complete",
-      "description": "A contract for death turns into a dangerous game of love.",
-      "store": "itch.io",
-      "originalPrice": 22,
-      "salePrice": 15.4,
-      "discountPercent": 30,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://bigdeal.itch.io/the-failure-even-death-rejects",
-      "endDate": "2026-11-12",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-05T17:44:37.916Z",
-      "currency": "USD"
-    },
-    {
-      "id": "f5fab45092cc5e42",
-      "title": "Andromeda Six",
-      "description": "A sci-fi themed Visual Novel game.",
-      "store": "itch.io",
-      "originalPrice": 14.99,
-      "salePrice": 10.49,
-      "discountPercent": 30,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://wanderlust-games.itch.io/andromeda-six",
-      "endDate": "2026-11-06",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-05T17:44:37.916Z",
       "currency": "USD"
