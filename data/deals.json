@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-07T15:57:56.886Z",
+  "updatedAt": "2026-11-08T16:26:43.592Z",
   "deals": [
     {
       "id": "d76b6bbf4ccaeb93",
@@ -822,6 +822,102 @@
       "ongoing": true
     },
     {
+      "id": "0f1a89485922f86b",
+      "title": "It's Not Human",
+      "description": "VHS Horror Game",
+      "store": "itch.io",
+      "originalPrice": 2,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://deeplookgames.itch.io/its-not-human",
+      "endDate": "2026-12-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-08T16:26:43.592Z",
+      "currency": "USD"
+    },
+    {
+      "id": "64d7a4dc0c73b06a",
+      "title": "Demetrios - The BIG Cynical Adventure",
+      "description": "The Journey of an Idiot. 8 to 12 hours of fun!",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 0.99,
+      "discountPercent": 80,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://cowcat.itch.io/demetrios",
+      "endDate": "2026-11-30",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-08T16:26:43.592Z",
+      "currency": "USD"
+    },
+    {
+      "id": "9991a004f9c5b74e",
+      "title": "Dead Trust",
+      "description": "Can you really trust him? A PSX-style horror game.",
+      "store": "itch.io",
+      "originalPrice": 2,
+      "salePrice": 1,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://hexnut-studios.itch.io/dead-trust",
+      "endDate": "2026-11-10",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-08T16:26:43.592Z",
+      "currency": "USD"
+    },
+    {
+      "id": "1e0b3c5236b22089",
+      "title": "BROK: The Brawl Bar",
+      "description": "A wild party beat' em up with crazy challenges!",
+      "store": "itch.io",
+      "originalPrice": 9.99,
+      "salePrice": 6.69,
+      "discountPercent": 33,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://cowcat.itch.io/brok-the-brawl-bar",
+      "endDate": "2026-11-30",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-08T16:26:43.592Z",
+      "currency": "USD"
+    },
+    {
+      "id": "a24ec86a32650410",
+      "title": "After Party (v0.97)",
+      "description": "A cozy first-person balloon game: pop, stomp, squeeze and sit your way through the mess the party left behind.",
+      "store": "itch.io",
+      "originalPrice": 9.99,
+      "salePrice": 7.49,
+      "discountPercent": 25,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://aylalooner.itch.io/afterparty",
+      "endDate": "2026-11-13",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-08T16:26:43.592Z",
+      "currency": "USD"
+    },
+    {
       "id": "0006f54e2b1aaad6",
       "title": "Agnadul",
       "description": "Version 0.8.00 - Alpha Full Version, Alpha Demo version of the game. Pre-Alpha MAC Version playable, but outdated.",
@@ -836,26 +932,6 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://leshii413.itch.io/agnadulofficial",
-      "endDate": "2026-11-08",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-07T15:57:56.886Z",
-      "currency": "USD"
-    },
-    {
-      "id": "20fdf570bbd17eec",
-      "title": "DEAD AIR",
-      "description": "Wheel of Fortune Roguelike In Retro 3D",
-      "store": "itch.io",
-      "originalPrice": 1,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://digitaldro.itch.io/dead-air",
       "endDate": "2026-11-08",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-07T15:57:56.886Z",
@@ -1118,44 +1194,6 @@
       "currency": "USD"
     },
     {
-      "id": "63d78b9096580dfd",
-      "title": "Very Realistic Game Dev Simulator",
-      "description": "I’d better start working on the game. I’ve run out of cigarettes again.",
-      "store": "itch.io",
-      "originalPrice": 1.99,
-      "salePrice": 0.39,
-      "discountPercent": 80,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://worsteventgames.itch.io/very-realistic-game-dev-simulator",
-      "endDate": "2026-11-14",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-05T17:44:37.916Z",
-      "currency": "USD"
-    },
-    {
-      "id": "b910dbe28dd36359",
-      "title": "Cherophobia",
-      "description": "You find yourself stranded in a forest after your car breaks down.",
-      "store": "itch.io",
-      "originalPrice": 1.99,
-      "salePrice": 0.39,
-      "discountPercent": 80,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://worsteventgames.itch.io/cherophobia",
-      "endDate": "2026-11-14",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-05T17:44:37.916Z",
-      "currency": "USD"
-    },
-    {
       "id": "6fc6938adf56b483",
       "title": "Fix Her Pipes",
       "description": "Escape from Pipe Granny.",
@@ -1169,45 +1207,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://deeplookgames.itch.io/fix-her-pipes",
-      "endDate": "2026-12-03",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-05T17:44:37.916Z",
-      "currency": "USD"
-    },
-    {
-      "id": "1557ad4c07404ff1",
-      "title": "Project Threshold",
-      "description": "Face Your Fears. Survive The Threshold.",
-      "store": "itch.io",
-      "originalPrice": 3,
-      "salePrice": 1.8,
-      "discountPercent": 40,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://murushii.itch.io/project-threshold",
-      "endDate": "2026-11-30",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-05T17:44:37.916Z",
-      "currency": "USD"
-    },
-    {
-      "id": "1da96ecbc0f00f30",
-      "title": "3dSen VR - 3D NES Emulator For Virtual Reality",
-      "description": "Breathing new life into classic NES games by magically converting it into 3D and letting you play in VR",
-      "store": "itch.io",
-      "originalPrice": 24.99,
-      "salePrice": 17.49,
-      "discountPercent": 30,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://geod.itch.io/3dnes",
-      "endDate": "2026-11-08",
+      "endDate": "2026-12-07",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-05T17:44:37.916Z",
       "currency": "USD"
@@ -1226,7 +1226,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://alindamian98.itch.io/kinstead",
-      "endDate": "2026-11-08",
+      "endDate": "2026-11-11",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-05T17:44:37.916Z",
       "currency": "USD"
