@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-09T20:16:32.601Z",
+  "updatedAt": "2026-11-10T17:22:14.361Z",
   "deals": [
     {
       "id": "d76b6bbf4ccaeb93",
@@ -822,11 +822,11 @@
       "ongoing": true
     },
     {
-      "id": "64bf4f4318820b8a",
-      "title": "Mosslight Hollow",
-      "description": "Build a cozy woodland colony. Grow food, forge friendships, and defend the home you make.",
+      "id": "3f0c9b71901d8056",
+      "title": "Family Manners",
+      "description": "It’s just another typical day in the wonderful life of the Evans, right?",
       "store": "itch.io",
-      "originalPrice": 5,
+      "originalPrice": 2.99,
       "salePrice": 0,
       "discountPercent": 100,
       "dealType": [
@@ -835,10 +835,106 @@
       ],
       "category": "entertainment",
       "location": "ships-to-ontario",
-      "url": "https://epicurusgames.itch.io/mosslight-hollow",
+      "url": "https://nney.itch.io/family-manners",
+      "endDate": "2026-11-21",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-10T17:22:14.361Z",
+      "currency": "USD"
+    },
+    {
+      "id": "539bff73ef9a6258",
+      "title": "Kill The Creator",
+      "description": "Just for Hardcore gamers",
+      "store": "itch.io",
+      "originalPrice": 2,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://deeplookgames.itch.io/kill-the-creator",
+      "endDate": "2026-12-04",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-10T17:22:14.361Z",
+      "currency": "USD"
+    },
+    {
+      "id": "958e227411ae20c6",
+      "title": "The Bunker",
+      "description": "Horrible experiment that gone wrong.",
+      "store": "itch.io",
+      "originalPrice": 3,
+      "salePrice": 0.9,
+      "discountPercent": 70,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://cyber752.itch.io/the-bunker",
+      "endDate": "2026-11-29",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-10T17:22:14.361Z",
+      "currency": "USD"
+    },
+    {
+      "id": "a670847d409e5ac3",
+      "title": "Garbanzo Quest",
+      "description": "The crazy bullet-heck platformer where your main weapon is your own spit! Bring a friend!",
+      "store": "itch.io",
+      "originalPrice": 20,
+      "salePrice": 9,
+      "discountPercent": 55,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://zachisagardner.itch.io/garbanzo-quest",
       "endDate": "2026-11-10",
       "source": "itch-io-sales",
-      "scrapedAt": "2026-11-09T20:16:32.601Z",
+      "scrapedAt": "2026-11-10T17:22:14.361Z",
+      "currency": "USD"
+    },
+    {
+      "id": "049034dd13e2a9ba",
+      "title": "Pixel Swarm (1.80.1)",
+      "description": "One hero, one endless swarm. A pixel-art bullet-heaven with 150 weapons, 75 bosses and up to 8-player co-op.",
+      "store": "itch.io",
+      "originalPrice": 3.99,
+      "salePrice": 1.99,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://zenerationzero.itch.io/pixel-swarm",
+      "endDate": "2026-11-20",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-10T17:22:14.361Z",
+      "currency": "USD"
+    },
+    {
+      "id": "f7bcbf7218cd23e8",
+      "title": "Sift to Riches",
+      "description": "Pour sand. Shake the sieve. Strike it rich. A cozy falling-sand treasure incremental.",
+      "store": "itch.io",
+      "originalPrice": 3.99,
+      "salePrice": 2.99,
+      "discountPercent": 25,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://noname1509.itch.io/sift-to-riches",
+      "endDate": "2026-11-15",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-10T17:22:14.361Z",
       "currency": "USD"
     },
     {
@@ -856,7 +952,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://hexnut-studios.itch.io/final-witness",
-      "endDate": "2026-11-09",
+      "endDate": "2026-11-13",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-09T20:16:32.601Z",
       "currency": "USD"
@@ -867,8 +963,8 @@
       "description": "Based on real murders from the 1980s.",
       "store": "itch.io",
       "originalPrice": 2,
-      "salePrice": 1,
-      "discountPercent": 50,
+      "salePrice": 0.5,
+      "discountPercent": 75,
       "dealType": [
         "online"
       ],
@@ -876,6 +972,25 @@
       "location": "ships-to-ontario",
       "url": "https://deeplookgames.itch.io/dont-fix-her-pipes",
       "endDate": "2026-12-03",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-09T20:16:32.601Z",
+      "currency": "USD"
+    },
+    {
+      "id": "64bf4f4318820b8a",
+      "title": "Mosslight Hollow",
+      "description": "Build a cozy woodland colony. Grow food, forge friendships, and defend the home you make.",
+      "store": "itch.io",
+      "originalPrice": 10,
+      "salePrice": 5,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://epicurusgames.itch.io/mosslight-hollow",
+      "endDate": "2026-11-13",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-09T20:16:32.601Z",
       "currency": "USD"
@@ -914,26 +1029,6 @@
       "location": "ships-to-ontario",
       "url": "https://goodboygalaxy.itch.io/goodboy-galaxy-gba",
       "endDate": "2026-11-18",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-09T20:16:32.601Z",
-      "currency": "USD"
-    },
-    {
-      "id": "3fd1e62bfd83a249",
-      "title": "Ghosts'n Demons",
-      "description": "Side-scrolling platforming game",
-      "store": "itch.io",
-      "originalPrice": 0,
-      "salePrice": 0,
-      "discountPercent": 25,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://bonusjz.itch.io/ghostsn-demons",
-      "endDate": "2026-11-30",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-09T20:16:32.601Z",
       "currency": "USD"
@@ -992,25 +1087,6 @@
       "location": "ships-to-ontario",
       "url": "https://cowcat.itch.io/demetrios",
       "endDate": "2026-11-30",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-08T16:26:43.592Z",
-      "currency": "USD"
-    },
-    {
-      "id": "9991a004f9c5b74e",
-      "title": "Dead Trust",
-      "description": "Can you really trust him? A PSX-style horror game.",
-      "store": "itch.io",
-      "originalPrice": 2,
-      "salePrice": 1,
-      "discountPercent": 50,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://hexnut-studios.itch.io/dead-trust",
-      "endDate": "2026-11-10",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-08T16:26:43.592Z",
       "currency": "USD"
@@ -1093,44 +1169,6 @@
       "currency": "USD"
     },
     {
-      "id": "0006f54e2b1aaad6",
-      "title": "Agnadul",
-      "description": "Version 0.8.00 - Alpha Full Version, Alpha Demo version of the game. Pre-Alpha MAC Version playable, but outdated.",
-      "store": "itch.io",
-      "originalPrice": 1.8,
-      "salePrice": 0.54,
-      "discountPercent": 70,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://leshii413.itch.io/agnadulofficial",
-      "endDate": "2026-12-02",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-07T15:57:56.886Z",
-      "currency": "USD"
-    },
-    {
-      "id": "fbd10d78cc8e4ae0",
-      "title": "KILLCACHE",
-      "description": "Hunt giant monsters, strip them for parts, and get out alive. A top-down extraction shooter, solo or co-op (beta).",
-      "store": "itch.io",
-      "originalPrice": 10,
-      "salePrice": 5,
-      "discountPercent": 50,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://verybadscavr.itch.io/killcache",
-      "endDate": "2026-11-10",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-07T15:57:56.886Z",
-      "currency": "USD"
-    },
-    {
       "id": "890c35ffa0084db8",
       "title": "The Noise Inside",
       "description": "Take your pills, but tonight, there are no left.",
@@ -1146,26 +1184,6 @@
       "location": "ships-to-ontario",
       "url": "https://bubu07.itch.io/the-noise-inside",
       "endDate": "2026-11-12",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-06T17:00:18.870Z",
-      "currency": "USD"
-    },
-    {
-      "id": "e1684912c9cd8968",
-      "title": "Lord of Chaos",
-      "description": "You were never meant to leave. A PSX-style horror game.",
-      "store": "itch.io",
-      "originalPrice": 3.99,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://hexnut-studios.itch.io/lord-of-chaos",
-      "endDate": "2026-11-10",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-06T17:00:18.870Z",
       "currency": "USD"
@@ -1314,9 +1332,9 @@
       "title": "Fix Her Pipes",
       "description": "Escape from Pipe Granny.",
       "store": "itch.io",
-      "originalPrice": 3.99,
-      "salePrice": 1.99,
-      "discountPercent": 50,
+      "originalPrice": 4,
+      "salePrice": 1,
+      "discountPercent": 75,
       "dealType": [
         "online"
       ],
@@ -1403,25 +1421,6 @@
       "endDate": "2026-11-29",
       "source": "itch-io-sales",
       "scrapedAt": "2026-10-30T16:22:23.259Z",
-      "currency": "USD"
-    },
-    {
-      "id": "a6b1e1dc1dfb3654",
-      "title": "OBSCURA",
-      "description": "No one goes under the mountain without a reason.",
-      "store": "itch.io",
-      "originalPrice": 14.99,
-      "salePrice": 11.24,
-      "discountPercent": 25,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://rottenraccoons.itch.io/obscura",
-      "endDate": "2026-11-10",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-28T16:20:49.424Z",
       "currency": "USD"
     }
   ]
