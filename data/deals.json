@@ -1,6 +1,22 @@
 {
-  "updatedAt": "2026-11-10T17:22:14.361Z",
+  "updatedAt": "2026-11-11T17:33:13.353Z",
   "deals": [
+    {
+      "id": "4fe3b226ac45e068",
+      "title": "Giant Tiger weekly flyer · Nov 11–17",
+      "description": "This week's Giant Tiger weekly flyer. Open it on Giant Tiger's site and choose your Greater Sudbury store to see local prices.",
+      "store": "Giant Tiger",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "other",
+      "location": "sudbury",
+      "url": "https://www.gianttiger.com/collections/flyers-and-deals",
+      "startDate": "2026-11-11",
+      "endDate": "2026-11-17",
+      "source": "flyer-links",
+      "scrapedAt": "2026-11-11T17:33:13.353Z"
+    },
     {
       "id": "d76b6bbf4ccaeb93",
       "title": "Shoppers Drug Mart weekly flyer · Nov 7–13",
@@ -128,22 +144,6 @@
       "endDate": "2026-11-11",
       "source": "flyer-links",
       "scrapedAt": "2026-11-05T17:44:37.916Z"
-    },
-    {
-      "id": "04f8c2297743b42e",
-      "title": "Giant Tiger weekly flyer · Nov 4–10",
-      "description": "This week's Giant Tiger weekly flyer. Open it on Giant Tiger's site and choose your Greater Sudbury store to see local prices.",
-      "store": "Giant Tiger",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "other",
-      "location": "sudbury",
-      "url": "https://www.gianttiger.com/collections/flyers-and-deals",
-      "startDate": "2026-11-04",
-      "endDate": "2026-11-10",
-      "source": "flyer-links",
-      "scrapedAt": "2026-11-04T17:39:39.445Z"
     },
     {
       "id": "0091dd236e44ae70",
@@ -822,6 +822,104 @@
       "ongoing": true
     },
     {
+      "id": "29e34cdcfb7788c5",
+      "title": "The Last Laugh",
+      "description": "Mom's away. The lights are out. Something is laughing in the dark.",
+      "store": "itch.io",
+      "originalPrice": 1,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://ji10-games.itch.io/the-last-laugh",
+      "endDate": "2026-11-29",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-11T17:33:13.353Z",
+      "currency": "USD"
+    },
+    {
+      "id": "e1684912c9cd8968",
+      "title": "Lord of Chaos",
+      "description": "You were never meant to leave. A PSX-style horror game.",
+      "store": "itch.io",
+      "originalPrice": 3.99,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://hexnut-studios.itch.io/lord-of-chaos",
+      "endDate": "2026-11-14",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-11T17:33:13.353Z",
+      "currency": "USD"
+    },
+    {
+      "id": "f09b5db4ededcce4",
+      "title": "The Failure Even Death Rejects Otome/BL Complete",
+      "description": "A contract for death turns into a dangerous game of love.",
+      "store": "itch.io",
+      "originalPrice": 22,
+      "salePrice": 15.4,
+      "discountPercent": 30,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://bigdeal.itch.io/the-failure-even-death-rejects",
+      "endDate": "2026-11-12",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-11T17:33:13.353Z",
+      "currency": "USD"
+    },
+    {
+      "id": "3fd1e62bfd83a249",
+      "title": "Ghosts'n Demons",
+      "description": "Side-scrolling platforming game",
+      "store": "itch.io",
+      "originalPrice": 0,
+      "salePrice": 0,
+      "discountPercent": 25,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://bonusjz.itch.io/ghostsn-demons",
+      "endDate": "2026-11-30",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-11T17:33:13.353Z",
+      "currency": "USD"
+    },
+    {
+      "id": "2c8523f89f25b5e3",
+      "title": "BOXROOM",
+      "description": "A Home for your Games",
+      "store": "itch.io",
+      "originalPrice": 7.99,
+      "salePrice": 6.79,
+      "discountPercent": 15,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://pantaloon-io.itch.io/boxroom",
+      "endDate": "2032-02-08",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-11T17:33:13.353Z",
+      "currency": "USD"
+    },
+    {
       "id": "3f0c9b71901d8056",
       "title": "Family Manners",
       "description": "It’s just another typical day in the wonderful life of the Evans, right?",
@@ -857,63 +955,6 @@
       "location": "ships-to-ontario",
       "url": "https://deeplookgames.itch.io/kill-the-creator",
       "endDate": "2026-12-04",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-10T17:22:14.361Z",
-      "currency": "USD"
-    },
-    {
-      "id": "958e227411ae20c6",
-      "title": "The Bunker",
-      "description": "Horrible experiment that gone wrong.",
-      "store": "itch.io",
-      "originalPrice": 3,
-      "salePrice": 0.9,
-      "discountPercent": 70,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://cyber752.itch.io/the-bunker",
-      "endDate": "2026-11-29",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-10T17:22:14.361Z",
-      "currency": "USD"
-    },
-    {
-      "id": "a670847d409e5ac3",
-      "title": "Garbanzo Quest",
-      "description": "The crazy bullet-heck platformer where your main weapon is your own spit! Bring a friend!",
-      "store": "itch.io",
-      "originalPrice": 20,
-      "salePrice": 9,
-      "discountPercent": 55,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://zachisagardner.itch.io/garbanzo-quest",
-      "endDate": "2026-11-10",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-10T17:22:14.361Z",
-      "currency": "USD"
-    },
-    {
-      "id": "049034dd13e2a9ba",
-      "title": "Pixel Swarm (1.80.1)",
-      "description": "One hero, one endless swarm. A pixel-art bullet-heaven with 150 weapons, 75 bosses and up to 8-player co-op.",
-      "store": "itch.io",
-      "originalPrice": 3.99,
-      "salePrice": 1.99,
-      "discountPercent": 50,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://zenerationzero.itch.io/pixel-swarm",
-      "endDate": "2026-11-20",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-10T17:22:14.361Z",
       "currency": "USD"
@@ -963,8 +1004,8 @@
       "description": "Based on real murders from the 1980s.",
       "store": "itch.io",
       "originalPrice": 2,
-      "salePrice": 0.5,
-      "discountPercent": 75,
+      "salePrice": 0.98,
+      "discountPercent": 51,
       "dealType": [
         "online"
       ],
@@ -1057,7 +1098,7 @@
       "title": "It's Not Human",
       "description": "VHS Horror Game",
       "store": "itch.io",
-      "originalPrice": 2,
+      "originalPrice": 1,
       "salePrice": 0,
       "discountPercent": 100,
       "dealType": [
@@ -1322,26 +1363,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://pehriska.itch.io/penance",
-      "endDate": "2026-11-11",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-05T17:44:37.916Z",
-      "currency": "USD"
-    },
-    {
-      "id": "6fc6938adf56b483",
-      "title": "Fix Her Pipes",
-      "description": "Escape from Pipe Granny.",
-      "store": "itch.io",
-      "originalPrice": 4,
-      "salePrice": 1,
-      "discountPercent": 75,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://deeplookgames.itch.io/fix-her-pipes",
-      "endDate": "2026-12-03",
+      "endDate": "2026-11-13",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-05T17:44:37.916Z",
       "currency": "USD"
@@ -1363,64 +1385,6 @@
       "endDate": "2026-11-29",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-05T17:44:37.916Z",
-      "currency": "USD"
-    },
-    {
-      "id": "df1819fbf12c3d18",
-      "title": "Gloom Break",
-      "description": "A relentless action-puzzle game about escaping a strange pit.",
-      "store": "itch.io",
-      "originalPrice": 6.99,
-      "salePrice": 5.59,
-      "discountPercent": 20,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://gloombreak.itch.io/gloom-break",
-      "endDate": "2026-11-11",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-05T17:44:37.916Z",
-      "currency": "USD"
-    },
-    {
-      "id": "90e97e9cd016e891",
-      "title": "Sabado: Day One",
-      "description": "3D Mystery Anime Horror",
-      "store": "itch.io",
-      "originalPrice": 1,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://kiwidreams-01.itch.io/sabado-day-one",
-      "endDate": "2026-11-29",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-04T17:39:39.445Z",
-      "currency": "USD"
-    },
-    {
-      "id": "b9e6089a73089d3d",
-      "title": "Lihiman (Full Game)",
-      "description": "Cute 3D Family Horror (Full Game)",
-      "store": "itch.io",
-      "originalPrice": 4.99,
-      "salePrice": 1.24,
-      "discountPercent": 75,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://kiwidreams-01.itch.io/lihiman-full",
-      "endDate": "2026-11-29",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-10-30T16:22:23.259Z",
       "currency": "USD"
     }
   ]
