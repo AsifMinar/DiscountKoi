@@ -1,6 +1,22 @@
 {
-  "updatedAt": "2026-11-12T17:47:38.591Z",
+  "updatedAt": "2026-11-13T17:25:36.146Z",
   "deals": [
+    {
+      "id": "0400f3594c9182a8",
+      "title": "Best Buy weekly deals · Nov 13–19",
+      "description": "This week's Best Buy weekly deals. Open it on Best Buy's site and choose your Greater Sudbury store to see local prices.",
+      "store": "Best Buy",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "electronics",
+      "location": "sudbury",
+      "url": "https://www.bestbuy.ca/en-ca/flyer",
+      "startDate": "2026-11-13",
+      "endDate": "2026-11-19",
+      "source": "flyer-links",
+      "scrapedAt": "2026-11-13T17:25:36.146Z"
+    },
     {
       "id": "4b8a33a491f1aa99",
       "title": "FreshCo weekly flyer · Nov 12–18",
@@ -128,22 +144,6 @@
       "endDate": "2026-11-13",
       "source": "flyer-links",
       "scrapedAt": "2026-11-07T15:57:56.886Z"
-    },
-    {
-      "id": "97a968e86866be28",
-      "title": "Best Buy weekly deals · Nov 6–12",
-      "description": "This week's Best Buy weekly deals. Open it on Best Buy's site and choose your Greater Sudbury store to see local prices.",
-      "store": "Best Buy",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "electronics",
-      "location": "sudbury",
-      "url": "https://www.bestbuy.ca/en-ca/flyer",
-      "startDate": "2026-11-06",
-      "endDate": "2026-11-12",
-      "source": "flyer-links",
-      "scrapedAt": "2026-11-06T17:00:18.870Z"
     },
     {
       "id": "0091dd236e44ae70",
@@ -822,6 +822,63 @@
       "ongoing": true
     },
     {
+      "id": "f8ab9bfca9bd0d83",
+      "title": "Brütal Legend",
+      "description": "Brütal Legend is an action-adventure that marries visceral action combat with open-world freedom.",
+      "store": "itch.io",
+      "originalPrice": 14.99,
+      "salePrice": 2.99,
+      "discountPercent": 80,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://doublefine.itch.io/brutal-legend",
+      "endDate": "2026-12-03",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-13T17:25:36.146Z",
+      "currency": "USD"
+    },
+    {
+      "id": "bb90b436ffc47fc9",
+      "title": "Kazura",
+      "description": "A cozy post-apocalyptic sudoku game. Solve each island's garden and nature takes the ruins back.",
+      "store": "itch.io",
+      "originalPrice": 1.99,
+      "salePrice": 0.99,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://zefrost.itch.io/kazura",
+      "endDate": "2026-11-26",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-13T17:25:36.146Z",
+      "currency": "USD"
+    },
+    {
+      "id": "1e0b3c5236b22089",
+      "title": "BROK: The Brawl Bar",
+      "description": "A wild party beat' em up with crazy challenges!",
+      "store": "itch.io",
+      "originalPrice": 9.99,
+      "salePrice": 6.69,
+      "discountPercent": 33,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://cowcat.itch.io/brok-the-brawl-bar",
+      "endDate": "2026-11-30",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-13T17:25:36.146Z",
+      "currency": "USD"
+    },
+    {
       "id": "248b8f8efd64888a",
       "title": "Microlandia",
       "description": "Brutally honest city builder",
@@ -841,25 +898,6 @@
       "currency": "USD"
     },
     {
-      "id": "6fc6938adf56b483",
-      "title": "Fix Her Pipes",
-      "description": "Escape from Pipe Granny.",
-      "store": "itch.io",
-      "originalPrice": 2,
-      "salePrice": 0.98,
-      "discountPercent": 51,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://deeplookgames.itch.io/fix-her-pipes",
-      "endDate": "2026-12-03",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-12T17:47:38.591Z",
-      "currency": "USD"
-    },
-    {
       "id": "5fa3cb8748511212",
       "title": "Sprout Valley",
       "description": "A simple casual game about harvesting and gathering resources",
@@ -874,6 +912,25 @@
       "location": "ships-to-ontario",
       "url": "https://zefrost.itch.io/sprout-valley",
       "endDate": "2026-11-26",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-12T17:47:38.591Z",
+      "currency": "USD"
+    },
+    {
+      "id": "6fc6938adf56b483",
+      "title": "Fix Her Pipes",
+      "description": "Escape from Pipe Granny.",
+      "store": "itch.io",
+      "originalPrice": 2,
+      "salePrice": 1,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://deeplookgames.itch.io/fix-her-pipes",
+      "endDate": "2026-11-19",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-12T17:47:38.591Z",
       "currency": "USD"
@@ -970,26 +1027,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://hexnut-studios.itch.io/lord-of-chaos",
-      "endDate": "2026-11-14",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-11T17:33:13.353Z",
-      "currency": "USD"
-    },
-    {
-      "id": "f09b5db4ededcce4",
-      "title": "The Failure Even Death Rejects Otome/BL Complete",
-      "description": "A contract for death turns into a dangerous game of love.",
-      "store": "itch.io",
-      "originalPrice": 22,
-      "salePrice": 15.4,
-      "discountPercent": 30,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://bigdeal.itch.io/the-failure-even-death-rejects",
-      "endDate": "2026-11-23",
+      "endDate": "2026-11-16",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-11T17:33:13.353Z",
       "currency": "USD"
@@ -1074,6 +1112,26 @@
       "currency": "USD"
     },
     {
+      "id": "6d12d7b6c7012f8f",
+      "title": "Don't Fix Her Pipes",
+      "description": "Based on real murders from the 1980s.",
+      "store": "itch.io",
+      "originalPrice": 2,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://deeplookgames.itch.io/dont-fix-her-pipes",
+      "endDate": "2026-11-18",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-09T20:16:32.601Z",
+      "currency": "USD"
+    },
+    {
       "id": "a1fd9b3704d8cd78",
       "title": "Final Witness",
       "description": "You found the truth. Can you survive? A PSX-style horror game.",
@@ -1088,26 +1146,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://hexnut-studios.itch.io/final-witness",
-      "endDate": "2026-11-13",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-09T20:16:32.601Z",
-      "currency": "USD"
-    },
-    {
-      "id": "6d12d7b6c7012f8f",
-      "title": "Don't Fix Her Pipes",
-      "description": "Based on real murders from the 1980s.",
-      "store": "itch.io",
-      "originalPrice": 2,
-      "salePrice": 0.98,
-      "discountPercent": 51,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://deeplookgames.itch.io/dont-fix-her-pipes",
-      "endDate": "2026-12-03",
+      "endDate": "2026-11-15",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-09T20:16:32.601Z",
       "currency": "USD"
@@ -1253,57 +1292,17 @@
       "description": "Take your pills, but tonight, there are no left.",
       "store": "itch.io",
       "originalPrice": 1.49,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://bubu07.itch.io/the-noise-inside",
-      "endDate": "2026-11-12",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-06T17:00:18.870Z",
-      "currency": "USD"
-    },
-    {
-      "id": "8fd7a12de4f5528f",
-      "title": "Pixel Fireplace",
-      "description": "Type commands, roast marshmallows, throw logs onto a crackling fire. Enjoy",
-      "store": "itch.io",
-      "originalPrice": 4.99,
-      "salePrice": 2.49,
-      "discountPercent": 50,
+      "salePrice": 0.73,
+      "discountPercent": 51,
       "dealType": [
         "online"
       ],
       "category": "entertainment",
       "location": "ships-to-ontario",
-      "url": "https://hammertail.itch.io/pixel-fireplace",
-      "endDate": "2026-11-30",
+      "url": "https://bubu07.itch.io/the-noise-inside",
+      "endDate": "2026-12-01",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-06T17:00:18.870Z",
-      "currency": "USD"
-    },
-    {
-      "id": "0a504542687fcff6",
-      "title": "Pigeon West: Johnny the Pigeon",
-      "description": "He's a dove and he's a cowboy, time to pile on all the bad, the bad and the good.",
-      "store": "itch.io",
-      "originalPrice": 1,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://squidsquadpapi.itch.io/johnny-the-pigeon",
-      "endDate": "2026-11-29",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-05T17:44:37.916Z",
       "currency": "USD"
     },
     {
@@ -1401,7 +1400,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://pehriska.itch.io/penance",
-      "endDate": "2026-11-13",
+      "endDate": "2026-11-15",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-05T17:44:37.916Z",
       "currency": "USD"
