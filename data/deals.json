@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-14T16:13:49.046Z",
+  "updatedAt": "2026-11-15T16:41:33.425Z",
   "deals": [
     {
       "id": "c5bce6ed99296654",
@@ -822,6 +822,83 @@
       "ongoing": true
     },
     {
+      "id": "4af4ec945e525867",
+      "title": "PAIcom (furry computer assistant)",
+      "description": "The funniest and best furry (protogen) voice computer assistant there is! (Using your microphone you can talk to him!)",
+      "store": "itch.io",
+      "originalPrice": 5.99,
+      "salePrice": 2.93,
+      "discountPercent": 51,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://ovidiu-dendrino.itch.io/paicom-premium",
+      "endDate": "2026-11-20",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-15T16:41:33.425Z",
+      "currency": "USD"
+    },
+    {
+      "id": "f513fadfdc9f9a85",
+      "title": "Family Secrets 1 : Empty Plate",
+      "description": "Short Horror Game",
+      "store": "itch.io",
+      "originalPrice": 4,
+      "salePrice": 2,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://badcat-games.itch.io/family-secrets-1-empty-plate",
+      "endDate": "2026-12-10",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-15T16:41:33.425Z",
+      "currency": "USD"
+    },
+    {
+      "id": "3fd1e62bfd83a249",
+      "title": "Ghosts'n Demons",
+      "description": "Side-scrolling platforming game",
+      "store": "itch.io",
+      "originalPrice": 0,
+      "salePrice": 0,
+      "discountPercent": 25,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://bonusjz.itch.io/ghostsn-demons",
+      "endDate": "2026-11-30",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-15T16:41:33.425Z",
+      "currency": "USD"
+    },
+    {
+      "id": "cc3faeaf29a258d0",
+      "title": "BROK the InvestiGator",
+      "description": "One croc. Lots of trouble...!",
+      "store": "itch.io",
+      "originalPrice": 19.99,
+      "salePrice": 14.99,
+      "discountPercent": 25,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://cowcat.itch.io/brok",
+      "endDate": "2026-11-29",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-15T16:41:33.425Z",
+      "currency": "USD"
+    },
+    {
       "id": "2c6c39142baea5c5",
       "title": "Psychonauts",
       "description": "A Psychic Odyssey Through the Minds of Misfits, Monsters, and Madmen.",
@@ -854,7 +931,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://prikarin.itch.io/where-winter-crows-go",
-      "endDate": "2026-11-14",
+      "endDate": "2026-11-15",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-14T16:13:49.046Z",
       "currency": "USD"
@@ -873,25 +950,6 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://awlabs.itch.io/chasing-winds",
-      "endDate": "2026-11-30",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-14T16:13:49.046Z",
-      "currency": "USD"
-    },
-    {
-      "id": "8fd7a12de4f5528f",
-      "title": "Pixel Fireplace",
-      "description": "Type commands, roast marshmallows, throw logs onto a crackling fire. Enjoy",
-      "store": "itch.io",
-      "originalPrice": 4.99,
-      "salePrice": 2.49,
-      "discountPercent": 50,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://hammertail.itch.io/pixel-fireplace",
       "endDate": "2026-11-30",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-14T16:13:49.046Z",
@@ -974,34 +1032,16 @@
       "currency": "USD"
     },
     {
-      "id": "bb90b436ffc47fc9",
-      "title": "Kazura",
-      "description": "A cozy post-apocalyptic sudoku game. Solve each island's garden and nature takes the ruins back.",
-      "store": "itch.io",
-      "originalPrice": 1.99,
-      "salePrice": 0.99,
-      "discountPercent": 50,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://zefrost.itch.io/kazura",
-      "endDate": "2026-11-26",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-13T17:25:36.146Z",
-      "currency": "USD"
-    },
-    {
       "id": "6fc6938adf56b483",
       "title": "Fix Her Pipes",
       "description": "Escape from Pipe Granny.",
       "store": "itch.io",
       "originalPrice": 4,
-      "salePrice": 1,
-      "discountPercent": 75,
+      "salePrice": 0,
+      "discountPercent": 100,
       "dealType": [
-        "online"
+        "online",
+        "free"
       ],
       "category": "entertainment",
       "location": "ships-to-ontario",
@@ -1141,7 +1181,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://hexnut-studios.itch.io/lord-of-chaos",
-      "endDate": "2026-11-16",
+      "endDate": "2026-11-18",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-11T17:33:13.353Z",
       "currency": "USD"
@@ -1221,7 +1261,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://hexnut-studios.itch.io/final-witness",
-      "endDate": "2026-11-15",
+      "endDate": "2026-11-17",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-09T20:16:32.601Z",
       "currency": "USD"
@@ -1285,25 +1325,6 @@
       "currency": "USD"
     },
     {
-      "id": "64d7a4dc0c73b06a",
-      "title": "Demetrios - The BIG Cynical Adventure",
-      "description": "The Journey of an Idiot. 8 to 12 hours of fun!",
-      "store": "itch.io",
-      "originalPrice": 4.99,
-      "salePrice": 0.99,
-      "discountPercent": 80,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://cowcat.itch.io/demetrios",
-      "endDate": "2026-11-30",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-08T16:26:43.592Z",
-      "currency": "USD"
-    },
-    {
       "id": "2807c7d707b2ab39",
       "title": "Backrooms Crawlers",
       "description": "An Incremental Dungeon Crawler",
@@ -1318,25 +1339,6 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://worsteventgames.itch.io/backrooms-crawlers",
-      "endDate": "2026-11-21",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-07T15:57:56.886Z",
-      "currency": "USD"
-    },
-    {
-      "id": "e4736614da90c3e1",
-      "title": "One Night Stand",
-      "description": "After a night of fun, passion, and one too many drinks, you awake the next morning to find a stranger lying beside you.",
-      "store": "itch.io",
-      "originalPrice": 2.99,
-      "salePrice": 0.29,
-      "discountPercent": 90,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://kinmoku.itch.io/one-night-stand",
       "endDate": "2026-11-21",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-07T15:57:56.886Z",
@@ -1437,7 +1439,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://pehriska.itch.io/penance",
-      "endDate": "2026-11-15",
+      "endDate": "2026-11-16",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-05T17:44:37.916Z",
       "currency": "USD"
