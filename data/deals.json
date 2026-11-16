@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-15T16:41:33.425Z",
+  "updatedAt": "2026-11-16T19:55:34.647Z",
   "deals": [
     {
       "id": "c5bce6ed99296654",
@@ -822,22 +822,159 @@
       "ongoing": true
     },
     {
-      "id": "4af4ec945e525867",
-      "title": "PAIcom (furry computer assistant)",
-      "description": "The funniest and best furry (protogen) voice computer assistant there is! (Using your microphone you can talk to him!)",
+      "id": "0a504542687fcff6",
+      "title": "Pigeon West: Johnny the Pigeon",
+      "description": "He's a dove and he's a cowboy, time to pile on all the bad, the bad and the good.",
       "store": "itch.io",
-      "originalPrice": 5.99,
-      "salePrice": 2.93,
-      "discountPercent": 51,
+      "originalPrice": 1,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://squidsquadpapi.itch.io/johnny-the-pigeon",
+      "endDate": "2026-11-29",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-16T19:55:34.647Z",
+      "currency": "USD"
+    },
+    {
+      "id": "2e10ffd5051cda7d",
+      "title": "Night Maniac",
+      "description": "Night Maniac is a horror game where Jonathan faces a deadly threat after a dangerous fugitive escapes. Survive!",
+      "store": "itch.io",
+      "originalPrice": 6.3,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://noxusgamesstudio.itch.io/nightmaniac",
+      "endDate": "2026-11-17",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-16T19:55:34.647Z",
+      "currency": "USD"
+    },
+    {
+      "id": "82d460236c89ada2",
+      "title": "Night Maniac 2: The Legacy Of Blood",
+      "description": "The Red Valley Killer returned! and is now in GreenFord!",
+      "store": "itch.io",
+      "originalPrice": 5.3,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://noxusgamesstudio.itch.io/nightmaniac2",
+      "endDate": "2026-11-17",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-16T19:55:34.647Z",
+      "currency": "USD"
+    },
+    {
+      "id": "890c35ffa0084db8",
+      "title": "The Noise Inside",
+      "description": "Take your pills, but tonight, there are no left.",
+      "store": "itch.io",
+      "originalPrice": 1.49,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://bubu07.itch.io/the-noise-inside",
+      "endDate": "2026-12-01",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-16T19:55:34.647Z",
+      "currency": "USD"
+    },
+    {
+      "id": "a3d5f4490a746e7f",
+      "title": "Day of the Tentacle Remastered",
+      "description": "Dr. Fred’s mutated purple tentacle is about to take over the world, and only you can stop him!",
+      "store": "itch.io",
+      "originalPrice": 14.99,
+      "salePrice": 2.99,
+      "discountPercent": 80,
       "dealType": [
         "online"
       ],
       "category": "entertainment",
       "location": "ships-to-ontario",
-      "url": "https://ovidiu-dendrino.itch.io/paicom-premium",
-      "endDate": "2026-11-20",
+      "url": "https://doublefine.itch.io/day-of-the-tentacle-remastered",
+      "endDate": "2026-12-03",
       "source": "itch-io-sales",
-      "scrapedAt": "2026-11-15T16:41:33.425Z",
+      "scrapedAt": "2026-11-16T19:55:34.647Z",
+      "currency": "USD"
+    },
+    {
+      "id": "f20cd19afd9bae2b",
+      "title": "Grim Fandango Remastered",
+      "description": "Meet Manny Calavera, travel agent at the Department of Death.",
+      "store": "itch.io",
+      "originalPrice": 14.99,
+      "salePrice": 2.99,
+      "discountPercent": 80,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://doublefine.itch.io/grim-fandango-remastered",
+      "endDate": "2026-12-03",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-16T19:55:34.647Z",
+      "currency": "USD"
+    },
+    {
+      "id": "958e227411ae20c6",
+      "title": "The Bunker",
+      "description": "Horrible experiment that gone wrong.",
+      "store": "itch.io",
+      "originalPrice": 3,
+      "salePrice": 0.9,
+      "discountPercent": 70,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://cyber752.itch.io/the-bunker",
+      "endDate": "2026-11-29",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-16T19:55:34.647Z",
+      "currency": "USD"
+    },
+    {
+      "id": "767b50e6c0a34e17",
+      "title": "A Love Like Broken Glass",
+      "description": "His soul is fractured, his fate is sealed... Unless you have something to say about it!",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 3.99,
+      "discountPercent": 20,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://devvayo.itch.io/a-love-like-broken-glass",
+      "endDate": "2026-11-29",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-16T19:55:34.647Z",
       "currency": "USD"
     },
     {
@@ -918,44 +1055,6 @@
       "currency": "USD"
     },
     {
-      "id": "2f809af0ce51b039",
-      "title": "Where Winter Crows Go",
-      "description": "Would you risk living together with a stranger in an isolated cabin to avoid the freezing cold?",
-      "store": "itch.io",
-      "originalPrice": 5,
-      "salePrice": 1.5,
-      "discountPercent": 70,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://prikarin.itch.io/where-winter-crows-go",
-      "endDate": "2026-11-15",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-14T16:13:49.046Z",
-      "currency": "USD"
-    },
-    {
-      "id": "223044a669069fbb",
-      "title": "Chasing Winds: Science, Storms, Adventure - There's always a secret to discover...",
-      "description": "There's always a secret to discover...",
-      "store": "itch.io",
-      "originalPrice": 9.99,
-      "salePrice": 4.89,
-      "discountPercent": 51,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://awlabs.itch.io/chasing-winds",
-      "endDate": "2026-11-30",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-14T16:13:49.046Z",
-      "currency": "USD"
-    },
-    {
       "id": "92a44b0350808320",
       "title": "Taguan",
       "description": "Don't Hide From The Truth",
@@ -970,25 +1069,6 @@
       "location": "ships-to-ontario",
       "url": "https://murushii.itch.io/taguan",
       "endDate": "2026-11-30",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-14T16:13:49.046Z",
-      "currency": "USD"
-    },
-    {
-      "id": "798d4ce22b1828ed",
-      "title": "After Party (v0.98)",
-      "description": "A cozy first-person balloon game: pop, stomp, squeeze and sit your way through the mess the party left behind.",
-      "store": "itch.io",
-      "originalPrice": 9.99,
-      "salePrice": 7.49,
-      "discountPercent": 25,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://aylalooner.itch.io/afterparty",
-      "endDate": "2026-11-19",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-14T16:13:49.046Z",
       "currency": "USD"
@@ -1147,26 +1227,6 @@
       "currency": "USD"
     },
     {
-      "id": "29e34cdcfb7788c5",
-      "title": "The Last Laugh",
-      "description": "Mom's away. The lights are out. Something is laughing in the dark.",
-      "store": "itch.io",
-      "originalPrice": 1,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://ji10-games.itch.io/the-last-laugh",
-      "endDate": "2026-11-29",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-11T17:33:13.353Z",
-      "currency": "USD"
-    },
-    {
       "id": "e1684912c9cd8968",
       "title": "Lord of Chaos",
       "description": "You were never meant to leave. A PSX-style horror game.",
@@ -1262,25 +1322,6 @@
       "location": "ships-to-ontario",
       "url": "https://hexnut-studios.itch.io/final-witness",
       "endDate": "2026-11-17",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-09T20:16:32.601Z",
-      "currency": "USD"
-    },
-    {
-      "id": "9756ec5afeebd278",
-      "title": "Christmas In Our Fears [Extended]",
-      "description": "Filipino Christmas Found Footage Horror Game",
-      "store": "itch.io",
-      "originalPrice": 1,
-      "salePrice": 0.6,
-      "discountPercent": 40,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://murushii.itch.io/christmas-in-our-fears-extended-version",
-      "endDate": "2026-11-30",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-09T20:16:32.601Z",
       "currency": "USD"
@@ -1420,26 +1461,6 @@
       "location": "ships-to-ontario",
       "url": "https://itandfeel.itch.io/the-midnight-bus",
       "endDate": "2026-11-18",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-05T17:44:37.916Z",
-      "currency": "USD"
-    },
-    {
-      "id": "a6a0274ef492302f",
-      "title": "Penance",
-      "description": "Goodrich Castle, England, 1221AD",
-      "store": "itch.io",
-      "originalPrice": 1,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://pehriska.itch.io/penance",
-      "endDate": "2026-11-16",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-05T17:44:37.916Z",
       "currency": "USD"
