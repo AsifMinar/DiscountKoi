@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T19:55:34.647Z",
+  "updatedAt": "2026-11-17T18:51:28.206Z",
   "deals": [
     {
       "id": "c5bce6ed99296654",
@@ -822,6 +822,105 @@
       "ongoing": true
     },
     {
+      "id": "9013ea8ff8cb5a6d",
+      "title": "Night Maniac 3: The Origin Of Steven",
+      "description": "A 1948 narrative horror. Witness Steven Watson's dark descent in a rotting town and the bloody origin of a legend.",
+      "store": "itch.io",
+      "originalPrice": 7.99,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://noxusgamesstudio.itch.io/night-maniac-the-origin-of-steven",
+      "endDate": "2026-11-17",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-17T18:51:28.206Z",
+      "currency": "USD"
+    },
+    {
+      "id": "a6a0274ef492302f",
+      "title": "Penance",
+      "description": "Goodrich Castle, England, 1221AD",
+      "store": "itch.io",
+      "originalPrice": 1,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://pehriska.itch.io/penance",
+      "endDate": "2026-11-19",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-17T18:51:28.206Z",
+      "currency": "USD"
+    },
+    {
+      "id": "01c0cbafb198fd7c",
+      "title": "PCB DEFENSE: BREACH",
+      "description": "Heat is the health bar. Bullet-heaven tower defense on a living PCB. Free demo, $4.99 full version.",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 2.49,
+      "discountPercent": 50,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://juba13.itch.io/pcb-defense-breach",
+      "endDate": "2026-11-23",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-17T18:51:28.206Z",
+      "currency": "USD"
+    },
+    {
+      "id": "1c816c99fc0d2aec",
+      "title": "Sofia?",
+      "description": "A queer rpgmaker mystery adventure game where you spent a nice evening with your boyfriend... or do you?",
+      "store": "itch.io",
+      "originalPrice": 0,
+      "salePrice": 0,
+      "discountPercent": 50,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://hatoge.itch.io/sofia",
+      "endDate": "2026-11-23",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-17T18:51:28.206Z",
+      "currency": "USD"
+    },
+    {
+      "id": "1e0b3c5236b22089",
+      "title": "BROK: The Brawl Bar",
+      "description": "A wild party beat' em up with crazy challenges!",
+      "store": "itch.io",
+      "originalPrice": 9.99,
+      "salePrice": 6.69,
+      "discountPercent": 33,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://cowcat.itch.io/brok-the-brawl-bar",
+      "endDate": "2026-11-30",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-17T18:51:28.206Z",
+      "currency": "USD"
+    },
+    {
       "id": "0a504542687fcff6",
       "title": "Pigeon West: Johnny the Pigeon",
       "description": "He's a dove and he's a cowboy, time to pile on all the bad, the bad and the good.",
@@ -978,25 +1077,6 @@
       "currency": "USD"
     },
     {
-      "id": "f513fadfdc9f9a85",
-      "title": "Family Secrets 1 : Empty Plate",
-      "description": "Short Horror Game",
-      "store": "itch.io",
-      "originalPrice": 4,
-      "salePrice": 2,
-      "discountPercent": 50,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://badcat-games.itch.io/family-secrets-1-empty-plate",
-      "endDate": "2026-12-10",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-15T16:41:33.425Z",
-      "currency": "USD"
-    },
-    {
       "id": "3fd1e62bfd83a249",
       "title": "Ghosts'n Demons",
       "description": "Side-scrolling platforming game",
@@ -1076,13 +1156,14 @@
     {
       "id": "4785cd9b67ff2e9b",
       "title": "Sword and Sceptre 64",
-      "description": "A first-person, real-time party dungeon crawler for the Commodore 64 with RAM expansion (REU).",
+      "description": "A first-person, real-time party dungeon crawler for the Commodore 64 with RAM expansion (REU). Free Demo",
       "store": "itch.io",
       "originalPrice": 4.99,
       "salePrice": 3.99,
       "discountPercent": 20,
       "dealType": [
-        "online"
+        "online",
+        "free"
       ],
       "category": "entertainment",
       "location": "ships-to-ontario",
@@ -1109,26 +1190,6 @@
       "endDate": "2026-12-03",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-13T17:25:36.146Z",
-      "currency": "USD"
-    },
-    {
-      "id": "6fc6938adf56b483",
-      "title": "Fix Her Pipes",
-      "description": "Escape from Pipe Granny.",
-      "store": "itch.io",
-      "originalPrice": 4,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://deeplookgames.itch.io/fix-her-pipes",
-      "endDate": "2026-11-19",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-12T17:47:38.591Z",
       "currency": "USD"
     },
     {
@@ -1170,39 +1231,20 @@
       "currency": "USD"
     },
     {
-      "id": "293d06623aeb921b",
-      "title": "Lock and Key: A Magical Girl Mystery",
-      "description": "Two married Magical Girls hunt a killer and build a future",
+      "id": "6fc6938adf56b483",
+      "title": "Fix Her Pipes",
+      "description": "Escape from Pipe Granny.",
       "store": "itch.io",
-      "originalPrice": 15,
-      "salePrice": 12,
-      "discountPercent": 20,
+      "originalPrice": 4,
+      "salePrice": 2,
+      "discountPercent": 50,
       "dealType": [
         "online"
       ],
       "category": "entertainment",
       "location": "ships-to-ontario",
-      "url": "https://vnstudioelan.itch.io/lock-and-key",
-      "endDate": "2026-11-18",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-12T17:47:38.591Z",
-      "currency": "USD"
-    },
-    {
-      "id": "7121df72fa7045b4",
-      "title": "Fox Stamps",
-      "description": "Fill out puzzles to reveal images, and complete your stamp collection in this casual nonogram game!",
-      "store": "itch.io",
-      "originalPrice": 9.99,
-      "salePrice": 8.99,
-      "discountPercent": 10,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://cyansorcery.itch.io/fox-stamps",
-      "endDate": "2026-11-20",
+      "url": "https://deeplookgames.itch.io/fix-her-pipes",
+      "endDate": "2026-11-24",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-12T17:47:38.591Z",
       "currency": "USD"
@@ -1281,29 +1323,9 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://deeplookgames.itch.io/kill-the-creator",
-      "endDate": "2026-12-04",
+      "endDate": "2026-11-24",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-10T17:22:14.361Z",
-      "currency": "USD"
-    },
-    {
-      "id": "6d12d7b6c7012f8f",
-      "title": "Don't Fix Her Pipes",
-      "description": "Based on real murders from the 1980s.",
-      "store": "itch.io",
-      "originalPrice": 3,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://deeplookgames.itch.io/dont-fix-her-pipes",
-      "endDate": "2026-11-18",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-09T20:16:32.601Z",
       "currency": "USD"
     },
     {
@@ -1360,7 +1382,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://deeplookgames.itch.io/its-not-human",
-      "endDate": "2026-12-04",
+      "endDate": "2026-11-24",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-08T16:26:43.592Z",
       "currency": "USD"
