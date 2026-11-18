@@ -1,6 +1,22 @@
 {
-  "updatedAt": "2026-11-17T18:51:28.206Z",
+  "updatedAt": "2026-11-18T18:29:53.916Z",
   "deals": [
+    {
+      "id": "d4d7825fc9072181",
+      "title": "Giant Tiger weekly flyer · Nov 18–24",
+      "description": "This week's Giant Tiger weekly flyer. Open it on Giant Tiger's site and choose your Greater Sudbury store to see local prices.",
+      "store": "Giant Tiger",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "other",
+      "location": "sudbury",
+      "url": "https://www.gianttiger.com/collections/flyers-and-deals",
+      "startDate": "2026-11-18",
+      "endDate": "2026-11-24",
+      "source": "flyer-links",
+      "scrapedAt": "2026-11-18T18:29:53.916Z"
+    },
     {
       "id": "c5bce6ed99296654",
       "title": "Shoppers Drug Mart weekly flyer · Nov 14–20",
@@ -128,22 +144,6 @@
       "endDate": "2026-11-18",
       "source": "flyer-links",
       "scrapedAt": "2026-11-12T17:47:38.591Z"
-    },
-    {
-      "id": "4fe3b226ac45e068",
-      "title": "Giant Tiger weekly flyer · Nov 11–17",
-      "description": "This week's Giant Tiger weekly flyer. Open it on Giant Tiger's site and choose your Greater Sudbury store to see local prices.",
-      "store": "Giant Tiger",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "other",
-      "location": "sudbury",
-      "url": "https://www.gianttiger.com/collections/flyers-and-deals",
-      "startDate": "2026-11-11",
-      "endDate": "2026-11-17",
-      "source": "flyer-links",
-      "scrapedAt": "2026-11-11T17:33:13.353Z"
     },
     {
       "id": "0091dd236e44ae70",
@@ -822,23 +822,79 @@
       "ongoing": true
     },
     {
-      "id": "9013ea8ff8cb5a6d",
-      "title": "Night Maniac 3: The Origin Of Steven",
-      "description": "A 1948 narrative horror. Witness Steven Watson's dark descent in a rotting town and the bloody origin of a legend.",
+      "id": "e4736614da90c3e1",
+      "title": "One Night Stand",
+      "description": "After a night of fun, passion, and one too many drinks, you awake the next morning to find a stranger lying beside you.",
       "store": "itch.io",
-      "originalPrice": 7.99,
-      "salePrice": 0,
-      "discountPercent": 100,
+      "originalPrice": 2.99,
+      "salePrice": 0.29,
+      "discountPercent": 90,
       "dealType": [
-        "online",
-        "free"
+        "online"
       ],
       "category": "entertainment",
       "location": "ships-to-ontario",
-      "url": "https://noxusgamesstudio.itch.io/night-maniac-the-origin-of-steven",
-      "endDate": "2026-11-17",
+      "url": "https://kinmoku.itch.io/one-night-stand",
+      "endDate": "2026-11-21",
       "source": "itch-io-sales",
-      "scrapedAt": "2026-11-17T18:51:28.206Z",
+      "scrapedAt": "2026-11-18T18:29:53.916Z",
+      "currency": "USD"
+    },
+    {
+      "id": "82e244b60a46e957",
+      "title": "ABSOLUTELY NOTHING GOOD",
+      "description": "Atmospheric Horror / Store Simulation",
+      "store": "itch.io",
+      "originalPrice": 6.99,
+      "salePrice": 1.04,
+      "discountPercent": 85,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://emika-games.itch.io/absolutely-nothing-good",
+      "endDate": "2026-12-06",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-18T18:29:53.916Z",
+      "currency": "USD"
+    },
+    {
+      "id": "8fd7a12de4f5528f",
+      "title": "Pixel Fireplace",
+      "description": "Type commands, roast marshmallows, throw logs onto a crackling fire. Enjoy",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 2.49,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://hammertail.itch.io/pixel-fireplace",
+      "endDate": "2026-11-30",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-18T18:29:53.916Z",
+      "currency": "USD"
+    },
+    {
+      "id": "e8f7aaefa9ce68a9",
+      "title": "Legends of Dragaea: Idle Dungeons",
+      "description": "An Idle Dungeon Crawling Autobattling RPG",
+      "store": "itch.io",
+      "originalPrice": 9.99,
+      "salePrice": 6.99,
+      "discountPercent": 30,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://renoki.itch.io/dragaea-idle",
+      "endDate": "2026-11-23",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-18T18:29:53.916Z",
       "currency": "USD"
     },
     {
@@ -902,25 +958,6 @@
       "currency": "USD"
     },
     {
-      "id": "1e0b3c5236b22089",
-      "title": "BROK: The Brawl Bar",
-      "description": "A wild party beat' em up with crazy challenges!",
-      "store": "itch.io",
-      "originalPrice": 9.99,
-      "salePrice": 6.69,
-      "discountPercent": 33,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://cowcat.itch.io/brok-the-brawl-bar",
-      "endDate": "2026-11-30",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-17T18:51:28.206Z",
-      "currency": "USD"
-    },
-    {
       "id": "0a504542687fcff6",
       "title": "Pigeon West: Johnny the Pigeon",
       "description": "He's a dove and he's a cowboy, time to pile on all the bad, the bad and the good.",
@@ -941,46 +978,6 @@
       "currency": "USD"
     },
     {
-      "id": "2e10ffd5051cda7d",
-      "title": "Night Maniac",
-      "description": "Night Maniac is a horror game where Jonathan faces a deadly threat after a dangerous fugitive escapes. Survive!",
-      "store": "itch.io",
-      "originalPrice": 6.3,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://noxusgamesstudio.itch.io/nightmaniac",
-      "endDate": "2026-11-17",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-16T19:55:34.647Z",
-      "currency": "USD"
-    },
-    {
-      "id": "82d460236c89ada2",
-      "title": "Night Maniac 2: The Legacy Of Blood",
-      "description": "The Red Valley Killer returned! and is now in GreenFord!",
-      "store": "itch.io",
-      "originalPrice": 5.3,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://noxusgamesstudio.itch.io/nightmaniac2",
-      "endDate": "2026-11-17",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-16T19:55:34.647Z",
-      "currency": "USD"
-    },
-    {
       "id": "890c35ffa0084db8",
       "title": "The Noise Inside",
       "description": "Take your pills, but tonight, there are no left.",
@@ -996,25 +993,6 @@
       "location": "ships-to-ontario",
       "url": "https://bubu07.itch.io/the-noise-inside",
       "endDate": "2026-12-01",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-16T19:55:34.647Z",
-      "currency": "USD"
-    },
-    {
-      "id": "a3d5f4490a746e7f",
-      "title": "Day of the Tentacle Remastered",
-      "description": "Dr. Fred’s mutated purple tentacle is about to take over the world, and only you can stop him!",
-      "store": "itch.io",
-      "originalPrice": 14.99,
-      "salePrice": 2.99,
-      "discountPercent": 80,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://doublefine.itch.io/day-of-the-tentacle-remastered",
-      "endDate": "2026-12-03",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-16T19:55:34.647Z",
       "currency": "USD"
@@ -1250,25 +1228,6 @@
       "currency": "USD"
     },
     {
-      "id": "8fe843b168c791b2",
-      "title": "Imperial Grace",
-      "description": "Play as the new Empress of Calidya through an otome game / visual novel rife with romance, ambition and deceit.",
-      "store": "itch.io",
-      "originalPrice": 19.9,
-      "salePrice": 17.91,
-      "discountPercent": 10,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://abiding-bridge.itch.io/imperial-grace",
-      "endDate": "2026-11-18",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-12T17:47:38.591Z",
-      "currency": "USD"
-    },
-    {
       "id": "e1684912c9cd8968",
       "title": "Lord of Chaos",
       "description": "You were never meant to leave. A PSX-style horror game.",
@@ -1283,7 +1242,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://hexnut-studios.itch.io/lord-of-chaos",
-      "endDate": "2026-11-18",
+      "endDate": "2026-11-21",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-11T17:33:13.353Z",
       "currency": "USD"
@@ -1329,26 +1288,6 @@
       "currency": "USD"
     },
     {
-      "id": "a1fd9b3704d8cd78",
-      "title": "Final Witness",
-      "description": "You found the truth. Can you survive? A PSX-style horror game.",
-      "store": "itch.io",
-      "originalPrice": 3.99,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://hexnut-studios.itch.io/final-witness",
-      "endDate": "2026-11-17",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-09T20:16:32.601Z",
-      "currency": "USD"
-    },
-    {
       "id": "cd4408372882b834",
       "title": "Goodboy Galaxy (for GBA)",
       "description": "Help Maxwell explore unfamiliar worlds, make strange new friends and contend with mysterious forces.",
@@ -1363,6 +1302,25 @@
       "location": "ships-to-ontario",
       "url": "https://goodboygalaxy.itch.io/goodboy-galaxy-gba",
       "endDate": "2026-11-18",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-09T20:16:32.601Z",
+      "currency": "USD"
+    },
+    {
+      "id": "a1fd9b3704d8cd78",
+      "title": "Final Witness",
+      "description": "You found the truth. Can you survive? A PSX-style horror game.",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 3.99,
+      "discountPercent": 20,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://hexnut-studios.itch.io/final-witness",
+      "endDate": "2026-11-20",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-09T20:16:32.601Z",
       "currency": "USD"
