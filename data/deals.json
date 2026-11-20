@@ -1,6 +1,22 @@
 {
-  "updatedAt": "2026-11-19T18:43:49.391Z",
+  "updatedAt": "2026-11-20T18:07:28.512Z",
   "deals": [
+    {
+      "id": "10b31d8aab5de836",
+      "title": "Best Buy weekly deals · Nov 20–26",
+      "description": "This week's Best Buy weekly deals. Open it on Best Buy's site and choose your Greater Sudbury store to see local prices.",
+      "store": "Best Buy",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "electronics",
+      "location": "sudbury",
+      "url": "https://www.bestbuy.ca/en-ca/flyer",
+      "startDate": "2026-11-20",
+      "endDate": "2026-11-26",
+      "source": "flyer-links",
+      "scrapedAt": "2026-11-20T18:07:28.512Z"
+    },
     {
       "id": "10a92ab1ad2e0172",
       "title": "FreshCo weekly flyer · Nov 19–25",
@@ -128,22 +144,6 @@
       "endDate": "2026-11-20",
       "source": "flyer-links",
       "scrapedAt": "2026-11-14T16:13:49.046Z"
-    },
-    {
-      "id": "0400f3594c9182a8",
-      "title": "Best Buy weekly deals · Nov 13–19",
-      "description": "This week's Best Buy weekly deals. Open it on Best Buy's site and choose your Greater Sudbury store to see local prices.",
-      "store": "Best Buy",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "electronics",
-      "location": "sudbury",
-      "url": "https://www.bestbuy.ca/en-ca/flyer",
-      "startDate": "2026-11-13",
-      "endDate": "2026-11-19",
-      "source": "flyer-links",
-      "scrapedAt": "2026-11-13T17:25:36.146Z"
     },
     {
       "id": "0091dd236e44ae70",
@@ -822,41 +822,137 @@
       "ongoing": true
     },
     {
-      "id": "81bf3e957bbc66c0",
-      "title": "Broken Age",
-      "description": "Broken Age is a family friendly, hand-animated, puzzle-filled adventure game",
+      "id": "092a26ad716673e0",
+      "title": "KOURUSH: 3D Color Matching Tunnel Runner",
+      "description": "Switch colors, shatter glass, and survive an endless 3D tunnel!",
       "store": "itch.io",
-      "originalPrice": 14.99,
-      "salePrice": 2.99,
+      "originalPrice": 24.99,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://sderfxdev.itch.io/kourush",
+      "endDate": "2026-11-23",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-20T18:07:28.512Z",
+      "currency": "USD"
+    },
+    {
+      "id": "b5187d60f8f2cfa9",
+      "title": "CALLUS",
+      "description": "A short psychological horror game",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 0.99,
       "discountPercent": 80,
       "dealType": [
         "online"
       ],
       "category": "entertainment",
       "location": "ships-to-ontario",
-      "url": "https://doublefine.itch.io/broken-age",
-      "endDate": "2026-12-03",
+      "url": "https://emika-games.itch.io/callus",
+      "endDate": "2026-12-05",
       "source": "itch-io-sales",
-      "scrapedAt": "2026-11-19T18:43:49.391Z",
+      "scrapedAt": "2026-11-20T18:07:28.512Z",
       "currency": "USD"
     },
     {
-      "id": "095d09e6794c41bd",
-      "title": "INSERT",
-      "description": "A strange doorbell. An abandoned VHS tape. Explore the mystery and face the darkness in this first-person horror game.",
+      "id": "6d12d7b6c7012f8f",
+      "title": "Don't Fix Her Pipes",
+      "description": "Based on real murders from the 1980s.",
       "store": "itch.io",
-      "originalPrice": 4,
-      "salePrice": 1,
-      "discountPercent": 75,
+      "originalPrice": 2,
+      "salePrice": 1.32,
+      "discountPercent": 34,
       "dealType": [
         "online"
       ],
       "category": "entertainment",
       "location": "ships-to-ontario",
-      "url": "https://badnight-studio.itch.io/insert",
+      "url": "https://deeplookgames.itch.io/dont-fix-her-pipes",
       "endDate": "2026-11-25",
       "source": "itch-io-sales",
-      "scrapedAt": "2026-11-19T18:43:49.391Z",
+      "scrapedAt": "2026-11-20T18:07:28.512Z",
+      "currency": "USD"
+    },
+    {
+      "id": "6fc6938adf56b483",
+      "title": "Fix Her Pipes",
+      "description": "Escape from Pipe Granny.",
+      "store": "itch.io",
+      "originalPrice": 3,
+      "salePrice": 1.98,
+      "discountPercent": 34,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://deeplookgames.itch.io/fix-her-pipes",
+      "endDate": "2026-11-25",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-20T18:07:28.512Z",
+      "currency": "USD"
+    },
+    {
+      "id": "cc3faeaf29a258d0",
+      "title": "BROK the InvestiGator",
+      "description": "One croc. Lots of trouble...!",
+      "store": "itch.io",
+      "originalPrice": 19.99,
+      "salePrice": 14.99,
+      "discountPercent": 25,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://cowcat.itch.io/brok",
+      "endDate": "2026-11-29",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-20T18:07:28.512Z",
+      "currency": "USD"
+    },
+    {
+      "id": "b19e5d1b8ffb2574",
+      "title": "Kill Race – Amiga AGA",
+      "description": "Combat racing for Amiga AGA with 4-player split-screen / Kampfrennen für Amiga AGA mit 4-Spieler-Splitscreen",
+      "store": "itch.io",
+      "originalPrice": 4.99,
+      "salePrice": 3.99,
+      "discountPercent": 20,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://2311-bytes.itch.io/kill-race",
+      "endDate": "2026-11-22",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-20T18:07:28.512Z",
+      "currency": "USD"
+    },
+    {
+      "id": "7121df72fa7045b4",
+      "title": "Fox Stamps",
+      "description": "Fill out puzzles to reveal images, and complete your stamp collection in this casual nonogram game!",
+      "store": "itch.io",
+      "originalPrice": 9.99,
+      "salePrice": 8.99,
+      "discountPercent": 10,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://cyansorcery.itch.io/fox-stamps",
+      "endDate": "2026-11-20",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-20T18:07:28.512Z",
       "currency": "USD"
     },
     {
@@ -987,7 +1083,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://hammertail.itch.io/pixel-fireplace",
-      "endDate": "2026-11-30",
+      "endDate": "2026-11-27",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-18T18:29:53.916Z",
       "currency": "USD"
@@ -1072,25 +1168,6 @@
       "currency": "USD"
     },
     {
-      "id": "f20cd19afd9bae2b",
-      "title": "Grim Fandango Remastered",
-      "description": "Meet Manny Calavera, travel agent at the Department of Death.",
-      "store": "itch.io",
-      "originalPrice": 14.99,
-      "salePrice": 2.99,
-      "discountPercent": 80,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://doublefine.itch.io/grim-fandango-remastered",
-      "endDate": "2026-12-03",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-16T19:55:34.647Z",
-      "currency": "USD"
-    },
-    {
       "id": "958e227411ae20c6",
       "title": "The Bunker",
       "description": "Horrible experiment that gone wrong.",
@@ -1129,26 +1206,6 @@
       "currency": "USD"
     },
     {
-      "id": "3fd1e62bfd83a249",
-      "title": "Ghosts'n Demons",
-      "description": "Side-scrolling platforming game",
-      "store": "itch.io",
-      "originalPrice": 0,
-      "salePrice": 0,
-      "discountPercent": 25,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://bonusjz.itch.io/ghostsn-demons",
-      "endDate": "2026-11-30",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-15T16:41:33.425Z",
-      "currency": "USD"
-    },
-    {
       "id": "2c6c39142baea5c5",
       "title": "Psychonauts",
       "description": "A Psychic Odyssey Through the Minds of Misfits, Monsters, and Madmen.",
@@ -1182,26 +1239,6 @@
       "location": "ships-to-ontario",
       "url": "https://murushii.itch.io/taguan",
       "endDate": "2026-11-30",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-14T16:13:49.046Z",
-      "currency": "USD"
-    },
-    {
-      "id": "4785cd9b67ff2e9b",
-      "title": "Sword and Sceptre 64",
-      "description": "A first-person, real-time party dungeon crawler for the Commodore 64 with RAM expansion (REU). Free Demo",
-      "store": "itch.io",
-      "originalPrice": 4.99,
-      "salePrice": 3.99,
-      "discountPercent": 20,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://wirelessjava.itch.io/sword-sceptre-64",
-      "endDate": "2026-11-20",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-14T16:13:49.046Z",
       "currency": "USD"
