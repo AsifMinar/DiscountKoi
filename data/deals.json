@@ -1,6 +1,22 @@
 {
-  "updatedAt": "2026-11-20T18:07:28.512Z",
+  "updatedAt": "2026-11-21T17:00:17.242Z",
   "deals": [
+    {
+      "id": "91aabbc30c5c787b",
+      "title": "Shoppers Drug Mart weekly flyer · Nov 21–27",
+      "description": "This week's Shoppers Drug Mart weekly flyer. Open it on Shoppers Drug Mart's site and choose your Greater Sudbury store to see local prices.",
+      "store": "Shoppers Drug Mart",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "health-beauty",
+      "location": "sudbury",
+      "url": "https://www.shoppersdrugmart.ca/flyer",
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-27",
+      "source": "flyer-links",
+      "scrapedAt": "2026-11-21T17:00:17.242Z"
+    },
     {
       "id": "10b31d8aab5de836",
       "title": "Best Buy weekly deals · Nov 20–26",
@@ -128,22 +144,6 @@
       "endDate": "2026-11-24",
       "source": "flyer-links",
       "scrapedAt": "2026-11-18T18:29:53.916Z"
-    },
-    {
-      "id": "c5bce6ed99296654",
-      "title": "Shoppers Drug Mart weekly flyer · Nov 14–20",
-      "description": "This week's Shoppers Drug Mart weekly flyer. Open it on Shoppers Drug Mart's site and choose your Greater Sudbury store to see local prices.",
-      "store": "Shoppers Drug Mart",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "health-beauty",
-      "location": "sudbury",
-      "url": "https://www.shoppersdrugmart.ca/flyer",
-      "startDate": "2026-11-14",
-      "endDate": "2026-11-20",
-      "source": "flyer-links",
-      "scrapedAt": "2026-11-14T16:13:49.046Z"
     },
     {
       "id": "0091dd236e44ae70",
@@ -937,25 +937,6 @@
       "currency": "USD"
     },
     {
-      "id": "7121df72fa7045b4",
-      "title": "Fox Stamps",
-      "description": "Fill out puzzles to reveal images, and complete your stamp collection in this casual nonogram game!",
-      "store": "itch.io",
-      "originalPrice": 9.99,
-      "salePrice": 8.99,
-      "discountPercent": 10,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://cyansorcery.itch.io/fox-stamps",
-      "endDate": "2026-11-20",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-20T18:07:28.512Z",
-      "currency": "USD"
-    },
-    {
       "id": "477ca53b763f1a62",
       "title": "Don't Sleep (Huwag Matulog)",
       "description": "Filipino Meta Psychological Horror Game",
@@ -1338,26 +1319,6 @@
       "endDate": "2026-11-27",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-10T17:22:14.361Z",
-      "currency": "USD"
-    },
-    {
-      "id": "a1fd9b3704d8cd78",
-      "title": "Final Witness",
-      "description": "You found the truth. Can you survive? A PSX-style horror game.",
-      "store": "itch.io",
-      "originalPrice": 4.99,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://hexnut-studios.itch.io/final-witness",
-      "endDate": "2026-11-20",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-09T20:16:32.601Z",
       "currency": "USD"
     },
     {
