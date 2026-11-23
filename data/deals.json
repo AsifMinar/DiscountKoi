@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-22T17:28:32.514Z",
+  "updatedAt": "2026-11-23T21:48:36.566Z",
   "deals": [
     {
       "id": "91aabbc30c5c787b",
@@ -1106,25 +1106,6 @@
       "location": "ships-to-ontario",
       "url": "https://cowcat.itch.io/brok-the-brawl-bar",
       "endDate": "2026-11-30",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-19T18:43:49.391Z",
-      "currency": "USD"
-    },
-    {
-      "id": "2a0dbbe4cf5aad28",
-      "title": "Flopbox – Gore Ragdoll Physics Sandbox",
-      "description": "Gore ragdoll sandbox: shoot, saw and dismember dummies with X-ray anatomy. Play in your browser or download.",
-      "store": "itch.io",
-      "originalPrice": 4.99,
-      "salePrice": 3.99,
-      "discountPercent": 20,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://kareem8.itch.io/flopbox",
-      "endDate": "2026-11-22",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-19T18:43:49.391Z",
       "currency": "USD"
