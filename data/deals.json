@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-23T21:48:36.566Z",
+  "updatedAt": "2026-11-24T20:25:34.279Z",
   "deals": [
     {
       "id": "91aabbc30c5c787b",
@@ -822,9 +822,9 @@
       "ongoing": true
     },
     {
-      "id": "2bcac83330a0e6c9",
-      "title": "Lift a House with Balloons",
-      "description": "250 tonnes of house. A party balloon lifts 10 grams. Start blowing.",
+      "id": "b053365241a15de3",
+      "title": "Lost In Transit",
+      "description": "The next package is waiting.",
       "store": "itch.io",
       "originalPrice": 1.99,
       "salePrice": 0,
@@ -835,10 +835,163 @@
       ],
       "category": "entertainment",
       "location": "ships-to-ontario",
-      "url": "https://barhe.itch.io/lift-a-house-with-balloons",
-      "endDate": "2026-11-24",
+      "url": "https://boxer-gaming.itch.io/lost-in-transit",
+      "endDate": "2026-12-03",
       "source": "itch-io-sales",
-      "scrapedAt": "2026-11-22T17:28:32.514Z",
+      "scrapedAt": "2026-11-24T20:25:34.279Z",
+      "currency": "USD"
+    },
+    {
+      "id": "b28e205490fd583d",
+      "title": "Bamm",
+      "description": "Unique team fighting!",
+      "store": "itch.io",
+      "originalPrice": 3,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://bukmand.itch.io/bamm",
+      "endDate": "2026-11-26",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-24T20:25:34.279Z",
+      "currency": "USD"
+    },
+    {
+      "id": "82e244b60a46e957",
+      "title": "ABSOLUTELY NOTHING GOOD",
+      "description": "Atmospheric Horror / Store Simulation",
+      "store": "itch.io",
+      "originalPrice": 6.99,
+      "salePrice": 1.04,
+      "discountPercent": 85,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://emika-games.itch.io/absolutely-nothing-good",
+      "endDate": "2026-12-06",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-24T20:25:34.279Z",
+      "currency": "USD"
+    },
+    {
+      "id": "a3d5f4490a746e7f",
+      "title": "Day of the Tentacle Remastered",
+      "description": "Dr. Fred’s mutated purple tentacle is about to take over the world, and only you can stop him!",
+      "store": "itch.io",
+      "originalPrice": 14.99,
+      "salePrice": 2.99,
+      "discountPercent": 80,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://doublefine.itch.io/day-of-the-tentacle-remastered",
+      "endDate": "2026-12-03",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-24T20:25:34.279Z",
+      "currency": "USD"
+    },
+    {
+      "id": "f20cd19afd9bae2b",
+      "title": "Grim Fandango Remastered",
+      "description": "Meet Manny Calavera, travel agent at the Department of Death.",
+      "store": "itch.io",
+      "originalPrice": 14.99,
+      "salePrice": 2.99,
+      "discountPercent": 80,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://doublefine.itch.io/grim-fandango-remastered",
+      "endDate": "2026-12-03",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-24T20:25:34.279Z",
+      "currency": "USD"
+    },
+    {
+      "id": "f513fadfdc9f9a85",
+      "title": "Family Secrets 1 : Empty Plate",
+      "description": "Short Horror Game",
+      "store": "itch.io",
+      "originalPrice": 4,
+      "salePrice": 2,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://badcat-games.itch.io/family-secrets-1-empty-plate",
+      "endDate": "2026-12-10",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-24T20:25:34.279Z",
+      "currency": "USD"
+    },
+    {
+      "id": "d647ad56b9cd9547",
+      "title": "Marupok",
+      "description": "Filipino Horror-Romance Game",
+      "store": "itch.io",
+      "originalPrice": 1,
+      "salePrice": 0.6,
+      "discountPercent": 40,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://murushii.itch.io/marupok",
+      "endDate": "2026-11-30",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-24T20:25:34.279Z",
+      "currency": "USD"
+    },
+    {
+      "id": "32091d7ff7a251e7",
+      "title": "ISO/2004 [Chapter#1]",
+      "description": "A Filipino horror experience rooted in sensibilities and quiet cruelty.",
+      "store": "itch.io",
+      "originalPrice": 3.99,
+      "salePrice": 2.79,
+      "discountPercent": 30,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://koniipinka.itch.io/iso2004-chapter1",
+      "endDate": "2026-11-29",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-24T20:25:34.279Z",
+      "currency": "USD"
+    },
+    {
+      "id": "cc3faeaf29a258d0",
+      "title": "BROK the InvestiGator",
+      "description": "One croc. Lots of trouble...!",
+      "store": "itch.io",
+      "originalPrice": 19.99,
+      "salePrice": 14.99,
+      "discountPercent": 25,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://cowcat.itch.io/brok",
+      "endDate": "2026-11-29",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-24T20:25:34.279Z",
       "currency": "USD"
     },
     {
@@ -876,7 +1029,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://hexnut-studios.itch.io/final-witness",
-      "endDate": "2026-11-23",
+      "endDate": "2026-11-25",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-22T17:28:32.514Z",
       "currency": "USD"
@@ -1016,25 +1169,6 @@
       "currency": "USD"
     },
     {
-      "id": "285ddbe99461d24e",
-      "title": "Roguecraft DX (PC)",
-      "description": "A modern roguelike for the PC!",
-      "store": "itch.io",
-      "originalPrice": 11.99,
-      "salePrice": 9.59,
-      "discountPercent": 20,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://thalamusdigital.itch.io/roguecraft-dx-pc",
-      "endDate": "2026-11-26",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-22T17:28:32.514Z",
-      "currency": "USD"
-    },
-    {
       "id": "b5187d60f8f2cfa9",
       "title": "CALLUS",
       "description": "A short psychological horror game",
@@ -1059,15 +1193,15 @@
       "description": "Based on real murders from the 1980s.",
       "store": "itch.io",
       "originalPrice": 2,
-      "salePrice": 1.32,
-      "discountPercent": 34,
+      "salePrice": 1,
+      "discountPercent": 50,
       "dealType": [
         "online"
       ],
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://deeplookgames.itch.io/dont-fix-her-pipes",
-      "endDate": "2026-11-25",
+      "endDate": "2026-11-27",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-20T18:07:28.512Z",
       "currency": "USD"
@@ -1078,15 +1212,15 @@
       "description": "Escape from Pipe Granny.",
       "store": "itch.io",
       "originalPrice": 3,
-      "salePrice": 1.98,
-      "discountPercent": 34,
+      "salePrice": 1.5,
+      "discountPercent": 50,
       "dealType": [
         "online"
       ],
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://deeplookgames.itch.io/fix-her-pipes",
-      "endDate": "2026-11-25",
+      "endDate": "2026-11-27",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-20T18:07:28.512Z",
       "currency": "USD"
@@ -1130,26 +1264,6 @@
       "currency": "USD"
     },
     {
-      "id": "1c816c99fc0d2aec",
-      "title": "Sofia?",
-      "description": "A queer rpgmaker mystery adventure game where you spent a nice evening with your boyfriend... or do you?",
-      "store": "itch.io",
-      "originalPrice": 0,
-      "salePrice": 0,
-      "discountPercent": 50,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://hatoge.itch.io/sofia",
-      "endDate": "2026-11-23",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-17T18:51:28.206Z",
-      "currency": "USD"
-    },
-    {
       "id": "890c35ffa0084db8",
       "title": "The Noise Inside",
       "description": "Take your pills, but tonight, there are no left.",
@@ -1165,25 +1279,6 @@
       "location": "ships-to-ontario",
       "url": "https://bubu07.itch.io/the-noise-inside",
       "endDate": "2026-12-01",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-16T19:55:34.647Z",
-      "currency": "USD"
-    },
-    {
-      "id": "958e227411ae20c6",
-      "title": "The Bunker",
-      "description": "Horrible experiment that gone wrong.",
-      "store": "itch.io",
-      "originalPrice": 3,
-      "salePrice": 0.9,
-      "discountPercent": 70,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://cyber752.itch.io/the-bunker",
-      "endDate": "2026-11-29",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-16T19:55:34.647Z",
       "currency": "USD"
@@ -1298,7 +1393,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://hexnut-studios.itch.io/lord-of-chaos",
-      "endDate": "2026-11-24",
+      "endDate": "2026-11-26",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-11T17:33:13.353Z",
       "currency": "USD"
