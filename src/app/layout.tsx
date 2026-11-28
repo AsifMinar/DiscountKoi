@@ -1,11 +1,14 @@
 import type { Metadata, Viewport } from "next";
 // The font file ships inside the project (npm package "geist"), so nothing is fetched
 // from Google, at build time or by visitors.
+import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { Providers } from "@/components/Providers";
+import { StatusLayer } from "@/components/StatusLayer";
+import { TabBar } from "@/components/TabBar";
 import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, pageMetadata } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/lib/site";
 import "./globals.css";
@@ -27,15 +30,19 @@ export const viewport: Viewport = {
   viewportFit: "cover",
   colorScheme: "light dark",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f6f2ee" },
-    { media: "(prefers-color-scheme: dark)", color: "#0c1517" },
+    { media: "(prefers-color-scheme: light)", color: "#f4f3fb" },
+    { media: "(prefers-color-scheme: dark)", color: "#07060f" },
   ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     // next-themes edits the class on <html> before React hydrates, hence suppressHydrationWarning.
-    <html lang="en-CA" className={`${GeistSans.variable} antialiased`} suppressHydrationWarning>
+    <html
+      lang="en-CA"
+      className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}
+      suppressHydrationWarning
+    >
       <body className="flex min-h-dvh flex-col">
         <Providers>
           <div aria-hidden="true" className="koi-backdrop" />
@@ -50,6 +57,8 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             {children}
           </main>
           <Footer />
+          <TabBar />
+          <StatusLayer />
         </Providers>
       </body>
     </html>

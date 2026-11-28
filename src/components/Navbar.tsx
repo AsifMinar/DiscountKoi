@@ -18,6 +18,8 @@ export const NAV_LINKS = [
   { href: "/about/", label: "About" },
 ] as const;
 
+const IN_TAB_BAR = new Set<string>(["/", "/stores/", "/free/"]);
+
 const stripSlash = (path: string) => path.replace(/\/+$/, "") || "/";
 
 /** Icon link with a small count bubble (Saved deals). */
@@ -94,7 +96,7 @@ export function Navbar() {
     const active = stripSlash(href) === pathname;
     return cn(
       "inline-flex h-11 items-center rounded-full px-4 text-sm font-medium transition-colors duration-150 ease-out",
-      active ? "bg-neutral-soft text-ink" : "text-ink-muted hover:text-ink",
+      active ? "bg-accent-soft text-accent-text" : "text-ink-muted hover:text-ink",
       extra,
     );
   };
@@ -131,6 +133,8 @@ export function Navbar() {
               label="Saved deals"
               count={saved.length}
               current={pathname === "/saved"}
+              // On phones Saved is in the bottom tab bar.
+              className="max-md:hidden"
             >
               <HeartIcon className="size-5" />
             </CountLink>
@@ -156,7 +160,8 @@ export function Navbar() {
           >
             <ul className="flex flex-col gap-1">
               {NAV_LINKS.map(({ href, label }) => (
-                <li key={href}>
+                // On phones, links that are already in the bottom tab bar are left out.
+                <li key={href} className={cn(IN_TAB_BAR.has(href) && "max-md:hidden")}>
                   <Link
                     href={href}
                     className={linkClass(href, "w-full text-base")}

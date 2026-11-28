@@ -14,6 +14,7 @@ import {
   type PageScope,
 } from "@/lib/filters";
 import { foodProgramGroups, isFoodHelp } from "@/lib/food-help";
+import { dealStats } from "@/lib/stats";
 import { isFlyer, storeDirectory } from "@/lib/stores";
 import { torontoDate } from "@/lib/format";
 
@@ -71,6 +72,7 @@ export function explorerData(scope: PageScope = { page: "home" }) {
           stores: storeDirectory(deals),
           studentCount: all.filter((d) => inScope(d, { page: "student" })).length,
           freeCount: all.filter((d) => inScope(d, { page: "free" }) || isFoodHelp(d)).length,
+          stats: dealStats(deals, today),
         }
       : undefined,
   };

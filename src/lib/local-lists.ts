@@ -8,6 +8,24 @@ import { useSyncExternalStore } from "react";
 
 const EMPTY: string[] = [];
 
+let blocked: boolean | null = null;
+/**
+ * True when the browser refuses to store anything for this site (private mode in some
+ * browsers, or "block all cookies and site data"). Saved deals then last one visit only.
+ */
+export function storageBlocked(): boolean {
+  if (blocked !== null) return blocked;
+  try {
+    const key = "discountkoi:probe";
+    window.localStorage.setItem(key, "1");
+    window.localStorage.removeItem(key);
+    blocked = false;
+  } catch {
+    blocked = true;
+  }
+  return blocked;
+}
+
 function storedList(key: string, max: number) {
   let cache: string[] | null = null;
   const listeners = new Set<() => void>();
@@ -56,6 +74,10 @@ function storedList(key: string, max: number) {
     toggle: (item: string) =>
       write(read().includes(item) ? read().filter((i) => i !== item) : [item, ...read()]),
     remove: (items: string[]) => write(read().filter((i) => !items.includes(i))),
+    /** Puts back a previous list (Undo). */
+    restore: (items: string[]) => write(items),
+    /** The list right now, outside React. */
+    snapshot: () => read(),
     clear: () => write([]),
   };
 }

@@ -6,17 +6,17 @@ export function KoiMark({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" className={className}>
       <path
-        className="fill-accent"
+        className="fill-koi"
         opacity="0.55"
         d="M11.5 16 4 9.6c1.4 2.1 2 4.2 2 6.4s-.6 4.3-2 6.4L11.5 16Z"
       />
       <path
-        className="fill-accent"
+        className="fill-koi"
         d="M29 16c-2.4-4.6-6.4-7-11-7-3.2 0-6 1.4-8 4.2a5 5 0 0 0 0 5.6c2 2.8 4.8 4.2 8 4.2 4.6 0 8.6-2.4 11-7Z"
       />
-      <ellipse cx="18" cy="12.9" rx="3.2" ry="1.5" fill="#fff4ea" opacity="0.9" />
-      <circle cx="13.4" cy="17.6" r="1.3" fill="#fff4ea" opacity="0.9" />
-      <circle cx="24.6" cy="14.7" r="1.1" fill="#1c1917" />
+      <ellipse cx="18" cy="12.9" rx="3.2" ry="1.5" className="fill-koi-light" opacity="0.9" />
+      <circle cx="13.4" cy="17.6" r="1.3" className="fill-koi-light" opacity="0.9" />
+      <circle cx="24.6" cy="14.7" r="1.1" className="fill-koi-eye" />
     </svg>
   );
 }
@@ -34,7 +34,7 @@ export function Logo({ className }: { className?: string }) {
     >
       <KoiMark className="size-8" />
       <span>
-        Discount <span className="text-accent-text">Koi</span>
+        Discount <span className="text-aurora">Koi</span>
       </span>
     </Link>
   );

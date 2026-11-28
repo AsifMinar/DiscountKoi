@@ -3,10 +3,12 @@
 import { memo } from "react";
 import type { Deal } from "@shared/deal";
 import {
+  CountdownRing,
   DealPrice,
   DealTile,
   DealTitleText,
   DiscountBadge,
+  SavingsMeter,
   StatusTag,
   whereLabel,
 } from "@/components/DealParts";
@@ -16,6 +18,7 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { cn } from "@/lib/cn";
 import { isFree } from "@/lib/filters";
 import { daysBetween, endsLabel } from "@/lib/format";
+import { timeLeft } from "@/lib/stats";
 import { dealHref, onDealClick } from "@/lib/url-state";
 
 type DealCardProps = { deal: Deal; today: string; search: string };
@@ -33,6 +36,7 @@ export const DealCard = memo(function DealCard({ deal, today, search }: DealCard
   const where = whereLabel(deal);
   const priced = isFree(deal) || deal.salePrice !== undefined || deal.discountPercent !== undefined;
   const student = deal.dealType.includes("student");
+  const left = ends ? timeLeft(deal, today) : null;
 
   return (
     <GlassCard
@@ -62,18 +66,25 @@ export const DealCard = memo(function DealCard({ deal, today, search }: DealCard
 
       {/* Price and save button run the full width of the card, under the picture. */}
       <div className="mt-auto flex items-end justify-between gap-2">
-        <div className="flex min-w-0 flex-col gap-1">
+        <div className="flex min-w-0 flex-1 flex-col gap-1.5">
           {priced && (
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
               <DealPrice deal={deal} />
               <DiscountBadge deal={deal} />
             </div>
           )}
+          <SavingsMeter deal={deal} className="max-w-40" />
           {(student || ends) && (
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
               {student && <Badge>Student</Badge>}
               {ends && (
-                <p className={cn("text-xs", endsSoon ? "text-accent-text" : "text-ink-muted")}>
+                <p
+                  className={cn(
+                    "inline-flex items-center gap-1.5 text-xs",
+                    endsSoon ? "font-medium text-accent-text" : "text-ink-muted",
+                  )}
+                >
+                  {left !== null && <CountdownRing left={left} className="text-accent" />}
                   {ends}
                 </p>
               )}
@@ -130,15 +141,21 @@ export function DealGrid({
   );
 }
 
-/** Placeholder card shown while the full deal list is still loading. */
+/** Placeholder card shown while the full deal list is still loading. Same shape as a card. */
 export function DealCardSkeleton() {
   return (
-    <div aria-hidden="true" className="flex h-36 gap-3.5 rounded-3xl glass p-3.5 sm:p-4">
-      <span className="size-14 shrink-0 rounded-2xl bg-neutral-soft sm:size-16" />
-      <div className="flex flex-1 flex-col gap-3 pt-1">
-        <span className="h-3 w-24 rounded-full bg-neutral-soft" />
-        <span className="h-3 w-4/5 rounded-full bg-neutral-soft" />
-        <span className="mt-auto h-6 w-20 rounded-full bg-neutral-soft" />
+    <div aria-hidden="true" className="flex h-36 flex-col gap-3 rounded-3xl glass p-3.5 sm:p-4">
+      <div className="flex gap-3.5">
+        <span className="size-14 shrink-0 skeleton rounded-2xl sm:size-16" />
+        <div className="flex flex-1 flex-col gap-2.5 pt-1">
+          <span className="h-2.5 w-20 skeleton rounded-full" />
+          <span className="h-3 w-4/5 skeleton rounded-full" />
+          <span className="h-2.5 w-28 skeleton rounded-full" />
+        </div>
+      </div>
+      <div className="mt-auto flex items-end justify-between">
+        <span className="h-6 w-24 skeleton rounded-full" />
+        <span className="size-10 skeleton rounded-full" />
       </div>
     </div>
   );

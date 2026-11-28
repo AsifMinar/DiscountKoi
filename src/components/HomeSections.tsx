@@ -44,10 +44,11 @@ function SectionTitle({
   return (
     <div className="flex flex-wrap items-end justify-between gap-3">
       <div>
-        <h2 id={id} className="text-xl font-semibold tracking-tight">
+        <h2 id={id} className="flex items-center gap-2.5 text-xl font-semibold tracking-tight">
+          <span aria-hidden="true" className="h-5 w-1 shrink-0 rounded-full bg-aurora" />
           {title}
         </h2>
-        {subtitle && <p className="mt-0.5 text-sm text-ink-muted">{subtitle}</p>}
+        {subtitle && <p className="mt-0.5 pl-3.5 text-sm text-ink-muted">{subtitle}</p>}
       </div>
       {children && <div className="flex items-center gap-1">{children}</div>}
     </div>
@@ -132,7 +133,7 @@ export function CategoryRail({
                   className={cn(
                     "flex size-14 items-center justify-center rounded-full transition-[box-shadow,translate] duration-150 ease-out group-hover:shadow-[var(--glass-shadow-hover)] motion-safe:group-hover:-translate-y-0.5",
                     categoryTint(c.id),
-                    active && "ring-2 ring-ink ring-offset-2 ring-offset-page",
+                    active && "ring-2 ring-accent ring-offset-2 ring-offset-page",
                   )}
                 >
                   <CategoryIcon category={c.id} className="size-6" />

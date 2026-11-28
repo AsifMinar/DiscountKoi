@@ -4,30 +4,36 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /*
- * Design tokens. Every colour on the site comes from here, so light and dark
- * stay in sync. All text/background pairs were checked for WCAG AA (≥ 4.5:1),
- * including text on glass sitting over the most saturated part of the backdrop.
+ * Design tokens ("Aurora glass"). Every colour on the site comes from here, so light
+ * and dark stay in sync. Text/background pairs are checked for WCAG AA (>= 4.5:1),
+ * including text on glass over the brightest part of the aurora.
  */
 :root {
   color-scheme: light;
-  --page: #f6f2ee;
-  --ink: #1c1917;
-  --ink-muted: #57534e;
+  --page: #f4f3fb;
+  --ink: #15122b;
+  --ink-muted: #4d4869;
 
-  --glass: rgb(255 255 255 / 0.55);
-  --glass-strong: rgb(255 255 255 / 0.72);
-  --glass-border: rgb(255 255 255 / 0.7);
-  --glass-shadow: 0 1px 2px rgb(28 25 23 / 0.04), 0 12px 32px -16px rgb(28 25 23 / 0.18);
-  --glass-shadow-hover: 0 1px 2px rgb(28 25 23 / 0.05), 0 18px 40px -16px rgb(28 25 23 / 0.24);
-  --surface-solid: #fbf9f7;
+  --glass: rgb(255 255 255 / 0.6);
+  --glass-strong: rgb(255 255 255 / 0.76);
+  --glass-border: rgb(255 255 255 / 0.85);
+  --glass-shadow: 0 1px 2px rgb(30 20 80 / 0.05), 0 12px 32px -16px rgb(60 40 140 / 0.22);
+  --glass-shadow-hover:
+    0 0 0 1px rgb(109 40 217 / 0.22), 0 1px 2px rgb(30 20 80 / 0.05),
+    0 20px 44px -18px rgb(109 40 217 / 0.35);
+  --surface-solid: #fbfaff;
 
-  --accent: #c2410c;
-  --accent-hover: #9a3412;
+  --accent: #6d28d9;
+  --accent-hover: #5b21b6;
   --accent-fg: #ffffff;
-  --accent-soft: rgb(234 88 12 / 0.12);
-  --accent-text: #8a2e0e;
-  --teal-soft: rgb(31 95 99 / 0.12);
-  --teal-text: #174d51;
+  --accent-soft: rgb(109 40 217 / 0.1);
+  --accent-text: #5b21b6;
+  /* Primary buttons and highlights: violet -> indigo -> deep cyan (white text passes on all three). */
+  --accent-gradient: linear-gradient(120deg, #7c3aed, #4f46e5 55%, #0e7490);
+  --glow: rgb(124 58 237 / 0.35);
+  /* "teal" is the cool second colour (cyan in this palette): Sudbury badges, rings. */
+  --teal-soft: rgb(8 145 178 / 0.12);
+  --teal-text: #0e4f5f;
   /* Store and category tints: a soft fill with dark text (light) or light text (dark). */
   --tint-blue: rgb(37 99 235 / 0.12);
   --tint-blue-text: #1e3a8a;
@@ -39,38 +45,53 @@
   --tint-gold-text: #713f12;
   --tint-rose: rgb(225 29 72 / 0.11);
   --tint-rose-text: #881337;
-  --neutral-soft: rgb(28 25 23 / 0.06);
-  --line: rgb(28 25 23 / 0.1);
-  --ring: #174d51;
-  --scrim: rgb(28 25 23 / 0.28);
-  --scrim-solid: rgb(28 25 23);
-  --scrim-amount: 28%;
+  --neutral-soft: rgb(21 18 43 / 0.06);
+  --line: rgb(21 18 43 / 0.1);
+  --ring: #0e7490;
+  --scrim: rgb(21 18 43 / 0.3);
+  --scrim-solid: rgb(21 18 43);
+  --scrim-amount: 30%;
 
-  --blob-orange: rgb(244 162 97 / 0.35);
-  --blob-coral: rgb(240 128 128 / 0.22);
-  --blob-teal: rgb(42 110 115 / 0.22);
+  /* The logo keeps its koi orange in both themes. */
+  --koi: #e0632f;
+  --koi-light: #fff4ea;
+  --koi-eye: #1c1917;
+
+  /* Chart series (Sudbury / Ontario / Ships to ON), validated for colour-blind separation. */
+  --series-1: #7c3aed;
+  --series-2: #0891b2;
+  --series-3: #db2777;
+
+  --aurora-1: rgb(167 139 250 / 0.42);
+  --aurora-2: rgb(103 232 249 / 0.38);
+  --aurora-3: rgb(244 114 182 / 0.24);
+  --grid-line: rgb(40 30 90 / 0.05);
 }
 
 .dark {
   color-scheme: dark;
-  --page: #0c1517;
-  --ink: #f4f1ee;
-  --ink-muted: #c2bbb5;
+  --page: #07060f;
+  --ink: #f2f0ff;
+  --ink-muted: #b3aecf;
 
-  --glass: rgb(255 255 255 / 0.06);
-  --glass-strong: rgb(22 32 34 / 0.72);
-  --glass-border: rgb(255 255 255 / 0.1);
-  --glass-shadow: 0 1px 2px rgb(0 0 0 / 0.2), 0 12px 32px -16px rgb(0 0 0 / 0.6);
-  --glass-shadow-hover: 0 1px 2px rgb(0 0 0 / 0.25), 0 18px 40px -16px rgb(0 0 0 / 0.7);
-  --surface-solid: #152022;
+  --glass: rgb(255 255 255 / 0.045);
+  --glass-strong: rgb(16 13 34 / 0.74);
+  --glass-border: rgb(255 255 255 / 0.09);
+  --glass-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 12px 32px -16px rgb(0 0 0 / 0.7);
+  --glass-shadow-hover:
+    inset 0 1px 0 rgb(255 255 255 / 0.08), 0 0 0 1px rgb(167 139 250 / 0.38),
+    0 20px 48px -18px rgb(124 92 255 / 0.55);
+  --surface-solid: #120f24;
 
-  --accent: #f08a5d;
-  --accent-hover: #f4a07a;
-  --accent-fg: #1a0f0a;
-  --accent-soft: rgb(240 138 93 / 0.16);
-  --accent-text: #f8b08f;
-  --teal-soft: rgb(124 196 199 / 0.14);
-  --teal-text: #9ad8db;
+  --accent: #a78bfa;
+  --accent-hover: #c4b5fd;
+  --accent-fg: #0c0820;
+  --accent-soft: rgb(167 139 250 / 0.16);
+  --accent-text: #cdbfff;
+  --accent-gradient: linear-gradient(120deg, #a78bfa, #818cf8 50%, #67e8f9);
+  --glow: rgb(139 92 246 / 0.5);
+  --teal-soft: rgb(34 211 238 / 0.13);
+  --teal-text: #8eeaf8;
   --tint-blue: rgb(96 165 250 / 0.16);
   --tint-blue-text: #bfdbfe;
   --tint-green: rgb(74 222 128 / 0.14);
@@ -81,16 +102,25 @@
   --tint-gold-text: #fde68a;
   --tint-rose: rgb(251 113 133 / 0.15);
   --tint-rose-text: #fecdd3;
-  --neutral-soft: rgb(255 255 255 / 0.08);
-  --line: rgb(255 255 255 / 0.1);
-  --ring: #9ad8db;
-  --scrim: rgb(0 0 0 / 0.55);
-  --scrim-solid: rgb(0 0 0);
-  --scrim-amount: 55%;
+  --neutral-soft: rgb(255 255 255 / 0.07);
+  --line: rgb(255 255 255 / 0.09);
+  --ring: #67e8f9;
+  --scrim: rgb(2 1 8 / 0.6);
+  --scrim-solid: rgb(2 1 8);
+  --scrim-amount: 60%;
 
-  --blob-orange: rgb(214 120 70 / 0.18);
-  --blob-coral: rgb(200 90 90 / 0.14);
-  --blob-teal: rgb(38 110 115 / 0.3);
+  --koi: #f07a45;
+  --koi-light: #fff4ea;
+  --koi-eye: #1c1917;
+
+  --series-1: #9370f5;
+  --series-2: #14a8c4;
+  --series-3: #e8559f;
+
+  --aurora-1: rgb(124 58 237 / 0.4);
+  --aurora-2: rgb(6 182 212 / 0.24);
+  --aurora-3: rgb(236 72 153 / 0.2);
+  --grid-line: rgb(255 255 255 / 0.035);
 }
 
 /* Old browsers without backdrop-filter, or users who ask for less transparency: go solid. */
@@ -134,8 +164,17 @@
   --color-glass-strong: var(--glass-strong);
   --color-surface: var(--surface-solid);
 
+  --color-series-1: var(--series-1);
+  --color-series-2: var(--series-2);
+  --color-series-3: var(--series-3);
+  --color-koi: var(--koi);
+  --color-koi-light: var(--koi-light);
+  --color-koi-eye: var(--koi-eye);
+
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
   --animate-fade-in: fade-in 200ms ease-out both;
+  --animate-rise: rise 320ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
 @theme {
@@ -149,6 +188,48 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    translate: 0 0.5rem;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 150% 0;
+  }
+  to {
+    background-position: -50% 0;
+  }
+}
+
+@keyframes sweep {
+  from {
+    background-position: -40% 0;
+  }
+  to {
+    background-position: 140% 0;
+  }
+}
+
+/* The aurora drifts very slowly. Only transform changes, so the GPU does it for free. */
+@keyframes aurora-drift {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate3d(-4%, 3%, 0) rotate(8deg) scale(1.08);
+  }
+  100% {
+    transform: translate3d(3%, -2%, 0) rotate(-6deg) scale(1.04);
   }
 }
 
@@ -174,6 +255,55 @@
 @utility frost {
   -webkit-backdrop-filter: blur(20px) saturate(150%);
   backdrop-filter: blur(20px) saturate(150%);
+}
+
+/* Gradient fill for primary buttons and highlights. */
+@utility bg-aurora {
+  background-image: var(--accent-gradient);
+}
+
+/* Gradient text for hero highlights. Falls back to the accent colour. */
+@utility text-aurora {
+  color: var(--accent-text);
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* Small mono "readout" label used above sections and in stats. */
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* Placeholder block that shimmers while content loads (still, if motion is reduced). */
+@utility skeleton {
+  background-color: var(--neutral-soft);
+  background-image: linear-gradient(
+    100deg,
+    transparent 30%,
+    color-mix(in srgb, var(--ink), transparent 94%) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+/* Thin bar that sweeps while waiting on a slow download. */
+@utility progress-sweep {
+  background-image: var(--accent-gradient);
+  background-size: 40% 100%;
+  background-repeat: no-repeat;
+  animation: sweep 1.2s ease-in-out infinite;
 }
 
 /* Horizontal page padding that also clears the iPhone notch in landscape. */
@@ -231,16 +361,38 @@
   }
 }
 
-/* Soft, blurred koi-coloured glow behind everything. Pure gradients, so it costs no blur. */
+/*
+ * Aurora backdrop: three soft colour fields that drift slowly, plus a faint grid that
+ * fades out towards the bottom. Pure gradients and transforms, so it costs no blur.
+ */
 .koi-backdrop {
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
+  overflow: hidden;
+}
+.koi-backdrop::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
   background:
-    radial-gradient(42rem 34rem at 8% -4%, var(--blob-orange), transparent 70%),
-    radial-gradient(36rem 30rem at 100% 18%, var(--blob-coral), transparent 70%),
-    radial-gradient(52rem 38rem at 45% 108%, var(--blob-teal), transparent 72%);
+    radial-gradient(40% 35% at 18% 12%, var(--aurora-1), transparent 70%),
+    radial-gradient(35% 30% at 85% 20%, var(--aurora-2), transparent 70%),
+    radial-gradient(45% 35% at 55% 95%, var(--aurora-3), transparent 72%);
+  animation: aurora-drift 36s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.koi-backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(120% 70% at 50% 0%, #000 30%, transparent 75%);
+  mask-image: radial-gradient(120% 70% at 50% 0%, #000 30%, transparent 75%);
 }
 
 /*
@@ -289,6 +441,13 @@
   .ui-select option:focus-visible {
     background-color: var(--neutral-soft);
     outline: none;
+  }
+}
+
+/* Phones: hide the bottom tab bar while typing, so it never rides on top of the keyboard. */
+@media (width < 48rem) {
+  body:has(input:focus, textarea:focus) .tab-bar {
+    display: none;
   }
 }
 

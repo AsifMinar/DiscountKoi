@@ -5,8 +5,9 @@ const FOOTER_LINK =
   "inline-flex h-11 items-center rounded-full px-3 whitespace-nowrap hover:text-ink";
 
 export function Footer() {
+  // On phones the bottom tab bar sits over the end of the page, so the footer clears it.
   return (
-    <footer className="mt-24 px-page pb-[max(2rem,calc(env(safe-area-inset-bottom)+1rem))]">
+    <footer className="mt-24 px-page pb-[max(2rem,calc(env(safe-area-inset-bottom)+1rem))] max-md:pb-[calc(env(safe-area-inset-bottom)+6.5rem)]">
       <div className="mx-auto flex max-w-[88rem] flex-col gap-4 border-t border-line pt-8 text-sm text-ink-muted sm:flex-row sm:items-center sm:justify-between">
         <p className="flex items-start gap-2">
           <KoiMark className="size-5 shrink-0" />

@@ -4,7 +4,10 @@ import { useDeferredValue, useMemo, useState } from "react";
 import type { Deal } from "@shared/deal";
 import { DealCardSkeleton, DealGrid, GRID, WIDE_GRID } from "@/components/DealCard";
 import { DealModal } from "@/components/DealModal";
+import { DealPulse } from "@/components/DealPulse";
 import { EmptyState } from "@/components/EmptyState";
+import { CachedNotice, LoadErrorPanel, LoadingStatus } from "@/components/LoadStates";
+import { NoResults } from "@/components/NoResults";
 import {
   ActiveFilters,
   ChannelSwitch,
@@ -20,7 +23,7 @@ import {
   StoreGrid,
 } from "@/components/HomeSections";
 import { SlidersIcon } from "@/components/icons";
-import { Button } from "@/components/ui/Button";
+import { Button, ButtonLink } from "@/components/ui/Button";
 import { Select } from "@/components/ui/Select";
 import { cn } from "@/lib/cn";
 import {
@@ -42,7 +45,9 @@ import {
   type StoreOption,
 } from "@/lib/filters";
 import { plural } from "@/lib/format";
+import { dealStats, type DealStats } from "@/lib/stats";
 import { isFlyer, type StoreSummary } from "@/lib/stores";
+import { toast } from "@/lib/toast";
 import { useFilters, useSearchString, useToday } from "@/lib/url-state";
 import { useAllDeals } from "@/lib/use-all-deals";
 
@@ -62,7 +67,7 @@ export type DealExplorerProps = {
   /** Which deals this page lists (home, Student, Free or one store). */
   scope: PageScope;
   /** Home page only: the "Shop by store" tiles and the Student / Free card counts. */
-  home?: { stores: StoreSummary[]; studentCount: number; freeCount: number };
+  home?: { stores: StoreSummary[]; studentCount: number; freeCount: number; stats: DealStats };
 };
 
 /**
@@ -81,7 +86,8 @@ export function DealExplorer({
   const [filters, update] = useFilters();
   const search = useSearchString();
   const today = useToday(buildDay);
-  const { deals: allDeals, failed } = useAllDeals();
+  const dealsState = useAllDeals();
+  const { deals: allDeals, failed, retry } = dealsState;
   const [sheetOpen, setSheetOpen] = useState(false);
   const pageDeals = useMemo(
     () => allDeals && allDeals.filter((d) => inScope(d, scope)),
@@ -124,6 +130,12 @@ export function DealExplorer({
       ? total - (flyersApart ? (sections?.flyers.length ?? 0) : 0)
       : list.length;
 
+  // Build-time numbers until the full list arrives, then live ones (they differ after midnight).
+  const stats = useMemo(
+    () => (home ? (pageDeals ? dealStats(pageDeals, today) : home.stats) : null),
+    [home, pageDeals, today],
+  );
+
   const showMore = (sort: SortId) => {
     update({ sort });
     document.getElementById("deals")?.scrollIntoView({ block: "start" });
@@ -141,10 +153,28 @@ export function DealExplorer({
   const panelCount = activeFilterCount(filters);
   const withFilters = scope.page !== "store" || total > FEW_DEALS;
   const grid = withFilters ? GRID : WIDE_GRID;
-  const clearAll = () => update(clearFilters({ ...filters, q: "" }));
+  const clearAll = () => {
+    const before = filters;
+    update(clearFilters({ ...filters, q: "" }));
+    toast("Search and filters cleared", {
+      tone: "info",
+      action: { label: "Undo", onClick: () => update(before) },
+    });
+  };
 
   return (
     <div className="flex flex-col gap-12">
+      {isHome && defaultView && stats && stats.live >= 3 && (
+        <DealPulse
+          stats={stats}
+          onSort={showMore}
+          onLocation={(loc) => {
+            update({ loc });
+            document.getElementById("deals")?.scrollIntoView({ block: "start" });
+          }}
+        />
+      )}
+
       {isHome && (
         <CategoryRail
           available={counts.cats}
@@ -196,10 +226,11 @@ export function DealExplorer({
         <div className="flex min-w-0 flex-col gap-5">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
-              <h2 className="text-xl font-semibold tracking-tight">
+              <h2 className="flex items-center gap-2.5 text-xl font-semibold tracking-tight">
+                <span aria-hidden="true" className="h-5 w-1 shrink-0 rounded-full bg-aurora" />
                 {defaultView ? "All deals" : "Results"}
               </h2>
-              <p aria-live="polite" className="mt-0.5 text-sm text-ink-muted">
+              <p aria-live="polite" className="mt-0.5 pl-3.5 text-sm text-ink-muted tabular-nums">
                 {ready ? plural(listTotal, "deal") : "Loading deals…"}
               </p>
             </div>
@@ -236,39 +267,71 @@ export function DealExplorer({
 
           <ActiveFilters filters={filters} update={update} />
 
+          <CachedNotice state={dealsState} onRetry={retry} />
+
           {!ready && failed && (
-            <EmptyState
-              title="Couldn't load all deals"
-              action={<Button onClick={() => window.location.reload()}>Try again</Button>}
-            >
-              Check your connection and try again.
-            </EmptyState>
+            <LoadErrorPanel
+              state={dealsState}
+              onRetry={retry}
+              secondary={
+                hasActiveFilters(active) && (
+                  <Button variant="ghost" onClick={clearAll}>
+                    Show today&apos;s top deals
+                  </Button>
+                )
+              }
+            />
           )}
 
           {!ready && !failed && (
-            <ul role="list" className={grid} aria-hidden="true">
-              {Array.from({ length: 6 }, (_, i) => (
-                <li key={i}>
-                  <DealCardSkeleton />
-                </li>
-              ))}
-            </ul>
+            <>
+              <LoadingStatus state={dealsState} />
+              <ul role="list" className={grid} aria-hidden="true">
+                {Array.from({ length: 6 }, (_, i) => (
+                  <li key={i}>
+                    <DealCardSkeleton />
+                  </li>
+                ))}
+              </ul>
+            </>
           )}
 
           {ready && list.length === 0 && hasActiveFilters(active) && (
-            <EmptyState
-              title="No deals match your filters"
-              action={<Button onClick={clearAll}>Clear filters</Button>}
-            >
-              Try removing a filter or searching for something else.
-            </EmptyState>
+            <NoResults
+              deals={source}
+              filters={active}
+              update={update}
+              today={today}
+              counts={counts}
+              onClearAll={clearAll}
+            />
           )}
 
           {ready && list.length === 0 && !hasActiveFilters(active) && (
-            <EmptyState title="No deals here right now">
-              {scope.page === "store"
-                ? "This store has no other deals listed today. New deals arrive every morning."
-                : "New deals arrive every morning. Check back tomorrow."}
+            <EmptyState
+              title={
+                scope.page === "store" ? "No deals from this store today" : "No deals here yet"
+              }
+              action={
+                scope.page === "store" ? (
+                  <ButtonLink href="/stores/">See other stores</ButtonLink>
+                ) : scope.page === "home" ? (
+                  <ButtonLink href="/free/">Find free stuff</ButtonLink>
+                ) : (
+                  <ButtonLink href="/">Browse all deals</ButtonLink>
+                )
+              }
+              secondary={
+                scope.page !== "free" &&
+                scope.page !== "home" && (
+                  <ButtonLink href="/free/" variant="ghost">
+                    Find free stuff
+                  </ButtonLink>
+                )
+              }
+            >
+              New deals arrive every morning around 6 a.m. In the meantime, other stores and the
+              free section may have something for you.
             </EmptyState>
           )}
 

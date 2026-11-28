@@ -14,7 +14,7 @@ export function PageHero({
   before,
   actions,
 }: {
-  title: string;
+  title: ReactNode;
   children: ReactNode;
   updatedAt: string;
   searchLabel?: string;
@@ -30,7 +30,17 @@ export function PageHero({
   return (
     <section className="flex flex-col items-center gap-4 text-center">
       {before}
-      <h1 className="max-w-2xl text-[2rem] leading-[1.1] font-semibold tracking-tight text-balance sm:text-[2.75rem]">
+      <p className="inline-flex items-center gap-2 rounded-full glass px-3 py-1.5 eyebrow tracking-normal normal-case">
+        <span aria-hidden="true" className="relative flex size-2">
+          <span className="absolute inset-0 rounded-full bg-teal-text opacity-60 motion-safe:animate-ping" />
+          <span className="relative size-2 rounded-full bg-teal-text" />
+        </span>
+        <span>
+          Updated <time dateTime={updatedAt}>{formatUpdated(updatedAt)}</time>
+          <span className="max-xs:hidden"> · Sudbury time</span>
+        </span>
+      </p>
+      <h1 className="max-w-3xl text-[2.25rem] leading-[1.05] font-semibold tracking-[-0.03em] text-balance sm:text-[3.5rem]">
         {title}
       </h1>
       <p className="max-w-xl text-base text-pretty text-ink-muted">{children}</p>
@@ -38,9 +48,6 @@ export function PageHero({
       {!noSearch && (
         <SearchBar label={searchLabel} placeholder={searchPlaceholder} resultsId={resultsId} />
       )}
-      <p className="text-xs text-ink-muted">
-        Last updated: <time dateTime={updatedAt}>{formatUpdated(updatedAt)}</time> (Sudbury time)
-      </p>
     </section>
   );
 }

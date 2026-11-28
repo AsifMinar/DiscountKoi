@@ -51,6 +51,21 @@ type State = {
   action?: (page: Page) => Promise<void>;
 };
 
+// A real word from the deals with two letters swapped, for the "Did you mean" state.
+const typo = (() => {
+  const word =
+    deals
+      // Discounted deals are always on the home page, so the fix will find them.
+      .filter((d) => d.salePrice !== undefined)
+      .flatMap((d) => (d as Deal & { title?: string }).title?.split(/\s+/) ?? [])
+      .find((w) => /^[a-z]{6,}$/i.test(w)) ?? "coffee";
+  return word.slice(0, 2) + word[3] + word[2] + word.slice(4);
+})();
+
+const DEALS_ROUTE = "**/deals.json";
+const clearOfflineCopy = (page: Page) =>
+  page.evaluate(() => ("caches" in window ? caches.delete("discountkoi-deals-v1") : false));
+
 const STATES: State[] = [
   { name: "home", path: "/" },
   { name: "home-filtered", path: "/?ch=online&cat=entertainment&off=50" },
@@ -83,6 +98,68 @@ const STATES: State[] = [
         .map((d) => d.id);
       await page.evaluate((v) => localStorage.setItem("discountkoi:saved", v), JSON.stringify(ids));
       await page.reload({ waitUntil: "networkidle" });
+    },
+  },
+  { name: "search-typo", path: `/?q=${encodeURIComponent(typo.toLowerCase())}` },
+  {
+    name: "search-invalid",
+    path: "/",
+    action: async (page) => {
+      await page.getByRole("searchbox").fill("!!!");
+      await page.keyboard.press("Tab");
+    },
+  },
+  {
+    name: "toast-saved",
+    path: "/",
+    viewportOnly: true,
+    action: async (page) => {
+      await page
+        .getByRole("button", { name: /^Save / })
+        .first()
+        .click();
+      await page.getByText("Saved to this device").waitFor();
+    },
+  },
+  {
+    // The full list fails and there's no offline copy: the error panel with Retry.
+    name: "deals-error",
+    path: "/?type=free",
+    action: async (page) => {
+      await clearOfflineCopy(page);
+      await page.route(DEALS_ROUTE, (route) => route.abort());
+      await page.reload({ waitUntil: "networkidle" });
+      await page.getByRole("button", { name: "Try again" }).waitFor();
+      await page.unroute(DEALS_ROUTE);
+    },
+  },
+  {
+    // The list is still downloading after 4 s: the slow-connection line and skeletons.
+    name: "deals-slow",
+    path: "/?type=free",
+    action: async (page) => {
+      await clearOfflineCopy(page);
+      await page.route(DEALS_ROUTE, async (route) => {
+        await new Promise((resolve) => setTimeout(resolve, 20_000));
+        await route.continue().catch(() => {});
+      });
+      await page.reload({ waitUntil: "domcontentloaded" });
+      await page.getByText("Slow connection.").waitFor({ timeout: 10_000 });
+    },
+  },
+  {
+    // Offline with a saved copy: the banner and the "offline copy" note.
+    name: "offline-cached",
+    path: "/?type=free",
+    action: async (page) => {
+      await page.waitForTimeout(500); // let the previous load save its copy
+      await page.route(DEALS_ROUTE, (route) => route.abort());
+      await page.reload({ waitUntil: "networkidle" });
+      await page.context().setOffline(true);
+      await page.getByText("Showing your offline copy").waitFor();
+      await page.getByText("You're offline.").waitFor();
+      await page.unroute(DEALS_ROUTE);
+      // Back online happens at the start of the next state, after this screenshot.
     },
   },
   {
@@ -283,7 +360,10 @@ function inspectPageEnd(safeBottom: number): Issue[] {
   const footer = document.querySelector("footer");
   const last = [...(footer?.querySelectorAll("a, p") ?? [])].at(-1);
   const r = last?.getBoundingClientRect();
-  return r && r.bottom > window.innerHeight - safeBottom - 8
+  // On phones the bottom tab bar covers the end of the screen too.
+  const bar = document.querySelector("[data-tabbar]")?.getBoundingClientRect();
+  const limit = bar && bar.height > 0 ? bar.top : window.innerHeight - safeBottom;
+  return r && r.bottom > limit - 8
     ? [
         {
           type: "under the home bar",
@@ -341,7 +421,9 @@ async function main() {
         const errors: string[] = [];
         page.on("pageerror", (e) => errors.push(String(e)));
         page.on("console", (m) => {
-          if (m.type() === "error" && !/404 \(Not Found\)/.test(m.text())) errors.push(m.text());
+          // 404s are the not-found page; net::ERR_ comes from the states that cut the network on purpose.
+          if (m.type() === "error" && !/404 \(Not Found\)|net::ERR_/.test(m.text()))
+            errors.push(m.text());
         });
         const safe = width <= 430 ? SAFE_AREA : null;
         if (safe) {
@@ -363,6 +445,9 @@ async function main() {
         for (const state of states) {
           if (state.maxWidth && width > state.maxWidth) continue;
           await page.setViewportSize({ width, height });
+          // Undo what the network states changed (offline, held-up downloads).
+          await context.setOffline(false);
+          await page.unrouteAll({ behavior: "ignoreErrors" });
           await page.goto(`${BASE}${state.path}`, { waitUntil: "networkidle" });
           await page.evaluate(() => document.fonts.ready);
           await state.action?.(page);

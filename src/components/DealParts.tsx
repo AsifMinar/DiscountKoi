@@ -47,7 +47,7 @@ export function DealPrice({ deal, size = "md" }: { deal: Deal; size?: "md" | "lg
     <p className="flex flex-wrap items-baseline gap-x-2">
       <span
         className={cn(
-          "font-semibold tracking-tight",
+          "font-semibold tracking-tight tabular-nums",
           size === "lg" ? "text-4xl" : "text-xl",
           free && "text-accent-text",
         )}
@@ -71,7 +71,7 @@ export function DealPrice({ deal, size = "md" }: { deal: Deal; size?: "md" | "lg
 export function DiscountBadge({ deal, className }: { deal: Deal; className?: string }) {
   if (!deal.discountPercent || isFree(deal) || deal.salePrice === undefined) return null;
   return (
-    <Badge tone="accent" className={className}>
+    <Badge tone="accent" className={cn("font-mono", className)}>
       <span aria-hidden="true">−{deal.discountPercent}%</span>
       <span className="sr-only">{deal.discountPercent}% off</span>
     </Badge>
@@ -181,5 +181,91 @@ export function StatusTag({ deal, today }: { deal: Deal; today: string }) {
     >
       {status}
     </span>
+  );
+}
+
+/** Thin bar showing how much of the price is taken off (the % is printed beside it). */
+export function SavingsMeter({ deal, className }: { deal: Deal; className?: string }) {
+  if (!deal.discountPercent || isFree(deal) || deal.salePrice === undefined) return null;
+  return (
+    <span
+      aria-hidden="true"
+      className={cn("block h-1 w-full overflow-hidden rounded-full bg-accent-soft", className)}
+    >
+      <span
+        className="block h-full rounded-full bg-aurora"
+        style={{ width: `${deal.discountPercent}%` }}
+      />
+    </span>
+  );
+}
+
+/**
+ * Small ring that empties as a deal runs out. `left` is the share of its run still
+ * to go (0–1). Decorative: the "Ends in X days" text next to it says the same.
+ */
+export function CountdownRing({ left, className }: { left: number; className?: string }) {
+  const r = 6;
+  const c = 2 * Math.PI * r;
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      aria-hidden="true"
+      focusable="false"
+      className={cn("size-4 -rotate-90", className)}
+    >
+      <circle cx="8" cy="8" r={r} fill="none" stroke="var(--line)" strokeWidth="2" />
+      <circle
+        cx="8"
+        cy="8"
+        r={r}
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeDasharray={`${c * left} ${c}`}
+      />
+    </svg>
+  );
+}
+
+/**
+ * "Was vs now" bars for the deal popup: the old price as a full grey bar, the sale price
+ * as a coloured bar scaled to it, and how much that saves.
+ */
+export function SavingsCompare({ deal }: { deal: Deal }) {
+  const was = deal.originalPrice;
+  const now = deal.salePrice;
+  if (was === undefined || now === undefined || now >= was || was <= 0) return null;
+  const share = Math.max(2, (now / was) * 100);
+  const rows = [
+    { label: "Was", value: was, width: 100, bar: "bg-ink-muted/35" },
+    { label: "Now", value: now, width: share, bar: "bg-aurora" },
+  ];
+  return (
+    <figure className="flex flex-col gap-2 rounded-2xl border border-line p-4">
+      <figcaption className="flex items-baseline justify-between gap-2">
+        <span className="eyebrow">You save</span>
+        <span className="text-lg font-semibold tracking-tight text-accent-text">
+          {formatPrice(Math.round((was - now) * 100) / 100, deal.currency)}
+        </span>
+      </figcaption>
+      <dl className="grid grid-cols-[2.5rem_minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1.5">
+        {rows.map((row) => (
+          <div key={row.label} className="contents">
+            <dt className="text-xs text-ink-muted">{row.label}</dt>
+            <dd aria-hidden="true" className="h-2 rounded-full">
+              <span
+                className={cn("block h-full rounded-full", row.bar)}
+                style={{ width: `${row.width}%` }}
+              />
+            </dd>
+            <dd className="text-right text-xs font-medium tabular-nums">
+              {formatPrice(row.value, deal.currency)}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </figure>
   );
 }

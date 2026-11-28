@@ -6,7 +6,14 @@ export default function HomePage() {
   const { updatedAt, explorer } = explorerData();
   return (
     <PageShell>
-      <PageHero title="Every deal in Sudbury, in one calm place." updatedAt={updatedAt}>
+      <PageHero
+        title={
+          <>
+            Every deal in Sudbury, <span className="text-aurora">in one calm place.</span>
+          </>
+        }
+        updatedAt={updatedAt}
+      >
         Flyers, discounts, student perks and freebies from Greater Sudbury and across Ontario.
       </PageHero>
       <DealExplorer {...explorer} />

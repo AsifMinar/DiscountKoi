@@ -11,6 +11,7 @@ import {
   DealThumbnail,
   DealTitleText,
   DiscountBadge,
+  SavingsCompare,
 } from "@/components/DealParts";
 import { ArrowRightIcon, ArrowUpRightIcon, CloseIcon } from "@/components/icons";
 import { Avatar } from "@/components/ui/Avatar";
@@ -20,6 +21,8 @@ import { daysBetween, endsLabel, formatDay, torontoDate } from "@/lib/format";
 import { SaveButton } from "@/components/SaveButtons";
 import { storeHref } from "@/lib/stores";
 import { closeDeal, dealIdFrom, forgetOpenedDeal, useSearchString } from "@/lib/url-state";
+import { retryDeals } from "@/lib/use-all-deals";
+import { RefreshIcon } from "@/components/icons";
 
 const WHERE: Record<LocationId, string> = {
   sudbury: "In Greater Sudbury",
@@ -55,6 +58,8 @@ function DealDetails({ deal, today }: { deal: Deal; today: string }) {
         </div>
         {deal.imageUrl && <DealThumbnail src={deal.imageUrl} size={112} />}
       </div>
+
+      <SavingsCompare deal={deal} />
 
       <DealBadges deal={deal} />
 
@@ -149,7 +154,15 @@ export function DealModal({ allDeals, initialDeals, failed, today }: DealModalPr
   const dialogRef = useRef<HTMLDialogElement>(null);
   const dealId = dealIdFrom(useSearchString());
   const deal = dealId ? ((allDeals ?? initialDeals).find((d) => d.id === dealId) ?? null) : null;
-  const status = !dealId ? "closed" : deal ? "found" : allDeals || failed ? "missing" : "loading";
+  const status = !dealId
+    ? "closed"
+    : deal
+      ? "found"
+      : allDeals
+        ? "missing"
+        : failed
+          ? "error"
+          : "loading";
 
   // Keep the dialog's open state in sync with the URL.
   useEffect(() => {
@@ -207,9 +220,31 @@ export function DealModal({ allDeals, initialDeals, failed, today }: DealModalPr
               <span id="deal-status" className="sr-only">
                 Loading deal
               </span>
-              <span className="h-6 w-4/5 rounded-full bg-neutral-soft" />
-              <span className="h-9 w-32 rounded-full bg-neutral-soft" />
-              <span className="h-24 rounded-2xl bg-neutral-soft" />
+              <span className="h-6 w-4/5 skeleton rounded-full" />
+              <span className="h-9 w-32 skeleton rounded-full" />
+              <span className="h-16 skeleton rounded-2xl" />
+              <span className="h-24 skeleton rounded-2xl" />
+            </div>
+          )}
+
+          {status === "error" && (
+            <div role="alert" className="flex flex-col items-start gap-3 pb-2">
+              <h2 id="deal-status" className="text-xl font-semibold">
+                Couldn&apos;t load this deal
+              </h2>
+              <p className="text-sm text-pretty text-ink-muted">
+                The deal list didn&apos;t download, usually because the connection dropped. The deal
+                itself is probably still there.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <Button onClick={retryDeals}>
+                  <RefreshIcon className="size-4" />
+                  Try again
+                </Button>
+                <Button variant="ghost" onClick={closeDeal}>
+                  Close
+                </Button>
+              </div>
             </div>
           )}
 
