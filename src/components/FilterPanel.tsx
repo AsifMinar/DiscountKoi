@@ -337,7 +337,7 @@ export function ViewTabs({
             {active && (
               <span
                 aria-hidden="true"
-                className="absolute inset-x-2 -bottom-px h-0.5 rounded-full bg-aurora"
+                className="absolute inset-x-2 -bottom-px h-0.5 rounded-full bg-accent"
               />
             )}
           </label>
@@ -362,13 +362,13 @@ export function ChannelSwitch({
     <div
       role="radiogroup"
       aria-label="Where to buy"
-      className={cn("inline-flex h-11 shrink-0 rounded-full glass p-1", className)}
+      className={cn("inline-flex h-11 shrink-0 rounded-xl glass p-1", className)}
     >
       {[{ id: null, label: "All" }, ...CHANNELS].map((c) => (
         <label
           key={c.label}
           className={cn(
-            "inline-flex flex-1 cursor-pointer items-center justify-center rounded-full px-4 text-sm font-medium whitespace-nowrap transition-colors duration-150 ease-out has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-ring",
+            "inline-flex flex-1 cursor-pointer items-center justify-center rounded-lg px-4 text-sm font-medium whitespace-nowrap transition-colors duration-150 ease-out has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-ring",
             value === c.id ? "bg-ink text-page" : "text-ink-muted hover:text-ink",
           )}
         >
@@ -448,7 +448,7 @@ export function ActiveFilters({
             type="button"
             onClick={chip.remove}
             aria-label={`Remove filter: ${chip.label}`}
-            className="inline-flex h-11 max-w-[16rem] items-center gap-1.5 rounded-full bg-ink pr-3 pl-4 text-sm font-medium text-page transition-opacity duration-150 ease-out hover:opacity-85"
+            className="inline-flex h-11 max-w-[16rem] items-center gap-1.5 rounded-xl bg-ink pr-3 pl-4 text-sm font-medium text-page transition-opacity duration-150 ease-out hover:opacity-85"
           >
             <span className="truncate">{chip.label}</span>
             <CloseIcon aria-hidden="true" className="size-4 shrink-0 opacity-80" />

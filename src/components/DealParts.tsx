@@ -193,7 +193,7 @@ export function SavingsMeter({ deal, className }: { deal: Deal; className?: stri
       className={cn("block h-1 w-full overflow-hidden rounded-full bg-accent-soft", className)}
     >
       <span
-        className="block h-full rounded-full bg-aurora"
+        className="block h-full origin-left animate-grow-x rounded-full bg-accent"
         style={{ width: `${deal.discountPercent}%` }}
       />
     </span>
@@ -240,7 +240,7 @@ export function SavingsCompare({ deal }: { deal: Deal }) {
   const share = Math.max(2, (now / was) * 100);
   const rows = [
     { label: "Was", value: was, width: 100, bar: "bg-ink-muted/35" },
-    { label: "Now", value: now, width: share, bar: "bg-aurora" },
+    { label: "Now", value: now, width: share, bar: "bg-accent" },
   ];
   return (
     <figure className="flex flex-col gap-2 rounded-2xl border border-line p-4">

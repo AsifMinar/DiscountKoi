@@ -54,13 +54,13 @@ function TabSwitch({
     <div
       role="radiogroup"
       aria-label="Show"
-      className="flex h-12 w-full max-w-md rounded-full glass p-1"
+      className="flex h-12 w-full max-w-md rounded-xl glass p-1"
     >
       {options.map((o) => (
         <label
           key={o.id}
           className={cn(
-            "inline-flex flex-1 cursor-pointer items-center justify-center gap-1.5 rounded-full px-3 text-sm font-medium whitespace-nowrap transition-colors duration-150 ease-out has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-ring",
+            "inline-flex flex-1 cursor-pointer items-center justify-center gap-1.5 rounded-lg px-3 text-sm font-medium whitespace-nowrap transition-colors duration-150 ease-out has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-ring",
             tab === o.id ? "bg-ink text-page" : "text-ink-muted hover:text-ink",
           )}
         >

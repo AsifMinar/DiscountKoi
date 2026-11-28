@@ -70,7 +70,7 @@ export function TabBar() {
                 {active && (
                   <span
                     aria-hidden="true"
-                    className="absolute top-1 h-0.5 w-6 rounded-full bg-aurora"
+                    className="absolute top-1 h-0.5 w-6 rounded-full bg-accent"
                   />
                 )}
                 <span className="relative">
@@ -78,7 +78,7 @@ export function TabBar() {
                   {tab.href === "/saved/" && saved > 0 && (
                     <span
                       aria-hidden="true"
-                      className="absolute -top-1 -right-2.5 min-w-4.5 rounded-full bg-aurora px-1 text-center text-[0.625rem] leading-4.5 font-semibold text-accent-fg tabular-nums"
+                      className="absolute -top-1 -right-2.5 min-w-4.5 rounded-full bg-accent px-1 text-center text-[0.625rem] leading-4.5 font-semibold text-accent-fg tabular-nums"
                     >
                       {saved > 99 ? "99+" : saved}
                     </span>

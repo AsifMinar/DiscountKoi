@@ -59,7 +59,7 @@ function ToastItem({ item }: { item: Toast }) {
         aria-hidden="true"
         className={cn(
           "flex size-7 shrink-0 items-center justify-center rounded-full",
-          item.tone === "warning" ? "bg-tint-gold text-tint-gold-text" : "bg-aurora text-accent-fg",
+          item.tone === "warning" ? "bg-warn-soft text-warn" : "bg-accent text-accent-fg",
         )}
       >
         {TONE_ICON[item.tone ?? "success"]}
@@ -112,11 +112,11 @@ function OfflineBanner() {
   return (
     <div
       role="status"
-      className="pointer-events-auto flex animate-rise items-center gap-3 rounded-2xl border border-[color-mix(in_srgb,var(--tint-gold-text),transparent_70%)] bg-surface/95 px-3 py-2.5 shadow-[var(--glass-shadow-hover)]"
+      className="pointer-events-auto flex animate-rise items-center gap-3 rounded-2xl border border-warn/40 bg-surface/95 px-3 py-2.5 shadow-[var(--glass-shadow-hover)]"
     >
       <span
         aria-hidden="true"
-        className="flex size-7 shrink-0 items-center justify-center rounded-full bg-tint-gold text-tint-gold-text"
+        className="flex size-7 shrink-0 items-center justify-center rounded-full bg-warn-soft text-warn"
       >
         <WifiOffIcon className="size-4" />
       </span>

@@ -34,7 +34,7 @@ export function Logo({ className }: { className?: string }) {
     >
       <KoiMark className="size-8" />
       <span>
-        Discount <span className="text-aurora">Koi</span>
+        Discount <span className="text-accent-text">Koi</span>
       </span>
     </Link>
   );

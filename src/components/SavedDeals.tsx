@@ -26,10 +26,10 @@ function StorageBlocked() {
     <section
       id="storage"
       aria-labelledby="storage-heading"
-      className="flex scroll-mt-28 flex-col gap-3 rounded-3xl border border-[color-mix(in_srgb,var(--tint-gold-text),transparent_70%)] bg-tint-gold/40 p-5"
+      className="flex scroll-mt-28 flex-col gap-3 rounded-3xl border border-warn/40 bg-warn-soft p-5"
     >
       <h2 id="storage-heading" className="flex items-center gap-2 text-base font-semibold">
-        <LockIcon aria-hidden="true" className="size-5 text-tint-gold-text" />
+        <LockIcon aria-hidden="true" className="size-5 text-warn" />
         Your browser is blocking site storage
       </h2>
       <p className="text-sm text-pretty text-ink-muted">

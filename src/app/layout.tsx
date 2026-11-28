@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 // The font file ships inside the project (npm package "geist"), so nothing is fetched
 // from Google, at build time or by visitors.
 import { GeistMono } from "geist/font/mono";
+import { GeistPixelSquare } from "geist/font/pixel";
 import { GeistSans } from "geist/font/sans";
 import type { ReactNode } from "react";
 import { CommandPalette } from "@/components/CommandPalette";
@@ -32,8 +33,8 @@ export const viewport: Viewport = {
   viewportFit: "cover",
   colorScheme: "light dark",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f4f3fb" },
-    { media: "(prefers-color-scheme: dark)", color: "#07060f" },
+    { media: "(prefers-color-scheme: light)", color: "#f2f2f0" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
   ],
 };
 
@@ -42,12 +43,11 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
     // next-themes edits the class on <html> before React hydrates, hence suppressHydrationWarning.
     <html
       lang="en-CA"
-      className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}
+      className={`${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-dvh">
         <Providers>
-          <div aria-hidden="true" className="koi-backdrop" />
           <a
             href="#main"
             className="sr-only z-50 rounded-full glass-strong px-4 py-3 focus:not-sr-only focus:fixed focus:top-3 focus:left-3"

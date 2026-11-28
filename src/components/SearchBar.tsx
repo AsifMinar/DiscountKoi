@@ -64,8 +64,8 @@ export function SearchBar({
     >
       <label
         className={cn(
-          "flex h-14 w-full items-center gap-3 rounded-2xl glass-strong pr-1.5 pl-5 frost focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-ring",
-          showProblem && "ring-1 ring-tint-rose-text/50",
+          "flex h-14 w-full items-center gap-3 rounded-xl glass-strong pr-1.5 pl-5 frost focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-ring",
+          showProblem && "ring-1 ring-danger/50",
         )}
       >
         <SearchIcon className="size-5 shrink-0 text-ink-muted" />
@@ -130,7 +130,7 @@ export function SearchBar({
       {showProblem && (
         <p
           id={messageId}
-          className="mt-2 flex items-start justify-center gap-1.5 text-left text-sm text-tint-rose-text"
+          className="mt-2 flex items-start justify-center gap-1.5 text-left text-sm text-danger"
         >
           <AlertIcon aria-hidden="true" className="mt-0.5 size-4 shrink-0" />
           {problem}

@@ -56,7 +56,7 @@ export function PageHero({
           {before}
           <div className="flex min-w-0 flex-col gap-2">
             <p className="flex items-center gap-2 eyebrow">
-              <span aria-hidden="true" className="h-px w-6 bg-aurora" />
+              <span aria-hidden="true" className="h-px w-6 bg-accent" />
               {eyebrow}
             </p>
             <h1 className="max-w-3xl text-[2rem] leading-[1.08] font-semibold tracking-[-0.03em] text-balance sm:text-[2.5rem]">

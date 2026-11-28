@@ -138,8 +138,13 @@ export function DealGrid({
 }) {
   return (
     <ul role="list" className={grid}>
-      {deals.map((deal) => (
-        <li key={deal.id} className={LAZY_CARD}>
+      {deals.map((deal, i) => (
+        <li
+          key={deal.id}
+          // The first screen of results rises in one after another; the rest just appear.
+          className={cn(LAZY_CARD, i < 12 && "animate-rise")}
+          style={i < 12 ? { animationDelay: `${i * 35}ms` } : undefined}
+        >
           <DealCard deal={deal} today={today} search={search} />
         </li>
       ))}

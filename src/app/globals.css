@@ -4,123 +4,116 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /*
- * Design tokens ("Aurora glass"). Every colour on the site comes from here, so light
- * and dark stay in sync. Text/background pairs are checked for WCAG AA (>= 4.5:1),
- * including text on glass over the brightest part of the aurora.
+ * Design tokens ("Signal"). Flat colour only: black, white, greys and one koi orange.
+ * No gradients. Dark mode is pitch black. Every text/background pair is checked for
+ * WCAG AA (>= 4.5:1). Amber and red are kept for warnings and errors only.
  */
 :root {
   color-scheme: light;
-  --page: #f4f3fb;
-  --ink: #15122b;
-  --ink-muted: #4d4869;
+  --page: #f2f2f0;
+  --ink: #0a0a0a;
+  --ink-muted: #595959;
 
-  --glass: rgb(255 255 255 / 0.6);
-  --glass-strong: rgb(255 255 255 / 0.76);
-  --glass-border: rgb(255 255 255 / 0.85);
-  --glass-shadow: 0 1px 2px rgb(30 20 80 / 0.05), 0 12px 32px -16px rgb(60 40 140 / 0.22);
-  --glass-shadow-hover:
-    0 0 0 1px rgb(109 40 217 / 0.22), 0 1px 2px rgb(30 20 80 / 0.05),
-    0 20px 44px -18px rgb(109 40 217 / 0.35);
-  --surface-solid: #fbfaff;
+  /* "glass" is now a flat surface with a hairline border; "strong" is for floating bars. */
+  --glass: #ffffff;
+  --glass-strong: rgb(255 255 255 / 0.9);
+  --glass-border: rgb(10 10 10 / 0.1);
+  --glass-shadow: none;
+  --glass-shadow-hover: none;
+  --surface-solid: #ffffff;
 
-  --accent: #6d28d9;
-  --accent-hover: #5b21b6;
-  --accent-fg: #ffffff;
-  --accent-soft: rgb(109 40 217 / 0.1);
-  --accent-text: #5b21b6;
-  /* Primary buttons and highlights: violet -> indigo -> deep cyan (white text passes on all three). */
-  --accent-gradient: linear-gradient(120deg, #7c3aed, #4f46e5 55%, #0e7490);
-  --glow: rgb(124 58 237 / 0.35);
-  /* "teal" is the cool second colour (cyan in this palette): Sudbury badges, rings. */
-  --teal-soft: rgb(8 145 178 / 0.12);
-  --teal-text: #0e4f5f;
-  /* Store and category tints: a soft fill with dark text (light) or light text (dark). */
-  --tint-blue: rgb(37 99 235 / 0.12);
-  --tint-blue-text: #1e3a8a;
-  --tint-green: rgb(22 163 74 / 0.13);
-  --tint-green-text: #14532d;
-  --tint-plum: rgb(147 51 234 / 0.11);
-  --tint-plum-text: #581c87;
-  --tint-gold: rgb(202 138 4 / 0.16);
-  --tint-gold-text: #713f12;
-  --tint-rose: rgb(225 29 72 / 0.11);
-  --tint-rose-text: #881337;
-  --neutral-soft: rgb(21 18 43 / 0.06);
-  --line: rgb(21 18 43 / 0.1);
-  --ring: #0e7490;
-  --scrim: rgb(21 18 43 / 0.3);
-  --scrim-solid: rgb(21 18 43);
-  --scrim-amount: 30%;
+  --accent: #ff5a1f;
+  --accent-hover: #e64a12;
+  --accent-fg: #0a0a0a;
+  --accent-soft: rgb(255 90 31 / 0.12);
+  /* Orange text on light backgrounds needs to be darker to stay readable. */
+  --accent-text: #b33a0b;
+  /* Sudbury badges and the live dot use the accent ("teal" is the old token name). */
+  --teal-soft: rgb(255 90 31 / 0.12);
+  --teal-text: #b33a0b;
+  /* Category and store tiles are monochrome. */
+  --tint-blue: rgb(10 10 10 / 0.06);
+  --tint-blue-text: #0a0a0a;
+  --tint-green: rgb(10 10 10 / 0.06);
+  --tint-green-text: #0a0a0a;
+  --tint-plum: rgb(10 10 10 / 0.06);
+  --tint-plum-text: #0a0a0a;
+  --tint-gold: rgb(10 10 10 / 0.06);
+  --tint-gold-text: #0a0a0a;
+  --tint-rose: rgb(10 10 10 / 0.06);
+  --tint-rose-text: #0a0a0a;
+  /* Status colours: never used for anything else. */
+  --warn: #8a5a00;
+  --warn-soft: rgb(255 176 32 / 0.18);
+  --danger: #b4231b;
+  --danger-soft: rgb(255 69 58 / 0.12);
+  --neutral-soft: rgb(10 10 10 / 0.06);
+  --line: rgb(10 10 10 / 0.12);
+  --ring: #ff5a1f;
+  --scrim: rgb(0 0 0 / 0.4);
+  --scrim-solid: rgb(0 0 0);
+  --scrim-amount: 40%;
 
-  /* The logo keeps its koi orange in both themes. */
-  --koi: #e0632f;
+  --koi: #ff5a1f;
   --koi-light: #fff4ea;
-  --koi-eye: #1c1917;
+  --koi-eye: #0a0a0a;
 
-  /* Chart series (Sudbury / Ontario / Ships to ON), validated for colour-blind separation. */
-  --series-1: #7c3aed;
-  --series-2: #0891b2;
-  --series-3: #db2777;
-
-  --aurora-1: rgb(167 139 250 / 0.42);
-  --aurora-2: rgb(103 232 249 / 0.38);
-  --aurora-3: rgb(244 114 182 / 0.24);
-  --grid-line: rgb(40 30 90 / 0.05);
+  /* Chart series (Sudbury / Ontario / Ships to ON): told apart by lightness, plus labels. */
+  --series-1: #ff5a1f;
+  --series-2: #0a0a0a;
+  --series-3: #8a8a8a;
+  --grid-line: rgb(10 10 10 / 0.06);
 }
 
 .dark {
   color-scheme: dark;
-  --page: #07060f;
-  --ink: #f2f0ff;
-  --ink-muted: #b3aecf;
+  --page: #000000;
+  --ink: #f5f5f5;
+  --ink-muted: #8f8f8f;
 
-  --glass: rgb(255 255 255 / 0.045);
-  --glass-strong: rgb(16 13 34 / 0.74);
-  --glass-border: rgb(255 255 255 / 0.09);
-  --glass-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 12px 32px -16px rgb(0 0 0 / 0.7);
-  --glass-shadow-hover:
-    inset 0 1px 0 rgb(255 255 255 / 0.08), 0 0 0 1px rgb(167 139 250 / 0.38),
-    0 20px 48px -18px rgb(124 92 255 / 0.55);
-  --surface-solid: #120f24;
+  --glass: #0a0a0a;
+  --glass-strong: rgb(10 10 10 / 0.88);
+  --glass-border: rgb(255 255 255 / 0.1);
+  --glass-shadow: none;
+  --glass-shadow-hover: none;
+  --surface-solid: #0a0a0a;
 
-  --accent: #a78bfa;
-  --accent-hover: #c4b5fd;
-  --accent-fg: #0c0820;
-  --accent-soft: rgb(167 139 250 / 0.16);
-  --accent-text: #cdbfff;
-  --accent-gradient: linear-gradient(120deg, #a78bfa, #818cf8 50%, #67e8f9);
-  --glow: rgb(139 92 246 / 0.5);
-  --teal-soft: rgb(34 211 238 / 0.13);
-  --teal-text: #8eeaf8;
-  --tint-blue: rgb(96 165 250 / 0.16);
-  --tint-blue-text: #bfdbfe;
-  --tint-green: rgb(74 222 128 / 0.14);
-  --tint-green-text: #bbf7d0;
-  --tint-plum: rgb(192 132 252 / 0.16);
-  --tint-plum-text: #e9d5ff;
-  --tint-gold: rgb(250 204 21 / 0.14);
-  --tint-gold-text: #fde68a;
-  --tint-rose: rgb(251 113 133 / 0.15);
-  --tint-rose-text: #fecdd3;
+  --accent: #ff5a1f;
+  --accent-hover: #ff7a45;
+  --accent-fg: #000000;
+  --accent-soft: rgb(255 90 31 / 0.15);
+  --accent-text: #ff7a45;
+  --teal-soft: rgb(255 90 31 / 0.15);
+  --teal-text: #ff7a45;
+  --tint-blue: rgb(255 255 255 / 0.07);
+  --tint-blue-text: #f5f5f5;
+  --tint-green: rgb(255 255 255 / 0.07);
+  --tint-green-text: #f5f5f5;
+  --tint-plum: rgb(255 255 255 / 0.07);
+  --tint-plum-text: #f5f5f5;
+  --tint-gold: rgb(255 255 255 / 0.07);
+  --tint-gold-text: #f5f5f5;
+  --tint-rose: rgb(255 255 255 / 0.07);
+  --tint-rose-text: #f5f5f5;
+  --warn: #ffb020;
+  --warn-soft: rgb(255 176 32 / 0.14);
+  --danger: #ff6b61;
+  --danger-soft: rgb(255 69 58 / 0.15);
   --neutral-soft: rgb(255 255 255 / 0.07);
-  --line: rgb(255 255 255 / 0.09);
-  --ring: #67e8f9;
-  --scrim: rgb(2 1 8 / 0.6);
-  --scrim-solid: rgb(2 1 8);
-  --scrim-amount: 60%;
+  --line: rgb(255 255 255 / 0.12);
+  --ring: #ff5a1f;
+  --scrim: rgb(0 0 0 / 0.7);
+  --scrim-solid: rgb(0 0 0);
+  --scrim-amount: 70%;
 
-  --koi: #f07a45;
+  --koi: #ff5a1f;
   --koi-light: #fff4ea;
-  --koi-eye: #1c1917;
+  --koi-eye: #000000;
 
-  --series-1: #9370f5;
-  --series-2: #14a8c4;
-  --series-3: #e8559f;
-
-  --aurora-1: rgb(124 58 237 / 0.4);
-  --aurora-2: rgb(6 182 212 / 0.24);
-  --aurora-3: rgb(236 72 153 / 0.2);
-  --grid-line: rgb(255 255 255 / 0.035);
+  --series-1: #ff5a1f;
+  --series-2: #f5f5f5;
+  --series-3: #737373;
+  --grid-line: rgb(255 255 255 / 0.05);
 }
 
 /* Old browsers without backdrop-filter, or users who ask for less transparency: go solid. */
@@ -164,6 +157,10 @@
   --color-glass-strong: var(--glass-strong);
   --color-surface: var(--surface-solid);
 
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
   --color-series-1: var(--series-1);
   --color-series-2: var(--series-2);
   --color-series-3: var(--series-3);
@@ -173,13 +170,22 @@
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+  /* Dot-matrix figures for the big live numbers. */
+  --font-pixel: var(--font-geist-pixel-square), var(--font-geist-mono), ui-monospace, monospace;
   --animate-fade-in: fade-in 200ms ease-out both;
   --animate-rise: rise 320ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-grow-x: grow-x 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-grow-y: grow-y 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-ticker: ticker 60s linear infinite;
+  --animate-blink: blink 1.6s steps(2, start) infinite;
 }
 
 @theme {
   /* Large phones (430px) get a two-column grid. */
   --breakpoint-xs: 26.5rem;
+  /* Tighter corners for the flat "Signal" look (cards 16px, tiles 12px). */
+  --radius-3xl: 1rem;
+  --radius-2xl: 0.75rem;
 }
 
 @keyframes fade-in {
@@ -202,34 +208,43 @@
   }
 }
 
-@keyframes shimmer {
-  from {
-    background-position: 150% 0;
+@keyframes pulse-soft {
+  50% {
+    opacity: 0.45;
   }
+}
+
+/* Bars and meters fill in from the left / bottom when they first appear. */
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+}
+@keyframes grow-y {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+/* The live ticker: its list is doubled, so sliding by half loops seamlessly. */
+@keyframes ticker {
   to {
-    background-position: -50% 0;
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.25;
   }
 }
 
 @keyframes sweep {
   from {
-    background-position: -40% 0;
+    transform: translateX(-100%);
   }
   to {
-    background-position: 140% 0;
-  }
-}
-
-/* The aurora drifts very slowly. Only transform changes, so the GPU does it for free. */
-@keyframes aurora-drift {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
-  }
-  50% {
-    transform: translate3d(-4%, 3%, 0) rotate(8deg) scale(1.08);
-  }
-  100% {
-    transform: translate3d(3%, -2%, 0) rotate(-6deg) scale(1.04);
+    transform: translateX(300%);
   }
 }
 
@@ -249,28 +264,12 @@
 
 /*
  * The actual blur. It's the expensive part, so it only goes on a few layers
- * (navbar, menus, search, filter bar, modal). Cards sit on a smooth gradient,
+ * (navbar, menus, search, filter bar, modal). Cards sit on a plain background,
  * where blur is invisible anyway, so they skip it unless `frosted` is set.
  */
 @utility frost {
   -webkit-backdrop-filter: blur(20px) saturate(150%);
   backdrop-filter: blur(20px) saturate(150%);
-}
-
-/* Gradient fill for primary buttons and highlights. */
-@utility bg-aurora {
-  background-image: var(--accent-gradient);
-}
-
-/* Gradient text for hero highlights. Falls back to the accent colour. */
-@utility text-aurora {
-  color: var(--accent-text);
-  @supports (background-clip: text) or (-webkit-background-clip: text) {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
 }
 
 /* Small mono "readout" label used above sections and in stats. */
@@ -284,26 +283,55 @@
   color: var(--ink-muted);
 }
 
-/* Placeholder block that shimmers while content loads (still, if motion is reduced). */
+/* Placeholder block that pulses while content loads (still, if motion is reduced). */
 @utility skeleton {
   background-color: var(--neutral-soft);
-  background-image: linear-gradient(
-    100deg,
-    transparent 30%,
-    color-mix(in srgb, var(--ink), transparent 94%) 50%,
-    transparent 70%
-  );
-  background-size: 200% 100%;
-  background-repeat: no-repeat;
-  animation: shimmer 1.4s ease-in-out infinite;
+  animation: pulse-soft 1.4s ease-in-out infinite;
 }
 
-/* Thin bar that sweeps while waiting on a slow download. */
+/* Solid block that slides along a track while waiting on a slow download. */
 @utility progress-sweep {
-  background-image: var(--accent-gradient);
-  background-size: 40% 100%;
-  background-repeat: no-repeat;
+  background-color: var(--accent);
   animation: sweep 1.2s ease-in-out infinite;
+}
+
+/* Corner brackets that appear on hover or focus, like a targeting frame. */
+@utility hud {
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0.875rem;
+    height: 0.875rem;
+    pointer-events: none;
+    opacity: 0;
+    transition:
+      opacity 150ms ease-out,
+      translate 150ms ease-out;
+  }
+  &::before {
+    top: -1px;
+    left: -1px;
+    border-top: 2px solid var(--accent);
+    border-left: 2px solid var(--accent);
+    border-top-left-radius: inherit;
+    translate: 4px 4px;
+  }
+  &::after {
+    right: -1px;
+    bottom: -1px;
+    border-right: 2px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
+    border-bottom-right-radius: inherit;
+    translate: -4px -4px;
+  }
+  &:hover::before,
+  &:hover::after,
+  &:focus-within::before,
+  &:focus-within::after {
+    opacity: 1;
+    translate: 0 0;
+  }
 }
 
 /* Horizontal page padding that also clears the iPhone notch in landscape. */
@@ -359,40 +387,6 @@
   ::selection {
     background-color: var(--accent-soft);
   }
-}
-
-/*
- * Aurora backdrop: three soft colour fields that drift slowly, plus a faint grid that
- * fades out towards the bottom. Pure gradients and transforms, so it costs no blur.
- */
-.koi-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  overflow: hidden;
-}
-.koi-backdrop::before {
-  content: "";
-  position: absolute;
-  inset: -20%;
-  background:
-    radial-gradient(40% 35% at 18% 12%, var(--aurora-1), transparent 70%),
-    radial-gradient(35% 30% at 85% 20%, var(--aurora-2), transparent 70%),
-    radial-gradient(45% 35% at 55% 95%, var(--aurora-3), transparent 72%);
-  animation: aurora-drift 36s ease-in-out infinite alternate;
-  will-change: transform;
-}
-.koi-backdrop::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 48px 48px;
-  -webkit-mask-image: radial-gradient(120% 70% at 50% 0%, #000 30%, transparent 75%);
-  mask-image: radial-gradient(120% 70% at 50% 0%, #000 30%, transparent 75%);
 }
 
 /*

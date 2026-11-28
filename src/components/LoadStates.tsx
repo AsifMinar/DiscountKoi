@@ -119,7 +119,7 @@ export function CachedNotice({ state, onRetry }: { state: DealsState; onRetry: (
   if (!state.cachedAt) return null;
   return (
     <div className="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-2xl border border-line px-4 py-3 text-sm">
-      <WifiOffIcon aria-hidden="true" className="size-4 shrink-0 text-tint-gold-text" />
+      <WifiOffIcon aria-hidden="true" className="size-4 shrink-0 text-warn" />
       <p className="min-w-0 flex-1 text-pretty text-ink-muted">
         Showing your offline copy, saved{" "}
         <span className="font-medium text-ink">{formatUpdated(state.cachedAt)}</span> (Sudbury

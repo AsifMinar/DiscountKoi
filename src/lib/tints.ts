@@ -16,13 +16,14 @@ export const TINTS = {
 } as const;
 export type TintId = keyof typeof TINTS;
 
-const STORE_TINTS: TintId[] = ["accent", "teal", "blue", "green", "plum", "gold", "rose"];
-
-/** The same colour for the same store every time. */
+/**
+ * Store badges. The flat "Signal" look keeps every tile monochrome, so the orange accent
+ * only ever means "act here" or "Sudbury". (Kept as a function so a store could get its
+ * own colour later.)
+ */
 export function storeTint(name: string): string {
-  let hash = 0;
-  for (const char of name) hash = (hash * 31 + char.charCodeAt(0)) >>> 0;
-  return TINTS[STORE_TINTS[hash % STORE_TINTS.length]];
+  void name;
+  return TINTS.neutral;
 }
 
 export const CATEGORY_TINT: Record<CategoryId, TintId> = {
@@ -42,4 +43,5 @@ export const CATEGORY_TINT: Record<CategoryId, TintId> = {
   other: "neutral",
 };
 
-export const categoryTint = (category: CategoryId) => TINTS[CATEGORY_TINT[category]];
+/** Category pictures: monochrome too (see storeTint). */
+export const categoryTint = (category: CategoryId) => (void category, TINTS.neutral);

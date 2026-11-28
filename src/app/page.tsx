@@ -9,7 +9,7 @@ export default function HomePage() {
       <PageHero
         title={
           <>
-            Every deal in Sudbury, <span className="text-aurora">in one calm place.</span>
+            Every deal in Sudbury, <span className="text-accent-text">in one calm place.</span>
           </>
         }
         updatedAt={updatedAt}

@@ -169,7 +169,7 @@ const STATES: State[] = [
     action: async (page) => {
       await page.keyboard.press("Control+k");
       await page.getByRole("combobox", { name: /Search pages/ }).fill("gro");
-      await page.getByRole("option").first().waitFor();
+      await page.locator("dialog[open] [role=option]").first().waitFor();
     },
   },
   {

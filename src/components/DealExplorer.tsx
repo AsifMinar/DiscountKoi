@@ -17,7 +17,13 @@ import {
   ViewTabs,
   clearFilters,
 } from "@/components/FilterPanel";
-import { CategoryChips, FlyerList, FlyerStrip, TopStores } from "@/components/HomeSections";
+import {
+  CategoryChips,
+  DealTicker,
+  FlyerList,
+  FlyerStrip,
+  TopStores,
+} from "@/components/HomeSections";
 import { SlidersIcon } from "@/components/icons";
 import { Button, ButtonLink } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
@@ -31,6 +37,7 @@ import {
   homeSections,
   inScope,
   isDefaultView,
+  isFree,
   lockedType,
   sortDeals,
   type FacetCounts,
@@ -162,6 +169,17 @@ export function DealExplorer({
     document.getElementById("deals")?.scrollIntoView({ block: "start" });
   };
   const flyers = sections?.flyers ?? [];
+  // The ticker: the biggest discounts on the page right now (any store).
+  const tickerDeals = useMemo(
+    () =>
+      isHome
+        ? sortDeals(
+            source.filter((d) => !isFlyer(d) && d.discountPercent && !isFree(d)),
+            "discount",
+          ).slice(0, 12)
+        : [],
+    [isHome, source],
+  );
   const showHomeExtras = isHome && unfiltered;
   // Wide screens get a side panel: the pulse, filters, flyers and top stores.
   const hasAside = withFilters || showHomeExtras;
@@ -174,6 +192,8 @@ export function DealExplorer({
       )}
     >
       <div className="flex min-w-0 flex-col gap-6">
+        {showHomeExtras && <DealTicker deals={tickerDeals} search={search} />}
+
         {/* Below 1280px the side panel's pieces sit above the feed instead. */}
         {showHomeExtras && stats && stats.live >= 3 && (
           <div className="xl:hidden">
@@ -202,7 +222,7 @@ export function DealExplorer({
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
               <h2 className="flex items-center gap-2.5 text-xl font-semibold tracking-tight">
-                <span aria-hidden="true" className="h-5 w-1 shrink-0 rounded-full bg-aurora" />
+                <span aria-hidden="true" className="h-5 w-1 shrink-0 rounded-full bg-accent" />
                 {unfiltered ? "Live feed" : "Results"}
               </h2>
               <p aria-live="polite" className="mt-0.5 pl-3.5 text-sm text-ink-muted tabular-nums">

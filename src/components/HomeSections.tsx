@@ -20,6 +20,7 @@ import type { FacetCounts } from "@/lib/filters";
 import { plural } from "@/lib/format";
 import { storeHref, type StoreSummary } from "@/lib/stores";
 import { categoryTint } from "@/lib/tints";
+import { dealHref, onDealClick } from "@/lib/url-state";
 
 /* The home page's pieces around the deal feed: category chips, flyers, top stores. */
 
@@ -42,7 +43,7 @@ function SectionTitle({
     <div className="flex flex-wrap items-end justify-between gap-3">
       <div>
         <h2 id={id} className="flex items-center gap-2.5 text-xl font-semibold tracking-tight">
-          <span aria-hidden="true" className="h-5 w-1 shrink-0 rounded-full bg-aurora" />
+          <span aria-hidden="true" className="h-5 w-1 shrink-0 rounded-full bg-accent" />
           {title}
         </h2>
         {subtitle && <p className="mt-0.5 pl-3.5 text-sm text-ink-muted">{subtitle}</p>}
@@ -160,7 +161,7 @@ export function StoreTiles({ stores }: { stores: StoreSummary[] }) {
         <li key={store.slug}>
           <Link
             href={storeHref(store.name)}
-            className="flex h-full min-h-16 items-center gap-2.5 rounded-3xl glass p-2.5 transition-[translate,box-shadow] duration-200 ease-out hover:shadow-[var(--glass-shadow-hover)] motion-safe:hover:-translate-y-0.5 sm:gap-3 sm:p-3"
+            className="hud relative flex h-full min-h-16 items-center gap-2.5 rounded-3xl glass p-2.5 transition-colors duration-150 ease-out hover:border-ink/25 sm:gap-3 sm:p-3"
           >
             <Avatar name={store.name} />
             <span className="min-w-0 flex-1">
@@ -194,10 +195,8 @@ export function CategoryChips({
   if (cats.length < 2) return null;
   const chip = (active: boolean) =>
     cn(
-      "inline-flex h-11 shrink-0 items-center gap-2 rounded-full pr-4 pl-1.5 text-sm font-medium whitespace-nowrap transition-[background-color,box-shadow,color] duration-150",
-      active
-        ? "bg-ink text-page shadow-[0_8px_20px_-10px_var(--glow)]"
-        : "glass text-ink hover:shadow-[var(--glass-shadow-hover)]",
+      "inline-flex h-11 shrink-0 items-center gap-2 rounded-xl pr-4 pl-1.5 text-sm font-medium whitespace-nowrap transition-colors duration-150",
+      active ? "bg-ink text-page" : "glass text-ink hover:border-ink/25",
     );
   return (
     <nav aria-label="Shop by category">
@@ -224,7 +223,7 @@ export function CategoryChips({
               >
                 <span
                   className={cn(
-                    "flex size-8 items-center justify-center rounded-full",
+                    "flex size-8 items-center justify-center rounded-lg",
                     categoryTint(c.id),
                   )}
                 >
@@ -332,7 +331,7 @@ export function TopStores({ stores, max = 6 }: { stores: StoreSummary[]; max?: n
                 </span>
                 <span aria-hidden="true" className="block h-1 rounded-full bg-accent-soft">
                   <span
-                    className="block h-full rounded-full bg-accent"
+                    className="block h-full origin-left animate-grow-x rounded-full bg-accent"
                     style={{ width: `${(store.count / most) * 100}%` }}
                   />
                 </span>
@@ -342,5 +341,47 @@ export function TopStores({ stores, max = 6 }: { stores: StoreSummary[]; max?: n
         ))}
       </ul>
     </PanelCard>
+  );
+}
+
+/**
+ * "LIVE" ticker of the biggest discounts, scrolling slowly across the top of the feed.
+ * It pauses on hover or keyboard focus, every item opens its deal, and with reduced
+ * motion it stays still and scrolls by hand instead.
+ */
+export function DealTicker({ deals, search }: { deals: Deal[]; search: string }) {
+  const items = deals.filter((d) => d.discountPercent).slice(0, 12);
+  if (items.length < 3) return null;
+  const row = (copy: boolean) =>
+    items.map((d) => (
+      <li key={`${copy ? "b" : "a"}-${d.id}`} aria-hidden={copy || undefined} className="shrink-0">
+        <a
+          href={dealHref(search, d.id)}
+          onClick={onDealClick(d.id)}
+          tabIndex={copy ? -1 : undefined}
+          className="flex h-11 items-center gap-2.5 border-r border-line px-4 text-sm transition-colors hover:bg-neutral-soft"
+        >
+          <span className="font-pixel text-base text-accent-text">−{d.discountPercent}%</span>
+          <span className="max-w-60 truncate font-medium">{d.title}</span>
+          <span className="text-xs text-ink-muted">{d.store}</span>
+        </a>
+      </li>
+    ));
+  return (
+    <section
+      aria-label="Biggest discounts right now"
+      className="flex overflow-hidden rounded-xl border border-line bg-[var(--glass)]"
+    >
+      <p className="flex shrink-0 items-center gap-2 bg-accent px-3 font-mono text-xs font-semibold tracking-widest text-accent-fg uppercase">
+        <span aria-hidden="true" className="size-1.5 animate-blink rounded-full bg-accent-fg" />
+        Live
+      </p>
+      <div className="group min-w-0 flex-1 overflow-hidden motion-reduce:overflow-x-auto">
+        <ul className="flex w-max animate-ticker group-focus-within:[animation-play-state:paused] group-hover:[animation-play-state:paused] motion-reduce:animate-none">
+          {row(false)}
+          {row(true)}
+        </ul>
+      </div>
+    </section>
   );
 }

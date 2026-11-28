@@ -6,6 +6,7 @@ import { ArrowRightIcon } from "@/components/icons";
 import { cn } from "@/lib/cn";
 import { plural } from "@/lib/format";
 import { ENDING_BUCKETS, type DealStats } from "@/lib/stats";
+import { useCountUp } from "@/lib/use-count-up";
 
 /* The home page's "Deal pulse": today's numbers at a glance, each one a shortcut. */
 
@@ -19,8 +20,36 @@ const locationLabel = (id: LocationId) => LOCATIONS.find((l) => l.id === id)!.la
 const TILE = "flex flex-col gap-3 rounded-3xl glass p-4 sm:p-5";
 const TILE_BUTTON = cn(
   TILE,
-  "group text-left transition-[translate,box-shadow] duration-200 ease-out hover:shadow-[var(--glass-shadow-hover)] motion-safe:hover:-translate-y-0.5",
+  "hud relative group text-left transition-colors duration-150 ease-out hover:border-ink/25",
 );
+
+/**
+ * A big live number in the dot-matrix font. It counts up when it first appears; screen
+ * readers get the final value only.
+ */
+function Figure({
+  value,
+  suffix = "",
+  className,
+}: {
+  value: number;
+  suffix?: string;
+  className?: string;
+}) {
+  const { ref, value: shown } = useCountUp<HTMLSpanElement>(value);
+  return (
+    <span ref={ref} className={cn("block font-pixel leading-none tabular-nums", className)}>
+      <span aria-hidden="true">
+        {shown.toLocaleString("en-CA")}
+        {suffix}
+      </span>
+      <span className="sr-only">
+        {value.toLocaleString("en-CA")}
+        {suffix}
+      </span>
+    </span>
+  );
+}
 
 function TileFoot({ children }: { children: string }) {
   return (
@@ -53,7 +82,7 @@ export function DealPulse({
   return (
     <section aria-labelledby={headingId} className="flex flex-col gap-3">
       <h2 id={headingId} className="flex items-center gap-2 eyebrow">
-        <span aria-hidden="true" className="h-px w-6 bg-aurora" />
+        <span aria-hidden="true" className="h-px w-6 bg-accent" />
         Deal pulse · today
       </h2>
 
@@ -63,14 +92,10 @@ export function DealPulse({
           <div className="flex flex-wrap items-end justify-between gap-x-4 gap-y-1">
             <div>
               <p className="eyebrow">Live deals</p>
-              <p
-                className={cn(
-                  "leading-none font-semibold tracking-[-0.04em]",
-                  stacked ? "text-5xl" : "text-[3.5rem]",
-                )}
-              >
-                {stats.live.toLocaleString("en-CA")}
-              </p>
+              <Figure
+                value={stats.live}
+                className={cn("mt-1", stacked ? "text-5xl" : "text-[3.75rem]")}
+              />
             </div>
             <p className="pb-1 text-sm text-ink-muted">
               from {plural(stats.stores, "store")}
@@ -95,7 +120,7 @@ export function DealPulse({
                 {parts.map((p) => (
                   <span
                     key={p.id}
-                    className={cn("h-full rounded-full", SERIES[p.id])}
+                    className={cn("h-full origin-left animate-grow-x rounded-full", SERIES[p.id])}
                     style={{ flexGrow: p.count, flexBasis: 0 }}
                   />
                 ))}
@@ -127,14 +152,14 @@ export function DealPulse({
         {stats.avgDiscount !== null ? (
           <button type="button" onClick={() => onSort("discount")} className={TILE_BUTTON}>
             <span className="eyebrow">Avg. discount</span>
-            <span className="text-3xl font-semibold tracking-tight">{stats.avgDiscount}%</span>
+            <Figure value={stats.avgDiscount} suffix="%" className="text-4xl" />
             <span
               role="img"
               aria-label={`Average ${stats.avgDiscount}% off`}
               className="block h-2 w-full overflow-hidden rounded-full bg-accent-soft"
             >
               <span
-                className="block h-full rounded-full bg-aurora"
+                className="block h-full origin-left animate-grow-x rounded-full bg-accent"
                 style={{ width: `${stats.avgDiscount}%` }}
               />
             </span>
@@ -146,14 +171,14 @@ export function DealPulse({
         ) : (
           <div className={TILE}>
             <span className="eyebrow">Free right now</span>
-            <span className="text-3xl font-semibold tracking-tight">{stats.free}</span>
+            <Figure value={stats.free} className="text-4xl" />
           </div>
         )}
 
         {/* Ending this week, as a small column chart by day. */}
         <button type="button" onClick={() => onSort("ending")} className={TILE_BUTTON}>
           <span className="eyebrow">Ending ≤ 7 days</span>
-          <span className="text-3xl font-semibold tracking-tight">{stats.endingTotal}</span>
+          <Figure value={stats.endingTotal} className="text-4xl" />
           <span
             role="img"
             aria-label={stats.ending
@@ -174,10 +199,14 @@ export function DealPulse({
                   {b.count > 0 && (
                     <span
                       className={cn(
-                        "w-full rounded-t-[4px]",
-                        i === 0 ? "bg-accent" : "bg-accent/45",
+                        "w-full origin-bottom animate-grow-y rounded-t-[4px]",
+                        // Today stands out in orange; the rest of the week is context.
+                        i === 0 ? "bg-accent" : "bg-ink/25",
                       )}
-                      style={{ height: `${Math.max(8, (b.count / maxBucket) * 70)}%` }}
+                      style={{
+                        height: `${Math.max(8, (b.count / maxBucket) * 70)}%`,
+                        animationDelay: `${i * 90}ms`,
+                      }}
                     />
                   )}
                 </span>

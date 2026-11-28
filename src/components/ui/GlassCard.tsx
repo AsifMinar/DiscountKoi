@@ -22,8 +22,7 @@ export function GlassCard({
       className={cn(
         "rounded-3xl glass",
         frosted && "frost",
-        interactive &&
-          "transition-[translate,box-shadow] duration-200 ease-out hover:shadow-[var(--glass-shadow-hover)] motion-safe:hover:-translate-y-0.5",
+        interactive && "hud relative transition-colors duration-150 ease-out hover:border-ink/25",
         className,
       )}
       {...props}

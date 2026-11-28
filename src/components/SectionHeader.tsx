@@ -14,7 +14,7 @@ export function SectionHeader({
     <div className="flex flex-wrap items-end justify-between gap-3">
       <div>
         <h2 className="flex items-center gap-2.5 text-xl font-semibold tracking-tight">
-          <span aria-hidden="true" className="h-5 w-1 shrink-0 rounded-full bg-aurora" />
+          <span aria-hidden="true" className="h-5 w-1 shrink-0 rounded-full bg-accent" />
           {title}
         </h2>
         {count && (

@@ -6,9 +6,8 @@ type Variant = "primary" | "secondary" | "ghost";
 type Size = "md" | "lg" | "icon";
 
 const VARIANTS: Record<Variant, string> = {
-  primary:
-    "bg-aurora text-accent-fg shadow-[0_8px_24px_-10px_var(--glow)] hover:shadow-[0_10px_30px_-8px_var(--glow)] hover:brightness-110",
-  secondary: "glass text-ink hover:bg-glass-strong",
+  primary: "bg-accent text-accent-fg hover:bg-accent-hover",
+  secondary: "glass text-ink hover:bg-neutral-soft",
   ghost: "text-ink hover:bg-neutral-soft",
 };
 
@@ -24,7 +23,7 @@ type StyleProps = { variant?: Variant; size?: Size; className?: string };
 /** Class string for a pill button. Use it on anything that should look like a button. */
 export function buttonClasses({ variant = "primary", size = "md", className }: StyleProps = {}) {
   return cn(
-    "inline-flex shrink-0 items-center justify-center gap-2 rounded-full font-medium whitespace-nowrap select-none",
+    "inline-flex shrink-0 items-center justify-center gap-2 rounded-xl font-medium whitespace-nowrap select-none",
     "transition-[color,background-color,box-shadow,filter] duration-150 ease-out disabled:pointer-events-none disabled:opacity-50",
     VARIANTS[variant],
     SIZES[size],

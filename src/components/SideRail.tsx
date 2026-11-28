@@ -83,7 +83,7 @@ export function SideRail() {
                   {active && (
                     <span
                       aria-hidden="true"
-                      className="absolute top-1/2 -left-1.5 h-6 w-1 -translate-y-1/2 rounded-full bg-aurora"
+                      className="absolute top-1/2 -left-1.5 h-6 w-1 -translate-y-1/2 rounded-full bg-accent"
                     />
                   )}
                   <span className="relative">
@@ -91,7 +91,7 @@ export function SideRail() {
                     {count > 0 && (
                       <span
                         aria-hidden="true"
-                        className="absolute -top-1.5 -right-2.5 min-w-4 rounded-full bg-aurora px-1 text-center text-[0.5625rem] leading-4 font-semibold text-accent-fg tabular-nums"
+                        className="absolute -top-1.5 -right-2.5 min-w-4 rounded-full bg-accent px-1 text-center text-[0.5625rem] leading-4 font-semibold text-accent-fg tabular-nums"
                       >
                         {count > 99 ? "99+" : count}
                       </span>

@@ -30,7 +30,7 @@ export default function AboutPage() {
     <div className="mx-auto flex max-w-3xl flex-col gap-6 pt-6 lg:pt-8">
       <header className="flex flex-col gap-3 pb-2">
         <p className="flex items-center gap-2 eyebrow">
-          <span aria-hidden="true" className="h-px w-6 bg-aurora" />
+          <span aria-hidden="true" className="h-px w-6 bg-accent" />
           Discount Koi · Greater Sudbury
         </p>
         <h1 className="text-[2rem] leading-[1.08] font-semibold tracking-[-0.03em] sm:text-[2.5rem]">
