@@ -1,22 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useId, useRef, useState, type ReactNode } from "react";
 import type { Deal } from "@shared/deal";
 import { weekLabel } from "@shared/dates";
 import { CATEGORIES, type CategoryId } from "@shared/taxonomy";
-import { DealCard, LAZY_CARD } from "@/components/DealCard";
 import {
   ArrowRightIcon,
   ArrowUpRightIcon,
   CategoryIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
-  GiftIcon,
-  StudentIcon,
 } from "@/components/icons";
 import { Avatar } from "@/components/ui/Avatar";
-import { Button, buttonClasses } from "@/components/ui/Button";
+import { buttonClasses } from "@/components/ui/Button";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { cn } from "@/lib/cn";
 import type { FacetCounts } from "@/lib/filters";
@@ -24,7 +21,7 @@ import { plural } from "@/lib/format";
 import { storeHref, type StoreSummary } from "@/lib/stores";
 import { categoryTint } from "@/lib/tints";
 
-/* The home page's shop-style sections, shown above the main deal grid. */
+/* The home page's pieces around the deal feed: category chips, flyers, top stores. */
 
 // Rows run edge to edge on phones and scroll sideways; the padding keeps card shadows visible.
 const SCROLL_ROW =
@@ -104,50 +101,6 @@ function useScroller() {
   return { ref, sync, buttons };
 }
 
-/** Category icons in one row: a tap shows only that category. */
-export function CategoryRail({
-  available,
-  selected,
-  onPick,
-}: {
-  available: FacetCounts["cats"];
-  selected: CategoryId[];
-  onPick: (category: CategoryId) => void;
-}) {
-  const cats = CATEGORIES.filter((c) => c.id !== "food-help" && available[c.id]);
-  if (cats.length < 2) return null;
-  return (
-    <nav aria-label="Shop by category">
-      <ul className={cn(SCROLL_ROW, "snap-none lg:flex-wrap lg:justify-center")}>
-        {cats.map((c) => {
-          const active = selected.includes(c.id);
-          return (
-            <li key={c.id} className="shrink-0">
-              <button
-                type="button"
-                aria-pressed={active}
-                onClick={() => onPick(c.id)}
-                className="group flex w-24 flex-col items-center gap-2 rounded-2xl p-1.5 text-center text-xs leading-tight font-medium text-pretty"
-              >
-                <span
-                  className={cn(
-                    "flex size-14 items-center justify-center rounded-full transition-[box-shadow,translate] duration-150 ease-out group-hover:shadow-[var(--glass-shadow-hover)] motion-safe:group-hover:-translate-y-0.5",
-                    categoryTint(c.id),
-                    active && "ring-2 ring-accent ring-offset-2 ring-offset-page",
-                  )}
-                >
-                  <CategoryIcon category={c.id} className="size-6" />
-                </span>
-                {c.label}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
-  );
-}
-
 /** "This week's flyers": one small tile per store that opens its official flyer in a new tab. */
 export function FlyerStrip({ flyers }: { flyers: Deal[] }) {
   const { ref, sync, buttons } = useScroller();
@@ -193,68 +146,10 @@ export function FlyerStrip({ flyers }: { flyers: Deal[] }) {
   );
 }
 
-/** "Top deals" / "Ending soon": a sideways row of deal cards with a "See all" button. */
-export function DealRow({
-  id,
-  title,
-  subtitle,
-  deals,
-  today,
-  search,
-  onSeeAll,
-}: {
-  id: string;
-  title: string;
-  subtitle: string;
-  deals: Deal[];
-  today: string;
-  search: string;
-  onSeeAll: () => void;
-}) {
-  const { ref, sync, buttons } = useScroller();
-  return (
-    <section aria-labelledby={id} className="flex flex-col gap-3">
-      <SectionTitle id={id} title={title} subtitle={subtitle}>
-        <Button variant="ghost" onClick={onSeeAll}>
-          See all
-          <ArrowRightIcon className="size-4" />
-        </Button>
-        {buttons(title.toLowerCase())}
-      </SectionTitle>
-      <ul ref={ref} onScroll={sync} role="list" className={SCROLL_ROW}>
-        {deals.map((deal) => (
-          <li key={deal.id} className={cn("w-[min(20rem,84vw)] shrink-0 snap-start", LAZY_CARD)}>
-            <DealCard deal={deal} today={today} search={search} />
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
-}
-
 /** How a store tile describes what's there. */
 function storeLine(store: StoreSummary) {
   if (store.count) return plural(store.count, "deal") + (store.flyer ? " · flyer" : "");
   return store.flyer ? "Weekly flyer" : "No deals today";
-}
-
-/** "Shop by store": the stores with the most deals, each opening its store page. */
-export function StoreGrid({ stores, max = 12 }: { stores: StoreSummary[]; max?: number }) {
-  const shown = stores.slice(0, max);
-  if (!shown.length) return null;
-  return (
-    <section aria-labelledby="stores-heading" className="flex flex-col gap-3">
-      <SectionTitle id="stores-heading" title="Shop by store">
-        {stores.length > shown.length && (
-          <Link href="/stores/" className={buttonClasses({ variant: "ghost" })}>
-            All {stores.length} stores
-            <ArrowRightIcon className="size-4" />
-          </Link>
-        )}
-      </SectionTitle>
-      <StoreTiles stores={shown} />
-    </section>
-  );
 }
 
 /** Store tiles in a grid (home page and the All stores page). */
@@ -283,57 +178,169 @@ export function StoreTiles({ stores }: { stores: StoreSummary[] }) {
   );
 }
 
-/** Two big cards that lead to the Student and Free pages. */
-export function PromoCards({
-  studentCount,
-  freeCount,
+/** Category chips above the feed: "All" plus one per category, with live counts. */
+export function CategoryChips({
+  available,
+  counts,
+  selected,
+  onPick,
 }: {
-  studentCount: number;
-  freeCount: number;
+  available: FacetCounts["cats"];
+  counts: FacetCounts["cats"];
+  selected: CategoryId[];
+  onPick: (category: CategoryId | null) => void;
 }) {
-  const cards = [
-    {
-      href: "/student/",
-      icon: <StudentIcon className="size-6" />,
-      tint: categoryTint("entertainment"),
-      title: "Student discounts",
-      text: `${plural(studentCount, "deal")} and programs for Laurentian, Cambrian and Collège Boréal students`,
-      show: studentCount > 0,
-    },
-    {
-      href: "/free/",
-      icon: <GiftIcon className="size-6" />,
-      tint: categoryTint("food-help"),
-      title: "Free stuff & food help",
-      text: `${plural(freeCount, "freebie")}, events, food banks and meal programs`,
-      show: freeCount > 0,
-    },
-  ].filter((c) => c.show);
-  if (!cards.length) return null;
+  const cats = CATEGORIES.filter((c) => c.id !== "food-help" && available[c.id]);
+  if (cats.length < 2) return null;
+  const chip = (active: boolean) =>
+    cn(
+      "inline-flex h-11 shrink-0 items-center gap-2 rounded-full pr-4 pl-1.5 text-sm font-medium whitespace-nowrap transition-[background-color,box-shadow,color] duration-150",
+      active
+        ? "bg-ink text-page shadow-[0_8px_20px_-10px_var(--glow)]"
+        : "glass text-ink hover:shadow-[var(--glass-shadow-hover)]",
+    );
   return (
-    <ul role="list" className="grid gap-3 sm:grid-cols-2 sm:gap-4">
-      {cards.map((c) => (
-        <li key={c.href}>
-          <Link
-            href={c.href}
-            className="flex h-full items-center gap-4 rounded-3xl glass p-5 transition-[translate,box-shadow] duration-200 ease-out hover:shadow-[var(--glass-shadow-hover)] motion-safe:hover:-translate-y-0.5 sm:p-6"
+    <nav aria-label="Shop by category">
+      <ul className={cn(SCROLL_ROW, "snap-none gap-2 sm:gap-2")}>
+        <li className="shrink-0">
+          <button
+            type="button"
+            aria-pressed={!selected.length}
+            onClick={() => onPick(null)}
+            className={cn(chip(!selected.length), "pl-4")}
           >
-            <span
-              className={cn(
-                "flex size-12 shrink-0 items-center justify-center rounded-2xl",
-                c.tint,
-              )}
-            >
-              {c.icon}
-            </span>
-            <span className="min-w-0 flex-1">
-              <span className="block text-lg font-semibold tracking-tight">{c.title}</span>
-              <span className="block text-sm text-pretty text-ink-muted">{c.text}</span>
-            </span>
-            <ArrowRightIcon aria-hidden="true" className="size-5 shrink-0 text-ink-muted" />
-          </Link>
+            All
+          </button>
         </li>
-      ))}
-    </ul>
+        {cats.map((c) => {
+          const active = selected.includes(c.id);
+          return (
+            <li key={c.id} className="shrink-0">
+              <button
+                type="button"
+                aria-pressed={active}
+                onClick={() => onPick(c.id)}
+                className={chip(active)}
+              >
+                <span
+                  className={cn(
+                    "flex size-8 items-center justify-center rounded-full",
+                    categoryTint(c.id),
+                  )}
+                >
+                  <CategoryIcon category={c.id} className="size-4" />
+                </span>
+                {c.label}
+                <span className="text-xs tabular-nums opacity-60">{counts[c.id] ?? 0}</span>
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  );
+}
+
+/** Side panel block: a titled glass card. */
+export function PanelCard({
+  title,
+  action,
+  children,
+}: {
+  title: string;
+  action?: ReactNode;
+  children: ReactNode;
+}) {
+  const id = useId();
+  return (
+    <section aria-labelledby={id} className="flex flex-col gap-2 rounded-3xl glass p-4">
+      <div className="flex min-h-8 items-center justify-between gap-2">
+        <h2 id={id} className="eyebrow">
+          {title}
+        </h2>
+        {action}
+      </div>
+      {children}
+    </section>
+  );
+}
+
+/** Side panel: this week's flyers as a compact list. */
+export function FlyerList({ flyers }: { flyers: Deal[] }) {
+  return (
+    <PanelCard title="This week’s flyers">
+      <ul className="-mx-2 flex flex-col">
+        {flyers.map((flyer) => (
+          <li key={flyer.id}>
+            <a
+              href={flyer.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex min-h-12 items-center gap-3 rounded-2xl px-2 py-1.5 transition-colors hover:bg-neutral-soft"
+            >
+              <Avatar name={flyer.store} className="size-8 text-xs" />
+              <span className="min-w-0 flex-1">
+                <span className="block truncate text-sm font-medium">{flyer.store}</span>
+                {flyer.startDate && flyer.endDate && (
+                  <span className="block text-xs text-ink-muted">
+                    {weekLabel(flyer.startDate, flyer.endDate)}
+                  </span>
+                )}
+              </span>
+              <ArrowUpRightIcon aria-hidden="true" className="size-4 shrink-0 text-ink-muted" />
+              <span className="sr-only"> flyer (opens in a new tab)</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </PanelCard>
+  );
+}
+
+/** Side panel: the stores with the most deals, with a bar showing how many each has. */
+export function TopStores({ stores, max = 6 }: { stores: StoreSummary[]; max?: number }) {
+  const shown = stores.filter((s) => s.count > 0).slice(0, max);
+  if (shown.length < 2) return null;
+  const most = Math.max(...shown.map((s) => s.count));
+  return (
+    <PanelCard
+      title="Top stores"
+      action={
+        <Link
+          href="/stores/"
+          className="-my-1.5 inline-flex h-11 items-center gap-1 rounded-full px-3 text-xs font-medium text-accent-text hover:bg-accent-soft"
+        >
+          All {stores.length}
+          <ArrowRightIcon aria-hidden="true" className="size-3.5" />
+        </Link>
+      }
+    >
+      <ul className="-mx-2 flex flex-col">
+        {shown.map((store) => (
+          <li key={store.slug}>
+            <Link
+              href={storeHref(store.name)}
+              className="flex min-h-12 items-center gap-3 rounded-2xl px-2 py-1.5 transition-colors hover:bg-neutral-soft"
+            >
+              <Avatar name={store.name} className="size-8 text-xs" />
+              <span className="flex min-w-0 flex-1 flex-col gap-1">
+                <span className="flex items-baseline justify-between gap-2">
+                  <span className="truncate text-sm font-medium">{store.name}</span>
+                  <span className="shrink-0 text-xs text-ink-muted tabular-nums">
+                    {plural(store.count, "deal")}
+                  </span>
+                </span>
+                <span aria-hidden="true" className="block h-1 rounded-full bg-accent-soft">
+                  <span
+                    className="block h-full rounded-full bg-accent"
+                    style={{ width: `${(store.count / most) * 100}%` }}
+                  />
+                </span>
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </PanelCard>
   );
 }

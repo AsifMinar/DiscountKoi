@@ -2,7 +2,8 @@
 
 import { useDeferredValue, useMemo, useState } from "react";
 import type { Deal } from "@shared/deal";
-import { DealCardSkeleton, DealGrid, GRID, WIDE_GRID } from "@/components/DealCard";
+import type { LocationId } from "@shared/taxonomy";
+import { DealCardSkeleton, DealGrid, FEED } from "@/components/DealCard";
 import { DealModal } from "@/components/DealModal";
 import { DealPulse } from "@/components/DealPulse";
 import { EmptyState } from "@/components/EmptyState";
@@ -13,22 +14,15 @@ import {
   ChannelSwitch,
   FilterSheet,
   FilterSidebar,
+  ViewTabs,
   clearFilters,
 } from "@/components/FilterPanel";
-import {
-  CategoryRail,
-  DealRow,
-  FlyerStrip,
-  PromoCards,
-  StoreGrid,
-} from "@/components/HomeSections";
+import { CategoryChips, FlyerList, FlyerStrip, TopStores } from "@/components/HomeSections";
 import { SlidersIcon } from "@/components/icons";
 import { Button, ButtonLink } from "@/components/ui/Button";
-import { Select } from "@/components/ui/Select";
 import { cn } from "@/lib/cn";
 import {
   PAGE_SIZE,
-  SORTS,
   activeFilterCount,
   facetCounts,
   filterDeals,
@@ -101,6 +95,8 @@ export function DealExplorer({
   // The baked-in deals are enough for the untouched page; anything else needs the full list.
   const ready = pageDeals !== null || defaultView;
   const isHome = scope.page === "home";
+  // No search or filters (any order): the home page's extras stay on screen.
+  const unfiltered = !hasActiveFilters(active);
 
   const results = useMemo(
     () => sortDeals(filterDeals(source, active, today), active.sort),
@@ -121,8 +117,8 @@ export function DealExplorer({
   const [paging, setPaging] = useState({ signature, count: PAGE_SIZE });
   const visible = paging.signature === signature ? paging.count : PAGE_SIZE;
 
-  // On the untouched home page the flyers have their own strip above.
-  const flyersApart = isHome && defaultView;
+  // With no filters, the home page shows flyers in their own strip / panel, not the feed.
+  const flyersApart = isHome && unfiltered;
   const list = flyersApart ? results.filter((d) => !isFlyer(d)) : results;
   // Before the full list arrives, the untouched page knows its size from the build.
   const listTotal =
@@ -152,7 +148,6 @@ export function DealExplorer({
   };
   const panelCount = activeFilterCount(filters);
   const withFilters = scope.page !== "store" || total > FEW_DEALS;
-  const grid = withFilters ? GRID : WIDE_GRID;
   const clearAll = () => {
     const before = filters;
     update(clearFilters({ ...filters, q: "" }));
@@ -162,73 +157,53 @@ export function DealExplorer({
     });
   };
 
+  const onLocation = (loc: LocationId) => {
+    update({ loc });
+    document.getElementById("deals")?.scrollIntoView({ block: "start" });
+  };
+  const flyers = sections?.flyers ?? [];
+  const showHomeExtras = isHome && unfiltered;
+  // Wide screens get a side panel: the pulse, filters, flyers and top stores.
+  const hasAside = withFilters || showHomeExtras;
+
   return (
-    <div className="flex flex-col gap-12">
-      {isHome && defaultView && stats && stats.live >= 3 && (
-        <DealPulse
-          stats={stats}
-          onSort={showMore}
-          onLocation={(loc) => {
-            update({ loc });
-            document.getElementById("deals")?.scrollIntoView({ block: "start" });
-          }}
-        />
+    <div
+      className={cn(
+        "flex flex-col gap-6",
+        hasAside && "xl:grid xl:grid-cols-[minmax(0,1fr)_22rem] xl:items-start xl:gap-6",
       )}
-
-      {isHome && (
-        <CategoryRail
-          available={counts.cats}
-          selected={filters.cats}
-          onPick={(cat) => update({ cats: filters.cats.includes(cat) ? [] : [cat] })}
-        />
-      )}
-
-      {isHome && defaultView && sections && (
-        <>
-          {sections.flyers.length > 0 && <FlyerStrip flyers={sections.flyers} />}
-          {sections.top.length > 0 && (
-            <DealRow
-              id="top-heading"
-              title="Top deals"
-              subtitle="The biggest discounts right now"
-              deals={sections.top}
-              today={today}
-              search={search}
-              onSeeAll={() => showMore("discount")}
-            />
-          )}
-          {sections.ending.length > 0 && (
-            <DealRow
-              id="ending-heading"
-              title="Ending soon"
-              subtitle="Last chance this week"
-              deals={sections.ending}
-              today={today}
-              search={search}
-              onSeeAll={() => showMore("ending")}
-            />
-          )}
-          {home && <StoreGrid stores={home.stores} />}
-          {home && <PromoCards studentCount={home.studentCount} freeCount={home.freeCount} />}
-        </>
-      )}
-
-      <section
-        id="deals"
-        aria-label="Deals"
-        className={cn(
-          "scroll-mt-28",
-          withFilters && "lg:grid lg:grid-cols-[16rem_minmax(0,1fr)] lg:items-start lg:gap-8",
+    >
+      <div className="flex min-w-0 flex-col gap-6">
+        {/* Below 1280px the side panel's pieces sit above the feed instead. */}
+        {showHomeExtras && stats && stats.live >= 3 && (
+          <div className="xl:hidden">
+            <DealPulse stats={stats} onSort={showMore} onLocation={onLocation} />
+          </div>
         )}
-      >
-        {withFilters && <FilterSidebar {...filterProps} />}
 
-        <div className="flex min-w-0 flex-col gap-5">
+        {isHome && (
+          <CategoryChips
+            available={counts.cats}
+            counts={liveCounts.cats}
+            selected={filters.cats}
+            onPick={(cat) =>
+              update({ cats: cat === null || filters.cats.includes(cat) ? [] : [cat] })
+            }
+          />
+        )}
+
+        {showHomeExtras && flyers.length > 0 && (
+          <div className="xl:hidden">
+            <FlyerStrip flyers={flyers} />
+          </div>
+        )}
+
+        <section id="deals" aria-label="Deals" className="flex scroll-mt-24 flex-col gap-4">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
               <h2 className="flex items-center gap-2.5 text-xl font-semibold tracking-tight">
                 <span aria-hidden="true" className="h-5 w-1 shrink-0 rounded-full bg-aurora" />
-                {defaultView ? "All deals" : "Results"}
+                {unfiltered ? "Live feed" : "Results"}
               </h2>
               <p aria-live="polite" className="mt-0.5 pl-3.5 text-sm text-ink-muted tabular-nums">
                 {ready ? plural(listTotal, "deal") : "Loading deals…"}
@@ -238,19 +213,12 @@ export function DealExplorer({
               <ChannelSwitch
                 value={filters.channel}
                 onChange={(channel) => update({ channel })}
-                className="max-sm:w-full"
-              />
-              <Select
-                label="Sort deals"
                 className="max-sm:flex-1"
-                value={filters.sort}
-                onChange={(e) => update({ sort: e.target.value as SortId })}
-                options={SORTS.map((s) => ({ value: s.id, label: s.label }))}
               />
               {withFilters && (
                 <Button
                   variant="secondary"
-                  className="lg:hidden"
+                  className="xl:hidden"
                   onClick={() => setSheetOpen(true)}
                 >
                   <SlidersIcon className="size-4" />
@@ -264,6 +232,8 @@ export function DealExplorer({
               )}
             </div>
           </div>
+
+          <ViewTabs value={filters.sort} onChange={(sort) => update({ sort })} />
 
           <ActiveFilters filters={filters} update={update} />
 
@@ -286,7 +256,7 @@ export function DealExplorer({
           {!ready && !failed && (
             <>
               <LoadingStatus state={dealsState} />
-              <ul role="list" className={grid} aria-hidden="true">
+              <ul role="list" className={FEED} aria-hidden="true">
                 {Array.from({ length: 6 }, (_, i) => (
                   <li key={i}>
                     <DealCardSkeleton />
@@ -338,7 +308,7 @@ export function DealExplorer({
           {ready && list.length > 0 && (
             // Re-keyed on every filter change so new results fade in softly.
             <div key={signature} className="flex animate-fade-in flex-col gap-8">
-              <DealGrid deals={list.slice(0, visible)} today={today} search={search} grid={grid} />
+              <DealGrid deals={list.slice(0, visible)} today={today} search={search} grid={FEED} />
               {listTotal > visible && (
                 <div className="flex flex-col items-center gap-2">
                   <Button
@@ -356,8 +326,22 @@ export function DealExplorer({
               )}
             </div>
           )}
-        </div>
-      </section>
+        </section>
+      </div>
+
+      {hasAside && (
+        <aside
+          aria-label="Overview and filters"
+          className="sticky top-[5.25rem] scrollbar-none hidden max-h-[calc(100dvh-6.25rem)] flex-col gap-4 overflow-y-auto overscroll-contain pb-2 xl:flex"
+        >
+          {showHomeExtras && stats && stats.live >= 3 && (
+            <DealPulse stats={stats} onSort={showMore} onLocation={onLocation} stacked />
+          )}
+          {withFilters && <FilterSidebar {...filterProps} />}
+          {showHomeExtras && flyers.length > 0 && <FlyerList flyers={flyers} />}
+          {showHomeExtras && home && <TopStores stores={home.stores} />}
+        </aside>
+      )}
 
       {withFilters && (
         <FilterSheet

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { openCommandPalette } from "@/components/CommandPalette";
 import { AlertIcon, SearchIcon, CloseIcon } from "@/components/icons";
 import { cn } from "@/lib/cn";
 import { useFilters } from "@/lib/url-state";
@@ -54,7 +55,7 @@ export function SearchBar({
   return (
     <form
       role="search"
-      className="w-full max-w-xl"
+      className="w-full"
       onSubmit={(e) => {
         e.preventDefault();
         (document.activeElement as HTMLElement | null)?.blur();
@@ -63,7 +64,7 @@ export function SearchBar({
     >
       <label
         className={cn(
-          "flex h-14 w-full items-center gap-3 rounded-full glass-strong pr-1.5 pl-5 frost focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-ring",
+          "flex h-14 w-full items-center gap-3 rounded-2xl glass-strong pr-1.5 pl-5 frost focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-ring",
           showProblem && "ring-1 ring-tint-rose-text/50",
         )}
       >
@@ -116,6 +117,15 @@ export function SearchBar({
             <CloseIcon className="size-4" />
           </button>
         )}
+        {/* Desktop: the ⌘K palette jumps straight to a store, category or page. */}
+        <button
+          type="button"
+          onClick={openCommandPalette}
+          className="hidden h-11 shrink-0 items-center gap-2 rounded-xl border-l border-line pr-3 pl-4 text-sm text-ink-muted transition-colors hover:text-ink lg:inline-flex"
+        >
+          Jump to…
+          <kbd className="rounded-md border border-line px-1.5 font-mono text-xs">⌘K</kbd>
+        </button>
       </label>
       {showProblem && (
         <p

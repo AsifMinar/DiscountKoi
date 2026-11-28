@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useSyncExternalStore } from "react";
-import { DealCardSkeleton, DealGrid, WIDE_GRID } from "@/components/DealCard";
+import { DealCardSkeleton, DealGrid, FEED } from "@/components/DealCard";
 import { DealModal } from "@/components/DealModal";
 import { EmptyState } from "@/components/EmptyState";
 import { HeartIcon, LockIcon } from "@/components/icons";
@@ -133,7 +133,7 @@ export function SavedDeals({ buildDay }: { buildDay: string }) {
       {!allDeals && !failed && (
         <>
           <LoadingStatus state={dealsState} />
-          <ul role="list" className={WIDE_GRID} aria-hidden="true">
+          <ul role="list" className={FEED} aria-hidden="true">
             {ids.slice(0, 4).map((id) => (
               <li key={id}>
                 <DealCardSkeleton />
@@ -168,7 +168,7 @@ export function SavedDeals({ buildDay }: { buildDay: string }) {
         </EmptyState>
       )}
 
-      {live.length > 0 && <DealGrid deals={live} today={today} search={search} />}
+      {live.length > 0 && <DealGrid deals={live} today={today} search={search} grid={FEED} />}
 
       <DealModal allDeals={allDeals} initialDeals={[]} failed={failed} today={today} />
     </section>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import { LOCATIONS, type LocationId } from "@shared/taxonomy";
 import { ArrowRightIcon } from "@/components/icons";
 import { cn } from "@/lib/cn";
@@ -37,28 +38,37 @@ export function DealPulse({
   stats,
   onLocation,
   onSort,
+  stacked = false,
 }: {
   stats: DealStats;
+  /** Two columns at every width (the narrow side panel). */
+  stacked?: boolean;
   onLocation: (loc: LocationId) => void;
   onSort: (sort: "discount" | "ending") => void;
 }) {
   const parts = stats.byLocation.filter((p) => p.count > 0);
   const maxBucket = Math.max(1, ...stats.ending.map((b) => b.count));
+  const headingId = useId();
 
   return (
-    <section aria-labelledby="pulse-heading" className="flex flex-col gap-3">
-      <h2 id="pulse-heading" className="flex items-center gap-2 eyebrow">
+    <section aria-labelledby={headingId} className="flex flex-col gap-3">
+      <h2 id={headingId} className="flex items-center gap-2 eyebrow">
         <span aria-hidden="true" className="h-px w-6 bg-aurora" />
         Deal pulse · today
       </h2>
 
-      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+      <div className={cn("grid grid-cols-2 gap-3", !stacked && "sm:gap-4 lg:grid-cols-4")}>
         {/* Live deals: the one big number, and where they are. */}
         <div className={cn(TILE, "col-span-2")}>
           <div className="flex flex-wrap items-end justify-between gap-x-4 gap-y-1">
             <div>
               <p className="eyebrow">Live deals</p>
-              <p className="text-[3.5rem] leading-none font-semibold tracking-[-0.04em]">
+              <p
+                className={cn(
+                  "leading-none font-semibold tracking-[-0.04em]",
+                  stacked ? "text-5xl" : "text-[3.5rem]",
+                )}
+              >
                 {stats.live.toLocaleString("en-CA")}
               </p>
             </div>

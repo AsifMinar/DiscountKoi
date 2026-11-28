@@ -27,9 +27,13 @@ export default function AboutPage() {
   const { updatedAt } = loadDeals();
 
   return (
-    <div className="mx-auto flex max-w-2xl flex-col gap-6 pt-10 sm:pt-16">
-      <header className="flex flex-col gap-4 pb-4 text-center">
-        <h1 className="text-[2.125rem] leading-[1.1] font-semibold tracking-tight sm:text-5xl">
+    <div className="mx-auto flex max-w-3xl flex-col gap-6 pt-6 lg:pt-8">
+      <header className="flex flex-col gap-3 pb-2">
+        <p className="flex items-center gap-2 eyebrow">
+          <span aria-hidden="true" className="h-px w-6 bg-aurora" />
+          Discount Koi · Greater Sudbury
+        </p>
+        <h1 className="text-[2rem] leading-[1.08] font-semibold tracking-[-0.03em] sm:text-[2.5rem]">
           About Discount Koi
         </h1>
         <p className="text-base text-pretty text-ink-muted sm:text-lg">

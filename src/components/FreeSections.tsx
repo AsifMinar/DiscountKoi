@@ -54,7 +54,7 @@ function TabSwitch({
     <div
       role="radiogroup"
       aria-label="Show"
-      className="mx-auto flex h-12 w-full max-w-md rounded-full glass p-1"
+      className="flex h-12 w-full max-w-md rounded-full glass p-1"
     >
       {options.map((o) => (
         <label

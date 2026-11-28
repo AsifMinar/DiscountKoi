@@ -104,7 +104,8 @@ export function Navbar() {
   return (
     <header
       ref={headerRef}
-      className="sticky top-0 z-40 pt-[max(0.75rem,env(safe-area-inset-top))] px-page"
+      // Desktop uses the side rail instead.
+      className="sticky top-0 z-40 pt-[max(0.75rem,env(safe-area-inset-top))] px-page lg:hidden"
     >
       <div className="relative mx-auto max-w-[88rem]">
         <nav
@@ -112,20 +113,6 @@ export function Navbar() {
           className="flex h-16 items-center justify-between gap-2 rounded-full glass-strong pr-2.5 pl-4 frost"
         >
           <Logo />
-
-          <ul className="hidden items-center gap-1 lg:flex">
-            {NAV_LINKS.map(({ href, label }) => (
-              <li key={href}>
-                <Link
-                  href={href}
-                  className={linkClass(href)}
-                  aria-current={stripSlash(href) === pathname ? "page" : undefined}
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
 
           <div className="flex items-center gap-1">
             <CountLink

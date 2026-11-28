@@ -163,10 +163,21 @@ const STATES: State[] = [
     },
   },
   {
+    name: "command-palette",
+    path: "/",
+    viewportOnly: true,
+    action: async (page) => {
+      await page.keyboard.press("Control+k");
+      await page.getByRole("combobox", { name: /Search pages/ }).fill("gro");
+      await page.getByRole("option").first().waitFor();
+    },
+  },
+  {
     name: "filter-sheet",
     path: "/",
     viewportOnly: true,
-    maxWidth: 1023,
+    // Wider screens have the filters in the side panel.
+    maxWidth: 1279,
     action: async (page) => {
       await page.getByRole("button", { name: /^Filters/ }).click();
       await page.locator("dialog[open]").waitFor();

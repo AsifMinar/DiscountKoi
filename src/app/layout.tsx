@@ -4,9 +4,11 @@ import type { Metadata, Viewport } from "next";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { ReactNode } from "react";
+import { CommandPalette } from "@/components/CommandPalette";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { Providers } from "@/components/Providers";
+import { SideRail } from "@/components/SideRail";
 import { StatusLayer } from "@/components/StatusLayer";
 import { TabBar } from "@/components/TabBar";
 import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, pageMetadata } from "@/lib/metadata";
@@ -43,7 +45,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}
       suppressHydrationWarning
     >
-      <body className="flex min-h-dvh flex-col">
+      <body className="min-h-dvh">
         <Providers>
           <div aria-hidden="true" className="koi-backdrop" />
           <a
@@ -52,13 +54,20 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           >
             Skip to content
           </a>
-          <Navbar />
-          <main id="main" className="flex-1 px-page">
-            {children}
-          </main>
-          <Footer />
+          {/* App shell: a navigation rail on the left (desktop), the page on the right. */}
+          <div className="lg:grid lg:grid-cols-[auto_minmax(0,1fr)]">
+            <SideRail />
+            <div className="flex min-h-dvh min-w-0 flex-col">
+              <Navbar />
+              <main id="main" className="flex-1 px-page">
+                {children}
+              </main>
+              <Footer />
+            </div>
+          </div>
           <TabBar />
           <StatusLayer />
+          <CommandPalette />
         </Providers>
       </body>
     </html>

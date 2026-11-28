@@ -11,9 +11,11 @@ import {
   DEFAULT_FILTERS,
   MAX_PRICES,
   MIN_DISCOUNTS,
+  SORTS,
   activeFilterCount,
   type FacetCounts,
   type Filters,
+  type SortId,
   type StoreOption,
 } from "@/lib/filters";
 import { plural } from "@/lib/format";
@@ -223,16 +225,13 @@ export function FilterPanel({
   );
 }
 
-/** The sidebar version: a sticky glass panel with a "Clear all" link. */
+/** The side-panel version: a glass card with a "Clear all" link (wide screens). */
 export function FilterSidebar(props: FilterPanelProps) {
   const active = activeFilterCount(props.filters) > 0;
   return (
-    <aside
-      aria-label="Filters"
-      className="sticky top-24 hidden max-h-[calc(100dvh-7rem)] overflow-y-auto overscroll-contain rounded-3xl glass p-3 lg:block"
-    >
-      <div className="mb-3 flex h-11 items-center justify-between pl-2">
-        <h2 className="text-base font-semibold">Filters</h2>
+    <section aria-label="Filters" className="rounded-3xl glass p-3">
+      <div className="mb-2 flex h-11 items-center justify-between pl-2">
+        <h2 className="eyebrow">Filters</h2>
         {active && (
           <Button variant="ghost" onClick={() => props.update(clearFilters(props.filters))}>
             Clear all
@@ -240,7 +239,7 @@ export function FilterSidebar(props: FilterPanelProps) {
         )}
       </div>
       <FilterPanel {...props} />
-    </aside>
+    </section>
   );
 }
 
@@ -269,7 +268,7 @@ export function FilterSheet({
       aria-labelledby="filters-heading"
       onClose={onClose}
       onClick={(e) => e.target === e.currentTarget && onClose()}
-      className="mx-0 mt-auto mb-0 max-h-[85dvh] w-full max-w-none animate-fade-in flex-col rounded-t-3xl glass-strong p-0 text-ink frost backdrop:animate-fade-in backdrop:bg-[var(--scrim)] open:flex lg:hidden"
+      className="mx-0 mt-auto mb-0 max-h-[85dvh] w-full max-w-none animate-fade-in flex-col rounded-t-3xl glass-strong p-0 text-ink frost backdrop:animate-fade-in backdrop:bg-[var(--scrim)] open:flex xl:hidden"
     >
       <div className="flex items-center justify-between border-b border-line px-5 py-3">
         <h2 id="filters-heading" className="text-lg font-semibold">
@@ -296,6 +295,55 @@ export function FilterSheet({
         </Button>
       </div>
     </dialog>
+  );
+}
+
+/**
+ * How the feed is ordered, as tabs ("Sudbury first · Biggest discount · Ending soon…").
+ * Radio buttons underneath, so arrow keys move between them.
+ */
+export function ViewTabs({
+  value,
+  onChange,
+}: {
+  value: SortId;
+  onChange: (value: SortId) => void;
+}) {
+  const name = useId();
+  return (
+    <div
+      role="radiogroup"
+      aria-label="Order deals by"
+      className="-mx-4 scrollbar-none flex gap-1 overflow-x-auto border-b border-line px-4 sm:mx-0 sm:px-0"
+    >
+      {SORTS.map((s) => {
+        const active = value === s.id;
+        return (
+          <label
+            key={s.id}
+            className={cn(
+              "relative inline-flex h-11 shrink-0 cursor-pointer items-center px-3 text-sm font-medium whitespace-nowrap transition-colors duration-150 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-ring",
+              active ? "text-ink" : "text-ink-muted hover:text-ink",
+            )}
+          >
+            <input
+              type="radio"
+              name={name}
+              className="sr-only"
+              checked={active}
+              onChange={() => onChange(s.id)}
+            />
+            {s.label}
+            {active && (
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-2 -bottom-px h-0.5 rounded-full bg-aurora"
+              />
+            )}
+          </label>
+        );
+      })}
+    </div>
   );
 }
 
