@@ -1,6 +1,22 @@
 {
-  "updatedAt": "2026-11-27T19:14:45.223Z",
+  "updatedAt": "2026-11-28T17:52:59.379Z",
   "deals": [
+    {
+      "id": "ea1ca3638cbc6783",
+      "title": "Shoppers Drug Mart weekly flyer · Nov 28 – Dec 4",
+      "description": "This week's Shoppers Drug Mart weekly flyer. Open it on Shoppers Drug Mart's site and choose your Greater Sudbury store to see local prices.",
+      "store": "Shoppers Drug Mart",
+      "dealType": [
+        "in-store"
+      ],
+      "category": "health-beauty",
+      "location": "sudbury",
+      "url": "https://www.shoppersdrugmart.ca/flyer",
+      "startDate": "2026-11-28",
+      "endDate": "2026-12-04",
+      "source": "flyer-links",
+      "scrapedAt": "2026-11-28T17:52:59.379Z"
+    },
     {
       "id": "53f2f61cfe18ac89",
       "title": "Best Buy weekly deals · Nov 27 – Dec 3",
@@ -128,22 +144,6 @@
       "endDate": "2026-12-01",
       "source": "flyer-links",
       "scrapedAt": "2026-11-25T19:39:48.996Z"
-    },
-    {
-      "id": "91aabbc30c5c787b",
-      "title": "Shoppers Drug Mart weekly flyer · Nov 21–27",
-      "description": "This week's Shoppers Drug Mart weekly flyer. Open it on Shoppers Drug Mart's site and choose your Greater Sudbury store to see local prices.",
-      "store": "Shoppers Drug Mart",
-      "dealType": [
-        "in-store"
-      ],
-      "category": "health-beauty",
-      "location": "sudbury",
-      "url": "https://www.shoppersdrugmart.ca/flyer",
-      "startDate": "2026-11-21",
-      "endDate": "2026-11-27",
-      "source": "flyer-links",
-      "scrapedAt": "2026-11-21T17:00:17.242Z"
     },
     {
       "id": "0091dd236e44ae70",
@@ -822,6 +822,217 @@
       "ongoing": true
     },
     {
+      "id": "1d3f27863f72802e",
+      "title": "1001 Lives",
+      "description": "Your choices matter and change their destiny.",
+      "store": "itch.io",
+      "originalPrice": 0,
+      "salePrice": 0,
+      "discountPercent": 100,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://bimicerika.itch.io/1001-vies",
+      "endDate": "2026-12-02",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-28T17:52:59.379Z",
+      "currency": "USD"
+    },
+    {
+      "id": "5b3a514396e01b3a",
+      "title": "Detective Beebo: Night at the Mansion",
+      "description": "In an urban city like any other, an office awakes",
+      "store": "itch.io",
+      "originalPrice": 6.99,
+      "salePrice": 0.69,
+      "discountPercent": 90,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://bwobbers.itch.io/detective-beebo-night-at-the-mansion",
+      "endDate": "2026-12-02",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-28T17:52:59.379Z",
+      "currency": "USD"
+    },
+    {
+      "id": "b4dfffc44994dfb3",
+      "title": "Repurpose",
+      "description": "A LGBT+ dating sim where you try to find meaning and love after death.",
+      "store": "itch.io",
+      "originalPrice": 10.99,
+      "salePrice": 1.09,
+      "discountPercent": 90,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://residentrabbit.itch.io/repurpose",
+      "endDate": "2026-12-02",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-28T17:52:59.379Z",
+      "currency": "USD"
+    },
+    {
+      "id": "2c6c39142baea5c5",
+      "title": "Psychonauts",
+      "description": "A Psychic Odyssey Through the Minds of Misfits, Monsters, and Madmen.",
+      "store": "itch.io",
+      "originalPrice": 9.99,
+      "salePrice": 1.99,
+      "discountPercent": 80,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://doublefine.itch.io/psychonauts",
+      "endDate": "2026-12-03",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-28T17:52:59.379Z",
+      "currency": "USD"
+    },
+    {
+      "id": "f8ab9bfca9bd0d83",
+      "title": "Brütal Legend",
+      "description": "Brütal Legend is an action-adventure that marries visceral action combat with open-world freedom.",
+      "store": "itch.io",
+      "originalPrice": 14.99,
+      "salePrice": 2.99,
+      "discountPercent": 80,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://doublefine.itch.io/brutal-legend",
+      "endDate": "2026-12-03",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-28T17:52:59.379Z",
+      "currency": "USD"
+    },
+    {
+      "id": "d528dcd4ed9ff1f8",
+      "title": "Hypnospace Outlaw",
+      "description": "Alternate reality internet simulator set in 1999!",
+      "store": "itch.io",
+      "originalPrice": 19.99,
+      "salePrice": 4.99,
+      "discountPercent": 75,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://jay-tholen.itch.io/hypnospace-outlaw",
+      "endDate": "2026-12-02",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-28T17:52:59.379Z",
+      "currency": "USD"
+    },
+    {
+      "id": "d448382bd4dfb049",
+      "title": "Gilded Shadows",
+      "description": "A cyberpunk and solarpunk adventure-romance that explores a world where one side is forever day and the other, night.",
+      "store": "itch.io",
+      "originalPrice": 29.99,
+      "salePrice": 8.99,
+      "discountPercent": 70,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://steamberry.itch.io/gildedshadows",
+      "endDate": "2026-12-02",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-28T17:52:59.379Z",
+      "currency": "USD"
+    },
+    {
+      "id": "5a46cf3cf5689b2b",
+      "title": "Solitomb",
+      "description": "Stack monsters into delightful combos.",
+      "store": "itch.io",
+      "originalPrice": 0,
+      "salePrice": 0,
+      "discountPercent": 60,
+      "dealType": [
+        "online",
+        "free"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://krajzeg.itch.io/solitomb",
+      "endDate": "2026-12-02",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-28T17:52:59.379Z",
+      "currency": "USD"
+    },
+    {
+      "id": "7b0e741b352520c9",
+      "title": "Batty Zabella",
+      "description": "A horror point-and-click game made with 30% nostalgia, and 70% sass.",
+      "store": "itch.io",
+      "originalPrice": 6.66,
+      "salePrice": 3.33,
+      "discountPercent": 50,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://icecoldblood.itch.io/batty-zabella",
+      "endDate": "2026-12-02",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-28T17:52:59.379Z",
+      "currency": "USD"
+    },
+    {
+      "id": "6fb2f4087903f34d",
+      "title": "Labyrinth.os",
+      "description": "Lyrical Labyrinth Role Playing Game",
+      "store": "itch.io",
+      "originalPrice": 19.99,
+      "salePrice": 12.99,
+      "discountPercent": 35,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://dataerase.itch.io/labyrinthos",
+      "endDate": "2026-11-28",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-28T17:52:59.379Z",
+      "currency": "USD"
+    },
+    {
+      "id": "f81b8d1053c0136b",
+      "title": "Bewitching Sinners",
+      "description": "A bewitching otome and BL dating sim",
+      "store": "itch.io",
+      "originalPrice": 18,
+      "salePrice": 13.68,
+      "discountPercent": 24,
+      "dealType": [
+        "online"
+      ],
+      "category": "entertainment",
+      "location": "ships-to-ontario",
+      "url": "https://missxero.itch.io/bewitching-sinners-visual-novel",
+      "endDate": "2026-12-02",
+      "source": "itch-io-sales",
+      "scrapedAt": "2026-11-28T17:52:59.379Z",
+      "currency": "USD"
+    },
+    {
       "id": "28d7ee312aeec05f",
       "title": "Smiling Terror",
       "description": "90's Style Retro Survival Horror",
@@ -836,7 +1047,7 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://poisonicestudios.itch.io/smiling-terror",
-      "endDate": "2026-12-31",
+      "endDate": "2026-12-02",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-27T19:14:45.223Z",
       "currency": "USD"
@@ -920,26 +1131,6 @@
       "currency": "USD"
     },
     {
-      "id": "16f5680b421843ee",
-      "title": "Slipways Classic",
-      "description": "Build a vast interstellar empire in 30 minutes flat.",
-      "store": "itch.io",
-      "originalPrice": 0,
-      "salePrice": 0,
-      "discountPercent": 60,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://krajzeg.itch.io/slipways",
-      "endDate": "2026-12-02",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-27T19:14:45.223Z",
-      "currency": "USD"
-    },
-    {
       "id": "9e2478d272d51199",
       "title": "Bunny Forest",
       "description": "Calm game about bunnies",
@@ -1012,26 +1203,6 @@
       "category": "entertainment",
       "location": "ships-to-ontario",
       "url": "https://hofstudios.itch.io/doe",
-      "endDate": "2026-12-02",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-27T19:14:45.223Z",
-      "currency": "USD"
-    },
-    {
-      "id": "87c1a68581c33434",
-      "title": "Neighbor",
-      "description": "A horror game in the style of the original GameBoy",
-      "store": "itch.io",
-      "originalPrice": 0,
-      "salePrice": 0,
-      "discountPercent": 50,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://horatiunyc.itch.io/neighbor",
       "endDate": "2026-12-02",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-27T19:14:45.223Z",
@@ -1268,65 +1439,6 @@
       "currency": "USD"
     },
     {
-      "id": "34ba05870bded6b6",
-      "title": "MOLOKAUST",
-      "description": "",
-      "store": "itch.io",
-      "originalPrice": 10,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://elp3luca.itch.io/molokaust",
-      "endDate": "2026-12-20",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-22T17:28:32.514Z",
-      "currency": "USD"
-    },
-    {
-      "id": "a1fd9b3704d8cd78",
-      "title": "Final Witness",
-      "description": "You found the truth. Can you survive? A PSX-style horror game.",
-      "store": "itch.io",
-      "originalPrice": 4.99,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://hexnut-studios.itch.io/final-witness",
-      "endDate": "2026-11-29",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-22T17:28:32.514Z",
-      "currency": "USD"
-    },
-    {
-      "id": "fb1f39968d8596f4",
-      "title": "Demonheart",
-      "description": "Dark fantasy romance, lots of dialog choices.",
-      "store": "itch.io",
-      "originalPrice": 19.99,
-      "salePrice": 5.99,
-      "discountPercent": 70,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://rollingcrown.itch.io/demonheart",
-      "endDate": "2026-12-02",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-22T17:28:32.514Z",
-      "currency": "USD"
-    },
-    {
       "id": "2f809af0ce51b039",
       "title": "Where Winter Crows Go",
       "description": "Would you risk living together with a stranger in an isolated cabin to avoid the freezing cold?",
@@ -1346,25 +1458,6 @@
       "currency": "USD"
     },
     {
-      "id": "b5187d60f8f2cfa9",
-      "title": "CALLUS",
-      "description": "A short psychological horror game",
-      "store": "itch.io",
-      "originalPrice": 4.99,
-      "salePrice": 0.49,
-      "discountPercent": 90,
-      "dealType": [
-        "online"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://emika-games.itch.io/callus",
-      "endDate": "2026-12-02",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-20T18:07:28.512Z",
-      "currency": "USD"
-    },
-    {
       "id": "767b50e6c0a34e17",
       "title": "A Love Like Broken Glass",
       "description": "His soul is fractured, his fate is sealed... Unless you have something to say about it!",
@@ -1381,86 +1474,6 @@
       "endDate": "2026-12-02",
       "source": "itch-io-sales",
       "scrapedAt": "2026-11-16T19:55:34.647Z",
-      "currency": "USD"
-    },
-    {
-      "id": "e1684912c9cd8968",
-      "title": "Lord of Chaos",
-      "description": "You were never meant to leave. A PSX-style horror game.",
-      "store": "itch.io",
-      "originalPrice": 3.99,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://hexnut-studios.itch.io/lord-of-chaos",
-      "endDate": "2026-11-30",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-11T17:33:13.353Z",
-      "currency": "USD"
-    },
-    {
-      "id": "3f0c9b71901d8056",
-      "title": "Family Manners",
-      "description": "It’s just another typical day in the wonderful life of the Evans, right?",
-      "store": "itch.io",
-      "originalPrice": 2.99,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://nney.itch.io/family-manners",
-      "endDate": "2026-11-27",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-10T17:22:14.361Z",
-      "currency": "USD"
-    },
-    {
-      "id": "29b579d1a43f44bf",
-      "title": "Pigeon West: Call Of Gun. ISEKAI",
-      "description": "What if the Wild West’s most dangerous outlaw got isekai’d into a generic world—not even as the main hero?",
-      "store": "itch.io",
-      "originalPrice": 1,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://squidsquadpapi.itch.io/pigeon-west-call-of-gun-isekai",
-      "endDate": "2026-11-29",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-05T17:44:37.916Z",
-      "currency": "USD"
-    },
-    {
-      "id": "3a93616602dd5555",
-      "title": "Quiet West: Butcher noose",
-      "description": "The Butcher is like death — inevitable.",
-      "store": "itch.io",
-      "originalPrice": 2,
-      "salePrice": 0,
-      "discountPercent": 100,
-      "dealType": [
-        "online",
-        "free"
-      ],
-      "category": "entertainment",
-      "location": "ships-to-ontario",
-      "url": "https://squidsquadpapi.itch.io/quiet-west-butcher-noose",
-      "endDate": "2026-11-29",
-      "source": "itch-io-sales",
-      "scrapedAt": "2026-11-05T17:44:37.916Z",
       "currency": "USD"
     }
   ]
