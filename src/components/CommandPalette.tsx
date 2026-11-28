@@ -7,6 +7,7 @@ import {
   useMemo,
   useRef,
   useState,
+  useSyncExternalStore,
   type KeyboardEvent as ReactKeyboardEvent,
   type ReactNode,
 } from "react";
@@ -37,6 +38,18 @@ import { useAllDeals } from "@/lib/use-all-deals";
 
 const OPEN_EVENT = "discountkoi:palette";
 export const openCommandPalette = () => window.dispatchEvent(new Event(OPEN_EVENT));
+
+const noSubscribe = () => () => {};
+const isMac = () => /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+
+/** "⌘K" on a Mac, "Ctrl K" everywhere else (and in the static HTML). */
+export function useShortcutLabel() {
+  return useSyncExternalStore(
+    noSubscribe,
+    () => (isMac() ? "⌘K" : "Ctrl K"),
+    () => "Ctrl K",
+  );
+}
 
 const PAGES = [
   { label: "Deals", href: "/", icon: <TagIcon className="size-4" /> },
@@ -74,6 +87,7 @@ export function CommandPalette() {
   const router = useRouter();
   const pathname = (usePathname() ?? "/").replace(/\/+$/, "") || "/";
   const listId = useId();
+  const shortcut = useShortcutLabel();
   // The deal list only downloads once the palette is opened.
   const { deals } = useAllDeals(open);
 
@@ -319,7 +333,7 @@ export function CommandPalette() {
               <kbd className="font-mono">Enter</kbd> open
             </span>
             <span>
-              <kbd className="font-mono">Ctrl K</kbd> toggle
+              <kbd className="font-mono">{shortcut}</kbd> open or close
             </span>
           </p>
         </div>

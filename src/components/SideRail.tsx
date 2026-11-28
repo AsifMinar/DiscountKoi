@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
-import { openCommandPalette } from "@/components/CommandPalette";
+import { openCommandPalette, useShortcutLabel } from "@/components/CommandPalette";
 import {
   GiftIcon,
   HeartIcon,
@@ -49,6 +49,7 @@ const isActive = (match: string[], path: string) =>
 export function SideRail() {
   const path = stripSlash(usePathname() ?? "/");
   const saved = savedDeals.useList().length;
+  const shortcut = useShortcutLabel();
 
   return (
     <header className="sticky top-0 hidden h-dvh py-3 pl-3 lg:block">
@@ -110,11 +111,12 @@ export function SideRail() {
           onClick={openCommandPalette}
           aria-label="Search everything"
           aria-keyshortcuts="Control+K Meta+K"
-          title="Search everything (Ctrl K)"
+          // The shortcut is in the tooltip; the label says what the button does.
+          title={`Search everything (${shortcut})`}
           className="flex w-16 flex-col items-center gap-1 rounded-2xl py-2 text-[0.6875rem] font-medium text-ink-muted transition-colors hover:bg-neutral-soft hover:text-ink"
         >
           <SearchIcon className="size-5" />
-          <kbd className="font-mono text-[0.625rem]">⌘K</kbd>
+          Search
         </button>
         <ThemeToggle />
       </nav>
